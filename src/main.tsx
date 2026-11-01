@@ -235,6 +235,7 @@ function App() {
     const colorNode=(node:Node)=>{
       if(node.nodeType===Node.TEXT_NODE){
         const parent=node.parentElement;
+        if(parent?.closest('.probability-display'))return;
         if(parent&&isPercent(parent.textContent)){
           if(parent.namespaceURI==='http://www.w3.org/2000/svg')parent.setAttribute('fill','#0bba74');
           else parent.style?.setProperty('color','#0bba74','important');
@@ -243,6 +244,7 @@ function App() {
       }
       if(node.nodeType!==1)return;
       const element=node as Element;
+      if(element.closest('.probability-display'))return;
       if(element.children.length===0&&isPercent(element.textContent)){
         if(element.namespaceURI==='http://www.w3.org/2000/svg')element.setAttribute('fill','#0bba74');
         else (element as HTMLElement).style.setProperty('color','#0bba74','important');

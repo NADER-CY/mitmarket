@@ -1,8 +1,12 @@
+import {paintFrameProbability} from './frameProbability';
+import {useQuotedMarkets} from './marketQuotes';
 import { useEffect, useState, type RefObject } from 'react';
 import { categories, type CategoryId } from './categories';
 import type { Market } from './live';
 import { formatReferenceMoney } from './fx';
 import type { Currency } from './PreferencesDialog';
+
+const NO_MARKETS: Market[] = [];
 
 type Point = { t: number; p: number };
 type FrameOptions = {
@@ -18,15 +22,24 @@ function cents(value: number | undefined) { return Number.isFinite(value) ? `${M
 function usd(value: number) { return `$${Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(value)}`; }
 
 function paintHome(doc: Document, markets: Market[], currency: Currency, fxRate: number | null, language: string) {
+  doc.querySelectorAll('main svg[viewBox="0 0 500 50"],main svg[viewbox="0 0 500 50"],main svg[viewBox="0 0 120 40"],main svg[viewbox="0 0 120 40"]').forEach(svg => svg.parentElement?.remove());
   const questions = [...doc.querySelectorAll<HTMLElement>('main h1, main h2, main h3')];
   questions.forEach((element, i) => {
-    const market = markets[i]; if (!market) return;
-    element.textContent = market.title;
-    element.dataset.atlasMarket = market.id;
+    const market = markets[i];
+    if (!market) {
+      element.textContent = 'Market unavailable';
+      element.closest('[data-atlas-market]')?.removeAttribute('data-atlas-market');
+    }
+    if (market) { element.textContent = market.title; element.dataset.atlasMarket = market.id; }
     element.style.cursor = 'pointer';
     let card: HTMLElement | null = element.parentElement;
-    while (card && (card.querySelectorAll('h1,h2,h3').length !== 1 || ![...card.querySelectorAll('button')].some(button => /\bYES\b|\bNO\b/i.test(button.textContent ?? '')))) card = card.parentElement;
+    while (card && (card.querySelectorAll('h1,h2,h3').length !== 1 || ![...card.querySelectorAll('button')].some(button => /\bYES\b|\bNO\b|Unavailable/i.test(button.textContent ?? '')))) card = card.parentElement;
     if (!card) return;
+    let probability = card.querySelector<HTMLElement>(':scope .probability-display');
+    if (!probability) { probability = doc.createElement('div'); card.appendChild(probability); }
+    paintFrameProbability(doc, probability, market, i === 0);
+    if (!market) { card.querySelectorAll('button').forEach(button => { button.disabled = true; button.textContent = /\bNO\b/i.test(button.textContent ?? '') ? 'NO Unavailable' : 'YES Unavailable'; delete button.dataset.atlasMarket; }); return; }
+    card.querySelectorAll('button').forEach(button => { button.disabled = false; });
     const buttons = [...card.querySelectorAll<HTMLButtonElement>('button')].filter(button => /\bYES\b|\bNO\b|Buy YES|Buy NO/i.test(button.textContent ?? ''));
     buttons.forEach(button => {
       const outcome = /\bNO\b/i.test(button.textContent ?? '') ? 1 : 0;
@@ -69,7 +82,8 @@ function paintHome(doc: Document, markets: Market[], currency: Currency, fxRate:
 function buttonParent(node: Node) { return Boolean((node.parentElement)?.closest('button')); }
 
 function paintMobileTrending(doc:Document, markets:Market[], currency:Currency, fxRate:number|null, language:string){
-  if(!markets.length)return;
+  doc.querySelectorAll('main svg[viewBox="0 0 120 40"],main svg[viewbox="0 0 120 40"],main svg[viewBox="0 0 500 50"],main svg[viewbox="0 0 500 50"]').forEach(svg=>svg.parentElement?.remove());
+  if(!markets.length){paintHome(doc,markets,currency,fxRate,language);return;}
   const byTitle=new Map<string,Market>();
   for(const market of markets)if(!byTitle.has(market.eventTitle||market.title))byTitle.set(market.eventTitle||market.title,market);
   const buckets=new Map<string,Market[]>();
@@ -85,7 +99,11 @@ function paintMobileTrending(doc:Document, markets:Market[], currency:Currency, 
   }
   const primary=selected[0];
   const hero=doc.querySelector('main h1,main h2');
-  if(hero)hero.textContent=primary.title;
+  if(hero){hero.textContent=primary.title;
+    let card=hero.parentElement;
+    while(card&&(card.querySelectorAll('h1,h2,h3').length!==1||!card.querySelector('button')))card=card.parentElement;
+    if(card){let display=card.querySelector<HTMLElement>('.probability-display');if(!display){display=doc.createElement('div');card.appendChild(display);}paintFrameProbability(doc,display,primary,true);}
+  }
   const leaves=[...doc.querySelectorAll<HTMLElement>('main *')].filter(node=>!node.children.length);
   const replaceText=(oldValue:string,newValue:string)=>{const node=leaves.find(item=>item.textContent?.trim()===oldValue);if(node)node.textContent=newValue;};
   replaceText('MACRO / ECONOMY',primary.category.toUpperCase());
@@ -112,7 +130,8 @@ function paintMobileTrending(doc:Document, markets:Market[], currency:Currency, 
     if(values[0])values[0].textContent=`${cents(m.prices[0])} YES`;
     if(values[1])values[1].textContent=`${formatReferenceMoney(m.volume24h,currency,fxRate,language)} Vol`;
     if(values[2])values[2].textContent=`${cents(m.prices[1])} NO`;
-    card.dataset.atlasMarket=m.id;card.style.cursor='pointer';
+    let display=card.querySelector<HTMLElement>('.probability-display');if(!display){display=doc.createElement('div');card.appendChild(display);}paintFrameProbability(doc,display,m);
+      card.dataset.atlasMarket=m.id;card.style.cursor='pointer';
   });
   const heading=[...doc.querySelectorAll('main h3')].find(node=>/Trending Prediction Markets/i.test(node.textContent||''));
   const section=heading?.parentElement?.parentElement?.parentElement;
@@ -132,6 +151,7 @@ function paintMobileTrending(doc:Document, markets:Market[], currency:Currency, 
         button.dataset.atlasMarket=m.id;
       });
       buttons.slice(2).forEach(button=>{button.hidden=true;button.style.display='none';});
+      let display=card.querySelector<HTMLElement>('.probability-display');if(!display){display=doc.createElement('div');card.appendChild(display);}paintFrameProbability(doc,display,m);
       card.dataset.atlasMarket=m.id;card.style.cursor='pointer';
     });
   }
@@ -181,7 +201,7 @@ function paintExplore(doc: Document, markets: Market[], category: CategoryId, cu
   }
 }
 
-function paintDetail(doc: Document, market: Market, history: Point[]) {
+function paintDetail(doc: Document, market: Market, history: Point[], chartOpen: boolean) {
   const question = doc.querySelector('main h1'); if (question) question.textContent = market.title;
   // The Stitch reference contains illustrative trades, resolution terms and a
   // fictional featured commenter. Never present those as live market records.
@@ -212,6 +232,19 @@ function paintDetail(doc: Document, market: Market, history: Point[]) {
   if (yes) yes.textContent = `YES ${cents(market.prices[0])}`;
   if (no) no.textContent = `NO ${cents(market.prices[1])}`;
   const svg = doc.querySelector<SVGSVGElement>('main svg[viewBox="0 0 800 320"],main svg[viewBox="0 0 350 160"]');
+  if (svg) {
+    const host = svg.parentElement;
+    if (host) {
+      host.style.display = chartOpen && history.length >= 2 ? '' : 'none';
+      let toggle = doc.getElementById('mit-open-history');
+      if (!toggle) { toggle = doc.createElement('button'); toggle.id = 'mit-open-history'; toggle.className = 'probability-chart-toggle'; toggle.style.cssText = 'padding:10px 16px;background:#132438;color:#0bba74;border:1px solid #31445d;border-radius:8px;cursor:pointer'; host.before(toggle); }
+      toggle.textContent = chartOpen ? 'Close chart' : 'Open chart';
+      toggle.setAttribute('aria-expanded', String(chartOpen));
+      let status = doc.getElementById('mit-history-status');
+      if (!status) { status = doc.createElement('p'); status.id = 'mit-history-status'; toggle.after(status); }
+      status.textContent = chartOpen && history.length < 2 ? 'History unavailable or loading…' : '';
+    }
+  }
   const livePrice = market.prices[0];
   const series = history.length >= 2 && Number.isFinite(livePrice) ? [...history,{t:Math.max(Date.now()/1000,history[history.length-1].t+1),p:livePrice}] : history;
   if (svg && series.length >= 2) {
@@ -237,13 +270,19 @@ function paintDetail(doc: Document, market: Market, history: Point[]) {
   }
 }
 
-export function useFrameBridge({ frame, screen, category, markets, selected, viewport, onCategory, onMarket, onTrending, currency, fxRate, language }: FrameOptions) {
+export function useFrameBridge({ frame, screen, category, markets: catalogMarkets, selected, viewport, onCategory, onMarket, onTrending, currency, fxRate, language }: FrameOptions) {
+  const usesFramePrices = screen === 'home' || screen === 'trending' && viewport === 'mobile';
+  const quotes = useQuotedMarkets(usesFramePrices ? catalogMarkets.slice(0,48) : NO_MARKETS);
+  const markets = usesFramePrices ? quotes : catalogMarkets;
   const [loaded, setLoaded] = useState(0);
+  const [chartMarket, setChartMarket] = useState<string | null>(null);
+  const chartOpen = screen === 'binary_market' && !!selected && chartMarket === selected.id;
   const [range, setRange] = useState('1w');
   const [history, setHistory] = useState<Point[]>([]);
+  useEffect(() => { setChartMarket(null); setHistory([]); }, [screen, selected?.id]);
 
   useEffect(() => {
-    if (!selected?.tokenIds[0] || screen !== 'binary_market') { setHistory([]); return; }
+    if (!chartOpen || !selected?.tokenIds[0] || screen !== 'binary_market') { setHistory([]); return; }
     const controller = new AbortController();
     const url = new URL('https://clob.polymarket.com/prices-history');
     url.searchParams.set('market', selected.tokenIds[0]);
@@ -253,7 +292,7 @@ export function useFrameBridge({ frame, screen, category, markets, selected, vie
       if (!controller.signal.aborted) setHistory((body.history ?? []).filter(p => Number.isFinite(p.t) && Number.isFinite(p.p)));
     }).catch(() => { if (!controller.signal.aborted) setHistory([]); });
     return () => controller.abort();
-  }, [selected?.tokenIds[0], range, screen]);
+  }, [selected?.tokenIds[0], range, screen, chartOpen]);
 
   useEffect(() => {
     const doc = frame.current?.contentDocument;
@@ -261,8 +300,8 @@ export function useFrameBridge({ frame, screen, category, markets, selected, vie
     if (screen === 'home') paintHome(doc, markets, currency, fxRate, language);
     if (screen === 'trending' && viewport === 'mobile') paintMobileTrending(doc,markets,currency,fxRate,language);
     if (screen === 'explore' && !doc.querySelector('.cr-page')) paintExplore(doc, markets, category, currency, fxRate, language);
-    if (screen === 'binary_market' && selected) paintDetail(doc, selected, history);
-  }, [frame, screen, viewport, category, markets, selected, history, loaded, currency, fxRate, language]);
+    if (screen === 'binary_market' && selected) paintDetail(doc, selected, history, chartOpen);
+  }, [frame, screen, viewport, category, markets, selected, history, chartOpen, loaded, currency, fxRate, language]);
 
   useEffect(() => {
     const doc = frame.current?.contentDocument;
@@ -271,6 +310,7 @@ export function useFrameBridge({ frame, screen, category, markets, selected, vie
       const target = event.target as HTMLElement | null;
       const control = target?.closest<HTMLElement>('a,button,[data-atlas-market]');
       if (!control) return;
+      if (control.id === 'mit-open-history') { event.preventDefault(); setChartMarket(chartOpen ? null : selected?.id ?? null); return; }
       if (control.closest('#mit-market-navigation,.mit-category-menu')) return;
       const market = control.closest<HTMLElement>('[data-atlas-market]')?.dataset.atlasMarket;
       if (market) { event.preventDefault(); event.stopPropagation(); onMarket(market); return; }
@@ -294,7 +334,7 @@ export function useFrameBridge({ frame, screen, category, markets, selected, vie
     };
     doc.addEventListener('click', handler, true);
     return () => doc.removeEventListener('click', handler, true);
-  }, [frame, loaded, screen, onCategory, onMarket, onTrending]);
+  }, [frame, loaded, screen, chartOpen, selected?.id, onCategory, onMarket, onTrending]);
 
   return { onLoad: () => setLoaded(old => old + 1) };
 }
