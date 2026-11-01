@@ -1,0 +1,14 @@
+import type {Market} from './marketCatalog';
+// Event totals captured from the supplied Polymarket menus, 26 October 2026.
+export const techCatalog=[['All',693],['AI',311],['Elon Musk',39],['App Store',3],['SpaceX',21],['Apple',14],['Science',45],['OpenAI',78],['MicroStrategy',11],['Big Tech',163],['TikTok',1],['Prediction Markets',7]] as const;
+export const electionCatalog=[['Global Elections',228],['Argentina',1],['Australia',29],['Brazil',2],['Bulgaria',5],['Cabo Verde',2],['Canada',48],['Czechia',10],['Denmark',1],['El Salvador',5],['Estonia',1],['France',12],['Gambia',1],['Germany',5],['Greece',3],['Greenland',1],['Haiti',1],['India',1],['Israel',51],['Latvia',1],['Mexico',50],['New Zealand',11],['Nigeria',31],['Palestine',1],['Peru',8],['Serbia',8],['Slovenia',1],['Somaliland',1],['South Africa',8],['Spain',77],['Sweden',3],['Taiwan',23],['United Kingdom',1],['United States',16]] as const;
+export const cultureCatalog=[['All',525],['Art',11],['Music',71],['Celebrities',75],['Awards',149],['MrBeast',5],['Movies',105],['Box Office',11],['Taylor Swift',6],['GTA VI',12],['Tweet Markets',27],['YouTube',10],['Reality TV',7],['Aliens',3],['Courts',32],['Eurovision',1]] as const;
+export const economyCatalog=[['All',234],['Trade War',9],['Fed Rates',38],['Inflation',29],['Macro Indicators',65],['GDP',18],['Global Rates',37],['Taxes',9],['Treasuries',15],['Consumer',1],['Housing',12],['Labor',1]] as const;
+export const economyTopics=economyCatalog.slice(1).map(([name])=>name);
+export const cultureTopics=cultureCatalog.slice(1).map(([name])=>name);
+export const techTopics=techCatalog.slice(1).map(([name])=>name);
+export const electionTopics=electionCatalog.slice(1).map(([name])=>name);
+export const catalogCount=(category:string,topic:string)=>{const data=category==='technology'?techCatalog:category==='culture'?cultureCatalog:category==='economy'?economyCatalog:electionCatalog;return data.find(([name])=>name===(topic==='All'&&category==='elections'?'Global Elections':topic))?.[1]??0;};
+const norm=(s:string)=>s.toLowerCase().replace(/[^a-z0-9]+/g,'');
+const aliases:Record<string,string[]>={'AI':['artificial intelligence'],'Big Tech':['big tech','big-tech'],'Czechia':['czech republic'],'Cabo Verde':['cape verde'],'United States':['us','usa','united states'],'United Kingdom':['uk','united kingdom'],'Trade War':['tariffs','trade war'],'Fed Rates':['fed rates','federal reserve'],'Global Rates':['global rates'], 'GTA VI':['gta 6','grand theft auto vi'],'Tweet Markets':['tweets','tweet markets'], 'Elon Musk':['elon musk'],'MicroStrategy':['microstrategy','strategy']};
+export function catalogMatches(m:Market,topic:string){if(topic==='All'||topic==='Global Elections')return true;const names=[topic,...(aliases[topic]||[])].map(norm);return (m.tags||[]).some(tag=>names.includes(norm(tag)));}

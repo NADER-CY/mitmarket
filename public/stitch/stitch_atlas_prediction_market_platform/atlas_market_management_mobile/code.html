@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-primary-fixed-variant": "#000000", "surface-container": "#101216", "on-surface-variant": "#98A5B5", "on-tertiary": "#000000", "surface-tint": "#1463ff", "surface-variant": "#101216", "inverse-surface": "#F4F6FA", "secondary-fixed": "#EAA343", "on-surface": "#F4F6FA", "surface-container-high": "#101216", "on-background": "#F4F6FA", "on-secondary": "#000000", "surface-container-highest": "#101216", "on-secondary-fixed-variant": "#000000", "primary-container": "#1463ff", "on-secondary-container": "#F4F6FA", "surface-container-low": "#101216", "tertiary-fixed": "#0bba74", "surface": "#000000", "on-secondary-fixed": "#000000", "primary-fixed": "dae2ff", "secondary-container": "#101216", "primary": "#1463ff", "inverse-primary": "#1463ff", "outline": "#98A5B5", "on-tertiary-container": "#000000", "surface-dim": "#000000", "background": "#000000", "tertiary-fixed-dim": "#0bba74", "inverse-on-surface": "#101216", "on-error": "#000000", "surface-bright": "#29313D", "surface-container-lowest": "#101216", "error": "#ff4761", "secondary": "#EAA343", "tertiary": "#0bba74", "on-error-container": "#ff4761", "on-primary-container": "#000000", "tertiary-container": "#0bba74", "primary-fixed-dim": "#1463ff", "error-container": "#101216", "outline-variant": "#29313D", "on-primary-fixed": "#000000", "on-primary": "#000000", "secondary-fixed-dim": "#EAA343", "on-tertiary-fixed": "#000000", "on-tertiary-fixed-variant": "#000000" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-xs": "0.25rem", "space-md": "0.75rem", "space-lg": "1rem", "gutter-desktop": "1rem", "gutter": "0.75rem", "margin": "1rem", "margin-desktop": "1.5rem", "space-sm": "0.5rem", "space-xl": "1.5rem" }, fontFamily: { "data-sm": ["Inter"], "micro": ["Inter"], "headline-lg": ["Inter"], "data-md": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "display-lg": ["Inter"], "label-caps": ["Inter"], "data-lg": ["Inter"], "body-sm": ["Inter"], "body-md": ["Inter"] }, fontSize: { "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "micro": ["10px", { "lineHeight": "12px", "fontWeight": "500" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "data-md": ["14px", { "lineHeight": "18px", "fontWeight": "600" }], "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "data-lg": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col relative select-none"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl"><div class="h-14 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><button aria-label="Toggle Admin Drawer" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-high text-on-surface hover:text-primary transition-colors" onclick="document.getElementById('admin-drawer').classList.toggle('-translate-x-full');document.getElementById('drawer-backdrop').classList.toggle('hidden');" type="button"><span class="material-symbols-outlined text-data-lg">menu</span></button><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight font-bold text-on-surface">MITMARKET<span class="text-primary font-headline-md text-headline-md font-bold">PRO</span></span><span class="px-1.5 py-0.5 rounded bg-primary-container/20 text-primary font-label-caps text-label-caps uppercase">ADMIN</span></div><div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="font-micro text-micro text-tertiary uppercase tracking-wider">LIVE 99.98%</span></div></div></div><div class="flex items-center gap-space-xs"><div class="hidden sm:flex items-center gap-1 px-2 py-1 rounded bg-surface-container-low text-tertiary font-micro text-micro"><span class="material-symbols-outlined text-[14px]">shield</span><span>2-SIG OK</span></div><button aria-label="Notifications" class="relative w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-data-lg">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="px-gutter py-1 bg-surface-container-lowest flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[14px]">verified_user</span><span class="font-micro text-micro text-on-surface-variant uppercase tracking-wide">ROLE: <span class="text-secondary font-semibold">SUPER_ADMIN (L4)</span></span></div><span class="font-micro text-micro text-outline">SEC_ENV // PROD-US-EAST</span></div></header><div class="fixed inset-0 z-50 bg-surface-container-lowest/70 backdrop-blur-sm hidden transition-opacity duration-300" id="drawer-backdrop" onclick="document.getElementById('admin-drawer').classList.add('-translate-x-full');this.classList.add('hidden');"></div><aside class="fixed top-0 bottom-0 left-0 z-50 w-72 bg-surface-container-low backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between pt-safe pb-safe" id="admin-drawer"><div class="flex flex-col h-full overflow-y-auto"><div class="p-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col"><span class="font-data-md text-data-md text-on-surface leading-tight">Alexander Vance</span><span class="font-micro text-micro text-primary uppercase">SUPER_ADMIN • L4</span></div></div><button class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="document.getElementById('admin-drawer').classList.add('-translate-x-full');document.getElementById('drawer-backdrop').classList.add('hidden');"><span class="material-symbols-outlined text-data-lg">close</span></button></div><div class="px-space-md py-space-xs"><div class="p-space-sm rounded bg-surface-container-high flex items-center justify-between"><span class="font-micro text-micro text-outline uppercase">Surveillance Vault</span><span class="px-1.5 py-0.5 rounded bg-tertiary/10 text-tertiary font-micro text-micro font-medium">ACTIVE</span></div></div><nav class="flex-1 px-space-sm py-space-md flex flex-col gap-1" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="overview-dashboard" href="#"><span class="material-symbols-outlined text-data-lg">dashboard</span><span class="font-body-md text-body-md">Overview / Dashboard</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-space-sm rounded transition-colors bg-surface-container-high text-primary font-bold" data-path="markets-management" href="#"><span class="material-symbols-outlined text-data-lg">candlestick_chart</span><span class="font-body-md text-body-md">Markets Management</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="trading-surveillance" href="#"><span class="material-symbols-outlined text-data-lg">visibility</span><span class="font-body-md text-body-md">Trading Surveillance</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="user-management" href="#"><span class="material-symbols-outlined text-data-lg">group</span><span class="font-body-md text-body-md">User Management</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="resolution-and-settlement" href="#"><span class="material-symbols-outlined text-data-lg">gavel</span><span class="font-body-md text-body-md">Resolution & Settlement</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="wallets-and-treasury" href="#"><span class="material-symbols-outlined text-data-lg">account_balance_wallet</span><span class="font-body-md text-body-md">Wallets</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="financial-reports" href="#"><span class="material-symbols-outlined text-data-lg">description</span><span class="font-body-md text-body-md">Reports</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="audit-logs" href="#"><span class="material-symbols-outlined text-data-lg">receipt_long</span><span class="font-body-md text-body-md">Audit Logs</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="admin-settings" href="#"><span class="material-symbols-outlined text-data-lg">tune</span><span class="font-body-md text-body-md">Settings</span></a></nav><div class="p-space-md bg-surface-container-lowest mt-auto"><div class="flex items-center justify-between text-outline"><span class="font-micro text-micro font-mono uppercase">Dual-Sig: VALID (2/3)</span><span class="font-micro text-micro">v4.19.2</span></div></div></div></aside><main class="flex flex-col relative w-full pt-14 bg-surface min-h-screen" id="content"><div class="flex flex-col w-full pb-20">
+<!-- Top Command & Metrics Strip -->
+<section class="flex flex-col px-gutter py-space-sm gap-space-sm bg-surface-container-lowest">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface truncate">Market Lifecycle</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-micro text-micro whitespace-nowrap">142 Monitored</span>
+</div>
+<button class="h-10 px-3 rounded-lg bg-primary text-on-primary font-data-sm text-data-sm font-semibold flex items-center gap-1 active:scale-95 transition-transform shrink-0" id="open-create-drawer-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Create Market</span>
+</button>
+</div>
+<!-- Live Telemetry KPI Matrix -->
+<div class="grid grid-cols-3 gap-1.5 p-space-xs rounded-xl bg-surface-container-low">
+<div class="flex flex-col p-2 rounded-lg bg-surface-container">
+<div class="flex items-center gap-1 text-outline font-micro text-micro">
+<span class="material-symbols-outlined text-[13px] text-tertiary">account_balance</span>
+<span class="truncate">Active Notional</span>
+</div>
+<span class="font-data-md text-data-md text-on-surface mt-0.5 tracking-tight">—</span>
+<span class="font-micro text-micro text-tertiary">USDC Pool</span>
+</div>
+<div class="flex flex-col p-2 rounded-lg bg-surface-container">
+<div class="flex items-center gap-1 text-outline font-micro text-micro">
+<span class="material-symbols-outlined text-[13px] text-secondary">gavel</span>
+<span class="truncate">Dispute Pool</span>
+</div>
+<span class="font-data-md text-data-md text-secondary mt-0.5 tracking-tight">—</span>
+<span class="font-micro text-micro text-on-surface-variant">3 Escalations</span>
+</div>
+<div class="flex flex-col p-2 rounded-lg bg-surface-container">
+<div class="flex items-center gap-1 text-outline font-micro text-micro">
+<span class="material-symbols-outlined text-[13px] text-primary">sync_alt</span>
+<span class="truncate">PolySync Feed</span>
+</div>
+<span class="font-data-md text-data-md text-primary mt-0.5 tracking-tight">±0.28¢</span>
+<span class="font-micro text-micro text-tertiary">Realtime OK</span>
+</div>
+</div>
+</section>
+<!-- Search & Filter Ribbon -->
+<section class="flex flex-col gap-2 px-gutter py-space-sm bg-surface">
+<div class="flex items-center gap-2">
+<div class="flex-1 flex items-center gap-2 h-11 px-3 rounded-xl bg-surface-container-high text-on-surface">
+<span class="material-symbols-outlined text-outline text-[18px]">search</span>
+<input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" id="market-search-input" placeholder="Search MKT-ID, title, slug..." type="search"/>
+</div>
+<div class="relative shrink-0">
+<button class="h-11 px-3 rounded-xl bg-surface-container-high text-on-surface font-data-sm text-data-sm flex items-center gap-1.5 active:bg-surface-container-highest" id="category-filter-btn" type="button">
+<span class="material-symbols-outlined text-primary text-[18px]">tune</span>
+<span id="selected-category-label">All Types</span>
+<span class="material-symbols-outlined text-outline text-[16px]">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Segmented Status Badges (Scrollable) -->
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+<button class="status-tab px-3 py-1.5 rounded-full bg-surface-container-high text-primary font-data-sm text-data-sm whitespace-nowrap font-bold" data-status="all" type="button">All (142)</button>
+<button class="status-tab px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant font-data-sm text-data-sm whitespace-nowrap hover:text-on-surface" data-status="active" type="button">Active (118)</button>
+<button class="status-tab px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant font-data-sm text-data-sm whitespace-nowrap hover:text-on-surface" data-status="dispute" type="button">Dispute (6)</button>
+<button class="status-tab px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant font-data-sm text-data-sm whitespace-nowrap hover:text-on-surface" data-status="paused" type="button">Paused (2)</button>
+<button class="status-tab px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant font-data-sm text-data-sm whitespace-nowrap hover:text-on-surface" data-status="draft" type="button">Draft (4)</button>
+<button class="status-tab px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant font-data-sm text-data-sm whitespace-nowrap hover:text-on-surface" data-status="closed" type="button">Closed (8)</button>
+</div>
+</section>
+<!-- Market Cards Feed -->
+<main class="flex flex-col px-gutter py-space-xs gap-3">
+<!-- Card 1: BTC 120k -->
+<article class="flex flex-col rounded-xl bg-surface-container-low overflow-hidden shadow-sm" data-category="crypto" data-market-card="" data-status="active">
+<div class="p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-1.5">
+<span class="font-micro text-micro text-outline font-mono">#MKT-BTC-120K</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-caps text-label-caps uppercase">Crypto</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary font-micro text-micro font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span>ACTIVE CLOB</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-snug">Will Bitcoin reach $120,000 before Dec 31, 2026?</h3>
+<!-- Core Execution Snapshot -->
+<div class="grid grid-cols-2 gap-2 mt-1 p-2 rounded-lg bg-surface-container">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline">MITMARKET 24h Vol</span>
+<span class="font-data-md text-data-md text-on-surface font-mono">—</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline">Orderbook Liquidity</span>
+<div class="flex items-center gap-1">
+<span class="font-data-md text-data-md text-on-surface font-mono">—</span>
+<span class="font-micro text-micro text-tertiary">(0.1¢ spr)</span>
+</div>
+</div>
+</div>
+<!-- Outcome Odds Strip -->
+<div class="grid grid-cols-2 gap-2 mt-0.5">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps">YES</span>
+<span class="font-data-sm text-data-sm text-tertiary font-mono">68.2¢</span>
+</div>
+<span class="font-micro text-micro text-outline">Vol $2.1M</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-error/10 text-error font-label-caps text-label-caps">NO</span>
+<span class="font-data-sm text-data-sm text-error font-mono">31.8¢</span>
+</div>
+<span class="font-micro text-micro text-outline">Vol $1.8M</span>
+</div>
+</div>
+<!-- External Polymarket Cross-Bridge -->
+<div class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant font-micro text-micro">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[14px]">cloud_sync</span>
+<span>PolySync: <strong class="text-on-surface font-mono">0.4s ago</strong></span>
+</div>
+<div class="flex items-center gap-2">
+<span>Arbitrage Δ: <span class="text-tertiary font-mono font-semibold">+0.4¢</span></span>
+<span class="text-outline">Exp: 2026-12-31</span>
+</div>
+</div>
+</div>
+<!-- Quick Action Desk Bar -->
+<div class="grid grid-cols-3 bg-surface-container-lowest p-1.5 gap-1.5">
+<button class="h-11 rounded-lg bg-surface-container hover:bg-surface-container-high text-error font-data-sm text-data-sm flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">pause_circle</span>
+<span>Halt</span>
+</button>
+<button class="h-11 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-data-sm text-data-sm flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">edit_square</span>
+<span>Edit</span>
+</button>
+<button class="h-11 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-data-sm text-data-sm flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+<span>Audit</span>
+</button>
+</div>
+</article>
+<!-- Card 2: FED 25BPS -->
+<article class="flex flex-col rounded-xl bg-surface-container-low overflow-hidden shadow-sm" data-category="macro" data-market-card="" data-status="active">
+<div class="p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-1.5">
+<span class="font-micro text-micro text-outline font-mono">#MKT-FED-25BPS</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-caps text-label-caps uppercase">Macro</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary font-micro text-micro font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span>ACTIVE CLOB</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-snug">Federal Reserve cuts benchmark interest rate by ≥25bps in June 2025</h3>
+<div class="grid grid-cols-2 gap-2 mt-1 p-2 rounded-lg bg-surface-container">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline">MITMARKET 24h Vol</span>
+<span class="font-data-md text-data-md text-on-surface font-mono">—</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline">Orderbook Liquidity</span>
+<div class="flex items-center gap-1">
+<span class="font-data-md text-data-md text-on-surface font-mono">—</span>
+<span class="font-micro text-micro text-tertiary">(0.2¢ spr)</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-0.5">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps">YES</span>
+<span class="font-data-sm text-data-sm text-tertiary font-mono">54.0¢</span>
+</div>
+<span class="font-micro text-micro text-outline">Vol $2.8M</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-error/10 text-error font-label-caps text-label-caps">NO</span>
+<span class="font-data-sm text-data-sm text-error font-mono">46.0¢</span>
+</div>
+<span class="font-micro text-micro text-outline">Vol $1.3M</span>
+</div>
+</div>
+<div class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant font-micro text-micro">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[14px]">cloud_sync</span>
+<span>PolySync: <strong class="text-on-surface font-mono">1.1s ago</strong></span>
+</div>
+<div class="flex items-center gap-2">
+<span>Arbitrage Δ: <span class="text-outline font-mono">0.0¢</span></span>
+<span class="text-outline">Exp: 2025-06-18</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 bg-surface-container-lowest p-1.5 gap-1.5">
+<button class="h-11 rounded-lg bg-surface-container hover:bg-surface-container-high text-error font-data-sm text-data-sm flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">pause_circle</span>
+<span>Halt</span>
+</button>
+<button class="h-11 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-data-sm text-data-sm flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">edit_square</span>
+<span>Edit</span>
+</button>
+<button class="h-11 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-data-sm text-data-sm flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+<span>Audit</span>
+</button>
+</div>
+</article>
+<!-- Card 3: SpaceX Booster Catch (DISPUTE STATE) -->
+<article class="flex flex-col rounded-xl bg-surface-container-low overflow-hidden shadow-sm" data-category="tech" data-market-card="" data-status="dispute">
+<div class="p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-1.5">
+<span class="font-micro text-micro text-outline font-mono">#MKT-SPX-IFT5</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-caps text-label-caps uppercase">Tech & Space</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-secondary-container/40 text-secondary font-micro text-micro font-semibold">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+<span>DISPUTE ESCALATED</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-snug">SpaceX Starship IFT-5 Booster Catch by Mechazilla Arms</h3>
+<!-- Dispute Diagnostics Module -->
+<div class="p-2.5 rounded-lg bg-secondary-container/10 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-micro text-micro text-secondary font-semibold uppercase">Escrow Locked: $2,310,000</span>
+<span class="font-micro text-micro text-outline">CLOB Frozen: <strong class="text-error">T-14:22 UTC</strong></span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-micro text-micro text-on-surface-variant">UMA OO Oracle Challenge:</span>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="font-micro text-micro text-on-surface font-semibold ml-1">Round 2 / 3</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dispute over clause 3: "Booster sustained mechanical ground integrity before engine shutoff".</p>
+</div>
+</div>
+<div class="grid grid-cols-2 bg-surface-container-lowest p-1.5 gap-1.5">
+<button class="h-11 rounded-lg bg-secondary text-on-secondary font-data-sm text-data-sm font-semibold flex items-center justify-center gap-1.5 active:scale-98 transition-transform" type="button">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+<span>Manage Dispute</span>
+</button>
+<button class="h-11 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-data-sm text-data-sm flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">shield_with_heart</span>
+<span>Inspect Escrow</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Fusion Energy (REFUNDED / VOID) -->
+<article class="flex flex-col rounded-xl bg-surface-container-low overflow-hidden opacity-90 shadow-sm" data-category="tech" data-market-card="" data-status="closed">
+<div class="p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between gap-2">
+<div class="flex items-center gap-1.5">
+<span class="font-micro text-micro text-outline font-mono">#MKT-FUS-NET25</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline font-label-caps text-label-caps uppercase">Energy</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-highest text-outline font-micro text-micro font-semibold">
+<span class="material-symbols-outlined text-[14px]">undo</span>
+<span>VOIDED & REFUNDED</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-snug">Commercial Fusion Net Energy Gain Confirmed Q1 2025</h3>
+<div class="p-2.5 rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline">Resolution Mandate</span>
+<span class="font-data-sm text-data-sm text-on-surface">Voided per Rule 4.2 (Undefined Oracle Data)</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-micro text-micro text-tertiary">100% Refunded</span>
+<span class="font-data-md text-data-md text-on-surface font-mono">$712,400 USDC</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between px-space-md py-2 bg-surface-container-lowest text-outline font-micro text-micro">
+<span>Settled: 2025-03-31</span>
+<button class="text-primary hover:underline flex items-center gap-0.5" type="button">
+<span>View Settlement Tx</span>
+<span class="material-symbols-outlined text-[12px]">open_in_new</span>
+</button>
+</div>
+</article>
+</main>
+<!-- Market Creation Multi-Step Bottom Sheet Drawer (Interactive) -->
+<div class="fixed inset-0 z-50 flex flex-col justify-end bg-surface-container-lowest/80 backdrop-blur-md hidden transition-opacity duration-200" id="create-market-modal">
+<!-- Click backdrop to close -->
+<div class="flex-1 w-full" id="close-drawer-backdrop"></div>
+<!-- Sheet Card Container -->
+<div class="w-full max-h-[751px] bg-surface-container-low rounded-t-2xl flex flex-col overflow-hidden shadow-xl animate-in slide-in-from-bottom duration-300">
+<!-- Drawer Header Bar -->
+<div class="px-gutter pt-3 pb-2 flex flex-col gap-2 bg-surface-container">
+<div class="w-10 h-1 rounded-full bg-outline-variant self-center mb-1"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">add_circle</span>
+<span class="font-headline-md text-headline-md text-on-surface">Deploy Prediction Market</span>
+</div>
+<button class="w-9 h-9 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center hover:text-on-surface" id="close-create-drawer-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- 4-Step Stepper Header -->
+<div class="grid grid-cols-4 gap-1.5 py-1">
+<div class="flex flex-col gap-1">
+<div class="h-1 rounded bg-primary"></div>
+<span class="font-micro text-micro text-primary font-bold">1. Details</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-1 rounded bg-surface-container-highest"></div>
+<span class="font-micro text-micro text-outline">2. Structure</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-1 rounded bg-surface-container-highest"></div>
+<span class="font-micro text-micro text-outline">3. Oracle</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-1 rounded bg-surface-container-highest"></div>
+<span class="font-micro text-micro text-outline">4. Review</span>
+</div>
+</div>
+</div>
+<!-- Drawer Scrollable Form Area -->
+<div class="overflow-y-auto px-gutter py-space-md flex flex-col gap-space-md">
+<!-- Market Title Input -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-outline uppercase">Market Proposition / Title</label>
+<input class="h-11 px-3 rounded-lg bg-surface-container-high text-on-surface font-body-md text-body-md focus:bg-surface-container-highest focus:outline-none" type="text" value="Will Ethereum spot ETFs achieve $10B cumulative net inflow?"/>
+<span class="font-micro text-micro text-on-surface-variant">Must be an unambiguous yes/no binary or scalar event question.</span>
+</div>
+<!-- Category & Market Mode Split -->
+<div class="grid grid-cols-2 gap-2">
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-outline uppercase">Category</label>
+<select class="h-11 px-3 rounded-lg bg-surface-container-high text-on-surface font-body-md text-body-md focus:outline-none">
+<option selected="">Crypto & Web3</option>
+<option>Macroeconomics</option>
+<option>AI & Tech</option>
+<option>Elections / Politics</option>
+<option>Science & Space</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-outline uppercase">Market Engine</label>
+<div class="grid grid-cols-2 h-11 p-0.5 rounded-lg bg-surface-container-high">
+<button class="rounded font-micro text-micro font-bold bg-primary text-on-primary" type="button">BINARY</button>
+<button class="rounded font-micro text-micro font-medium text-outline" type="button">MULTI</button>
+</div>
+</div>
+</div>
+<!-- Resolution Predicate Definition -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-outline uppercase">Resolution Predicate / Rules</label>
+<textarea class="p-2.5 rounded-lg bg-surface-container-high text-on-surface font-body-sm text-body-sm focus:outline-none resize-none" rows="2">Resolves YES if official Farside Investors data reflects cumulative net ETF inflows ≥$10,000,000,000.00 prior to 23:59:59 UTC on expiry date.</textarea>
+</div>
+<!-- Oracle Data Source URL -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-outline uppercase">Primary Resolution Source URL</label>
+<div class="flex items-center h-11 px-3 rounded-lg bg-surface-container-high text-on-surface">
+<span class="material-symbols-outlined text-outline text-[16px] mr-2">link</span>
+<input class="w-full bg-transparent font-mono font-data-sm text-data-sm text-on-surface focus:outline-none" type="url" value="https://farside.co.uk/eth/"/>
+</div>
+</div>
+<!-- Matching Engine Parameters (High Precision Specs) -->
+<div class="flex flex-col gap-2 p-3 rounded-xl bg-surface-container">
+<div class="flex items-center justify-between">
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">Matching Engine Presets</span>
+<span class="font-micro text-micro text-tertiary">CLOB-V2 Engine</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<div class="flex flex-col p-2 rounded bg-surface-container-high">
+<span class="font-micro text-micro text-outline">Min Order</span>
+<span class="font-data-sm text-data-sm text-on-surface font-mono">10.00 USDC</span>
+</div>
+<div class="flex flex-col p-2 rounded bg-surface-container-high">
+<span class="font-micro text-micro text-outline">Tick Size</span>
+<span class="font-data-sm text-data-sm text-on-surface font-mono">0.1¢</span>
+</div>
+<div class="flex flex-col p-2 rounded bg-surface-container-high">
+<span class="font-micro text-micro text-outline">Maker Rebate</span>
+<span class="font-data-sm text-data-sm text-tertiary font-mono">—</span>
+</div>
+</div>
+</div>
+<!-- Confirmation Note -->
+<div class="flex items-start gap-2 p-2.5 rounded-lg bg-surface-container-highest text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0">verified_user</span>
+<p class="font-micro text-micro leading-relaxed">
+            Deployment requires SuperAdmin L4 Dual-Signature validation. Market initialization triggers automated PolySync external shadow-mirroring within 600ms.
+          </p>
+</div>
+</div>
+<!-- Fixed Drawer Action Bar -->
+<div class="p-gutter bg-surface-container-lowest grid grid-cols-2 gap-2">
+<button class="h-11 rounded-lg bg-surface-container-high text-on-surface font-data-sm text-data-sm font-semibold active:bg-surface-container-highest" id="save-draft-btn" type="button">
+          Save Draft (L4)
+        </button>
+<button class="h-11 rounded-lg bg-primary text-on-primary font-data-sm text-data-sm font-bold flex items-center justify-center gap-1.5 active:scale-98 transition-transform" id="next-step-btn" type="button">
+<span>Next: Structure</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Notification Toast (for micro-actions) -->
+<div class="fixed top-16 left-1/2 -translate-x-1/2 z-50 hidden px-4 py-2 rounded-full bg-surface-container-highest text-primary font-data-sm text-data-sm shadow-xl flex items-center gap-2 border border-outline-variant/30" id="toast-pill">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+<span id="toast-text">Draft Saved successfully</span>
+</div>
+</div>
+<script>
+  // DOM Elements
+  const createModal = document.getElementById('create-market-modal');
+  const openDrawerBtn = document.getElementById('open-create-drawer-btn');
+  const closeDrawerBtn = document.getElementById('close-create-drawer-btn');
+  const closeBackdrop = document.getElementById('close-drawer-backdrop');
+  const toastPill = document.getElementById('toast-pill');
+  const toastText = document.getElementById('toast-text');
+  const searchInput = document.getElementById('market-search-input');
+  const statusTabs = document.querySelectorAll('.status-tab');
+  const marketCards = document.querySelectorAll('[data-market-card]');
+
+  function showToast(msg) {
+    if (!toastPill) return;
+    toastText.textContent = msg;
+    toastPill.classList.remove('hidden');
+    setTimeout(() => {
+      toastPill.classList.add('hidden');
+    }, 2400);
+  }
+
+  // Toggle Drawer
+  function openDrawer() {
+    createModal.classList.remove('hidden');
+  }
+  function closeDrawer() {
+    createModal.classList.add('hidden');
+  }
+
+  openDrawerBtn?.addEventListener('click', openDrawer);
+  closeDrawerBtn?.addEventListener('click', closeDrawer);
+  closeBackdrop?.addEventListener('click', closeDrawer);
+
+  document.getElementById('save-draft-btn')?.addEventListener('click', () => {
+    closeDrawer();
+    showToast('Market Saved as Draft (#MKT-DRAFT-884)');
+  });
+
+  document.getElementById('next-step-btn')?.addEventListener('click', () => {
+    showToast('Validating Resolution Predicate...');
+  });
+
+  // Client Filter System
+  statusTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      statusTabs.forEach(t => {
+        t.classList.remove('bg-surface-container-high', 'text-primary', 'font-bold');
+        t.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+      });
+      tab.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+      tab.classList.add('bg-surface-container-high', 'text-primary', 'font-bold');
+
+      const filter = tab.getAttribute('data-status');
+      marketCards.forEach(card => {
+        if (filter === 'all' || card.getAttribute('data-status') === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // Live Search Filter
+  searchInput?.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    marketCards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      if (!query || text.includes(query)) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary"><div class="flex justify-around items-center h-14 px-gutter"><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-11 text-on-surface-variant hover:text-on-surface transition-all" data-path="overview-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-micro text-micro">Dash</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-0.5 w-14 h-11 transition-all text-primary" data-path="markets-management" href="#"><span class="material-symbols-outlined text-[20px]">candlestick_chart</span><span class="font-micro text-micro">Markets</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-11 text-on-surface-variant hover:text-on-surface transition-all" data-path="trading-surveillance" href="#"><span class="material-symbols-outlined text-[20px]">monitoring</span><span class="font-micro text-micro">Surveil</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-11 text-on-surface-variant hover:text-on-surface transition-all" data-path="resolution-and-settlement" href="#"><span class="material-symbols-outlined text-[20px]">gavel</span><span class="font-micro text-micro">Resolve</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-11 text-on-surface-variant hover:text-on-surface transition-all" data-path="audit-logs" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="font-micro text-micro">Logs</span></a></div></nav></body></html>

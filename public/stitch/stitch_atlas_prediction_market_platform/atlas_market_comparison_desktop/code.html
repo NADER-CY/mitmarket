@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-surface":"#F4F6FA","on-primary-fixed":"#000000","inverse-on-surface":"#101216","surface-container-low":"#101216","primary-container":"#1463ff","surface-bright":"#29313D","tertiary-fixed":"#0bba74","surface-variant":"#101216","error":"#ff4761","on-error":"#000000","secondary-fixed-dim":"#EAA343","on-tertiary-container":"#000000","surface-container-highest":"#101216","inverse-primary":"#1463ff","on-primary":"#000000","on-surface-variant":"#98A5B5","surface-container":"#101216","on-tertiary-fixed-variant":"#000000","on-primary-container":"#000000","on-tertiary":"#000000","secondary":"#EAA343","on-secondary":"#000000","on-error-container":"#ff4761","on-secondary-container":"#F4F6FA","on-secondary-fixed":"#000000","surface-container-high":"#101216","primary":"#1463ff","outline":"#98A5B5","tertiary":"#0bba74","on-secondary-fixed-variant":"#000000","on-tertiary-fixed":"#000000","surface-container-lowest":"#101216","on-primary-fixed-variant":"#000000","secondary-container":"#101216","background":"#000000","surface-dim":"#000000","tertiary-fixed-dim":"#0bba74","primary-fixed":"#1463ff","secondary-fixed":"#EAA343","inverse-surface":"#F4F6FA","surface":"#000000","primary-fixed-dim":"#1463ff","outline-variant":"#29313D","surface-tint":"#1463ff","on-background":"#F4F6FA","error-container":"#101216","tertiary-container":"#0bba74"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter-desktop":"1rem","space-xs":"0.25rem","space-lg":"1rem","space-xl":"1.5rem","gutter":"0.75rem","space-md":"0.75rem","space-sm":"0.5rem","margin":"1rem","margin-desktop":"1.5rem"},"fontFamily":{"headline-lg":["Inter"],"display-lg":["Inter"],"micro":["Inter"],"data-md":["Inter"],"body-md":["Inter"],"body-sm":["Inter"],"label-caps":["Inter"],"data-lg":["Inter"],"headline-md":["Inter"],"data-sm":["Inter"],"body-lg":["Inter"]},"fontSize":{"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"micro":["10px",{"lineHeight":"12px","fontWeight":"500"}],"data-md":["14px",{"lineHeight":"18px","fontWeight":"600"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-caps":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"data-lg":["20px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"data-sm":["12px",{"lineHeight":"16px","fontWeight":"500"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}]}}}}</script><style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-background text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md"><div class="h-14 w-full px-margin-desktop flex items-center justify-between gap-space-lg bg-surface-container-lowest"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md text-on-surface tracking-tight font-bold">MITMARKET</span><span class="font-micro text-micro px-space-xs py-0.5 rounded-DEFAULT bg-primary-container text-on-primary-container font-semibold uppercase tracking-wider">PRO</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-DEFAULT bg-surface-container"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="font-micro text-micro text-on-surface-variant font-medium">CLOB ENGINE</span><span class="font-micro text-micro text-tertiary font-semibold">0.8ms</span></div><nav class="hidden lg:flex items-center gap-space-xs pl-space-md" data-active-classes="bg-surface-container-high text-on-surface font-semibold"><a class="px-space-sm py-1.5 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="markets" href="#">Markets</a><a class="px-space-sm py-1.5 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="intelligence-watchlist" href="#">Intelligence</a><a class="px-space-sm py-1.5 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="portfolio" href="#">Portfolio</a><a class="px-space-sm py-1.5 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="orders" href="#">Orders</a><a class="px-space-sm py-1.5 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="wallet" href="#">Wallet</a></nav></div><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="w-full flex items-center justify-between px-space-sm py-1.5 rounded-DEFAULT bg-surface-container text-on-surface-variant"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-body-sm text-body-sm select-none">Search markets, contracts, intelligence...</span></div><kbd class="font-micro text-micro px-1 py-0.5 rounded-DEFAULT bg-surface-container-highest text-on-surface font-semibold">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden md:flex flex-col items-end"><span class="font-micro text-micro text-on-surface-variant uppercase tracking-wider">Available Liquidity</span><span class="font-data-md text-data-md text-on-surface font-semibold">— <span class="text-primary font-body-sm text-body-sm">USDC</span></span></div><button class="px-space-md py-1.5 rounded-DEFAULT bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-primary-container hover:text-on-primary-container transition-colors">+ Deposit</button><div class="relative flex items-center justify-center p-1.5 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span></div><div class="flex items-center gap-space-sm pl-space-xs py-1 pr-space-sm rounded-DEFAULT bg-surface-container"><div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[16px]">person</span></div><span class="font-data-sm text-data-sm text-on-surface font-medium hidden sm:inline">Connect account</span></div></div></div><div class="h-10 w-full px-margin-desktop flex items-center justify-between gap-space-md bg-surface-container-low"><div class="flex items-center gap-space-md"><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider font-semibold">Intelligence Suite</span><nav class="flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-semibold"><a class="px-space-sm py-1 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="intelligence-watchlist" href="#">Watchlist</a><a class="px-space-sm py-1 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="intelligence-market-analytics" href="#">Market Analytics</a><a aria-current="page" class="px-space-sm py-1 rounded-DEFAULT transition-colors bg-surface-container-high text-on-surface font-semibold" data-path="intelligence-multi-market-comparison" href="#">Multi-Market Comparison</a><a class="px-space-sm py-1 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="intelligence-event-calendar" href="#">Event Calendar</a><a class="px-space-sm py-1 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="intelligence-resolution-center" href="#">Resolution Center</a></nav></div><div class="hidden md:flex items-center gap-space-lg"><div class="flex items-center gap-space-xs"><span class="font-micro text-micro text-on-surface-variant">GAS</span><span class="font-data-sm text-data-sm text-on-surface">18 Gwei</span></div><div class="flex items-center gap-space-xs"><span class="font-micro text-micro text-on-surface-variant">LATENCY</span><span class="font-data-sm text-data-sm text-tertiary">0.8ms</span></div><div class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span class="font-micro text-micro text-on-surface-variant">UMA ORACLE</span><span class="font-data-sm text-data-sm text-tertiary">SYNCED</span></div></div></div></header><main class="w-full pt-24 bg-surface min-h-[calc(100vh-140px)]"><div class="flex flex-col w-full">
+<!-- Command Header & Breadcrumb Strip -->
+<div class="w-full px-margin-desktop py-space-md bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs font-label-caps text-label-caps text-on-surface-variant">
+<span>INTELLIGENCE SUITE</span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-semibold">MULTI-MARKET BENCHMARK & CO-VARIANCE ENGINE</span>
+<span class="text-outline-variant">/</span>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container text-tertiary font-micro text-micro uppercase tracking-wider font-semibold">4 / 4 SLOTS ACTIVE</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-data-sm text-data-sm text-on-surface">SYNCHRONIZED WS CLOB MATRIX</span>
+<span class="font-micro text-micro px-space-xs py-0.5 rounded-DEFAULT bg-surface-container-high text-on-surface-variant">SNAPSHOT: 14:48:02 UTC</span>
+</div>
+</div>
+<div class="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-lg">
+<div class="flex flex-col gap-1 max-w-3xl">
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight font-bold">Multi-Market Cross-Asset Comparison</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Simultaneously evaluate probability trajectories, liquidity depth, spread efficiency, and macro correlation across up to 4 concurrent order books.
+        </p>
+</div>
+<!-- Action Toolbar -->
+<div class="flex flex-wrap items-center gap-space-sm self-stretch xl:self-auto justify-end">
+<button class="px-space-md py-1.5 rounded-DEFAULT bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium flex items-center gap-space-xs transition-colors shadow-sm" id="btn-save-preset">
+<span class="material-symbols-outlined text-[16px] text-primary">bookmark</span>
+          Save Preset
+        </button>
+<button class="px-space-md py-1.5 rounded-DEFAULT bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium flex items-center gap-space-xs transition-colors shadow-sm" id="btn-export-matrix">
+<span class="material-symbols-outlined text-[16px] text-tertiary">download</span>
+          Export Matrix CSV
+        </button>
+<button class="px-space-md py-1.5 rounded-DEFAULT bg-surface-container hover:bg-error-container hover:text-error text-on-surface-variant font-body-sm text-body-sm font-medium flex items-center gap-space-xs transition-colors shadow-sm" id="btn-clear-all">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+          Reset Matrix
+        </button>
+</div>
+</div>
+<!-- Live Universal Selector & Parameter Ribbon -->
+<div class="w-full mt-space-xs pt-space-sm flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- Market Search Bar / Direct Add Slot -->
+<div class="relative flex-1 max-w-2xl">
+<div class="w-full flex items-center gap-space-sm px-space-md py-2 rounded-DEFAULT bg-surface-container text-on-surface shadow-sm focus-within:ring-1 focus-within:ring-primary-container">
+<span class="material-symbols-outlined text-[18px] text-primary">search_insights</span>
+<input autocomplete="off" class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none" id="market-search-input" placeholder="Add market to compare... (e.g., 'Fed Rates', 'S&P 6000', 'ETH L2 volume', 'SpaceX Starship orbital')" type="text"/>
+<kbd class="hidden sm:inline-block font-micro text-micro px-1.5 py-0.5 rounded-DEFAULT bg-surface-container-high text-on-surface-variant font-semibold">ALT+A</kbd>
+</div>
+<!-- Autocomplete Flyout (hidden by default, triggered on input) -->
+<div class="hidden absolute left-0 right-0 top-full mt-1 z-40 bg-surface-container-high rounded-DEFAULT shadow-xl overflow-hidden" id="search-autocomplete-panel">
+<div class="px-space-md py-1.5 bg-surface-container-highest flex items-center justify-between text-on-surface-variant font-micro text-micro uppercase tracking-wider">
+<span>CLOB Recommended Pairs</span>
+<span>24h Vol</span>
+</div>
+<div class="flex flex-col divide-y divide-surface-container">
+<button class="px-space-md py-2 text-left hover:bg-surface-bright flex items-center justify-between text-on-surface transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="px-1 rounded-DEFAULT bg-tertiary-container text-tertiary font-micro text-micro">MACRO</span>
+<span class="font-body-sm text-body-sm font-medium">ECB cuts benchmark policy rate by 50bps prior to Q3</span>
+</div>
+<span class="font-data-sm text-data-sm text-tertiary">—</span>
+</button>
+<button class="px-space-md py-2 text-left hover:bg-surface-bright flex items-center justify-between text-on-surface transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="px-1 rounded-DEFAULT bg-primary-container text-on-primary-container font-micro text-micro">CRYPTO</span>
+<span class="font-body-sm text-body-sm font-medium">Ethereum / Bitcoin ratio breaks 0.060 in 2025</span>
+</div>
+<span class="font-data-sm text-data-sm text-tertiary">—</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Controls: Timeframe & Metric Modes -->
+<div class="flex flex-wrap items-center gap-space-md">
+<!-- Metric Mode Segmented -->
+<div class="flex items-center p-0.5 rounded-DEFAULT bg-surface-container text-on-surface-variant font-body-sm text-body-sm">
+<button class="metric-btn px-space-sm py-1 rounded-DEFAULT bg-surface-container-high text-on-surface font-semibold shadow-sm transition-all" data-metric="prob">Implied Prob (%)</button>
+<button class="metric-btn px-space-sm py-1 rounded-DEFAULT hover:text-on-surface transition-colors" data-metric="vol">Relative Volatility</button>
+<button class="metric-btn px-space-sm py-1 rounded-DEFAULT hover:text-on-surface transition-colors" data-metric="liq">Norm. Liquidity</button>
+</div>
+<!-- Timeframe Selectors -->
+<div class="flex items-center p-0.5 rounded-DEFAULT bg-surface-container text-on-surface-variant font-data-sm text-data-sm">
+<button class="tf-btn px-space-xs py-1 rounded-DEFAULT hover:text-on-surface transition-colors">1D</button>
+<button class="tf-btn px-space-xs py-1 rounded-DEFAULT hover:text-on-surface transition-colors">1W</button>
+<button class="tf-btn px-space-xs py-1 rounded-DEFAULT bg-surface-container-high text-on-surface font-semibold shadow-sm transition-all">1M</button>
+<button class="tf-btn px-space-xs py-1 rounded-DEFAULT hover:text-on-surface transition-colors">3M</button>
+<button class="tf-btn px-space-xs py-1 rounded-DEFAULT hover:text-on-surface transition-colors">1Y</button>
+<button class="tf-btn px-space-xs py-1 rounded-DEFAULT hover:text-on-surface transition-colors">ALL</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Multi-Tier Comparison Canvas -->
+<div class="w-full px-margin-desktop py-space-lg flex flex-col gap-space-lg">
+<!-- SECTION 2: Dynamic Multi-Series Comparative Probability Canvas -->
+<div class="w-full rounded-DEFAULT bg-surface-container-low p-space-md shadow-md flex flex-col gap-space-md relative overflow-hidden">
+<!-- Ambient Glow Behind Chart -->
+<div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-20 bottom-0 w-80 h-80 rounded-full bg-tertiary/5 blur-3xl pointer-events-none"></div>
+<!-- Chart Header with Series Legend & Isolate Controls -->
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md relative z-10">
+<div class="flex flex-wrap items-center gap-space-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">ssid_chart</span>
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">Simultaneous Vector Trajectories</span>
+</div>
+<span class="hidden sm:inline text-outline-variant font-body-sm text-body-sm">|</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">Hover crosshair updates real-time synchronized valuation</span>
+</div>
+<!-- Series Toggles (Color-coded legend with direct toggling) -->
+<div class="flex flex-wrap items-center gap-space-sm" id="series-toggles-container">
+<!-- Series A (Cyan) -->
+<div class="series-pill flex items-center gap-space-xs px-space-sm py-1 rounded-DEFAULT bg-surface-container cursor-pointer select-none hover:bg-surface-container-high transition-colors" data-series="A">
+<span class="w-3 h-0.5 rounded-full" style="background-color: #06b6d4;"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">BTC $120k</span>
+<span class="font-data-sm text-data-sm font-bold" style="color: #06b6d4;">—</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant hover:text-on-surface">visibility</span>
+</div>
+<!-- Series B (Primary Blue) -->
+<div class="series-pill flex items-center gap-space-xs px-space-sm py-1 rounded-DEFAULT bg-surface-container cursor-pointer select-none hover:bg-surface-container-high transition-colors" data-series="B">
+<span class="w-3 h-0.5 rounded-full bg-primary"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Fed Cut ≥25bps</span>
+<span class="font-data-sm text-data-sm text-primary font-bold">—</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant hover:text-on-surface">visibility</span>
+</div>
+<!-- Series C (Purple) -->
+<div class="series-pill flex items-center gap-space-xs px-space-sm py-1 rounded-DEFAULT bg-surface-container cursor-pointer select-none hover:bg-surface-container-high transition-colors" data-series="C">
+<span class="w-3 h-0.5 rounded-full" style="background-color: #a855f7;"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">GPT-5 Pre-Jul</span>
+<span class="font-data-sm text-data-sm font-bold" style="color: #a855f7;">—</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant hover:text-on-surface">visibility</span>
+</div>
+<!-- Series D (Amber) -->
+<div class="series-pill flex items-center gap-space-xs px-space-sm py-1 rounded-DEFAULT bg-surface-container cursor-pointer select-none hover:bg-surface-container-high transition-colors" data-series="D">
+<span class="w-3 h-0.5 rounded-full text-secondary" style="background-color: #EAA343;"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Solana ETF '25</span>
+<span class="font-data-sm text-data-sm text-secondary font-bold">—</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant hover:text-on-surface">visibility</span>
+</div>
+</div>
+</div>
+<!-- Multi-Series Interactive SVG Chart Box -->
+<div class="relative w-full h-[360px] bg-surface-container-lowest rounded-DEFAULT p-space-sm select-none overflow-hidden" id="chart-container">
+<!-- Y-Axis Background Labels & Reference Grid Lines -->
+<div class="absolute inset-x-space-sm top-space-sm bottom-space-lg flex flex-col justify-between pointer-events-none opacity-40">
+<div class="w-full flex items-center justify-between">
+<div class="w-full h-px bg-surface-variant"></div>
+<span class="font-micro text-micro text-on-surface-variant pl-space-xs">—</span>
+</div>
+<div class="w-full flex items-center justify-between">
+<div class="w-full h-px bg-surface-variant"></div>
+<span class="font-micro text-micro text-on-surface-variant pl-space-xs">—</span>
+</div>
+<div class="w-full flex items-center justify-between">
+<div class="w-full h-px bg-surface-variant"></div>
+<span class="font-micro text-micro text-on-surface-variant pl-space-xs">—</span>
+</div>
+<div class="w-full flex items-center justify-between">
+<div class="w-full h-px bg-surface-variant"></div>
+<span class="font-micro text-micro text-on-surface-variant pl-space-xs">—</span>
+</div>
+<div class="w-full flex items-center justify-between">
+<div class="w-full h-px bg-surface-variant"></div>
+<span class="font-micro text-micro text-on-surface-variant pl-space-xs">—</span>
+</div>
+</div>
+<!-- Synchronized SVG Graphic Lines -->
+<svg class="w-full h-full pb-6 pt-2" preserveaspectratio="none" viewbox="0 0 1000 300">
+<defs>
+<lineargradient id="gradCyan" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#06b6d4" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#06b6d4" stop-opacity="0"></stop>
+</lineargradient>
+<lineargradient id="gradBlue" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#1463ff" stop-opacity="0.18"></stop>
+<stop offset="100%" stop-color="#1463ff" stop-opacity="0"></stop>
+</lineargradient>
+<lineargradient id="gradPurple" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#a855f7" stop-opacity="0.15"></stop>
+<stop offset="100%" stop-color="#a855f7" stop-opacity="0"></stop>
+</lineargradient>
+<lineargradient id="gradAmber" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#EAA343" stop-opacity="0.15"></stop>
+<stop offset="100%" stop-color="#EAA343" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Vertical Timeline Grid Columns -->
+<line stroke="#101216" stroke-dasharray="3,3" stroke-width="1" x1="200" x2="200" y1="0" y2="280"></line>
+<line stroke="#101216" stroke-dasharray="3,3" stroke-width="1" x1="400" x2="400" y1="0" y2="280"></line>
+<line stroke="#101216" stroke-dasharray="3,3" stroke-width="1" x1="600" x2="600" y1="0" y2="280"></line>
+<line stroke="#101216" stroke-dasharray="3,3" stroke-width="1" x1="800" x2="800" y1="0" y2="280"></line>
+<!-- Series A Area & Stroke: Bitcoin $120k (Cyan) -->
+<polygon fill="url(#gradCyan)" id="area-A" points="0,160 80,150 160,170 240,140 320,120 400,135 480,110 560,95 640,105 720,88 800,92 880,82 960,78 1000,75 1000,280 0,280"></polygon>
+<polyline fill="none" id="line-A" points="0,160 80,150 160,170 240,140 320,120 400,135 480,110 560,95 640,105 720,88 800,92 880,82 960,78 1000,75" stroke="#06b6d4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<!-- Series B Area & Stroke: Fed Cut June (Primary Blue) -->
+<polygon fill="url(#gradBlue)" id="area-B" points="0,195 80,185 160,190 240,180 320,160 400,150 480,130 560,140 640,120 720,115 800,100 880,92 960,88 1000,85 1000,280 0,280"></polygon>
+<polyline fill="none" id="line-B" points="0,195 80,185 160,190 240,180 320,160 400,150 480,130 560,140 640,120 720,115 800,100 880,92 960,88 1000,85" stroke="#1463ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<!-- Series C Area & Stroke: OpenAI GPT-5 (Purple) -->
+<polygon fill="url(#gradPurple)" id="area-C" points="0,120 80,130 160,125 240,140 320,165 400,180 480,175 560,190 640,210 720,200 800,208 880,212 960,205 1000,204 1000,280 0,280"></polygon>
+<polyline fill="none" id="line-C" points="0,120 80,130 160,125 240,140 320,165 400,180 480,175 560,190 640,210 720,200 800,208 880,212 960,205 1000,204" stroke="#a855f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+<!-- Series D Area & Stroke: Solana ETF (Amber) -->
+<polygon fill="url(#gradAmber)" id="area-D" points="0,230 80,225 160,240 240,235 320,230 400,220 480,225 560,215 640,210 720,218 800,222 880,216 960,218 1000,216 1000,280 0,280"></polygon>
+<polyline fill="none" id="line-D" points="0,230 80,225 160,240 240,235 320,230 400,220 480,225 560,215 640,210 720,218 800,222 880,216 960,218 1000,216" stroke="#EAA343" stroke-dasharray="4,2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+<!-- Active Trajectory Points (Current Snapshot) -->
+<circle cx="1000" cy="75" fill="#06b6d4" r="4.5"></circle>
+<circle cx="1000" cy="85" fill="#1463ff" r="4.5"></circle>
+<circle cx="1000" cy="204" fill="#a855f7" r="4.5"></circle>
+<circle cx="1000" cy="216" fill="#EAA343" r="4.5"></circle>
+<!-- Synchronized Crosshair Demonstration Watermark (Default at 68% axis) -->
+<g class="transition-transform duration-75" id="chart-watermark">
+<line opacity="0.8" stroke="#98A5B5" stroke-dasharray="3,3" stroke-width="1.5" x1="680" x2="680" y1="0" y2="280"></line>
+<circle cx="680" cy="94" fill="#06b6d4" r="4"></circle>
+<circle cx="680" cy="118" fill="#1463ff" r="4"></circle>
+<circle cx="680" cy="203" fill="#a855f7" r="4"></circle>
+<circle cx="680" cy="214" fill="#EAA343" r="4"></circle>
+</g>
+</svg>
+<!-- Dynamic Crosshair Value Card Floating Overlay -->
+<div class="absolute left-[620px] top-6 bg-surface-container-high/95 backdrop-blur-md p-space-sm rounded-DEFAULT shadow-xl pointer-events-none flex flex-col gap-1 z-30">
+<div class="flex items-center justify-between gap-space-md font-micro text-micro text-on-surface-variant">
+<span>May 18, 14:00 UTC</span>
+<span class="text-tertiary font-semibold">T-12d SNAP</span>
+</div>
+<div class="grid grid-cols-2 gap-x-space-md gap-y-0.5 font-data-sm text-data-sm">
+<span class="flex items-center gap-1 text-on-surface"><span class="w-2 h-2 rounded-full" style="background:#06b6d4;"></span>BTC: 69.4%</span>
+<span class="flex items-center gap-1 text-on-surface"><span class="w-2 h-2 rounded-full bg-primary"></span>Fed: 61.2%</span>
+<span class="flex items-center gap-1 text-on-surface"><span class="w-2 h-2 rounded-full" style="background:#a855f7;"></span>GPT: 34.1%</span>
+<span class="flex items-center gap-1 text-on-surface"><span class="w-2 h-2 rounded-full text-secondary" style="background:#EAA343;"></span>SOL: 27.5%</span>
+</div>
+</div>
+<!-- X-Axis Timestamps -->
+<div class="absolute inset-x-space-sm bottom-1 flex justify-between font-micro text-micro text-on-surface-variant px-space-xs">
+<span>Apr 28</span>
+<span>May 05</span>
+<span>May 12</span>
+<span>May 19</span>
+<span>May 26</span>
+<span class="text-on-surface font-semibold">Live (Today)</span>
+</div>
+</div>
+</div>
+<!-- SECTION 3: Side-by-Side 4-Column Specification Matrix -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">Synchronized Liquidity & Risk Matrix</span>
+<span class="font-micro text-micro px-space-xs py-0.5 rounded-DEFAULT bg-surface-container-high text-on-surface-variant font-semibold">EQUAL WEIGHTED DEPTH</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">tune</span>
+<span>Columns fully synchronized to live CLOB tick frequency</span>
+</div>
+</div>
+<!-- 4-Column Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md w-full">
+<!-- COLUMN 1: Market A (Cyan Marker) -->
+<div class="flex flex-col rounded-DEFAULT bg-surface-container-low shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<!-- Top Accent Ribbon -->
+<div class="h-1 w-full" style="background-color: #06b6d4;"></div>
+<div class="p-space-md flex flex-col gap-space-md flex-1">
+<!-- Header & Badge strip -->
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container text-on-surface font-micro text-micro font-semibold uppercase">CRYPTO</span>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container-high text-tertiary font-micro text-micro font-medium">UMA ORACLE</span>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container text-on-surface-variant font-micro text-micro">MITMARKET CLOB</span>
+</div>
+<div class="flex items-center gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-primary transition-colors text-on-surface-variant" title="Highlight this column">
+<span class="material-symbols-outlined text-[16px]">push_pin</span>
+</button>
+<button class="p-1 hover:text-error transition-colors text-on-surface-variant" title="Remove market">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+<!-- Title & Context -->
+<div class="flex flex-col gap-0.5 min-h-[48px]">
+<h3 class="font-data-md text-data-md text-on-surface font-bold line-clamp-2">Bitcoin market price reaches or exceeds $120,000.00</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Target Dec 31, 2026 • Index USD Spot</span>
+</div>
+<!-- Primary Probability Split Display -->
+<div class="grid grid-cols-2 gap-space-xs p-space-xs rounded-DEFAULT bg-surface-container">
+<div class="flex flex-col p-space-xs rounded-DEFAULT bg-surface-container-low">
+<span class="font-micro text-micro text-tertiary font-semibold uppercase">YES PROB</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-data-lg text-data-lg text-tertiary font-bold">—</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">72¢</span>
+</div>
+</div>
+<div class="flex flex-col p-space-xs rounded-DEFAULT bg-surface-container-low">
+<span class="font-micro text-micro text-error font-semibold uppercase">NO PROB</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-data-lg text-data-lg text-error font-bold">—</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">28¢</span>
+</div>
+</div>
+</div>
+<!-- Tabular Metric Rows -->
+<div class="flex flex-col divide-y divide-surface-container-high text-on-surface font-body-sm text-body-sm">
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">24H PROB DELTA</span>
+<span class="font-data-sm text-data-sm text-tertiary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> —
+                </span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">7D REALIZED VOL</span>
+<span class="font-data-sm text-data-sm text-on-surface font-medium">—</span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">24H MITMARKET VOLUME</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">—</span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">ORDERBOOK DEPTH (±2%)</span>
+<span class="font-data-sm text-data-sm text-tertiary font-semibold">—</span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">AVERAGE CLOB SPREAD</span>
+<span class="font-data-sm text-data-sm text-tertiary font-semibold">0.4¢ <span class="font-micro text-micro text-on-surface-variant">(Tight)</span></span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">EXPIRATION TARGET</span>
+<span class="font-data-sm text-data-sm text-on-surface">Dec 31, 2026</span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">REGIME STATUS</span>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-tertiary/10 text-tertiary font-micro text-micro font-semibold uppercase">High Velocity</span>
+</div>
+</div>
+<!-- Mini Sparkline for Liquidity Density -->
+<div class="flex flex-col gap-1 pt-space-xs">
+<div class="flex items-center justify-between font-micro text-micro text-on-surface-variant">
+<span>DEPTH IMBALANCE</span>
+<span class="text-tertiary">Bids +18% Ask Overhang</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-DEFAULT overflow-hidden flex">
+<div class="h-full bg-tertiary" style="width: 59%;"></div>
+<div class="h-full bg-error" style="width: 41%;"></div>
+</div>
+</div>
+<!-- Direct Quick Action Footer -->
+<div class="mt-auto pt-space-sm flex flex-col gap-space-xs">
+<button class="w-full py-2 rounded-DEFAULT bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container font-body-sm text-body-sm font-semibold transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+                Trade BTC $120k
+              </button>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="py-1 rounded-DEFAULT bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-micro text-micro font-semibold transition-colors">
+                  Analytics
+                </button>
+<button class="py-1 rounded-DEFAULT bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-micro text-micro font-semibold transition-colors">
+                  + Alert
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- COLUMN 2: Market B (Primary Blue Marker) -->
+<div class="flex flex-col rounded-DEFAULT bg-surface-container-low shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<!-- Top Accent Ribbon -->
+<div class="h-1 w-full bg-primary"></div>
+<div class="p-space-md flex flex-col gap-space-md flex-1">
+<!-- Header & Badge strip -->
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container text-on-surface font-micro text-micro font-semibold uppercase">MACRO</span>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container-high text-tertiary font-micro text-micro font-medium">FED FOMC</span>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container text-on-surface-variant font-micro text-micro">POLYMARKET REF</span>
+</div>
+<div class="flex items-center gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-primary transition-colors text-on-surface-variant" title="Highlight this column">
+<span class="material-symbols-outlined text-[16px]">push_pin</span>
+</button>
+<button class="p-1 hover:text-error transition-colors text-on-surface-variant" title="Remove market">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+<!-- Title & Context -->
+<div class="flex flex-col gap-0.5 min-h-[48px]">
+<h3 class="font-data-md text-data-md text-on-surface font-bold line-clamp-2">Federal Reserve cuts benchmark funds rate by ≥25bps in June</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Meeting June 17-18, 2025 • BLS / Fed Official</span>
+</div>
+<!-- Primary Probability Split Display -->
+<div class="grid grid-cols-2 gap-space-xs p-space-xs rounded-DEFAULT bg-surface-container">
+<div class="flex flex-col p-space-xs rounded-DEFAULT bg-surface-container-low">
+<span class="font-micro text-micro text-tertiary font-semibold uppercase">YES PROB</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-data-lg text-data-lg text-tertiary font-bold">—</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">68¢</span>
+</div>
+</div>
+<div class="flex flex-col p-space-xs rounded-DEFAULT bg-surface-container-low">
+<span class="font-micro text-micro text-error font-semibold uppercase">NO PROB</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-data-lg text-data-lg text-error font-bold">—</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">32¢</span>
+</div>
+</div>
+</div>
+<!-- Tabular Metric Rows -->
+<div class="flex flex-col divide-y divide-surface-container-high text-on-surface font-body-sm text-body-sm">
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">24H PROB DELTA</span>
+<span class="font-data-sm text-data-sm text-tertiary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> —
+                </span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">7D REALIZED VOL</span>
+<span class="font-data-sm text-data-sm text-on-surface font-medium">—</span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">24H MITMARKET VOLUME</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">—</span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">ORDERBOOK DEPTH (±2%)</span>
+<span class="font-data-sm text-data-sm text-tertiary font-semibold">—</span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">AVERAGE CLOB SPREAD</span>
+<span class="font-data-sm text-data-sm text-tertiary font-semibold">0.6¢ <span class="font-micro text-micro text-on-surface-variant">(Optimal)</span></span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">EXPIRATION TARGET</span>
+<span class="font-data-sm text-data-sm text-on-surface">Jun 18, 2025</span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">REGIME STATUS</span>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-primary/10 text-primary font-micro text-micro font-semibold uppercase">Active Trading</span>
+</div>
+</div>
+<!-- Mini Sparkline for Liquidity Density -->
+<div class="flex flex-col gap-1 pt-space-xs">
+<div class="flex items-center justify-between font-micro text-micro text-on-surface-variant">
+<span>DEPTH IMBALANCE</span>
+<span class="text-tertiary">Bids +6% Balanced</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-DEFAULT overflow-hidden flex">
+<div class="h-full bg-tertiary" style="width: 53%;"></div>
+<div class="h-full bg-error" style="width: 47%;"></div>
+</div>
+</div>
+<!-- Direct Quick Action Footer -->
+<div class="mt-auto pt-space-sm flex flex-col gap-space-xs">
+<button class="w-full py-2 rounded-DEFAULT bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container font-body-sm text-body-sm font-semibold transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+                Trade Fed Cut
+              </button>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="py-1 rounded-DEFAULT bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-micro text-micro font-semibold transition-colors">
+                  Analytics
+                </button>
+<button class="py-1 rounded-DEFAULT bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-micro text-micro font-semibold transition-colors">
+                  + Alert
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- COLUMN 3: Market C (Purple Marker) -->
+<div class="flex flex-col rounded-DEFAULT bg-surface-container-low shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<!-- Top Accent Ribbon -->
+<div class="h-1 w-full" style="background-color: #a855f7;"></div>
+<div class="p-space-md flex flex-col gap-space-md flex-1">
+<!-- Header & Badge strip -->
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container text-on-surface font-micro text-micro font-semibold uppercase">AI & TECH</span>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container-high text-tertiary font-micro text-micro font-medium">OPENAI VERIFY</span>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container text-on-surface-variant font-micro text-micro">MITMARKET CLOB</span>
+</div>
+<div class="flex items-center gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-primary transition-colors text-on-surface-variant" title="Highlight this column">
+<span class="material-symbols-outlined text-[16px]">push_pin</span>
+</button>
+<button class="p-1 hover:text-error transition-colors text-on-surface-variant" title="Remove market">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+<!-- Title & Context -->
+<div class="flex flex-col gap-0.5 min-h-[48px]">
+<h3 class="font-data-md text-data-md text-on-surface font-bold line-clamp-2">OpenAI publicly launches GPT-5 flagship model before July 2025</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Target June 30, 2025 • Official Blog / Keynote</span>
+</div>
+<!-- Primary Probability Split Display -->
+<div class="grid grid-cols-2 gap-space-xs p-space-xs rounded-DEFAULT bg-surface-container">
+<div class="flex flex-col p-space-xs rounded-DEFAULT bg-surface-container-low">
+<span class="font-micro text-micro text-tertiary font-semibold uppercase">YES PROB</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-data-lg text-data-lg text-tertiary font-bold">—</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">32¢</span>
+</div>
+</div>
+<div class="flex flex-col p-space-xs rounded-DEFAULT bg-surface-container-low">
+<span class="font-micro text-micro text-error font-semibold uppercase">NO PROB</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-data-lg text-data-lg text-error font-bold">—</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">68¢</span>
+</div>
+</div>
+</div>
+<!-- Tabular Metric Rows -->
+<div class="flex flex-col divide-y divide-surface-container-high text-on-surface font-body-sm text-body-sm">
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">24H PROB DELTA</span>
+<span class="font-data-sm text-data-sm text-error font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_down</span> —
+                </span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">7D REALIZED VOL</span>
+<span class="font-data-sm text-data-sm text-secondary font-medium">— <span class="font-micro text-micro text-on-surface-variant">(Spike)</span></span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">24H MITMARKET VOLUME</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">—</span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">ORDERBOOK DEPTH (±2%)</span>
+<span class="font-data-sm text-data-sm text-tertiary font-semibold">—</span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">AVERAGE CLOB SPREAD</span>
+<span class="font-data-sm text-data-sm text-secondary font-semibold">1.2¢ <span class="font-micro text-micro text-on-surface-variant">(Elevated)</span></span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">EXPIRATION TARGET</span>
+<span class="font-data-sm text-data-sm text-on-surface">Jun 30, 2025</span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">REGIME STATUS</span>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-secondary-container/20 text-secondary font-micro text-micro font-semibold uppercase">Wide Spread</span>
+</div>
+</div>
+<!-- Mini Sparkline for Liquidity Density -->
+<div class="flex flex-col gap-1 pt-space-xs">
+<div class="flex items-center justify-between font-micro text-micro text-on-surface-variant">
+<span>DEPTH IMBALANCE</span>
+<span class="text-error">Asks +24% Heavy Selling</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-DEFAULT overflow-hidden flex">
+<div class="h-full bg-tertiary" style="width: 38%;"></div>
+<div class="h-full bg-error" style="width: 62%;"></div>
+</div>
+</div>
+<!-- Direct Quick Action Footer -->
+<div class="mt-auto pt-space-sm flex flex-col gap-space-xs">
+<button class="w-full py-2 rounded-DEFAULT bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container font-body-sm text-body-sm font-semibold transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+                Trade GPT-5 Launch
+              </button>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="py-1 rounded-DEFAULT bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-micro text-micro font-semibold transition-colors">
+                  Analytics
+                </button>
+<button class="py-1 rounded-DEFAULT bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-micro text-micro font-semibold transition-colors">
+                  + Alert
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- COLUMN 4: Market D (Amber Marker) -->
+<div class="flex flex-col rounded-DEFAULT bg-surface-container-low shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<!-- Top Accent Ribbon -->
+<div class="h-1 w-full bg-secondary"></div>
+<div class="p-space-md flex flex-col gap-space-md flex-1">
+<!-- Header & Badge strip -->
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container text-on-surface font-micro text-micro font-semibold uppercase">REGULATION</span>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container-high text-tertiary font-micro text-micro font-medium">SEC EDGAR</span>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container text-on-surface-variant font-micro text-micro">MITMARKET CLOB</span>
+</div>
+<div class="flex items-center gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-primary transition-colors text-on-surface-variant" title="Highlight this column">
+<span class="material-symbols-outlined text-[16px]">push_pin</span>
+</button>
+<button class="p-1 hover:text-error transition-colors text-on-surface-variant" title="Remove market">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+<!-- Title & Context -->
+<div class="flex flex-col gap-0.5 min-h-[48px]">
+<h3 class="font-data-md text-data-md text-on-surface font-bold line-clamp-2">US SEC formally approves spot Solana ETF registration</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Target Dec 31, 2025 • Federal Register Order</span>
+</div>
+<!-- Primary Probability Split Display -->
+<div class="grid grid-cols-2 gap-space-xs p-space-xs rounded-DEFAULT bg-surface-container">
+<div class="flex flex-col p-space-xs rounded-DEFAULT bg-surface-container-low">
+<span class="font-micro text-micro text-tertiary font-semibold uppercase">YES PROB</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-data-lg text-data-lg text-tertiary font-bold">—</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">28¢</span>
+</div>
+</div>
+<div class="flex flex-col p-space-xs rounded-DEFAULT bg-surface-container-low">
+<span class="font-micro text-micro text-error font-semibold uppercase">NO PROB</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-data-lg text-data-lg text-error font-bold">—</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">72¢</span>
+</div>
+</div>
+</div>
+<!-- Tabular Metric Rows -->
+<div class="flex flex-col divide-y divide-surface-container-high text-on-surface font-body-sm text-body-sm">
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">24H PROB DELTA</span>
+<span class="font-data-sm text-data-sm text-tertiary font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> —
+                </span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">7D REALIZED VOL</span>
+<span class="font-data-sm text-data-sm text-on-surface font-medium">—</span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">24H MITMARKET VOLUME</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">—</span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">ORDERBOOK DEPTH (±2%)</span>
+<span class="font-data-sm text-data-sm text-tertiary font-semibold">—</span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">AVERAGE CLOB SPREAD</span>
+<span class="font-data-sm text-data-sm text-secondary font-semibold">1.5¢ <span class="font-micro text-micro text-on-surface-variant">(Wide Alert)</span></span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">EXPIRATION TARGET</span>
+<span class="font-data-sm text-data-sm text-on-surface">Dec 31, 2025</span>
+</div>
+<div class="py-space-xs flex items-center justify-between">
+<span class="text-on-surface-variant font-label-caps text-label-caps">REGIME STATUS</span>
+<span class="px-space-xs py-0.5 rounded-DEFAULT bg-surface-container-high text-on-surface-variant font-micro text-micro font-semibold uppercase">Emerging Book</span>
+</div>
+</div>
+<!-- Mini Sparkline for Liquidity Density -->
+<div class="flex flex-col gap-1 pt-space-xs">
+<div class="flex items-center justify-between font-micro text-micro text-on-surface-variant">
+<span>DEPTH IMBALANCE</span>
+<span class="text-on-surface">50/50 Parity</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-DEFAULT overflow-hidden flex">
+<div class="h-full bg-tertiary" style="width: 50%;"></div>
+<div class="h-full bg-error" style="width: 50%;"></div>
+</div>
+</div>
+<!-- Direct Quick Action Footer -->
+<div class="mt-auto pt-space-sm flex flex-col gap-space-xs">
+<button class="w-full py-2 rounded-DEFAULT bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container font-body-sm text-body-sm font-semibold transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+                Trade Solana ETF
+              </button>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="py-1 rounded-DEFAULT bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-micro text-micro font-semibold transition-colors">
+                  Analytics
+                </button>
+<button class="py-1 rounded-DEFAULT bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-micro text-micro font-semibold transition-colors">
+                  + Alert
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 4: Co-variance & Divergence Insights Bar -->
+<div class="w-full rounded-DEFAULT bg-surface-container-low p-space-md shadow-md flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">hub</span>
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">Pearson Correlation & Divergence Signals</span>
+<span class="font-micro text-micro px-space-xs py-0.5 rounded-DEFAULT bg-surface-container text-on-surface-variant">30D ROLLING COEFFICIENT</span>
+</div>
+<div class="flex items-center gap-space-sm font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary"></span>+1.0 Positive</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-on-surface-variant"></span>0.0 Uncorrelated</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-error"></span>-1.0 Inverse</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
+<!-- Matrix Card 1 -->
+<div class="flex flex-col gap-space-sm p-space-md rounded-DEFAULT bg-surface-container">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full" style="background:#06b6d4;"></span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">BTC $120k</span>
+<span class="text-on-surface-variant text-micro">↔</span>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">Solana ETF</span>
+</div>
+<span class="font-data-md text-data-md text-tertiary font-bold">+0.78</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="text-tertiary font-medium">Strong positive macro alignment.</span> Both assets are acting as joint beta vectors to crypto liquidity easing & institutional balance sheet adoption.
+          </p>
+<div class="w-full bg-surface-container-high h-1 rounded-DEFAULT overflow-hidden">
+<div class="bg-tertiary h-full" style="width: 89%;"></div>
+</div>
+</div>
+<!-- Matrix Card 2 -->
+<div class="flex flex-col gap-space-sm p-space-md rounded-DEFAULT bg-surface-container">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">Fed Cut June</span>
+<span class="text-on-surface-variant text-micro">↔</span>
+<span class="w-2.5 h-2.5 rounded-full" style="background:#06b6d4;"></span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">BTC $120k</span>
+</div>
+<span class="font-data-md text-data-md text-tertiary font-bold">+0.44</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="text-tertiary font-medium">Moderate co-movement.</span> Dollar debasement expectations boost store-of-value premia; historical sensitivity shows 10bps cut expectation yields ~3.4% upside.
+          </p>
+<div class="w-full bg-surface-container-high h-1 rounded-DEFAULT overflow-hidden">
+<div class="bg-tertiary h-full" style="width: 72%;"></div>
+</div>
+</div>
+<!-- Matrix Card 3 -->
+<div class="flex flex-col gap-space-sm p-space-md rounded-DEFAULT bg-surface-container">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">Fed Cut June</span>
+<span class="text-on-surface-variant text-micro">↔</span>
+<span class="w-2.5 h-2.5 rounded-full" style="background:#a855f7;"></span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">OpenAI GPT-5</span>
+</div>
+<span class="font-data-md text-data-md text-on-surface-variant font-bold">-0.12</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="text-on-surface font-medium">Statistically decoupled.</span> Frontier model release milestones are driven by compute clusters and RL training schedules rather than short-term FOMC policy.
+          </p>
+<div class="w-full bg-surface-container-high h-1 rounded-DEFAULT overflow-hidden">
+<div class="bg-on-surface-variant h-full" style="width: 12%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple interactive client-side behavior for metric tabs and legend isolation
+  document.addEventListener('DOMContentLoaded', () => {
+    // Autocomplete quick search toggling
+    const searchInput = document.getElementById('market-search-input');
+    const autoPanel = document.getElementById('search-autocomplete-panel');
+
+    if (searchInput && autoPanel) {
+      searchInput.addEventListener('focus', () => {
+        autoPanel.classList.remove('hidden');
+      });
+      searchInput.addEventListener('blur', () => {
+        setTimeout(() => autoPanel.classList.add('hidden'), 200);
+      });
+    }
+
+    // Timeframe selector pills
+    const tfButtons = document.querySelectorAll('.tf-btn');
+    tfButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tfButtons.forEach(b => {
+          b.classList.remove('bg-surface-container-high', 'text-on-surface', 'font-semibold', 'shadow-sm');
+          b.classList.add('hover:text-on-surface');
+        });
+        btn.classList.add('bg-surface-container-high', 'text-on-surface', 'font-semibold', 'shadow-sm');
+      });
+    });
+
+    // Metric selectors
+    const metricButtons = document.querySelectorAll('.metric-btn');
+    metricButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        metricButtons.forEach(b => {
+          b.classList.remove('bg-surface-container-high', 'text-on-surface', 'font-semibold', 'shadow-sm');
+          b.classList.add('hover:text-on-surface');
+        });
+        btn.classList.add('bg-surface-container-high', 'text-on-surface', 'font-semibold', 'shadow-sm');
+      });
+    });
+
+    // Series visibility toggling from chart legend
+    const seriesPills = document.querySelectorAll('.series-pill');
+    seriesPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const seriesKey = pill.getAttribute('data-series');
+        const line = document.getElementById(`line-${seriesKey}`);
+        const area = document.getElementById(`area-${seriesKey}`);
+        
+        if (line) {
+          const isHidden = line.getAttribute('opacity') === '0';
+          if (isHidden) {
+            line.setAttribute('opacity', '1');
+            if (area) area.setAttribute('opacity', '1');
+            pill.classList.remove('opacity-40');
+          } else {
+            line.setAttribute('opacity', '0');
+            if (area) area.setAttribute('opacity', '0');
+            pill.classList.add('opacity-40');
+          }
+        }
+      });
+    });
+
+    // Mouse movement inside chart container to simulate crosshair shifting
+    const chartContainer = document.getElementById('chart-container');
+    const watermark = document.getElementById('chart-watermark');
+    if (chartContainer && watermark) {
+      chartContainer.addEventListener('mousemove', (e) => {
+        const rect = chartContainer.getBoundingClientRect();
+        const mouseX = Math.max(20, Math.min(e.clientX - rect.left, rect.width - 20));
+        const relativeSvgX = (mouseX / rect.width) * 1000;
+        const line = watermark.querySelector('line');
+        if (line) {
+          line.setAttribute('x1', relativeSvgX);
+          line.setAttribute('x2', relativeSvgX);
+        }
+      });
+    }
+  });
+</script></main><footer class="w-full bg-surface-container-lowest py-space-lg"><div class="w-full px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-wrap items-center gap-space-lg text-on-surface-variant font-body-sm text-body-sm"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span class="font-data-sm text-data-sm text-on-surface">System All Operational</span></div><a class="hover:text-on-surface transition-colors" href="#">API Documentation</a><a class="hover:text-on-surface transition-colors" href="#">Trading Rules</a><a class="hover:text-on-surface transition-colors" href="#">Market Maker Incentives</a><a class="hover:text-on-surface transition-colors" href="#">Legal & Risk Disclosures</a></div><div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm"><span>© 2025 MITMARKET Trading Technologies Inc. All rights reserved.</span></div></div></footer></body></html>

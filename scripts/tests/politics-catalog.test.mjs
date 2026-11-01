@@ -1,0 +1,12 @@
+import {readFileSync} from 'node:fs';
+import ts from 'typescript';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+const data=JSON.parse(readFileSync(new URL('../../src/data/politics-catalog.json',import.meta.url),'utf8'));
+const source=readFileSync(new URL('../../src/politicsCatalog.ts',import.meta.url),'utf8').replace("import catalog from './data/politics-catalog.json';",'const catalog='+JSON.stringify(data)+';');
+const code=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText;
+const {politicsTopics,politicsTagId,politicsTopicMatches,politicsTotal}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
+test('politics menu matches the requested order',()=>assert.deepEqual(politicsTopics,['Trump','Midterms','Senate Elections','House Elections','Governor Elections','Mayoral Elections','Derivatives','Global Elections','Brazil','Israel Election','French Election','China','US Election','Primaries','Congress','Gov Shutdown','Canada','Russia','Venezuela','Epstein']));
+test('election submenus resolve to their distinct provider tags',()=>{assert.equal(politicsTagId('Senate Elections'),'104093');assert.equal(politicsTagId('Governor Elections'),'104094');assert.notEqual(politicsTagId('House Elections'),politicsTagId('Senate Elections'));assert.equal(politicsTagId('All'),'2');});
+test('provider tags prevent incidental title matches across countries',()=>{const market={title:'Russia comments on Brazil election',tags:['brazil']};assert.equal(politicsTopicMatches(market,'Brazil'),true);assert.equal(politicsTopicMatches(market,'Russia'),false);assert.equal(politicsTopicMatches({tags:['senate-midterms']},'Senate Elections'),true);});
+test('full provider totals stay independent of a partial market list',()=>{const total=politicsTotal('All');assert.ok(total>1000);assert.equal(politicsTotal('All'),total);assert.ok(politicsTotal('Trump')>0);});

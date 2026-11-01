@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#000000;font-family:'Inter',sans-serif;color:#F4F6FA;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary-fixed":"#1463ff","inverse-surface":"#F4F6FA","primary-fixed-dim":"#1463ff","surface-container-highest":"#101216","error":"#ff4761","surface-container-lowest":"#101216","on-secondary-fixed-variant":"#000000","surface-variant":"#101216","tertiary-container":"#0bba74","surface-bright":"#29313D","inverse-on-surface":"#101216","on-primary-fixed-variant":"#000000","on-primary":"#000000","on-surface-variant":"#98A5B5","outline":"#98A5B5","on-error-container":"#ff4761","on-tertiary":"#000000","on-secondary-container":"#F4F6FA","outline-variant":"#29313D","surface-container-low":"#101216","surface-dim":"#000000","primary-container":"#1463ff","surface-tint":"#1463ff","error-container":"#101216","on-surface":"#F4F6FA","on-background":"#F4F6FA","on-error":"#000000","tertiary":"#0bba74","on-tertiary-fixed-variant":"#000000","surface-container-high":"#101216","tertiary-fixed":"#0bba74","background":"#000000","tertiary-fixed-dim":"#0bba74","on-primary-container":"#000000","surface":"#000000","primary":"#1463ff","on-tertiary-fixed":"#000000","on-primary-fixed":"#000000","secondary":"#EAA343","on-secondary-fixed":"#000000","secondary-fixed-dim":"#EAA343","surface-container":"#101216","secondary-container":"#101216","secondary-fixed":"#EAA343","on-secondary":"#000000","on-tertiary-container":"#000000","inverse-primary":"#1463ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin":"1rem","gutter-desktop":"1rem","space-md":"0.75rem","space-lg":"1rem","margin-desktop":"1.5rem","space-xl":"1.5rem","space-sm":"0.5rem","gutter":"0.75rem","space-xs":"0.25rem"},"fontFamily":{"body-md":["Inter"],"micro":["Inter"],"data-md":["Inter"],"headline-md":["Inter"],"data-lg":["Inter"],"label-caps":["Inter"],"headline-lg":["Inter"],"body-lg":["Inter"],"body-sm":["Inter"],"display-lg":["Inter"],"data-sm":["Inter"]},"fontSize":{"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"micro":["10px",{"lineHeight":"12px","fontWeight":"500"}],"data-md":["14px",{"lineHeight":"18px","fontWeight":"600"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"data-lg":["20px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-caps":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"data-sm":["12px",{"lineHeight":"16px","fontWeight":"500"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.35)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[20px]">stacked_line_chart</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-data-md uppercase text-on-surface tracking-wider font-bold">MITMARKET</span><span class="font-label-caps text-label-caps text-primary bg-surface-container-high px-space-xs py-[1px] rounded">PRO</span></div><div class="flex items-center gap-[6px]"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-micro text-micro text-on-surface-variant font-mono">CLOB 14ms</span></div></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center bg-surface-container-low px-space-sm py-space-xs rounded gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-data-sm text-data-sm font-semibold text-on-surface">—</span><span class="font-micro text-micro text-on-surface-variant uppercase">USDC</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 bg-surface pb-24"><div class="flex flex-col w-full relative min-w-0">
+<!-- Dimmed MITMARKET Settings Background Scaffolding -->
+<div class="flex flex-col w-full px-margin space-y-space-md opacity-25 filter blur-[1px] pointer-events-none select-none">
+<div class="bg-surface-container p-space-md rounded-xl">
+<div class="font-label-caps text-label-caps text-outline uppercase tracking-wider mb-space-xs">Trading Configuration</div>
+<div class="flex items-center justify-between py-space-sm">
+<span class="font-body-md text-body-md text-on-surface">Execution Mode</span>
+<span class="font-data-sm text-data-sm text-primary">Ultra-Fast CLOB</span>
+</div>
+<div class="flex items-center justify-between py-space-sm">
+<span class="font-body-md text-body-md text-on-surface">Auto-Slippage Max</span>
+<span class="font-data-sm text-data-sm text-tertiary">—</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-md rounded-xl">
+<div class="font-label-caps text-label-caps text-outline uppercase tracking-wider mb-space-xs">Localization &amp; Unit</div>
+<div class="flex items-center justify-between py-space-sm">
+<span class="font-body-md text-body-md text-on-surface">Current Region</span>
+<span class="font-data-sm text-data-sm text-on-surface-variant">Global / US (English)</span>
+</div>
+<div class="flex items-center justify-between py-space-sm">
+<span class="font-body-md text-body-md text-on-surface">Settlement Unit</span>
+<span class="font-data-sm text-data-sm text-secondary">USDC (Collateral)</span>
+</div>
+</div>
+</div>
+<!-- Modal Backdrop Overlay -->
+<div class="fixed inset-0 z-40 bg-surface-container-lowest/80 backdrop-blur-sm transition-opacity duration-200" id="locale-modal-scrim"></div>
+<!-- Bottom Sheet Container (85vh Native Mobile Sheet) -->
+<div class="fixed inset-x-0 bottom-0 z-50 flex flex-col h-[751px] max-h-[751px] bg-surface-container-low rounded-t-xl shadow-2xl overflow-hidden transition-transform duration-300 ease-out transform translate-y-0" id="locale-bottom-sheet">
+<!-- Top Drag Handle & Tactile Target -->
+<div class="w-full pt-3 pb-1 flex justify-center items-center cursor-grab active:cursor-grabbing shrink-0 touch-none">
+<div class="w-10 h-1 rounded-full bg-outline-variant/60"></div>
+</div>
+<!-- Header Row -->
+<div class="px-margin pt-1 pb-3 flex items-center justify-between shrink-0">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">public</span>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Regional Preferences</h2>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high hover:bg-surface-container-highest active:scale-95 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all" id="close-sheet-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Segmented Tab Bar -->
+<div class="px-margin shrink-0 pb-3">
+<div class="p-[3px] bg-surface-container-highest rounded-lg flex gap-1">
+<button class="flex-1 py-1.5 px-3 rounded text-center font-data-sm text-data-sm transition-all duration-150 flex items-center justify-center gap-1.5 bg-primary-container text-on-primary-container shadow-sm font-semibold" id="tab-lang" type="button">
+<span class="material-symbols-outlined text-[16px]">translate</span>
+<span>Language (29)</span>
+</button>
+<button class="flex-1 py-1.5 px-3 rounded text-center font-data-sm text-data-sm transition-all duration-150 flex items-center justify-center gap-1.5 text-on-surface-variant hover:text-on-surface" id="tab-curr" type="button">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+<span>Currency (8)</span>
+</button>
+</div>
+</div>
+<!-- Sticky Search Box -->
+<div class="px-margin shrink-0 pb-2">
+<div class="relative flex items-center w-full">
+<span class="material-symbols-outlined absolute left-3 text-outline text-[18px] pointer-events-none">search</span>
+<input class="w-full bg-surface-container-highest/70 text-on-surface font-body-md text-body-md pl-9 pr-8 py-2 rounded-lg placeholder-outline focus:outline-none focus:bg-surface-container-highest transition-colors" id="locale-search-input" placeholder="Search 29 languages..." type="text"/>
+<button class="hidden absolute right-2.5 w-5 h-5 rounded-full bg-outline-variant flex items-center justify-center text-on-surface-variant hover:text-on-surface" id="clear-search-btn" type="button">
+<span class="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+</div>
+<!-- Informational Note Pill -->
+<div class="px-margin shrink-0 pb-3">
+<div class="flex items-center gap-2 bg-surface-container py-1.5 px-2.5 rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-primary shrink-0">info</span>
+<span class="font-micro text-micro leading-tight text-on-surface-variant">
+          Turkish (Türkçe) &amp; Azerbaijani (Azərbaycanca) separate • 3 RTL locales supported
+        </span>
+</div>
+</div>
+<!-- Language List Viewport -->
+<div class="flex-1 overflow-y-auto px-margin overscroll-contain space-y-1.5 pb-2" id="languages-scroll-container">
+<!-- Row 1: English -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container-high transition-all cursor-pointer" data-locale="en" data-name="english">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-primary/10 text-primary uppercase">EN</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">English</span>
+<span class="font-micro text-micro text-outline truncate">Global / International</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 2: Türkçe -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="tr-TR" data-name="turkce turkish turkiye">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">TR</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Türkçe</span>
+<span class="font-micro text-micro text-outline truncate">Türkiye</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 3: Azərbaycanca -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="az-AZ" data-name="azerbaycanca azerbaijani azerbaycan">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">AZ</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Azərbaycanca</span>
+<span class="font-micro text-micro text-outline truncate">Azərbaycan</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 4: فارسی (Persian) -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="fa-IR" data-name="farsi persian iran">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">FA</span>
+<div class="flex flex-col truncate">
+<div class="flex items-center gap-1.5">
+<span class="font-data-md text-data-md text-on-surface truncate" dir="rtl">فارسی</span>
+<span class="font-micro text-[9px] px-1 rounded bg-secondary-container text-on-secondary-container tracking-wider font-semibold">RTL</span>
+</div>
+<span class="font-micro text-micro text-outline truncate">Persian • Iran</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 5: 日本語 -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="ja-JP" data-name="nihongo japanese japan">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">JA</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">日本語</span>
+<span class="font-micro text-micro text-outline truncate">Japan</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 6: Tiếng Việt -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="vi-VN" data-name="tieng viet vietnamese vietnam">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">VI</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Tiếng Việt</span>
+<span class="font-micro text-micro text-outline truncate">Việt Nam</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 7: Русский -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="ru-RU" data-name="russkiy russian russia">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">RU</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Русский</span>
+<span class="font-micro text-micro text-outline truncate">Russian Federation</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 8: Español -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="es-ES" data-name="espanol spanish spain mexico">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">ES</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Español</span>
+<span class="font-micro text-micro text-outline truncate">España &amp; LATAM</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 9: 简体中文 -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="zh-CN" data-name="zhongwen simplified chinese china">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">ZH</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">简体中文</span>
+<span class="font-micro text-micro text-outline truncate">Simplified Chinese</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 10: العربية -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="ar-SA" data-name="arabic saudi uae">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">AR</span>
+<div class="flex flex-col truncate">
+<div class="flex items-center gap-1.5">
+<span class="font-data-md text-data-md text-on-surface truncate" dir="rtl">العربية</span>
+<span class="font-micro text-[9px] px-1 rounded bg-secondary-container text-on-secondary-container tracking-wider font-semibold">RTL</span>
+</div>
+<span class="font-micro text-micro text-outline truncate">Arabic • MENA Region</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 11: עברית -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="he-IL" data-name="hebrew ivrit israel">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">HE</span>
+<div class="flex flex-col truncate">
+<div class="flex items-center gap-1.5">
+<span class="font-data-md text-data-md text-on-surface truncate" dir="rtl">עברית</span>
+<span class="font-micro text-[9px] px-1 rounded bg-secondary-container text-on-secondary-container tracking-wider font-semibold">RTL</span>
+</div>
+<span class="font-micro text-micro text-outline truncate">Hebrew • Israel</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 12: Português -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="pt-BR" data-name="portugues portuguese brazil portugal">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">PT</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Português</span>
+<span class="font-micro text-micro text-outline truncate">Brasil</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 13: Bahasa Indonesia -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="id-ID" data-name="bahasa indonesia indonesian">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">ID</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Bahasa Indonesia</span>
+<span class="font-micro text-micro text-outline truncate">Indonesia</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 14: हिन्दी -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="hi-IN" data-name="hindi bharat india">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">HI</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">हिन्दी</span>
+<span class="font-micro text-micro text-outline truncate">India (Hindi)</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 15: Filipino -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="fil-PH" data-name="filipino tagalog philippines">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">FIL</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Filipino</span>
+<span class="font-micro text-micro text-outline truncate">Philippines</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 16: Deutsch -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="de-DE" data-name="deutsch german germany austria">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">DE</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Deutsch</span>
+<span class="font-micro text-micro text-outline truncate">Deutschland • DACH</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 17: Français -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="fr-FR" data-name="francais french france canada">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">FR</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Français</span>
+<span class="font-micro text-micro text-outline truncate">France • Monde francophone</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 18: 한국어 -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="ko-KR" data-name="hangul korean south korea">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">KO</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">한국어</span>
+<span class="font-micro text-micro text-outline truncate">대한민국 (South Korea)</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 19: Italiano -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="it-IT" data-name="italiano italian italy">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">IT</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Italiano</span>
+<span class="font-micro text-micro text-outline truncate">Italia</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 20: Polski -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="pl-PL" data-name="polski polish poland">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">PL</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Polski</span>
+<span class="font-micro text-micro text-outline truncate">Polska</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 21: Nederlands -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="nl-NL" data-name="nederlands dutch netherlands">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">NL</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Nederlands</span>
+<span class="font-micro text-micro text-outline truncate">Nederland</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 22: Українська -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="uk-UA" data-name="ukrainska ukrainian ukraine">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">UK</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Українська</span>
+<span class="font-micro text-micro text-outline truncate">Україна</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 23: 繁體中文 -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="zh-TW" data-name="traditional chinese taiwan hongkong">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">ZH-TW</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">繁體中文</span>
+<span class="font-micro text-micro text-outline truncate">Traditional Chinese • 台灣</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 24: ไทย -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="th-TH" data-name="thai thailand">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">TH</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">ไทย</span>
+<span class="font-micro text-micro text-outline truncate">Thailand</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 25: Svenska -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="sv-SE" data-name="svenska swedish sweden">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">SV</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Svenska</span>
+<span class="font-micro text-micro text-outline truncate">Sverige</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 26: Čeština -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="cs-CZ" data-name="cestina czech czechia">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">CS</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Čeština</span>
+<span class="font-micro text-micro text-outline truncate">Česká republika</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 27: Ελληνικά -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="el-GR" data-name="ellinika greek greece">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">EL</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Ελληνικά</span>
+<span class="font-micro text-micro text-outline truncate">Greece</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 28: Magyar -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="hu-HU" data-name="magyar hungarian hungary">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">HU</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Magyar</span>
+<span class="font-micro text-micro text-outline truncate">Magyarország</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Row 29: Română -->
+<div class="locale-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer" data-locale="ro-RO" data-name="romana romanian romania">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant uppercase">RO</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">Română</span>
+<span class="font-micro text-micro text-outline truncate">România</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="checkmark-icon hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Empty state for search -->
+<div class="hidden flex-col items-center justify-center py-8 text-center" id="no-search-results">
+<span class="material-symbols-outlined text-outline text-[32px] mb-2">manage_search</span>
+<div class="font-headline-md text-data-md text-on-surface">No locales found</div>
+<div class="font-body-sm text-body-sm text-outline mt-1 max-w-[200px]">Try searching by language name, country, or ISO abbreviation.</div>
+</div>
+</div>
+<!-- Currency Viewport (Hidden initially) -->
+<div class="hidden flex-1 overflow-y-auto px-margin overscroll-contain space-y-1.5 pb-2" id="currencies-scroll-container">
+<!-- Currency 1: USDC -->
+<div class="curr-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-bold uppercase">$</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">USDC (Base Unit)</span>
+<span class="font-micro text-micro text-outline truncate">Circle USD • Native Order Engine</span>
+</div>
+</div>
+<span class="curr-check material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+<!-- Currency 2: USD -->
+<div class="curr-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-bold uppercase">$</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">USD ($)</span>
+<span class="font-micro text-micro text-outline truncate">United States Dollar</span>
+</div>
+</div>
+<span class="curr-check hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+<!-- Currency 3: EUR -->
+<div class="curr-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-bold uppercase">€</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">EUR (€)</span>
+<span class="font-micro text-micro text-outline truncate">European Union Euro</span>
+</div>
+</div>
+<span class="curr-check hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+<!-- Currency 4: TRY -->
+<div class="curr-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-bold uppercase">₺</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">TRY (₺)</span>
+<span class="font-micro text-micro text-outline truncate">Türk Lirası</span>
+</div>
+</div>
+<span class="curr-check hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+<!-- Currency 5: GBP -->
+<div class="curr-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-bold uppercase">£</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">GBP (£)</span>
+<span class="font-micro text-micro text-outline truncate">British Pound Sterling</span>
+</div>
+</div>
+<span class="curr-check hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+<!-- Currency 6: JPY -->
+<div class="curr-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-bold uppercase">¥</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">JPY (¥)</span>
+<span class="font-micro text-micro text-outline truncate">Japanese Yen</span>
+</div>
+</div>
+<span class="curr-check hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+<!-- Currency 7: AZN -->
+<div class="curr-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-bold uppercase">₼</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">AZN (₼)</span>
+<span class="font-micro text-micro text-outline truncate">Azərbaycan Manatı</span>
+</div>
+</div>
+<span class="curr-check hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+<!-- Currency 8: BRL -->
+<div class="curr-row group flex items-center justify-between min-h-[48px] px-3 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="font-micro text-micro font-mono px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-bold uppercase">R$</span>
+<div class="flex flex-col truncate">
+<span class="font-data-md text-data-md text-on-surface truncate">BRL (R$)</span>
+<span class="font-micro text-micro text-outline truncate">Real Brasileiro</span>
+</div>
+</div>
+<span class="curr-check hidden material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+</div>
+<!-- Sticky Bottom Action Bar -->
+<div class="p-margin bg-surface-container-lowest/90 backdrop-blur-md shrink-0 flex items-center gap-space-sm">
+<button class="w-full h-12 bg-primary-container hover:bg-secondary active:scale-[0.98] rounded-xl flex items-center justify-center gap-2 text-on-primary-container hover:text-on-secondary transition-all font-data-md text-data-md font-bold shadow-md" id="save-locale-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+<span id="save-button-label">Save &amp; Apply Locale</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+(function() {
+  const bottomSheet = document.getElementById('locale-bottom-sheet');
+  const scrim = document.getElementById('locale-modal-scrim');
+  const closeBtn = document.getElementById('close-sheet-btn');
+  const searchInput = document.getElementById('locale-search-input');
+  const clearSearchBtn = document.getElementById('clear-search-btn');
+  const tabLang = document.getElementById('tab-lang');
+  const tabCurr = document.getElementById('tab-curr');
+  const langContainer = document.getElementById('languages-scroll-container');
+  const currContainer = document.getElementById('currencies-scroll-container');
+  const noResults = document.getElementById('no-search-results');
+  const saveBtn = document.getElementById('save-locale-btn');
+  const saveLabel = document.getElementById('save-button-label');
+
+  let selectedLocale = 'en';
+  let activeTab = 'language';
+
+  // Toggle tab views
+  function setTab(tab) {
+    activeTab = tab;
+    if (tab === 'language') {
+      tabLang.className = "flex-1 py-1.5 px-3 rounded text-center font-data-sm text-data-sm transition-all duration-150 flex items-center justify-center gap-1.5 bg-primary-container text-on-primary-container shadow-sm font-semibold";
+      tabCurr.className = "flex-1 py-1.5 px-3 rounded text-center font-data-sm text-data-sm transition-all duration-150 flex items-center justify-center gap-1.5 text-on-surface-variant hover:text-on-surface";
+      langContainer.classList.remove('hidden');
+      currContainer.classList.add('hidden');
+      searchInput.placeholder = "Search 29 languages...";
+    } else {
+      tabCurr.className = "flex-1 py-1.5 px-3 rounded text-center font-data-sm text-data-sm transition-all duration-150 flex items-center justify-center gap-1.5 bg-primary-container text-on-primary-container shadow-sm font-semibold";
+      tabLang.className = "flex-1 py-1.5 px-3 rounded text-center font-data-sm text-data-sm transition-all duration-150 flex items-center justify-center gap-1.5 text-on-surface-variant hover:text-on-surface";
+      currContainer.classList.remove('hidden');
+      langContainer.classList.add('hidden');
+      searchInput.placeholder = "Search 8 currencies...";
+    }
+    filterList(searchInput.value.toLowerCase());
+  }
+
+  tabLang.addEventListener('click', () => setTab('language'));
+  tabCurr.addEventListener('click', () => setTab('currency'));
+
+  // Language selection logic
+  const langRows = document.querySelectorAll('.locale-row');
+  langRows.forEach(row => {
+    row.addEventListener('click', () => {
+      langRows.forEach(r => {
+        r.classList.remove('bg-surface-container-high');
+        r.classList.add('bg-surface-container');
+        r.querySelector('.checkmark-icon').classList.add('hidden');
+      });
+      row.classList.add('bg-surface-container-high');
+      row.classList.remove('bg-surface-container');
+      row.querySelector('.checkmark-icon').classList.remove('hidden');
+      selectedLocale = row.getAttribute('data-locale');
+    });
+  });
+
+  // Currency selection logic
+  const currRows = document.querySelectorAll('.curr-row');
+  currRows.forEach(row => {
+    row.addEventListener('click', () => {
+      currRows.forEach(r => {
+        r.classList.remove('bg-surface-container-high');
+        r.classList.add('bg-surface-container');
+        r.querySelector('.curr-check').classList.add('hidden');
+      });
+      row.classList.add('bg-surface-container-high');
+      row.classList.remove('bg-surface-container');
+      row.querySelector('.curr-check').classList.remove('hidden');
+    });
+  });
+
+  // Filter Search
+  function filterList(term) {
+    if (activeTab === 'language') {
+      let visibleCount = 0;
+      langRows.forEach(row => {
+        const queryTarget = (row.getAttribute('data-name') + ' ' + row.getAttribute('data-locale')).toLowerCase();
+        if (queryTarget.includes(term)) {
+          row.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+    } else {
+      currRows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        if (text.includes(term)) {
+          row.classList.remove('hidden');
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+    }
+
+    if (term.length > 0) {
+      clearSearchBtn.classList.remove('hidden');
+    } else {
+      clearSearchBtn.classList.add('hidden');
+    }
+  }
+
+  searchInput.addEventListener('input', (e) => {
+    filterList(e.target.value.toLowerCase().trim());
+  });
+
+  clearSearchBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    filterList('');
+    searchInput.focus();
+  });
+
+  // Close animation simulation
+  function dismissSheet() {
+    bottomSheet.style.transform = 'translateY(100%)';
+    scrim.style.opacity = '0';
+    setTimeout(() => {
+      bottomSheet.style.display = 'none';
+      scrim.style.display = 'none';
+    }, 280);
+  }
+
+  closeBtn.addEventListener('click', dismissSheet);
+  scrim.addEventListener('click', dismissSheet);
+
+  // Save action with micro-feedback
+  saveBtn.addEventListener('click', () => {
+    saveLabel.innerText = "Applying Preferences...";
+    saveBtn.classList.add('opacity-80', 'pointer-events-none');
+    setTimeout(() => {
+      saveLabel.innerText = "Applied ✓";
+      setTimeout(dismissSheet, 400);
+    }, 600);
+  });
+})();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.45)]" data-active-classes="text-primary font-semibold"><div class="flex justify-between items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] flex-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="markets-feed" href="#"><span class="material-symbols-outlined text-[20px]">candlestick_chart</span><span class="font-label-caps text-[10px] tracking-tight">Markets</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] flex-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="explore-categories" href="#"><span class="material-symbols-outlined text-[20px]">travel_explore</span><span class="font-label-caps text-[10px] tracking-tight">Explore</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] flex-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="positions-and-orders" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="font-label-caps text-[10px] tracking-tight">Positions</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] flex-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="settlement-wallet" href="#"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span><span class="font-label-caps text-[10px] tracking-tight">Wallet</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] flex-1 transition-colors text-primary font-semibold" data-path="institutional-settings" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-label-caps text-[10px] tracking-tight">Settings</span></a></div></nav></body></html>

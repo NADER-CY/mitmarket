@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-primary-fixed-variant": "#000000", "surface-container": "#101216", "on-surface-variant": "#98A5B5", "on-tertiary": "#000000", "surface-tint": "#1463ff", "surface-variant": "#101216", "inverse-surface": "#F4F6FA", "secondary-fixed": "#EAA343", "on-surface": "#F4F6FA", "surface-container-high": "#101216", "on-background": "#F4F6FA", "on-secondary": "#000000", "surface-container-highest": "#101216", "on-secondary-fixed-variant": "#000000", "primary-container": "#1463ff", "on-secondary-container": "#F4F6FA", "surface-container-low": "#101216", "tertiary-fixed": "#0bba74", "surface": "#000000", "on-secondary-fixed": "#000000", "primary-fixed": "dae2ff", "secondary-container": "#101216", "primary": "#1463ff", "inverse-primary": "#1463ff", "outline": "#98A5B5", "on-tertiary-container": "#000000", "surface-dim": "#000000", "background": "#000000", "tertiary-fixed-dim": "#0bba74", "inverse-on-surface": "#101216", "on-error": "#000000", "surface-bright": "#29313D", "surface-container-lowest": "#101216", "error": "#ff4761", "secondary": "#EAA343", "tertiary": "#0bba74", "on-error-container": "#ff4761", "on-primary-container": "#000000", "tertiary-container": "#0bba74", "primary-fixed-dim": "#1463ff", "error-container": "#101216", "outline-variant": "#29313D", "on-primary-fixed": "#000000", "on-primary": "#000000", "secondary-fixed-dim": "#EAA343", "on-tertiary-fixed": "#000000", "on-tertiary-fixed-variant": "#000000" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-xs": "0.25rem", "space-md": "0.75rem", "space-lg": "1rem", "gutter-desktop": "1rem", "gutter": "0.75rem", "margin": "1rem", "margin-desktop": "1.5rem", "space-sm": "0.5rem", "space-xl": "1.5rem" }, fontFamily: { "data-sm": ["Inter"], "micro": ["Inter"], "headline-lg": ["Inter"], "data-md": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "display-lg": ["Inter"], "label-caps": ["Inter"], "data-lg": ["Inter"], "body-sm": ["Inter"], "body-md": ["Inter"] }, fontSize: { "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "micro": ["10px", { "lineHeight": "12px", "fontWeight": "500" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "data-md": ["14px", { "lineHeight": "18px", "fontWeight": "600" }], "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "data-lg": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }] } } } }</script><style>body { min-height: max(884px, 100dvh); }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col relative select-none"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><button aria-label="Toggle Admin Drawer" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-high text-on-surface hover:text-primary transition-colors" onclick="document.getElementById('admin-drawer').classList.toggle('-translate-x-full');document.getElementById('drawer-backdrop').classList.toggle('hidden');" type="button"><span class="material-symbols-outlined text-data-lg">menu</span></button><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight font-bold text-on-surface">MITMARKET<span class="text-primary font-headline-md text-headline-md font-bold">PRO</span></span><span class="px-1.5 py-0.5 rounded bg-primary-container/20 text-primary font-label-caps text-label-caps uppercase">ADMIN</span></div><div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="font-micro text-micro text-tertiary uppercase tracking-wider">LIVE 99.98%</span></div></div></div><div class="flex items-center gap-space-xs"><div class="hidden sm:flex items-center gap-1 px-2 py-1 rounded bg-surface-container-low text-tertiary font-micro text-micro"><span class="material-symbols-outlined text-[14px]">shield</span><span>2-SIG OK</span></div><button aria-label="Notifications" class="relative w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-data-lg">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ring-2 ring-surface-container-high"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="px-gutter py-1 bg-surface-container-lowest flex items-center justify-between shadow-[0_1px_4px_rgba(0,0,0,0.02)]"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[14px]">verified_user</span><span class="font-micro text-micro text-on-surface-variant uppercase tracking-wide">ROLE: <span class="text-secondary font-semibold">SUPER_ADMIN (L4)</span></span></div><div class="flex items-center gap-space-xs"><span class="font-micro text-micro text-tertiary font-mono hidden xs:inline">ZERO-TAMPER ✓</span><span class="font-micro text-micro text-outline">SEC_ENV // PROD-US-EAST</span></div></div></header><div class="fixed inset-0 z-50 bg-surface-container-lowest/70 backdrop-blur-sm hidden transition-opacity duration-300" id="drawer-backdrop" onclick="document.getElementById('admin-drawer').classList.add('-translate-x-full');this.classList.add('hidden');"></div><aside class="fixed top-0 bottom-0 left-0 z-50 w-72 bg-surface-container-low backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between pt-safe pb-safe" id="admin-drawer"><div class="flex flex-col h-full overflow-y-auto"><div class="p-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col"><span class="font-data-md text-data-md text-on-surface leading-tight">Alexander Vance</span><span class="font-micro text-micro text-primary uppercase">SUPER_ADMIN • L4</span></div></div><button aria-label="Close Drawer" class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="document.getElementById('admin-drawer').classList.add('-translate-x-full');document.getElementById('drawer-backdrop').classList.add('hidden');"><span class="material-symbols-outlined text-data-lg">close</span></button></div><div class="px-space-md py-space-xs"><div class="p-space-sm rounded bg-surface-container-high flex items-center justify-between"><span class="font-micro text-micro text-outline uppercase">Surveillance Vault</span><span class="px-1.5 py-0.5 rounded bg-tertiary/10 text-tertiary font-micro text-micro font-medium">ACTIVE</span></div></div><nav class="flex-1 px-space-sm py-space-md flex flex-col gap-1" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="overview-dashboard" href="#"><span class="material-symbols-outlined text-data-lg">dashboard</span><span class="font-body-md text-body-md">Overview / Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="markets-management" href="#"><span class="material-symbols-outlined text-data-lg">candlestick_chart</span><span class="font-body-md text-body-md">Markets Management</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="trading-surveillance" href="#"><span class="material-symbols-outlined text-data-lg">visibility</span><span class="font-body-md text-body-md">Trading Surveillance</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="user-management" href="#"><span class="material-symbols-outlined text-data-lg">group</span><span class="font-body-md text-body-md">User Management</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="resolution-and-settlement" href="#"><span class="material-symbols-outlined text-data-lg">gavel</span><span class="font-body-md text-body-md">Resolution &amp; Settlement</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="wallets-and-treasury" href="#"><span class="material-symbols-outlined text-data-lg">account_balance_wallet</span><span class="font-body-md text-body-md">Wallets &amp; Treasury</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="financial-reports" href="#"><span class="material-symbols-outlined text-data-lg">description</span><span class="font-body-md text-body-md">Financial Reports</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="audit-logs" href="#"><span class="material-symbols-outlined text-data-lg">receipt_long</span><span class="font-body-md text-body-md">Audit Logs</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="admin-settings" href="#"><span class="material-symbols-outlined text-data-lg">tune</span><span class="font-body-md text-body-md">System Settings</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" data-path="api-and-feeds" href="#"><span class="material-symbols-outlined text-data-lg">hub</span><span class="font-body-md text-body-md">API &amp; Feeds</span></a></nav><div class="p-space-md bg-surface-container-lowest mt-auto"><div class="flex items-center justify-between text-outline"><span class="font-micro text-micro font-mono uppercase">Dual-Sig: VALID (2/3)</span><span class="font-micro text-micro">v4.19.2</span></div></div></div></aside><main class="flex flex-col relative w-full pt-20 bg-surface min-h-screen" id="content"><div class="flex flex-col w-full pb-24 text-on-surface">
+<!-- Orchestration & Telemetry Hero Strip -->
+<section class="flex flex-col px-gutter py-space-md bg-surface-container-lowest">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="inline-block w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-micro text-micro uppercase tracking-wider text-outline">
+        FEED ORCHESTRATION &amp; TELEMETRY // READ-ONLY PASSIVE INGESTION
+      </span>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface mb-space-sm leading-snug">
+      External Reference Feeds &amp; Market Data Management
+    </h1>
+<!-- Protocol Architecture Notices -->
+<div class="flex flex-col gap-space-xs mt-1">
+<div class="flex items-start gap-space-xs p-space-sm rounded-lg bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary shrink-0 mt-0.5">verified</span>
+<p class="font-micro text-micro leading-normal">
+<strong class="text-tertiary uppercase">Reference Feed: Polymarket (Read-Only)</strong> — Public benchmark signals &amp; parity tracking. Zero execution dependency.
+        </p>
+</div>
+<div class="flex items-start gap-space-xs p-space-sm rounded-lg bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">lock</span>
+<p class="font-micro text-micro leading-normal">
+<strong class="text-primary uppercase">Matching Engine: 100% Native Independent</strong> — Deterministic CLOB &amp; settlement directly on native audited smart contracts.
+        </p>
+</div>
+</div>
+<!-- Live Orchestration Action Buttons -->
+<div class="grid grid-cols-3 gap-space-xs mt-space-md">
+<button class="h-11 px-space-xs flex items-center justify-center gap-1 rounded bg-surface-container-high hover:bg-surface-bright active:scale-95 text-on-surface font-label-caps text-label-caps uppercase transition-all" id="btn-refresh" type="button">
+<span class="material-symbols-outlined text-[15px] text-primary" id="refresh-icon">autorenew</span>
+<span class="truncate">Refresh Meta</span>
+</button>
+<button class="h-11 px-space-xs flex items-center justify-center gap-1 rounded bg-surface-container-high hover:bg-surface-bright active:scale-95 text-on-surface font-label-caps text-label-caps uppercase transition-all" id="btn-test" type="button">
+<span class="material-symbols-outlined text-[15px] text-tertiary">network_ping</span>
+<span class="truncate">Ping Nodes</span>
+</button>
+<button class="h-11 px-space-xs flex items-center justify-center gap-1 rounded bg-surface-container-high hover:bg-surface-bright active:scale-95 text-on-surface font-label-caps text-label-caps uppercase transition-all" id="btn-sync" type="button">
+<span class="material-symbols-outlined text-[15px] text-secondary">history</span>
+<span class="truncate">Sync Logs</span>
+</button>
+</div>
+</section>
+<!-- Data Pipeline Health Matrix -->
+<section class="flex flex-col px-gutter mt-space-md">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[17px]">monitor_heart</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-outline font-bold">Data Pipeline Health</span>
+</div>
+<span class="font-micro text-micro px-2 py-0.5 rounded bg-surface-container-high text-tertiary">All 6 Subsystems OK</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<!-- 1. Polymarket Gamma API -->
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<span class="font-micro text-micro font-bold text-on-surface truncate">Gamma REST API</span>
+<span class="inline-flex items-center px-1.5 py-0.2 rounded font-micro text-micro bg-tertiary-container text-on-tertiary-container font-semibold">ONLINE</span>
+</div>
+<div class="font-data-md text-data-md text-tertiary tracking-tight font-mono">42ms</div>
+<div class="flex justify-between font-micro text-micro text-on-surface-variant mt-1 pt-1 bg-surface-container-lowest/40 px-1 rounded">
+<span>48 req/s</span>
+<span class="font-mono">0.4s ago</span>
+</div>
+</div>
+<!-- 2. Polymarket CLOB API -->
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<span class="font-micro text-micro font-bold text-on-surface truncate">CLOB REST API</span>
+<span class="inline-flex items-center px-1.5 py-0.2 rounded font-micro text-micro bg-tertiary-container text-on-tertiary-container font-semibold">—</span>
+</div>
+<div class="font-data-md text-data-md text-tertiary tracking-tight font-mono">38ms</div>
+<div class="flex justify-between font-micro text-micro text-on-surface-variant mt-1 pt-1 bg-surface-container-lowest/40 px-1 rounded">
+<span>120 req/s</span>
+<span class="font-mono">±2ms jit</span>
+</div>
+</div>
+<!-- 3. Data & Analytics API -->
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<span class="font-micro text-micro font-bold text-on-surface truncate">Analytics Engine</span>
+<span class="inline-flex items-center px-1.5 py-0.2 rounded font-micro text-micro bg-surface-container-high text-primary font-semibold">SYNCED</span>
+</div>
+<div class="font-data-md text-data-md text-on-surface tracking-tight font-mono">110ms</div>
+<div class="flex justify-between font-micro text-micro text-on-surface-variant mt-1 pt-1 bg-surface-container-lowest/40 px-1 rounded">
+<span>15m poll</span>
+<span class="text-tertiary">Aggr OK</span>
+</div>
+</div>
+<!-- 4. Polymarket WebSocket -->
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<span class="font-micro text-micro font-bold text-on-surface truncate">CLOB WebSocket</span>
+<span class="inline-flex items-center px-1.5 py-0.2 rounded font-micro text-micro bg-tertiary-container text-on-tertiary-container font-semibold">LIVE</span>
+</div>
+<div class="font-data-md text-data-md text-tertiary tracking-tight font-mono">0.8ms lag</div>
+<div class="flex justify-between font-micro text-micro text-on-surface-variant mt-1 pt-1 bg-surface-container-lowest/40 px-1 rounded">
+<span>1,480 /s</span>
+<span class="text-tertiary font-mono">0 drops</span>
+</div>
+</div>
+<!-- 5. MITMARKET Data Gateway -->
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<span class="font-micro text-micro font-bold text-on-surface truncate">MITMARKET Gateway</span>
+<span class="inline-flex items-center px-1.5 py-0.2 rounded font-micro text-micro bg-primary-container text-on-primary-container font-semibold">OPTIMAL</span>
+</div>
+<div class="font-data-md text-data-md text-primary tracking-tight font-mono">0.42ms</div>
+<div class="flex justify-between font-micro text-micro text-on-surface-variant mt-1 pt-1 bg-surface-container-lowest/40 px-1 rounded">
+<span>24,190 Subs</span>
+<span class="font-mono">FlatBuf</span>
+</div>
+</div>
+<!-- 6. MITMARKET Relayer Node -->
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<span class="font-micro text-micro font-bold text-on-surface truncate">Relayer Node #4</span>
+<span class="inline-flex items-center px-1.5 py-0.2 rounded font-micro text-micro bg-tertiary-container text-on-tertiary-container font-semibold">SYNCED</span>
+</div>
+<div class="font-data-md text-data-md text-on-surface tracking-tight font-mono truncate">#67,419,002</div>
+<div class="flex justify-between font-micro text-micro text-on-surface-variant mt-1 pt-1 bg-surface-container-lowest/40 px-1 rounded">
+<span>48 Peers</span>
+<span class="text-tertiary">0 Mempool</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Ingestion Aggregates Bar -->
+<section class="flex flex-col px-gutter mt-space-md">
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-space-xs shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline">Telemetry Totals</span>
+<span class="font-micro text-micro text-tertiary font-mono">0 BREACHES DETECTED</span>
+</div>
+<div class="grid grid-cols-4 gap-1 text-center divide-x divide-outline-variant/30">
+<div class="flex flex-col">
+<span class="font-data-md text-data-md text-on-surface font-mono">1,842</span>
+<span class="font-micro text-micro text-on-surface-variant truncate">Ext Events</span>
+</div>
+<div class="flex flex-col">
+<span class="font-data-md text-data-md text-on-surface font-mono">486</span>
+<span class="font-micro text-micro text-on-surface-variant truncate">Ref Mkts</span>
+</div>
+<div class="flex flex-col">
+<span class="font-data-md text-data-md text-tertiary font-mono">142</span>
+<span class="font-micro text-micro text-on-surface-variant truncate">Mapped (100%)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-data-md text-data-md text-secondary font-mono">344</span>
+<span class="font-micro text-micro text-on-surface-variant truncate">Unmapped</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter & Search Strip -->
+<section class="flex flex-col px-gutter mt-space-md gap-space-sm">
+<!-- Search Bar -->
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-3 text-outline text-[18px]">search</span>
+<input class="w-full h-11 pl-9 pr-8 rounded-lg bg-surface-container-high text-on-surface font-body-sm text-body-sm placeholder:text-outline outline-none focus:bg-surface-bright transition-all shadow-sm" id="mkt-search" placeholder="Search MITMARKET ID, Ref Hash, Slug..." type="text"/>
+<button class="absolute right-3 top-3 text-outline hover:text-on-surface hidden" id="clear-search" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<!-- Filter Tabs (Horizontal Snap) -->
+<div class="flex items-center gap-space-xs overflow-x-auto no-scrollbar py-0.5" id="filter-tabs">
+<button class="filter-pill active shrink-0 h-9 px-space-md rounded-full bg-primary text-on-primary font-label-caps text-label-caps uppercase transition-all shadow-sm" data-filter="all" type="button">
+        All Mapped (142)
+      </button>
+<button class="filter-pill shrink-0 h-9 px-space-md rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps uppercase transition-all" data-filter="arbitrage" type="button">
+        Arbitrage Radar (Δ &gt; 0.5¢)
+      </button>
+<button class="filter-pill shrink-0 h-9 px-space-md rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps uppercase transition-all" data-filter="alerts" type="button">
+        Stale Alerts (0)
+      </button>
+</div>
+</section>
+<!-- Cross-Venue Mapping Feed Cards -->
+<section class="flex flex-col px-gutter mt-space-md gap-space-sm" id="cards-container">
+<!-- Card 1: Crypto -->
+<article class="market-card flex flex-col p-space-md rounded-xl bg-surface-container-low shadow-sm" data-category="crypto" data-diff="0.2">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-label-caps text-label-caps uppercase font-bold">CRYPTO</span>
+<span class="font-micro text-micro text-outline font-mono">#MKT-BTC-120K</span>
+</div>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface leading-snug">
+            Will Bitcoin reach $120k before Dec 31, 2026?
+          </h2>
+</div>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-micro text-micro font-semibold uppercase">SYNC</span>
+</div>
+</div>
+<div class="flex items-center gap-1 mt-2 text-outline font-micro text-micro">
+<span>Ref Hash:</span>
+<span class="font-mono text-on-surface-variant">0x71a2...99b1</span>
+<span class="ml-auto text-tertiary font-mono">0.12s latency</span>
+</div>
+<!-- Spread Grid -->
+<div class="grid grid-cols-3 gap-1 mt-space-sm p-space-xs rounded-lg bg-surface-container">
+<div class="flex flex-col p-1 text-center">
+<span class="font-micro text-micro text-outline">MITMARKET CLOB</span>
+<span class="font-data-md text-data-md text-tertiary font-mono">72.0¢</span>
+</div>
+<div class="flex flex-col p-1 text-center">
+<span class="font-micro text-micro text-outline">Polymarket</span>
+<span class="font-data-md text-data-md text-on-surface font-mono">71.8¢</span>
+</div>
+<div class="flex flex-col p-1 text-center">
+<span class="font-micro text-micro text-outline">Spread</span>
+<span class="font-data-md text-data-md text-tertiary font-mono">+0.2¢</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-space-sm">
+<span class="font-micro text-micro text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> In Parity Band (&lt;0.5¢)
+        </span>
+<button class="inspect-btn h-11 px-space-md rounded bg-surface-container-high hover:bg-surface-bright active:scale-95 text-primary font-label-caps text-label-caps uppercase transition-all flex items-center gap-1" type="button">
+<span>Inspect Stream</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Macro (Spread > 0.5c) -->
+<article class="market-card flex flex-col p-space-md rounded-xl bg-surface-container-low shadow-sm" data-category="macro" data-diff="0.5">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-secondary font-label-caps text-label-caps uppercase font-bold">MACRO</span>
+<span class="font-micro text-micro text-outline font-mono">#MKT-FED-25BPS</span>
+</div>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface leading-snug">
+            Federal Reserve Cuts ≥25bps June 2025
+          </h2>
+</div>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-micro text-micro font-semibold uppercase">MONITOR</span>
+</div>
+</div>
+<div class="flex items-center gap-1 mt-2 text-outline font-micro text-micro">
+<span>Ref Hash:</span>
+<span class="font-mono text-on-surface-variant">0x48e1...32a0</span>
+<span class="ml-auto text-secondary font-mono">0.38s latency</span>
+</div>
+<!-- Spread Grid -->
+<div class="grid grid-cols-3 gap-1 mt-space-sm p-space-xs rounded-lg bg-surface-container">
+<div class="flex flex-col p-1 text-center">
+<span class="font-micro text-micro text-outline">MITMARKET CLOB</span>
+<span class="font-data-md text-data-md text-tertiary font-mono">68.0¢</span>
+</div>
+<div class="flex flex-col p-1 text-center">
+<span class="font-micro text-micro text-outline">Polymarket</span>
+<span class="font-data-md text-data-md text-on-surface font-mono">67.5¢</span>
+</div>
+<div class="flex flex-col p-1 text-center">
+<span class="font-micro text-micro text-outline">Spread</span>
+<span class="font-data-md text-data-md text-secondary font-mono">+0.5¢</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-space-sm">
+<span class="font-micro text-micro text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span> Arbitrage Boundary Alert
+        </span>
+<button class="inspect-btn h-11 px-space-md rounded bg-surface-container-high hover:bg-surface-bright active:scale-95 text-primary font-label-caps text-label-caps uppercase transition-all flex items-center gap-1" type="button">
+<span>Inspect Stream</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Tech & AI -->
+<article class="market-card flex flex-col p-space-md rounded-xl bg-surface-container-low shadow-sm" data-category="tech" data-diff="0.2">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-primary-fixed-dim font-label-caps text-label-caps uppercase font-bold">TECH &amp; AI</span>
+<span class="font-micro text-micro text-outline font-mono">#MKT-GPT5-REL</span>
+</div>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface leading-snug">
+            OpenAI GPT-5 Public GA Release Before Q4 2025
+          </h2>
+</div>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-micro text-micro font-semibold uppercase">SYNC</span>
+</div>
+</div>
+<div class="flex items-center gap-1 mt-2 text-outline font-micro text-micro">
+<span>Ref Hash:</span>
+<span class="font-mono text-on-surface-variant">0x12c4...19ff</span>
+<span class="ml-auto text-tertiary font-mono">0.08s latency</span>
+</div>
+<!-- Spread Grid -->
+<div class="grid grid-cols-3 gap-1 mt-space-sm p-space-xs rounded-lg bg-surface-container">
+<div class="flex flex-col p-1 text-center">
+<span class="font-micro text-micro text-outline">MITMARKET CLOB</span>
+<span class="font-data-md text-data-md text-tertiary font-mono">32.0¢</span>
+</div>
+<div class="flex flex-col p-1 text-center">
+<span class="font-micro text-micro text-outline">Polymarket</span>
+<span class="font-data-md text-data-md text-on-surface font-mono">32.2¢</span>
+</div>
+<div class="flex flex-col p-1 text-center">
+<span class="font-micro text-micro text-outline">Spread</span>
+<span class="font-data-md text-data-md text-on-surface font-mono">-0.2¢</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-space-sm">
+<span class="font-micro text-micro text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> In Parity Band (&lt;0.5¢)
+        </span>
+<button class="inspect-btn h-11 px-space-md rounded bg-surface-container-high hover:bg-surface-bright active:scale-95 text-primary font-label-caps text-label-caps uppercase transition-all flex items-center gap-1" type="button">
+<span>Inspect Stream</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Dispute Hold Alert -->
+<article class="market-card flex flex-col p-space-md rounded-xl bg-surface-container-low shadow-sm" data-category="space" data-diff="0.4" data-status="hold">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-secondary-fixed-dim font-label-caps text-label-caps uppercase font-bold">SPACE</span>
+<span class="font-micro text-micro text-outline font-mono">#MKT-SPX-IFT5</span>
+</div>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface leading-snug">
+            SpaceX Starship IFT-5 Booster Tower Catch
+          </h2>
+</div>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+<span class="font-micro text-micro font-bold uppercase">DISPUTE HOLD</span>
+</div>
+</div>
+<div class="flex items-center gap-1 mt-2 text-outline font-micro text-micro">
+<span>Ref Hash:</span>
+<span class="font-mono text-on-surface-variant">0x9920...02ec</span>
+<span class="ml-auto text-secondary font-mono">Uma Resolution Pending</span>
+</div>
+<!-- Spread Grid -->
+<div class="grid grid-cols-3 gap-1 mt-space-sm p-space-xs rounded-lg bg-surface-container">
+<div class="flex flex-col p-1 text-center">
+<span class="font-micro text-micro text-outline">MITMARKET CLOB</span>
+<span class="font-data-md text-data-md text-on-surface font-mono">54.0¢</span>
+</div>
+<div class="flex flex-col p-1 text-center">
+<span class="font-micro text-micro text-outline">Polymarket</span>
+<span class="font-data-md text-data-md text-on-surface font-mono">53.6¢</span>
+</div>
+<div class="flex flex-col p-1 text-center">
+<span class="font-micro text-micro text-outline">Spread</span>
+<span class="font-data-md text-data-md text-secondary font-mono">+0.4¢</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-space-sm">
+<span class="font-micro text-micro text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">gavel</span> Auto-Settlement Frozen
+        </span>
+<button class="h-11 px-space-md rounded bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary active:scale-95 font-label-caps text-label-caps uppercase font-bold transition-all flex items-center gap-1" type="button">
+<span>Manage Hold</span>
+<span class="material-symbols-outlined text-[16px]">lock_open</span>
+</button>
+</div>
+</article>
+</section>
+<!-- Live WebSocket Stream Inspector Console -->
+<section class="flex flex-col px-gutter mt-space-lg">
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface font-bold">CLOB Ingest Tail</span>
+</div>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-tertiary font-micro text-micro font-mono">
+<span class="material-symbols-outlined text-[13px]">shield</span> SECURE TLS
+        </div>
+</div>
+<div class="font-mono font-micro text-micro text-outline truncate bg-surface-container-lowest/70 p-2 rounded">
+        wss://ws-subscriptions-clob.polymarket.com
+      </div>
+<!-- Socket Metrics -->
+<div class="grid grid-cols-3 gap-1 text-center py-1 bg-surface-container rounded-lg">
+<div class="flex flex-col">
+<span class="font-data-md text-data-md text-tertiary font-mono">1,480/s</span>
+<span class="font-micro text-micro text-outline">Ingest Rate</span>
+</div>
+<div class="flex flex-col">
+<span class="font-data-md text-data-md text-on-surface font-mono">0</span>
+<span class="font-micro text-micro text-outline">Drops (24h)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-data-md text-data-md text-primary font-mono">12ms</span>
+<span class="font-micro text-micro text-outline">Ping Ack</span>
+</div>
+</div>
+<!-- Realtime Event Stream Tail -->
+<div class="flex flex-col gap-1 p-space-sm rounded-lg bg-surface-container-lowest font-mono font-micro text-micro text-on-surface-variant overflow-hidden" id="ws-stream">
+<div class="flex items-center gap-1.5 opacity-90 truncate">
+<span class="text-outline">[14:32:11.402]</span>
+<span class="text-tertiary">{event: 'book',</span>
+<span>asset: '0x71a2...',</span>
+<span class="text-primary">bids: 142}</span>
+</div>
+<div class="flex items-center gap-1.5 opacity-90 truncate">
+<span class="text-outline">[14:32:11.480]</span>
+<span class="text-tertiary">{event: 'book',</span>
+<span>asset: '0x48e1...',</span>
+<span class="text-secondary">asks: 98}</span>
+</div>
+<div class="flex items-center gap-1.5 opacity-90 truncate">
+<span class="text-outline">[14:32:11.604]</span>
+<span class="text-primary">{event: 'heartbeat',</span>
+<span class="text-outline">server_time: 1718902331}</span>
+</div>
+</div>
+<!-- Stale Alert Guardrail -->
+<div class="flex items-center justify-between pt-1">
+<span class="font-micro text-micro text-outline">Stale Alert Threshold: &gt; 5.0s</span>
+<span class="font-micro text-micro text-tertiary font-mono">Max Lag: 2.4s (Normal)</span>
+</div>
+</div>
+</section>
+<!-- Compliance Disclosure Footer -->
+<footer class="flex flex-col px-gutter mt-space-lg mb-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-low text-outline flex flex-col gap-space-xs">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-outline">policy</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-bold">Independent Execution Notice</span>
+</div>
+<p class="font-body-sm text-body-sm leading-relaxed text-on-surface-variant">
+        Polymarket reference data is strictly advisory and used solely for comparative liquidity metrics. MITMARKET never executes automated orders against external order books. Zero private keys, API credentials, or settlement liabilities are linked to external protocols.
+      </p>
+</div>
+</footer>
+</div>
+<script>
+  // Dynamic search and filter tab handling
+  const searchInput = document.getElementById('mkt-search');
+  const clearBtn = document.getElementById('clear-search');
+  const cards = document.querySelectorAll('.market-card');
+  const filterPills = document.querySelectorAll('.filter-pill');
+  let currentFilter = 'all';
+
+  function applyFilters() {
+    const query = searchInput.value.trim().toLowerCase();
+    cards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      const matchesSearch = text.includes(query);
+      const diff = parseFloat(card.getAttribute('data-diff') || '0');
+      const isHold = card.getAttribute('data-status') === 'hold';
+
+      let matchesTab = true;
+      if (currentFilter === 'arbitrage') {
+        matchesTab = diff >= 0.5;
+      } else if (currentFilter === 'alerts') {
+        matchesTab = isHold;
+      }
+
+      if (matchesSearch && matchesTab) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+
+  searchInput.addEventListener('input', (e) => {
+    if (e.target.value.length > 0) {
+      clearBtn.classList.remove('hidden');
+    } else {
+      clearBtn.classList.add('hidden');
+    }
+    applyFilters();
+  });
+
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    clearBtn.classList.add('hidden');
+    applyFilters();
+  });
+
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach(p => {
+        p.classList.remove('bg-primary', 'text-on-primary');
+        p.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+      pill.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      pill.classList.add('bg-primary', 'text-on-primary');
+      currentFilter = pill.getAttribute('data-filter');
+      applyFilters();
+    });
+  });
+
+  // Action Buttons micro-interactions
+  const refreshBtn = document.getElementById('btn-refresh');
+  const refreshIcon = document.getElementById('refresh-icon');
+  refreshBtn.addEventListener('click', () => {
+    refreshIcon.classList.add('animate-spin');
+    setTimeout(() => {
+      refreshIcon.classList.remove('animate-spin');
+    }, 900);
+  });
+
+  // Stream simulator: live update stream tail every 3 seconds
+  const wsStream = document.getElementById('ws-stream');
+  const events = [
+    { type: 'book', hash: '0x71a2...', key: 'bids', val: 144 },
+    { type: 'trade', hash: '0x48e1...', key: 'size', val: '$12,400' },
+    { type: 'delta', hash: '0x12c4...', key: 'price', val: '32.1¢' },
+    { type: 'heartbeat', hash: 'ws-clob', key: 'seq', val: '984102' }
+  ];
+
+  setInterval(() => {
+    const now = new Date();
+    const timeStr = now.toTimeString().split(' ')[0] + '.' + String(now.getMilliseconds()).padStart(3, '0');
+    const ev = events[Math.floor(Math.random() * events.length)];
+    const row = document.createElement('div');
+    row.className = 'flex items-center gap-1.5 opacity-90 truncate animate-fadeIn';
+    row.innerHTML = `<span class="text-outline">[${timeStr}]</span><span class="text-tertiary">{event: '${ev.type}',</span><span>target: '${ev.hash}',</span><span class="text-primary">${ev.key}: ${ev.val}}</span>`;
+    wsStream.prepend(row);
+    if (wsStream.children.length > 3) {
+      wsStream.removeChild(wsStream.lastChild);
+    }
+  }, 2600);
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary"><div class="flex justify-between items-center h-14 px-gutter"><a class="flex flex-col items-center justify-center gap-0.5 w-11 h-11 text-on-surface-variant hover:text-on-surface transition-all" data-path="overview-dashboard" href="#"><span class="material-symbols-outlined text-[19px]">dashboard</span><span class="font-micro text-micro">Dash</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-11 h-11 text-on-surface-variant hover:text-on-surface transition-all" data-path="markets-management" href="#"><span class="material-symbols-outlined text-[19px]">candlestick_chart</span><span class="font-micro text-micro">Markets</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-11 h-11 text-on-surface-variant hover:text-on-surface transition-all" data-path="trading-surveillance" href="#"><span class="material-symbols-outlined text-[19px]">monitoring</span><span class="font-micro text-micro">Surveil</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-11 h-11 text-on-surface-variant hover:text-on-surface transition-all" data-path="resolution-and-settlement" href="#"><span class="material-symbols-outlined text-[19px]">gavel</span><span class="font-micro text-micro">Resolve</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-11 h-11 text-on-surface-variant hover:text-on-surface transition-all" data-path="wallets-and-treasury" href="#"><span class="material-symbols-outlined text-[19px]">account_balance_wallet</span><span class="font-micro text-micro">Wallets</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-11 h-11 text-on-surface-variant hover:text-on-surface transition-all" data-path="financial-reports" href="#"><span class="material-symbols-outlined text-[19px]">description</span><span class="font-micro text-micro">Reports</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-11 h-11 text-on-surface-variant hover:text-on-surface transition-all" data-path="audit-logs" href="#"><span class="material-symbols-outlined text-[19px]">receipt_long</span><span class="font-micro text-micro">Logs</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-11 h-11 text-on-surface-variant hover:text-on-surface transition-all" data-path="admin-settings" href="#"><span class="material-symbols-outlined text-[19px]">tune</span><span class="font-micro text-micro">Settings</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-11 h-11 text-on-surface-variant hover:text-on-surface transition-all" data-path="api-and-feeds" href="#"><span class="material-symbols-outlined text-[19px]">hub</span><span class="font-micro text-micro">Feeds</span></a></div></nav></body></html>

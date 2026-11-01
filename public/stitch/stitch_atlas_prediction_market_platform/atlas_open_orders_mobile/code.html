@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#000000;font-family:'Inter',sans-serif;color:#F4F6FA;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary-fixed":"#1463ff","inverse-surface":"#F4F6FA","primary-fixed-dim":"#1463ff","surface-container-highest":"#101216","error":"#ff4761","surface-container-lowest":"#101216","on-secondary-fixed-variant":"#000000","surface-variant":"#101216","tertiary-container":"#0bba74","surface-bright":"#29313D","inverse-on-surface":"#101216","on-primary-fixed-variant":"#000000","on-primary":"#000000","on-surface-variant":"#98A5B5","outline":"#98A5B5","on-error-container":"#ff4761","on-tertiary":"#000000","on-secondary-container":"#F4F6FA","outline-variant":"#29313D","surface-container-low":"#101216","surface-dim":"#000000","primary-container":"#1463ff","surface-tint":"#1463ff","error-container":"#101216","on-surface":"#F4F6FA","on-background":"#F4F6FA","on-error":"#000000","tertiary":"#0bba74","on-tertiary-fixed-variant":"#000000","surface-container-high":"#101216","tertiary-fixed":"#0bba74","background":"#000000","tertiary-fixed-dim":"#0bba74","on-primary-container":"#000000","surface":"#000000","primary":"#1463ff","on-tertiary-fixed":"#000000","on-primary-fixed":"#000000","secondary":"#EAA343","on-secondary-fixed":"#000000","secondary-fixed-dim":"#EAA343","surface-container":"#101216","secondary-container":"#101216","secondary-fixed":"#EAA343","on-secondary":"#000000","on-tertiary-container":"#000000","inverse-primary":"#1463ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin":"1rem","gutter-desktop":"1rem","space-md":"0.75rem","space-lg":"1rem","margin-desktop":"1.5rem","space-xl":"1.5rem","space-sm":"0.5rem","gutter":"0.75rem","space-xs":"0.25rem"},"fontFamily":{"body-md":["Inter"],"micro":["Inter"],"data-md":["Inter"],"headline-md":["Inter"],"data-lg":["Inter"],"label-caps":["Inter"],"headline-lg":["Inter"],"body-lg":["Inter"],"body-sm":["Inter"],"display-lg":["Inter"],"data-sm":["Inter"]},"fontSize":{"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"micro":["10px",{"lineHeight":"12px","fontWeight":"500"}],"data-md":["14px",{"lineHeight":"18px","fontWeight":"600"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"data-lg":["20px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-caps":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"data-sm":["12px",{"lineHeight":"16px","fontWeight":"500"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.35)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[20px]">stacked_line_chart</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-data-md uppercase text-on-surface tracking-wider font-bold">MITMARKET</span><span class="font-label-caps text-label-caps text-primary bg-surface-container-high px-space-xs py-[1px] rounded">PRO</span></div><div class="flex items-center gap-[6px]"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-micro text-micro text-on-surface-variant font-mono">CLOB 14ms</span></div></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center bg-surface-container-low px-space-sm py-space-xs rounded gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-data-sm text-data-sm font-semibold text-on-surface">—</span><span class="font-micro text-micro text-on-surface-variant uppercase">USDC</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 bg-surface pb-24"><div class="flex flex-col w-full relative">
+<!-- Top Desk Context & Execution Telemetry -->
+<div class="px-margin pt-space-md pb-space-sm flex flex-col gap-space-sm bg-surface-container-lowest">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">Active Execution Desk</h1>
+</div>
+<div class="flex items-center gap-[6px] px-space-xs py-[2px] rounded bg-surface-container-high text-tertiary">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-micro text-micro tracking-wide uppercase font-semibold">Batch Route Active</span>
+</div>
+</div>
+<!-- Summary Metric Strip (Tighter institutional cluster) -->
+<div class="grid grid-cols-3 gap-space-xs pt-space-xs">
+<div class="bg-surface-container-low p-space-sm rounded flex flex-col justify-between">
+<span class="font-micro text-micro text-on-surface-variant uppercase tracking-wider">Open Orders</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-data-md text-data-md text-on-surface">4</span>
+<span class="font-micro text-micro text-tertiary">100% Routed</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded flex flex-col justify-between">
+<span class="font-micro text-micro text-on-surface-variant uppercase tracking-wider">Reserved Capital</span>
+<div class="flex flex-col mt-1">
+<span class="font-data-md text-data-md text-on-surface font-semibold">—</span>
+<span class="font-micro text-micro text-on-surface-variant">Escrow locked</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded flex flex-col justify-between">
+<span class="font-micro text-micro text-on-surface-variant uppercase tracking-wider">Partially Filled</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-data-md text-data-md text-secondary">1</span>
+<span class="font-micro text-micro text-secondary font-mono">42% (1,050)</span>
+</div>
+</div>
+</div>
+<!-- Filter Pills (Scrollable institutional segment control) -->
+<div class="flex items-center gap-space-xs overflow-x-auto py-space-xs -mx-margin px-margin">
+<button class="px-space-sm py-1 rounded bg-primary-container text-on-primary-container font-label-caps text-label-caps whitespace-nowrap font-semibold">
+        All (4)
+      </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-high text-tertiary hover:bg-surface-container-highest font-label-caps text-label-caps whitespace-nowrap">
+        Buy YES (3)
+      </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-high text-error hover:bg-surface-container-highest font-label-caps text-label-caps whitespace-nowrap">
+        Buy NO (0)
+      </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps whitespace-nowrap">
+        Sell YES (1)
+      </button>
+</div>
+</div>
+<!-- Stacked Orders Rail -->
+<div class="flex flex-col gap-space-sm p-margin pb-32">
+<!-- ORDER CARD 1: PARTIALLY FILLED (Focus order) -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm relative overflow-hidden shadow-md">
+<!-- Glow indicator ribbon for targeted order -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<!-- Card Header -->
+<div class="flex items-start justify-between gap-space-sm pl-1">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-micro text-micro font-mono text-on-surface-variant">#ORD-88219</span>
+<span class="text-on-surface-variant text-[10px]">•</span>
+<span class="font-micro text-micro text-on-surface-variant">UMA Oracle</span>
+</div>
+<h2 class="font-headline-md text-data-md text-on-surface truncate font-semibold mt-0.5">
+            Will Bitcoin reach $120,000 before Dec 31, 2026?
+          </h2>
+</div>
+<div class="px-space-xs py-[2px] rounded bg-secondary/15 text-secondary flex items-center gap-1 shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-micro text-micro font-semibold uppercase">Partially Filled</span>
+</div>
+</div>
+<!-- Execution Terms Table/Grid -->
+<div class="grid grid-cols-3 gap-space-xs bg-surface-container p-space-sm rounded">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Side &amp; Price</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-label-caps text-[10px] px-1 rounded bg-tertiary/20 text-tertiary font-bold">YES</span>
+<span class="font-data-sm text-data-sm text-on-surface font-mono">68.0¢</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Remaining</span>
+<span class="font-data-sm text-data-sm text-on-surface font-mono mt-0.5">1,450 shs</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Escrow Locked</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold font-mono mt-0.5">—</span>
+</div>
+</div>
+<!-- Fill Progression Bar -->
+<div class="flex flex-col gap-1 pl-1">
+<div class="flex justify-between font-micro text-micro">
+<span class="text-on-surface-variant">Fill Progress: <span class="text-on-surface font-mono font-medium">1,050 / 2,500 shares</span></span>
+<span class="text-secondary font-mono font-semibold">42% Settled</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 42%;"></div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="flex items-center justify-between pt-space-xs pl-1">
+<span class="font-micro text-micro text-on-surface-variant font-mono">Fee: 0.00 USDC (Relayed)</span>
+<button class="px-space-md py-1.5 bg-error-container text-on-error-container hover:bg-error hover:text-on-error transition-colors rounded font-label-caps text-label-caps font-semibold flex items-center gap-1" id="triggerSheetBtn">
+<span class="material-symbols-outlined text-[14px]">cancel</span>
+          Cancel Order
+        </button>
+</div>
+</div>
+<!-- ORDER CARD 2: OPEN ORDER -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm relative shadow-sm">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-micro text-micro font-mono text-on-surface-variant">#ORD-88224</span>
+<span class="text-on-surface-variant text-[10px]">•</span>
+<span class="font-micro text-micro text-on-surface-variant">Polymarket Relay</span>
+</div>
+<h2 class="font-headline-md text-data-md text-on-surface truncate font-semibold mt-0.5">
+            Fed cuts benchmark rate by ≥25bps
+          </h2>
+</div>
+<div class="px-space-xs py-[2px] rounded bg-surface-container-high text-tertiary flex items-center gap-1 shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-micro text-micro font-semibold uppercase">Open</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-space-xs bg-surface-container p-space-sm rounded">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Side &amp; Price</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-label-caps text-[10px] px-1 rounded bg-tertiary/20 text-tertiary font-bold">YES</span>
+<span class="font-data-sm text-data-sm text-on-surface font-mono">62.0¢</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Order Size</span>
+<span class="font-data-sm text-data-sm text-on-surface font-mono mt-0.5">2,000 shs</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Escrow Locked</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold font-mono mt-0.5">—</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1 text-on-surface-variant font-micro text-micro">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+<span>Submitted 18m ago</span>
+</div>
+<button class="px-space-md py-1.5 bg-surface-container-high text-on-surface-variant hover:text-error hover:bg-error-container transition-colors rounded font-label-caps text-label-caps font-semibold">
+          Cancel Order
+        </button>
+</div>
+</div>
+<!-- ORDER CARD 3: SEC SOLANA SPOT ETF -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm relative shadow-sm">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-micro text-micro font-mono text-on-surface-variant">#ORD-88231</span>
+<span class="text-on-surface-variant text-[10px]">•</span>
+<span class="font-micro text-micro text-on-surface-variant">Pyth Network</span>
+</div>
+<h2 class="font-headline-md text-data-md text-on-surface truncate font-semibold mt-0.5">
+            SEC approves Solana Spot ETF
+          </h2>
+</div>
+<div class="px-space-xs py-[2px] rounded bg-surface-container-high text-tertiary flex items-center gap-1 shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-micro text-micro font-semibold uppercase">Open</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-space-xs bg-surface-container p-space-sm rounded">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Side &amp; Price</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-label-caps text-[10px] px-1 rounded bg-tertiary/20 text-tertiary font-bold">YES</span>
+<span class="font-data-sm text-data-sm text-on-surface font-mono">22.0¢</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Order Size</span>
+<span class="font-data-sm text-data-sm text-on-surface font-mono mt-0.5">2,000 shs</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Escrow Locked</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold font-mono mt-0.5">—</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1 text-on-surface-variant font-micro text-micro">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+<span>Submitted 1h 04m ago</span>
+</div>
+<button class="px-space-md py-1.5 bg-surface-container-high text-on-surface-variant hover:text-error hover:bg-error-container transition-colors rounded font-label-caps text-label-caps font-semibold">
+          Cancel Order
+        </button>
+</div>
+</div>
+</div>
+<!-- CANCEL ORDER CONFIRMATION BOTTOM SHEET OVERLAY (Active state) -->
+<div class="fixed inset-0 z-40 bg-surface-dim/80 backdrop-blur-sm flex flex-col justify-end" id="cancelSheetModal">
+<!-- Overlay Click Dismiss Area -->
+<div class="flex-1 w-full" id="dismissArea"></div>
+<!-- Sheet Panel Container -->
+<div class="w-full bg-surface-container-high rounded-t-xl px-margin pt-space-sm pb-safe flex flex-col gap-space-md shadow-2xl relative">
+<!-- Drag Handle -->
+<div class="w-10 h-1 bg-outline-variant rounded-full mx-auto self-center"></div>
+<!-- Sheet Header -->
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs text-error">
+<span class="material-symbols-outlined text-[18px]">report_problem</span>
+<span class="font-label-caps text-label-caps uppercase font-bold tracking-wider">Cancel Limit Order</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mt-0.5">
+            Order #ORD-88219
+          </h3>
+</div>
+<button class="w-7 h-7 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:text-on-surface" id="closeSheetBtn">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<!-- Targeted Market Name -->
+<div class="p-space-sm bg-surface-container rounded flex flex-col gap-0.5">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Target Market</span>
+<span class="font-data-sm text-data-sm text-on-surface font-medium leading-snug">
+          Will Bitcoin reach $120,000 before Dec 31, 2026?
+        </span>
+</div>
+<!-- Settlement Accounting Calculation Box -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col gap-space-sm">
+<div class="flex justify-between items-center text-body-sm">
+<span class="text-on-surface-variant">Order Terms</span>
+<span class="text-on-surface font-mono font-medium">BUY YES @ 68.0¢</span>
+</div>
+<div class="flex justify-between items-center text-body-sm">
+<span class="text-on-surface-variant">Unfilled Residual</span>
+<span class="text-on-surface font-mono font-medium">1,450 Shares</span>
+</div>
+<div class="w-full h-px bg-surface-container-highest"></div>
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface uppercase">Instant Refund</span>
+<span class="font-micro text-micro text-on-surface-variant">Returns to Available Balance</span>
+</div>
+<span class="font-data-lg text-data-lg text-tertiary font-bold font-mono">+$986.00 USDC</span>
+</div>
+</div>
+<!-- Institutional Protocol Note -->
+<div class="flex items-start gap-space-xs p-space-sm rounded bg-surface-container">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Unfilled collateral is unlocked instantly to your available balance. Gas fees are sponsored by MITMARKET.
+        </p>
+</div>
+<!-- Action Button Desk -->
+<div class="flex gap-space-sm pt-space-xs pb-space-sm">
+<button class="flex-1 py-space-sm rounded bg-surface-container-highest text-on-surface font-label-caps text-label-caps font-semibold hover:bg-surface-bright transition-colors" id="cancelActionKeep">
+          Keep Order
+        </button>
+<button class="flex-1 py-space-sm rounded bg-error text-on-error font-label-caps text-label-caps font-bold hover:bg-error-container transition-colors shadow-sm flex items-center justify-center gap-1" id="cancelActionConfirm">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+          Confirm Cancellation
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const sheetModal = document.getElementById('cancelSheetModal');
+    const closeBtn = document.getElementById('closeSheetBtn');
+    const keepBtn = document.getElementById('cancelActionKeep');
+    const triggerBtn = document.getElementById('triggerSheetBtn');
+    const confirmBtn = document.getElementById('cancelActionConfirm');
+    const dismissArea = document.getElementById('dismissArea');
+
+    function hideSheet() {
+      if (sheetModal) sheetModal.classList.add('hidden');
+    }
+
+    function showSheet() {
+      if (sheetModal) sheetModal.classList.remove('hidden');
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', hideSheet);
+    if (keepBtn) keepBtn.addEventListener('click', hideSheet);
+    if (dismissArea) dismissArea.addEventListener('click', hideSheet);
+
+    if (triggerBtn) triggerBtn.addEventListener('click', showSheet);
+
+    if (confirmBtn) {
+      confirmBtn.addEventListener('click', function() {
+        confirmBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">refresh</span> Canceling...';
+        setTimeout(function() {
+          hideSheet();
+          confirmBtn.innerHTML = '<span class="material-symbols-outlined text-[16px]">delete</span> Confirm Cancellation';
+        }, 800);
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.45)]" data-active-classes="text-primary font-semibold"><div class="flex justify-between items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] flex-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="markets-feed" href="#"><span class="material-symbols-outlined text-[20px]">candlestick_chart</span><span class="font-label-caps text-[10px] tracking-tight">Markets</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] flex-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="explore-categories" href="#"><span class="material-symbols-outlined text-[20px]">travel_explore</span><span class="font-label-caps text-[10px] tracking-tight">Explore</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] flex-1 transition-colors text-primary font-semibold" data-path="positions-and-orders" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="font-label-caps text-[10px] tracking-tight">Positions</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] flex-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="settlement-wallet" href="#"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span><span class="font-label-caps text-[10px] tracking-tight">Wallet</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] flex-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="institutional-settings" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-label-caps text-[10px] tracking-tight">Settings</span></a></div></nav></body></html>

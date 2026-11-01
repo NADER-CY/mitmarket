@@ -1,0 +1,14 @@
+node_modules/
+dist/
+*.tsbuildinfo
+
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.openai/
+*.tsbuildinfo
+*.pem
+*.key
+*.zip

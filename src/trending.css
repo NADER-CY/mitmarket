@@ -1,0 +1,453 @@
+.atlas-trending-screen{background:#000;color:#F4F6FA;min-height:100vh;font-family:Inter,ui-sans-serif,system-ui,sans-serif;padding:32px 24px 70px}.trending-container{max-width:1440px;margin:0 auto}.trending-topline{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:25px}.trending-kicker{color:#1463ff;font-size:10px;font-weight:700;letter-spacing:1.7px}.trending-kicker i,.trending-feed-state i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#1463ff;margin-right:7px}.trending-topline h1{font-size:29px;letter-spacing:-.9px;font-weight:750;line-height:1.25;margin:7px 0 3px}.trending-topline h1 span{color:#98A5B5}.trending-topline p{margin:0;color:#98A5B5;font-size:12px}.trending-feed-state{font-size:10px;color:#98A5B5;border:1px solid #29313D;background:#101216;border-radius:24px;padding:10px 14px;white-space:nowrap}.trending-feed-state i.online{background:#0bba74;box-shadow:0 0 10px #0bba7488}.trending-feature-layout{display:grid;grid-template-columns:minmax(0,2.75fr) minmax(225px,1fr);gap:16px;margin-bottom:34px}.trending-feature-card,.trending-spotlight{border:1px solid #29313D;background:#101216;border-radius:14px;overflow:hidden}.trending-feature-card{min-height:328px;display:grid;grid-template-columns:minmax(250px,1fr) minmax(0,1.25fr);padding:26px;gap:20px}.trending-feature-left{display:flex;flex-direction:column;min-width:0}.trending-category{display:flex;align-items:center;gap:9px;color:#98A5B5;font-size:10px;font-weight:650;letter-spacing:.8px}.trending-category img,.trending-card-header img,.trending-feature-predictions img{height:28px;width:28px;object-fit:cover;border-radius:50%;background:#101216}.trending-feature-title{text-align:left;background:none;border:none;padding:15px 0 8px;color:#F4F6FA;font-size:23px;line-height:1.28;font-weight:760;letter-spacing:-.5px;cursor:pointer}.trending-feature-title:hover,.trending-card-title:hover{color:#EAA343}.trending-feature-predictions{margin-top:10px;display:flex;flex-direction:column;gap:5px}.trending-feature-predictions button{border:0;background:transparent;color:#F4F6FA;display:flex;gap:10px;align-items:center;text-align:left;min-height:37px;padding:4px;border-radius:6px;cursor:pointer}.trending-feature-predictions button:hover{background:#15191F}.trending-feature-predictions span:nth-last-child(2){flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}.trending-feature-predictions strong{font-size:15px;font-variant-numeric:tabular-nums}.trending-outcome-dot{width:9px;height:9px;border-radius:50%;background:#1463ff}.trending-feature-info{margin-top:auto;padding-top:18px;display:flex;gap:12px;justify-content:space-between;font-size:10px;color:#98A5B5;font-weight:600}.trending-feature-graph{display:flex;flex-direction:column;min-height:240px;min-width:0}.trending-graph-top{display:flex;justify-content:space-between;gap:8px;font-size:9px;color:#98A5B5;font-weight:650;letter-spacing:.5px;padding-top:4px}.trending-live-dot{color:#0bba74}.trending-feature-graph svg{width:100%;height:100%;min-height:210px;margin-top:8px}.trending-graph-empty{flex:1;display:grid;place-items:center;color:#98A5B5;font-size:12px;text-align:center}.trending-spotlight{padding:19px 18px}.trending-spotlight-title{font-size:11px;letter-spacing:1px;font-weight:750;display:flex;justify-content:space-between;margin-bottom:19px}.trending-spotlight-title span{color:#1463ff;font-size:18px}.trending-pulse-stat{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #29313D;padding:10px 0;font-size:11px;color:#98A5B5}.trending-pulse-stat strong{color:#F4F6FA;font-size:14px}.trending-pulse-stat strong.trending-status{font-size:11px;color:#0bba74}.trending-spotlight h3{font-size:12px;margin:21px 0 9px;display:flex;justify-content:space-between}.trending-spotlight h3 span{color:#EAA343}.trending-topic{background:none;border:0;padding:10px 0;width:100%;display:flex;align-items:center;gap:9px;color:#F4F6FA;border-bottom:1px solid #29313D;text-align:left;cursor:pointer}.trending-topic b{color:#1463ff;font-size:10px}.trending-topic span{flex:1;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.trending-topic strong{font-size:11px}.trending-topic:hover span{color:#EAA343}.trending-listing-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:16px}.trending-listing-head h2{font-size:23px;letter-spacing:-.6px;margin:5px 0 0}.trending-listing-head em{font-size:11px;vertical-align:middle;color:#98A5B5;border:1px solid #29313D;border-radius:14px;padding:3px 8px;font-style:normal}.trending-search-controls{display:flex;gap:7px}.trending-search-controls label{border:1px solid #29313D;background:#101216;display:flex;gap:8px;align-items:center;padding:0 12px;border-radius:8px}.trending-search-controls label span{color:#98A5B5;font-size:19px}.trending-search-controls input{width:185px;border:0;background:transparent;color:#F4F6FA;outline:0;font:inherit;font-size:12px}.trending-sort{border:1px solid #29313D;border-radius:8px;background:#101216;color:#F4F6FA;padding:9px 12px;cursor:pointer;font-size:11px}.trending-categories{display:flex;gap:6px;overflow:auto;scrollbar-width:thin;border-bottom:1px solid #29313D;margin-bottom:17px;padding-bottom:12px}.trending-categories button{background:transparent;color:#98A5B5;border:1px solid transparent;border-radius:8px;padding:9px 14px;font-size:11px;font-weight:650;white-space:nowrap;cursor:pointer}.trending-categories button:hover{color:#EAA343}.trending-categories button.selected{background:#101216;border-color:#29313D;color:#1463ff}.trending-market-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.trending-market-card{display:flex;flex-direction:column;min-width:0;min-height:188px;border-radius:11px;background:#101216;border:1px solid #29313D;padding:14px 13px 11px;transition:border-color .18s,transform .18s}.trending-market-card:hover{border-color:#1463ff;transform:translateY(-2px)}.trending-card-header{display:flex;align-items:flex-start;gap:9px;min-height:66px}.trending-card-header img{width:30px;height:30px}.trending-icon-fallback{display:grid;place-items:center;background:#15191F;color:#1463ff;width:28px;height:28px;border-radius:50%;flex:none}.trending-card-header>div{flex:1;min-width:0}.trending-card-header>div>span{display:block;color:#98A5B5;font-size:10px;margin-bottom:5px}.trending-card-title{background:none;border:0;text-align:left;color:#F4F6FA;padding:0;cursor:pointer;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:12px;font-weight:700;line-height:1.35;min-height:32px}.trending-bookmark{border:0;background:transparent;color:#98A5B5;font-size:21px;cursor:pointer;padding:0 1px}.trending-bookmark.saved{color:#EAA343}.trending-prices{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:14px 0 12px}.trending-prices button{border:none;border-radius:6px;padding:10px 8px;min-width:0;display:flex;justify-content:space-between;gap:5px;align-items:center;cursor:pointer;font-size:11px;font-weight:700}.trending-prices button span{max-width:65%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.trending-prices button.yes{background:#0bba741c;color:#0bba74}.trending-prices button.no{background:#ff47611b;color:#ff4761}.trending-prices button:hover{filter:brightness(1.35)}.trending-card-footer{margin-top:auto;display:flex;align-items:center;gap:6px;border-top:1px solid #29313D;padding-top:10px;font-size:9px;color:#98A5B5}.trending-card-footer span:first-child{flex:1}.trending-card-footer button{background:none;color:#98A5B5;border:0;font-size:15px;cursor:pointer}.trending-card-footer button:hover{color:#EAA343}.trending-scroll-sentinel{text-align:center;padding:35px 10px;color:#98A5B5;font-size:11px;letter-spacing:.7px}.trending-none,.trending-loading{padding:55px 20px;text-align:center;color:#98A5B5;border:1px solid #29313D;background:#101216;border-radius:10px}
+@media(max-width:1100px){.trending-market-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.trending-feature-layout{grid-template-columns:minmax(0,1fr) 250px}.trending-feature-card{grid-template-columns:1fr}.trending-feature-graph{min-height:190px}.trending-feature-graph svg{height:190px}}
+@media(max-width:750px){.atlas-trending-screen{padding:22px 13px 40px}.trending-topline{align-items:flex-start}.trending-topline h1{font-size:23px}.trending-topline p{font-size:11px}.trending-feed-state{padding:7px;font-size:9px}.trending-feature-layout{grid-template-columns:1fr}.trending-feature-card{padding:17px;gap:10px}.trending-feature-title{font-size:20px}.trending-spotlight{display:none}.trending-market-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.trending-market-card{padding:11px 9px 9px;min-height:180px}.trending-listing-head{align-items:stretch;flex-direction:column;gap:12px}.trending-search-controls label{flex:1}.trending-search-controls input{width:100%}.trending-card-header img{height:24px;width:24px}.trending-card-title{font-size:11px}.trending-prices button{font-size:10px;padding:9px 5px}}
+@media(max-width:370px){.trending-market-grid{grid-template-columns:1fr}.trending-feed-state{display:none}}
+
+/* Reference-focused polish: denser facts, larger readable typography and true feature carousel. */
+.atlas-trending-screen{font-family:'DM Sans',Inter,ui-sans-serif,system-ui,sans-serif;padding-top:19px}
+.trending-topline h1,.trending-feature-title,.trending-listing-head h2,.trending-card-title{font-family:Manrope,'DM Sans',sans-serif}
+.trending-topline{margin-bottom:19px}
+.trending-feature-layout{margin-bottom:10px}
+.trending-feature-card{min-height:350px}
+.trending-feature-title{font-size:26px;line-height:1.3}
+.trending-feature-predictions button{min-height:43px}
+.trending-feature-predictions span:nth-last-child(2){font-size:13px}
+.trending-feature-info,.trending-graph-top{font-size:11px}
+.trending-carousel-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:34px;min-height:32px}
+.trending-carousel-dots{display:flex;gap:6px;align-items:center}
+.trending-carousel-dots button{border:0;background:#38404e;width:7px;height:7px;border-radius:50%;padding:0;cursor:pointer;transition:width .2s,background .2s}
+.trending-carousel-dots button.active{background:#1463ff;width:24px;border-radius:10px}
+.trending-carousel-dots button:hover{background:#EAA343}
+.trending-carousel-actions{display:flex;align-items:center;gap:8px;color:#98A5B5;font-size:11px;font-variant-numeric:tabular-nums}
+.trending-carousel-actions button{width:31px;height:31px;display:grid;place-items:center;background:#101216;border:1px solid #29313D;border-radius:50%;color:#F4F6FA;font-size:23px;line-height:1;cursor:pointer}
+.trending-carousel-actions button:hover{color:#EAA343;border-color:#EAA343}
+.trending-market-card{min-height:224px;padding:15px 14px 12px}
+.trending-card-title{font-size:13px;line-height:1.45;font-weight:700}
+.trending-card-header{min-height:70px}
+.trending-card-header>div>span{font-size:11px}
+.trending-card-header>div>span b{font-size:10px;color:#718097;font-weight:600}
+.trending-prices button{font-size:13px;padding:12px 10px}
+.trending-card-footer{font-size:11px}
+.trending-candidates{display:flex;flex-direction:column;gap:7px;margin:10px 0 12px}
+.trending-candidates button{background:transparent;border:0;display:flex;gap:8px;align-items:center;width:100%;color:#F4F6FA;padding:5px 0;cursor:pointer;text-align:left}
+.trending-candidates button:hover .trending-candidate-name{color:#EAA343}
+.trending-candidate-name{font-size:12px;line-height:1.35;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.trending-candidates strong{font-size:12px;font-variant-numeric:tabular-nums}
+.trending-candidates i{font-size:10px;font-style:normal;font-weight:700;border-radius:4px;padding:5px 7px;background:#0bba7424;color:#0bba74}
+.trending-candidates i:last-child{background:#ff476124;color:#ff4761}
+.trending-listing-head h2{font-size:24px}
+.trending-categories button{font-size:12px}
+.trending-topic span{font-size:12px}
+.trending-search-controls input{font-size:13px}
+@media(max-width:750px){.atlas-trending-screen{padding-top:17px}.trending-feature-card{min-height:320px}.trending-feature-title{font-size:21px}.trending-market-card{min-height:215px;padding:12px 10px}.trending-card-title{font-size:12px}.trending-prices button{font-size:11px}.trending-card-footer{font-size:10px}.trending-candidate-name{font-size:11px}.trending-candidates i{font-size:9px;padding:4px}}
+
+/* Reference detail pass: named adjacent slides and active contract values. */
+.trending-carousel-actions{width:100%;justify-content:space-between;gap:10px}
+.trending-carousel-actions .trending-named-slide{width:auto;max-width:42%;height:auto;min-height:39px;display:flex;align-items:center;gap:10px;padding:7px 16px;border-radius:999px;background:#15191F;border:0;color:#CBD3DF;font:700 12px 'DM Sans',sans-serif;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trending-carousel-actions .trending-named-slide span{font-size:21px;font-weight:400;color:#B7C2D3}
+.trending-carousel-actions .trending-named-slide:hover{background:#202938;color:#F4F6FA;border:0}
+.trending-carousel-dots{justify-content:center;min-width:105px}
+.trending-market-card{min-height:238px}
+.trending-card-title{font-size:14px;line-height:1.5}
+.trending-candidate-name{font-size:13px}
+.trending-candidates strong,.trending-stream-value{font-family:'DM Sans',sans-serif;font-variant-numeric:tabular-nums;font-weight:800;font-size:15px;letter-spacing:-.3px}
+.trending-stream-value{transition:color .15s,text-shadow .15s}
+.trending-stream-value.up{color:#0bba74;text-shadow:0 0 9px #0bba7488}
+.trending-stream-value.down{color:#ff4761;text-shadow:0 0 9px #ff476188}
+.trending-candidates button{min-height:33px}
+.trending-candidates i{font-style:normal;font-size:11px;padding:6px 8px}
+.trending-card-footer{font-size:12px}
+.trending-primary-odds{display:flex;gap:14px;align-items:center;margin:7px 0 0}
+.trending-probability{display:flex;align-items:baseline;gap:7px}
+.trending-probability strong{font-size:26px;line-height:1.2}
+.trending-probability>span{font-size:11px;color:#98A5B5}
+.trending-probability-track{height:5px;flex:1;overflow:hidden;background:#323943;border-radius:99px}
+.trending-probability-track>span{display:block;background:#1463ff;height:100%;border-radius:99px;transition:width .3s ease}
+.trending-crypto-odds{display:flex;align-items:center;gap:10px;margin:4px 0 0}
+.trending-crypto-odds .trending-probability strong{font-size:30px}
+.trending-crypto-odds .trending-probability-track>span{background:#0bba74}
+.trending-kind-crypto .trending-card-header{min-height:60px}
+.trending-kind-crypto .trending-prices{margin-top:14px}
+.trending-prices button .trending-stream-value{font-size:13px}
+@media(max-width:750px){.trending-carousel-bar{flex-direction:column-reverse;align-items:stretch}.trending-carousel-actions .trending-named-slide{font-size:11px;padding:7px 11px;max-width:48%}.trending-carousel-dots{padding-bottom:5px}.trending-market-card{min-height:226px}.trending-card-title{font-size:12px}.trending-probability strong{font-size:21px}.trending-prices button .trending-stream-value{font-size:11px}.trending-candidates strong{font-size:12px}.trending-card-footer{font-size:10px}}
+
+/* Approved MITMARKET Bento / masonry layout. Only Trending's card region and local tabs. */
+.trending-categories{gap:22px;padding-bottom:0;margin-bottom:22px;border-bottom:1px solid #29313D;scrollbar-width:thin}
+.trending-categories button{border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;padding:12px 3px 13px;color:#98A5B5;font-size:13px;font-family:'DM Sans',sans-serif}
+.trending-categories button.selected{border:0;border-bottom:2px solid #1463ff;border-radius:0;background:transparent;color:#1463ff}
+.trending-categories button:hover{background:transparent;color:#EAA343}
+.trending-bento-sections{display:flex;flex-direction:column;gap:23px}
+.trending-bento-section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:3px 1px 11px}
+.trending-bento-section-head h3{margin:0;font:800 20px Manrope,'DM Sans',sans-serif;color:#F4F6FA;letter-spacing:-.5px}
+.trending-bento-section-head button{border:0;background:transparent;color:#1463ff;font:700 12px 'DM Sans',sans-serif;cursor:pointer;padding:5px 3px}
+.trending-bento-section-head button:hover{color:#EAA343}
+.trending-bento-section-head span{font-size:15px}
+.trending-bento-section .trending-market-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:row dense;grid-auto-rows:minmax(228px,auto);gap:11px}
+.trending-bento-section .trending-market-card{height:100%;min-height:225px;transition:border-color .16s,transform .16s}
+.trending-bento-section .trending-bento-wide,.trending-bento-section .trending-bento-chart{grid-column:span 2}
+.trending-bento-section .trending-bento-chart{min-height:260px}
+.trending-bento-content{display:flex;flex:1;min-height:0;gap:16px}
+.trending-bento-details{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.trending-bento-chart .trending-bento-details{flex:0 0 39%;justify-content:center}
+.trending-bento-chart .trending-bento-chart{flex:1;min-width:0;display:flex;align-items:stretch;padding-top:5px}
+.trending-bento-chart .trending-feature-graph{flex:1;min-height:146px}
+.trending-bento-chart .trending-feature-graph svg{height:142px;min-height:142px}
+.trending-bento-chart .trending-graph-top{font-size:9px;letter-spacing:0;gap:8px}
+.trending-bento-chart .trending-graph-top .trending-live-dot{white-space:nowrap}
+.trending-bento-chart .trending-graph-empty{font-size:10px}
+.trending-bento-wide .trending-candidates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:18px;row-gap:8px}
+.trending-bento-wide .trending-card-header,.trending-bento-chart .trending-card-header{min-height:60px}
+.trending-bento-wide .trending-card-title,.trending-bento-chart .trending-card-title{font-size:16px}
+.trending-bento-wide .trending-probability strong,.trending-bento-chart .trending-probability strong{font-size:30px}
+.trending-bento-wide .trending-prices{max-width:430px}
+.trending-bento-section .trending-card-footer{border-top:0;padding-top:9px}
+.trending-bento-section .trending-market-card:hover{transform:translateY(-2px)}
+@media(max-width:1100px){.trending-bento-section .trending-market-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.trending-bento-section .trending-bento-wide,.trending-bento-section .trending-bento-chart{grid-column:span 2}}
+@media(max-width:750px){.trending-categories{gap:18px}.trending-categories button{font-size:12px;padding:11px 2px}.trending-bento-section-head h3{font-size:18px}.trending-bento-section .trending-market-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(194px,auto);gap:8px}.trending-bento-section .trending-market-card{min-height:194px}.trending-bento-section .trending-bento-wide,.trending-bento-section .trending-bento-chart{grid-column:span 2}.trending-bento-chart .trending-bento-details{flex:0 0 43%}.trending-bento-chart .trending-feature-graph svg{height:125px;min-height:125px}.trending-bento-wide .trending-card-title,.trending-bento-chart .trending-card-title{font-size:14px}.trending-bento-wide .trending-candidates{gap:4px 11px}.trending-bento-chart .trending-graph-top{font-size:8px}}
+@media(max-width:430px){.trending-bento-chart .trending-bento-content{flex-direction:column}.trending-bento-chart .trending-bento-details{flex:initial}.trending-bento-chart .trending-feature-graph svg{height:125px;min-height:125px}.trending-bento-chart .trending-feature-graph{min-height:125px}.trending-bento-section .trending-bento-chart{min-height:360px}.trending-bento-wide .trending-candidates{grid-template-columns:1fr}}
+
+/* Information-rich mosaic: intentionally compact and balanced like the approved reference. */
+.atlas-trending-screen{padding-top:12px}
+.trending-topline{margin-bottom:13px}
+.trending-feature-layout{grid-template-columns:minmax(0,3.05fr) minmax(250px,.95fr);gap:12px;margin-bottom:2px}
+.trending-feature-card{min-height:280px;padding:19px 22px;gap:20px;grid-template-columns:minmax(240px,.8fr) minmax(0,1.2fr);background:radial-gradient(ellipse at 30% 20%,#17232e 0%,#101216 55%)}
+.trending-feature-title{font-size:22px;padding:9px 0 4px;line-height:1.2}
+.trending-feature-primary{display:flex;align-items:baseline;gap:12px;margin:6px 0 10px}
+.trending-feature-primary .trending-stream-value{font-family:Manrope,'DM Sans',sans-serif;font-size:52px;line-height:1;color:#0bba74;letter-spacing:-2.5px}
+.trending-feature-primary>span{color:#0bba74;font-size:24px;font-weight:800;text-transform:uppercase}
+.trending-feature-primary small{color:#0bba74;font-size:10px;font-weight:700}
+.trending-feature-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;max-width:400px}
+.trending-feature-actions button{padding:11px 13px;font-size:14px;font-weight:800;border:1px solid #0bba74;background:#0bba7423;border-radius:9px;color:#0bba74;cursor:pointer;display:flex;justify-content:space-between;gap:8px}
+.trending-feature-actions button.no{border-color:#ff476180;background:#ff476118;color:#ff4761}
+.trending-feature-actions button:hover{filter:brightness(1.3)}
+.trending-feature-predictions{margin-top:9px;gap:0}.trending-feature-predictions button{min-height:29px}.trending-feature-predictions img{width:20px;height:20px}
+.trending-feature-info{font-size:10px;padding-top:9px}.trending-feature-graph svg{min-height:195px}.trending-spotlight{padding:15px 17px}
+.trending-spotlight-title{font-size:14px;letter-spacing:0;margin-bottom:12px}
+.trending-spotlight-title .trending-pulse-live{font-size:11px;color:#0bba74;letter-spacing:0;background:#0bba7413;padding:4px 8px;border-radius:6px}
+.trending-pulse-stat{font-size:12px;padding:9px 0}.trending-pulse-stat strong{font-size:14px}
+.trending-spotlight h3{margin:12px 0 4px}.trending-topic{padding:7px 0}
+.trending-carousel-bar{margin-bottom:14px}.trending-listing-head{margin-bottom:9px}.trending-listing-head h2{font-size:26px}
+.trending-bento-sections{gap:15px}.trending-bento-section-head{margin:3px 0 8px}.trending-bento-section-head h3{font-size:17px}
+.trending-bento-section-head h3 small{font:500 10px 'DM Sans',sans-serif;color:#8492a8;margin-left:9px;letter-spacing:0}
+.trending-bento-section .trending-market-grid{grid-auto-rows:minmax(194px,auto);gap:9px}
+.trending-bento-section .trending-market-card{min-height:192px;padding:11px 12px 8px;border-radius:11px;overflow:hidden;background:linear-gradient(125deg,#141b23 0%,#101216 58%)}
+.trending-bento-section .trending-bento-chart{min-height:214px}
+.trending-bento-section .trending-card-header{min-height:48px;gap:8px}
+.trending-card-header img{width:26px;height:26px}.trending-card-header>div>span{font-size:10px;margin-bottom:3px}
+.trending-card-header>div>span b{font-size:9px}.trending-card-title{font-size:12px;line-height:1.3;min-height:0}
+.trending-bento-wide .trending-card-title,.trending-bento-chart .trending-card-title{font-size:14px}
+.trending-bento-content{gap:10px}.trending-bento-details{justify-content:center}
+.trending-primary-odds,.trending-crypto-odds{margin:0}.trending-probability strong{font-size:29px;color:#0bba74}
+.trending-kind-crypto .trending-probability strong{color:#0bba74}
+.trending-prices{margin:8px 0 5px;gap:7px}.trending-prices button{padding:8px 8px;font-size:11px;border:1px solid #0bba7466;background:#0bba7420}
+.trending-prices button.no{border-color:#ff476166;background:#ff476118}.trending-prices button .trending-stream-value{font-size:12px}
+.trending-candidates{gap:2px;margin:4px 0}.trending-candidates button{min-height:26px;border-bottom:1px solid #26303a;padding:4px 0}
+.trending-candidate-name{font-size:11px}.trending-candidates strong{font-size:13px}.trending-candidate-indicator{font-size:8px;color:#0bba74}
+.trending-market-binary{margin-top:8px}.trending-market-binary strong{font-size:11px}
+.trending-bento-section .trending-card-footer{font-size:10px;padding-top:5px}
+.trending-bento-chart .trending-bento-details{flex-basis:41%}.trending-bento-chart .trending-feature-graph{min-height:128px}
+.trending-bento-chart .trending-feature-graph svg{height:130px;min-height:130px}
+.trending-bento-chart .trending-graph-top{font-size:8px}
+.trending-bento-chart .trending-bento-chart{padding-top:0}
+.trending-bento-wide .trending-candidates{row-gap:1px}
+@media(max-width:1100px){.trending-feature-card{grid-template-columns:1fr}.trending-feature-layout{grid-template-columns:1fr 250px}}
+@media(max-width:750px){.trending-feature-layout{grid-template-columns:1fr}.trending-feature-card{padding:17px;min-height:320px}.trending-feature-primary .trending-stream-value{font-size:42px}.trending-feature-primary>span{font-size:19px}.trending-spotlight{display:none}.trending-bento-section .trending-market-grid{grid-auto-rows:minmax(190px,auto)}.trending-bento-section .trending-market-card{min-height:186px;padding:10px}.trending-bento-section-head h3{font-size:17px}.trending-bento-chart .trending-bento-details{flex-basis:43%}.trending-candidate-name{font-size:10px}}
+@media(max-width:430px){.trending-feature-actions button{font-size:12px;padding:10px}.trending-probability strong{font-size:24px}.trending-card-title{font-size:11px}.trending-bento-chart .trending-bento-content{flex-direction:column}.trending-bento-chart .trending-bento-details{flex-basis:auto}.trending-bento-section .trending-bento-chart{min-height:322px}}
+
+/* End-of-section tiles span the remaining columns; no stranded single-card rows. */
+.trending-bento-section .trending-bento-full{grid-column:span 4;min-height:214px}
+.trending-bento-full .trending-bento-details{flex:0 0 33%}
+.trending-bento-full .trending-bento-chart{flex:1;min-width:0;display:flex}
+.trending-bento-full .trending-feature-graph{flex:1;min-height:130px}
+.trending-bento-full .trending-feature-graph svg{height:134px;min-height:134px}
+.trending-bento-full .trending-graph-top{font-size:9px}
+.trending-bento-full .trending-card-header{min-height:45px}
+.trending-bento-full .trending-card-title{font-size:15px}
+.trending-bento-full .trending-probability strong{font-size:33px}
+.trending-bento-full .trending-candidates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 16px}
+.trending-bento-full .trending-prices{max-width:450px}
+@media(max-width:1100px){.trending-bento-section .trending-bento-full{grid-column:span 2}}
+@media(max-width:750px){.trending-bento-full .trending-bento-details{flex-basis:45%}}
+@media(max-width:430px){.trending-bento-full .trending-bento-content{flex-direction:column}.trending-bento-full .trending-bento-details{flex-basis:auto}.trending-bento-full .trending-candidates{grid-template-columns:1fr}.trending-bento-section .trending-bento-full{min-height:330px}}
+
+/* Market-data legibility and Polymarket-style discovery controls. */
+.atlas-trending-screen{font-family:Inter,'DM Sans',sans-serif;font-variant-numeric:tabular-nums}
+.trending-card-title,.trending-bento-section-head h3,.trending-topline h1{font-family:Inter,Manrope,sans-serif}
+.trending-topic-rail{display:flex;gap:17px;align-items:center;overflow-x:auto;scrollbar-width:thin;margin:0 0 12px;padding:3px 0 8px}
+.trending-topic-rail button{flex:none;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border:0;border-radius:6px;padding:7px 10px;color:#A5B0C0;background:transparent;font:600 12px Inter,sans-serif;cursor:pointer}
+.trending-topic-rail button.active{color:#F4F6FA;background:#1463ff}.trending-topic-rail button:hover:not(.active){color:#EAA343}
+.trending-filterbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 13px}
+.trending-filterbar>label:not(.trending-check){display:flex;align-items:center;gap:7px;border:1px solid #29313D;background:#101216;border-radius:8px;padding:8px 10px;font:600 11px Inter,sans-serif;color:#98A5B5}
+.trending-filterbar select{background:transparent;color:#F4F6FA;border:0;outline:0;font:700 12px Inter,sans-serif;cursor:pointer;max-width:150px}
+.trending-filterbar select option{background:#101216;color:#F4F6FA}
+.trending-filterbar .trending-check{display:flex;align-items:center;gap:6px;color:#C0C9D6;font:500 12px Inter,sans-serif;white-space:nowrap;cursor:pointer}
+.trending-check input{width:15px;height:15px;accent-color:#1463ff;cursor:pointer}
+.trending-bento-section .trending-market-card{cursor:pointer}
+.trending-card-leader{display:flex;align-items:baseline;gap:9px;min-height:32px;padding-top:2px;color:#98A5B5}
+.trending-card-leader .trending-stream-value{font:800 28px Inter,sans-serif;color:#0bba74;letter-spacing:-1px}
+.trending-card-leader>span{font-size:10px;font-weight:600}
+.trending-bento-section .trending-probability strong{font:850 34px Inter,sans-serif;line-height:1.1;letter-spacing:-1.3px}
+.trending-bento-section .trending-candidates strong{font:800 18px Inter,sans-serif;letter-spacing:-.5px}
+.trending-bento-section .trending-prices button{font:750 13px Inter,sans-serif;min-height:40px;gap:7px}
+.trending-bento-section .trending-prices strong,.trending-bento-section .trending-prices .trending-stream-value{font:800 16px Inter,sans-serif}
+.trending-probability>span small{display:block;color:#8392a7;font-size:9px;text-transform:uppercase;letter-spacing:.7px}
+.trending-kind-crypto .trending-probability strong{color:#0bba74}
+.trending-bento-section .trending-market-card{min-height:230px}
+.trending-bento-section .trending-market-grid{grid-auto-rows:minmax(230px,auto)}
+.trending-bento-section .trending-bento-chart,.trending-bento-section .trending-bento-full{min-height:245px}
+@media(max-width:750px){.trending-filterbar{gap:7px}.trending-filterbar .trending-check{font-size:11px}.trending-topic-rail{gap:7px}.trending-bento-section .trending-probability strong{font-size:27px}.trending-bento-section .trending-candidates strong{font-size:15px}.trending-bento-section .trending-prices strong,.trending-bento-section .trending-prices .trending-stream-value{font-size:13px}}
+
+/* Two distinct levels: carousel navigation above, category tabs below filters. */
+.trending-filterbar{gap:9px;align-items:center;margin:0 0 15px;position:relative;z-index:5}
+.trending-filter-wrap{position:relative;flex:none}
+.trending-filter-trigger{min-height:40px;display:flex;align-items:center;justify-content:space-between;gap:11px;padding:0 13px;color:#F4F6FA;background:#101216;border:1px solid #29313D;border-radius:11px;cursor:pointer;font:600 12px Inter,sans-serif;min-width:112px;white-space:nowrap;transition:border-color .16s,background .16s}
+.trending-filter-trigger strong{font-weight:650}.trending-filter-trigger:hover,.trending-filter-trigger.opened{border-color:#526076;background:#15191F}
+.trending-filter-glyph{font-size:18px;font-weight:700;line-height:1}.trending-filter-caret{font-size:17px;color:#98A5B5;line-height:1;margin-left:3px}
+.trending-filter-menu{position:absolute;top:calc(100% + 6px);left:0;min-width:192px;max-width:min(260px,80vw);display:flex;flex-direction:column;gap:3px;padding:7px;background:#1A1D25;border:1px solid #303746;border-radius:14px;box-shadow:0 18px 42px rgba(0,0,0,.65);z-index:100}
+.trending-filter-menu button{background:transparent;color:#F4F6FA;border:0;border-radius:9px;padding:11px 10px;text-align:left;display:flex;gap:10px;align-items:center;font:600 13px Inter,sans-serif;cursor:pointer;white-space:nowrap}
+.trending-filter-menu button:hover{background:#272D39}.trending-filter-menu button.chosen{color:#F4F6FA;background:#252C3A}
+.trending-filter-option-icon{width:21px;font-size:19px;text-align:center;color:#D5DAE5;line-height:1}.trending-filter-selected{color:#F4F6FA;font-size:15px;margin-left:auto}
+.trending-filter-menu.trending-ends-menu{min-width:168px}
+.trending-filterbar .trending-check{gap:7px;font-size:12px;color:#BCC4D0}.trending-filterbar .trending-check input{appearance:none;width:16px;height:16px;background:#F4F6FA;border:1px solid #798597;border-radius:3px;display:grid;place-items:center;margin:0}
+.trending-filterbar .trending-check input:checked{background:#1463ff;border-color:#1463ff}.trending-filterbar .trending-check input:checked:after{content:'✓';font-size:12px;color:#fff;font-weight:800}
+.trending-categories{padding:0;border-bottom:1px solid #29313D;gap:22px;scrollbar-width:none;margin-bottom:20px}
+.trending-categories button{padding:10px 2px 13px;border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;color:#A9B4C4;font:650 12px Inter,sans-serif}
+.trending-categories button.selected{border:0;border-bottom:2px solid #1463ff;background:transparent;color:#1463ff}
+.trending-categories button:hover{color:#EAA343;background:transparent}
+@media(max-width:650px){.trending-filterbar{gap:7px}.trending-filter-trigger{min-height:38px;padding:0 10px}.trending-categories{gap:16px}}
+
+/* Compact market-topic tabs with explicit left/right paging, modeled on the reference. */
+.trending-topics-navigation{display:grid;grid-template-columns:28px minmax(0,1fr) 28px;align-items:center;gap:4px;border-bottom:1px solid #29313D;margin:0 0 20px}
+.trending-topics-strip{min-width:0;display:flex;align-items:center;gap:10px;overflow-x:auto;scrollbar-width:none;overscroll-behavior-x:contain;white-space:nowrap;scroll-snap-type:x proximity;padding:0 0 8px}
+.trending-topics-strip::-webkit-scrollbar{display:none}
+.trending-topics-strip button{flex:none;background:transparent;border:0;border-bottom:2px solid transparent;color:#ADB7C5;border-radius:0;font:600 12px Inter,sans-serif;padding:10px 13px;cursor:pointer;scroll-snap-align:start;max-width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trending-topics-strip button:hover{color:#EAA343}.trending-topics-strip button.selected{background:#1463ff;border-radius:8px;color:#fff;border-bottom-color:transparent}
+.trending-topics-arrow{border:0;background:transparent;color:#A7B2C3;font:600 25px Inter,sans-serif;cursor:pointer;display:grid;place-items:center;width:28px;height:36px;padding:0;transition:color .15s}
+.trending-topics-arrow:hover{color:#1463ff}
+@media(max-width:650px){.trending-topics-strip{gap:3px}.trending-topics-strip button{padding:9px 10px;font-size:11px}.trending-topics-navigation{grid-template-columns:24px minmax(0,1fr) 24px}}
+
+/* Readable prediction-market numerals and the Open Sauce One face used in the supplied reference. */
+@font-face{font-family:'Open Sauce One';src:url('/fonts/open-sauce-one-600.woff2') format('woff2');font-style:normal;font-weight:600;font-display:swap}
+.atlas-trending-screen{font-family:'Open Sauce One',Inter,system-ui,sans-serif}
+.trending-topics-strip button{font-family:'Open Sauce One',Inter,sans-serif;font-size:13px}
+.trending-bento-section .trending-card-title{font-family:'Open Sauce One',Inter,sans-serif;font-size:15px;line-height:1.38;font-weight:600;min-height:41px}
+.trending-bento-wide .trending-card-title,.trending-bento-chart .trending-card-title,.trending-bento-full .trending-card-title{font-size:17px}
+.trending-card-header>div>span,.trending-card-header>div>span b{font-size:11px}
+.trending-bento-section .trending-probability strong,.trending-card-leader .trending-stream-value{font-family:Inter,sans-serif;font-size:36px;font-weight:850;font-variant-numeric:tabular-nums}
+.trending-bento-section .trending-candidates strong{font-family:Inter,sans-serif;font-size:20px;font-variant-numeric:tabular-nums}
+.trending-candidate-name{font-size:13px;line-height:1.32}
+.trending-bento-section .trending-prices button{font-size:14px;min-height:43px}
+.trending-bento-section .trending-prices strong,.trending-bento-section .trending-prices .trending-stream-value{font-size:19px;font-variant-numeric:tabular-nums}
+.trending-bento-section .trending-card-footer{font-size:12px}
+.trending-card-leader>span,.trending-probability>span small{font-size:12px}
+.trending-bento-chart .trending-graph-top{font-size:11px}
+.trending-bento-section .trending-market-grid{grid-auto-rows:minmax(254px,auto)}
+.trending-bento-section .trending-market-card{min-height:254px}
+.trending-odds-gauge{flex:none;align-self:flex-start;position:relative;width:57px;height:57px;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:0;background:radial-gradient(farthest-side,#15191F 76%,transparent 79%),conic-gradient(var(--gauge-color,#F59E42) var(--odds),#394451 0);color:#F4F6FA;font-family:Inter,sans-serif;font-variant-numeric:tabular-nums}
+.trending-odds-gauge strong{font-size:15px;line-height:1.1;font-weight:850}.trending-odds-gauge small{font-size:9px;color:#ABB7C7}
+.trending-bento-full .trending-odds-gauge,.trending-bento-chart .trending-odds-gauge{width:62px;height:62px}
+@media(max-width:750px){.trending-bento-section .trending-card-title{font-size:13px;min-height:0}.trending-bento-wide .trending-card-title,.trending-bento-chart .trending-card-title{font-size:14px}.trending-candidate-name{font-size:11px}.trending-bento-section .trending-candidates strong{font-size:16px}.trending-bento-section .trending-prices button{font-size:12px}.trending-bento-section .trending-prices strong,.trending-bento-section .trending-prices .trending-stream-value{font-size:15px}.trending-card-header .trending-odds-gauge{width:46px;height:46px}.trending-odds-gauge strong{font-size:12px}.trending-odds-gauge small{font-size:8px}.trending-bento-section .trending-market-grid{grid-auto-rows:minmax(230px,auto)}}
+.trending-fetch-more{background:#15191F;border:1px solid #1463ff;border-radius:9px;color:#F4F6FA;padding:13px 24px;font:600 14px 'Open Sauce One',Inter,sans-serif;cursor:pointer}
+.trending-fetch-more:hover{background:#1463ff}
+
+/* One compact probability ring for every displayed outcome; keep the approved card geometry. */
+.trending-bento-section .trending-card-leader .trending-stream-value{font-size:29px;letter-spacing:-.7px}
+.trending-bento-section .trending-candidates button{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:43px;padding:2px 0}
+.trending-candidates .trending-candidate-name{flex:1;min-width:0;font-size:12px;line-height:1.3}
+.trending-candidates .trending-odds-gauge-compact{align-self:center;width:39px;height:39px;min-width:39px;background:radial-gradient(farthest-side,#15191F 73%,transparent 77%),conic-gradient(var(--gauge-color,#F59E42) var(--odds),#394451 0)}
+.trending-bento-section .trending-candidates .trending-odds-gauge-compact strong{font:750 11px Inter,sans-serif;letter-spacing:-.25px;color:#F4F6FA}
+.trending-bento-section .trending-candidates{margin:6px 0}
+.trending-bento-section .trending-bento-chart .trending-candidates button{min-height:43px}
+@media(max-width:750px){.trending-bento-section .trending-card-leader .trending-stream-value{font-size:26px}.trending-candidates .trending-odds-gauge-compact{width:34px;height:34px;min-width:34px}.trending-bento-section .trending-candidates .trending-odds-gauge-compact strong{font-size:10px}.trending-bento-section .trending-candidates button{min-height:38px}}
+
+/* Portrait cards occupy one column and two rows, surrounded by normal-height tiles. */
+@media(min-width:1101px){
+  .trending-bento-section .trending-bento-vertical{grid-column:span 1;grid-row:span 2}
+}
+.trending-bento-vertical .trending-bento-content{flex-direction:column;gap:12px}
+.trending-bento-vertical .trending-bento-details{flex:initial;justify-content:flex-start}
+.trending-bento-vertical .trending-bento-chart{flex:1;min-height:145px;display:flex;min-width:0}
+.trending-bento-vertical .trending-feature-graph{flex:1;min-height:145px;width:100%}
+.trending-bento-vertical .trending-feature-graph svg{height:220px;min-height:145px}
+.trending-bento-vertical .trending-card-header{min-height:74px}
+.trending-bento-vertical .trending-candidates{display:flex;flex-direction:column}
+.trending-bento-vertical .trending-candidates button{min-height:49px}
+.trending-bento-vertical .trending-card-title{font-size:15px}
+.trending-vertical-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:10px 0;border-top:1px solid #29313D;border-bottom:1px solid #29313D}
+.trending-vertical-stats div{min-width:0;display:flex;flex-direction:column;gap:5px}
+.trending-vertical-stats span{color:#98A5B5;font-size:10px;white-space:nowrap}
+.trending-vertical-stats strong{color:#F4F6FA;font:700 12px Inter,sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:1100px){
+  .trending-bento-section .trending-bento-vertical{grid-column:span 1;grid-row:auto}
+}
+@media(max-width:750px){
+  .trending-bento-section .trending-bento-vertical{grid-column:span 2}
+  .trending-bento-vertical .trending-feature-graph svg{height:145px}
+}
+
+/* Featured slider navigation: separate the curved previous/next chips from the slide. */
+.trending-feature-layout{margin-bottom:0}
+.trending-carousel-bar{margin-top:20px;margin-bottom:34px;min-height:42px}
+.trending-carousel-actions .trending-named-slide{border-radius:999px;min-height:38px;background:#15191F;padding:9px 17px}
+.trending-carousel-actions .trending-named-slide:first-child{border-top-left-radius:24px;border-bottom-left-radius:24px}
+.trending-carousel-actions .trending-named-slide:last-child{border-top-right-radius:24px;border-bottom-right-radius:24px}
+.trending-carousel-dots{gap:8px}
+
+/* Compact header controls: search, filter and bookmark; filters remain closed by default. */
+.trending-listing-head{align-items:center;margin-bottom:18px}
+.trending-listing-head h2{font-size:23px;margin:0}
+.trending-search-controls{display:flex;align-items:center;gap:7px}
+.trending-search-controls .trending-toolbar-icon{width:40px;height:40px;display:grid;place-items:center;background:transparent;border:0;border-radius:10px;color:#F4F6FA;font:26px Inter,sans-serif;cursor:pointer;transition:background .15s,color .15s}
+.trending-search-controls .trending-toolbar-icon:hover{background:#15191F;color:#EAA343}
+.trending-search-controls .trending-toolbar-icon.active{background:#15191F;color:#1463ff}
+.trending-search-controls .trending-toolbar-icon svg{display:block}
+.trending-search-controls .trending-inline-search{height:40px;min-width:0;padding:0 12px}
+.trending-search-controls .trending-inline-search input{width:220px;font-size:13px}
+.trending-listing .trending-filterbar{background:#101216;border:1px solid #29313D;padding:13px;border-radius:12px;margin-bottom:18px}
+@media(max-width:750px){.trending-carousel-bar{margin-top:16px;margin-bottom:26px}.trending-listing-head{flex-direction:row;align-items:center;gap:6px}.trending-listing-head h2{font-size:20px}.trending-search-controls .trending-toolbar-icon{width:35px;height:35px;font-size:23px}.trending-search-controls .trending-inline-search input{width:min(28vw,150px)}.trending-search-controls .trending-inline-search{padding:0 7px}}
+
+/* Charts share the same live outcome as the prominent percentage; interactive historical odds. */
+.trending-bento-section .trending-card-leader .trending-stream-value{color:#0bba74}
+.trending-interactive-graph{position:relative;width:100%;min-width:0;min-height:190px}
+.trending-graph-legend{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin:7px 0 3px;font:600 10px Inter,sans-serif;color:#B5C0CF}
+.trending-graph-legend span{display:inline-flex;align-items:center;gap:5px;max-width:47%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trending-graph-legend span i,.trending-graph-tooltip span i{width:7px;height:7px;flex:none;border-radius:50%;display:inline-block}
+.trending-graph-legend b{font-size:11px;color:#F4F6FA}
+.trending-graph-interaction{position:relative;flex:1;min-height:190px;min-width:0;cursor:crosshair}
+.trending-graph-interaction svg{display:block;width:100%;height:100%;min-height:190px;margin:0;overflow:visible}
+.trending-bento-chart .trending-graph-interaction svg{height:195px;min-height:195px}
+.trending-bento-vertical .trending-graph-interaction svg{height:220px;min-height:190px}
+.trending-feature-card .trending-graph-interaction svg{min-height:245px}
+.trending-graph-tooltip{position:absolute;top:18px;z-index:4;display:flex;flex-direction:column;gap:5px;max-width:220px;min-width:142px;padding:10px 11px;background:#15191F;border:1px solid #465164;border-radius:9px;box-shadow:0 8px 26px #000b;pointer-events:none;font:500 10px Inter,sans-serif;color:#BAC5D2}
+.trending-graph-tooltip>strong{font-size:11px;color:#F4F6FA}
+.trending-graph-tooltip span{display:flex;gap:6px;align-items:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trending-graph-tooltip span b{margin-left:auto;color:#F4F6FA}
+.trending-graph-tooltip small{font-size:9px;color:#8C9BAD}
+.trending-odds-gauge strong,.trending-bento-section .trending-candidates .trending-odds-gauge-compact strong,.trending-graph-tooltip span b{color:#0bba74!important}
+.trending-bento-section .trending-graph-top{align-items:center;flex-wrap:wrap;row-gap:4px}
+@media(max-width:750px){.trending-graph-legend{gap:7px;font-size:9px}.trending-graph-legend b{font-size:10px}.trending-bento-chart .trending-graph-interaction svg{height:165px;min-height:165px}.trending-feature-card .trending-graph-interaction svg{min-height:205px}.trending-graph-tooltip{max-width:170px}}
+.trending-feature-title-row{display:flex;align-items:flex-start;gap:9px}
+.trending-feature-title-row .trending-feature-title{flex:1;min-width:0}
+.trending-feature-title-row .trending-odds-gauge{margin-top:4px}
+.trending-feature-ring-list{gap:2px}
+.trending-feature-ring-list button{min-height:40px;padding:3px 0;gap:10px}
+.trending-feature-ring-list button>span:first-child{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trending-feature-ring-list .trending-odds-gauge-compact{width:37px;height:37px;min-width:37px;align-self:center}
+.trending-feature-ring-list .trending-odds-gauge-compact strong{font-size:10px}
+
+/* Use the available card width for both trade buttons, even on wide/full tiles. */
+.trending-bento-section .trending-bento-wide .trending-prices,
+.trending-bento-section .trending-bento-full .trending-prices{width:100%;max-width:none}
+.trending-bento-section .trending-prices button{min-width:0;width:100%}
+
+/* Portrait cards feature four real outcomes and give remaining height to the chart. */
+.trending-bento-vertical .trending-bento-chart{min-height:220px;align-items:stretch}
+.trending-bento-vertical .trending-feature-graph{height:100%;min-height:220px}
+.trending-bento-vertical .trending-graph-interaction{flex:1;min-height:200px;height:100%}
+.trending-bento-vertical .trending-graph-interaction svg{height:100%;min-height:220px}
+
+/* Featured market navigation stays inside the top edge; slide dots stay inside the bottom edge. */
+.trending-feature-card{position:relative;overflow:hidden}
+.trending-feature-card{height:390px;min-height:0;grid-template-rows:minmax(0,1fr) 15px}
+.trending-feature-left{min-height:0;overflow:hidden}
+.trending-feature-title{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.trending-feature-card>.trending-feature-graph{min-height:0;overflow:hidden}
+.trending-feature-topline{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.trending-slide-controls{position:absolute;top:17px;right:20px;z-index:3;display:flex;align-items:center;gap:10px;font:700 12px Inter,sans-serif;color:#C5CDDA}
+.trending-slide-controls button{width:34px;height:34px;border:1px solid #343B48;background:#101216;border-radius:50%;display:grid;place-items:center;color:#F4F6FA;font:26px Inter,sans-serif;line-height:1;cursor:pointer}
+.trending-slide-controls button:hover{border-color:#1463ff;color:#1463ff}
+.trending-feature-card>.trending-feature-graph{padding-top:44px}
+.trending-feature-inner-dots{grid-column:1/-1;display:flex;justify-content:center;align-items:center;gap:7px;margin-top:-7px;min-height:15px}
+.trending-feature-inner-dots button{border:0;padding:0;background:#4A5361;width:7px;height:7px;border-radius:50%;cursor:pointer;transition:width .2s,background .2s}
+.trending-feature-inner-dots button.active{background:#1463ff;width:25px;border-radius:12px}
+.trending-feature-inner-dots button:hover{background:#EAA343}
+
+/* Compact high-contrast service cards between the featured slider and market discovery. */
+.trending-promo-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:22px 0 30px}
+.trending-promo-tile{display:flex;align-items:center;gap:11px;text-align:left;min-width:0;min-height:130px;padding:13px 12px;background:linear-gradient(145deg,#141c20,#101216 60%);border:1px solid #29313D;border-radius:13px;color:#F4F6FA;cursor:pointer;transition:border-color .15s,transform .15s,background .15s;position:relative;overflow:hidden}
+.trending-promo-tile:after{content:'';position:absolute;right:-24px;bottom:-38px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,#EAA34322,transparent 70%);pointer-events:none}
+.trending-promo-tile:hover{border-color:#EAA343;transform:translateY(-2px);background:linear-gradient(145deg,#272016,#101216 65%)}
+.trending-promo-icon{width:39px;height:39px;flex:none;border-radius:11px;display:grid;place-items:center;background:#EAA3431c;color:#EAA343}
+.trending-promo-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.trending-promo-text{min-width:0;display:flex;flex-direction:column;gap:5px}
+.trending-promo-text strong{font:750 13px Inter,sans-serif;color:#F4F6FA;line-height:1.1}
+.trending-promo-metric{font:800 clamp(19px,1.7vw,27px) Inter,sans-serif;letter-spacing:-.7px;color:#EAA343;line-height:1.15;font-variant-numeric:tabular-nums;white-space:nowrap}
+.trending-prize-spotlight{height:390px;padding:13px 14px;display:flex;flex-direction:column;gap:8px;background:radial-gradient(circle at 50% 32%,#202018 0%,#101216 65%);min-width:0}
+.trending-prize-head{display:flex;align-items:flex-start;justify-content:space-between;gap:6px}.trending-prize-head>div{display:flex;flex-direction:column;gap:3px}.trending-prize-head span{font:700 9px Inter,sans-serif;letter-spacing:1px;color:#EAA343}.trending-prize-head strong{font:800 12px Inter,sans-serif;letter-spacing:.25px;color:#F4F6FA}.trending-prize-head .trending-prize-proposed{font-size:8px;color:#97A4B6;padding:4px 5px;background:#242729;border-radius:4px}
+.trending-prize-photo{height:120px;flex:none;border-radius:8px;background-image:linear-gradient(0deg,#10121611,#10121611),url('/prize-triptych.png');background-size:300% auto;background-position:left center;background-repeat:no-repeat;position:relative;overflow:hidden}
+.trending-prize-photo[data-prize=gold]{background-position:center}.trending-prize-photo[data-prize=usdt]{background-position:right}.trending-prize-photo[data-prize=ranks]{background-image:radial-gradient(circle at 50% 0%,#4A361B 0%,#101216 80%)}
+.trending-prize-rank-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 10px;padding:8px 12px}.trending-prize-rank-grid div{display:flex;justify-content:space-between;font:650 11px Inter,sans-serif;padding:2px 0;border-bottom:1px solid #323039}.trending-prize-rank-grid span{color:#EAA343}.trending-prize-rank-grid strong{color:#F4F6FA}
+.trending-prize-detail{display:flex;flex-direction:column;min-height:0;gap:5px}.trending-prize-detail>span{font:750 11px Inter,sans-serif;letter-spacing:.45px;color:#EAA343}.trending-prize-detail h3{font:800 17px Inter,sans-serif;line-height:1.14;margin:0;color:#F4F6FA}.trending-prize-detail b{font:850 23px Inter,sans-serif;line-height:1.2;letter-spacing:-.5px;color:#EAA343}.trending-prize-detail small{font:500 11px Inter,sans-serif;color:#B6C0CC;line-height:1.4}
+.trending-prize-controls{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto}.trending-prize-controls>button{width:26px;height:26px;border:1px solid #343B42;color:#EAA343;background:#171B1F;border-radius:50%;font-size:19px;cursor:pointer;display:grid;place-items:center;line-height:1}.trending-prize-controls>div{display:flex;gap:6px}.trending-prize-controls>div button{width:7px;height:7px;border:0;border-radius:8px;padding:0;background:#657080;cursor:pointer}.trending-prize-controls>div button.active{background:#EAA343;width:24px}.trending-prize-controls>button:hover{border-color:#EAA343}
+.trending-prize-winners{border-top:1px solid #2A3035;padding-top:7px;display:flex;flex-direction:column;gap:4px}.trending-prize-winners>span{font:800 11px Inter,sans-serif;letter-spacing:.35px;color:#F4F6FA}.trending-prize-winners>small{font:500 11px Inter,sans-serif;color:#A5B0BD}.trending-prize-winners>div{display:flex;justify-content:space-between;gap:4px;font:600 11px Inter,sans-serif;color:#D4DBE4}
+@media(max-width:750px){.trending-feature-layout .trending-prize-spotlight{display:flex;height:390px}.trending-prize-photo{height:135px}}
+/* Prize-specific artwork: independent wide crops preserve the complete car and bullion. */
+.trending-prize-photo[data-prize=car]{background-image:url('/prize-lamborghini-yellow.png');background-size:contain;background-color:#080A0D;background-position:center}
+.trending-prize-photo[data-prize=gold]{background-image:url('/prize-gold-full.png');background-size:contain;background-color:#080A0D;background-position:center}
+/* MITMARKET reward campaign uses the approved green across its typography and controls. */
+.trending-prize-spotlight .trending-prize-head span,
+.trending-prize-spotlight .trending-prize-head strong,
+.trending-prize-spotlight .trending-prize-detail>span,
+.trending-prize-spotlight .trending-prize-detail h3,
+.trending-prize-spotlight .trending-prize-detail b,
+.trending-prize-spotlight .trending-prize-detail small,
+.trending-prize-spotlight .trending-prize-winners>span,
+.trending-prize-spotlight .trending-prize-winners>small,
+.trending-prize-spotlight .trending-prize-winners>div,
+.trending-prize-spotlight .trending-prize-rank-grid span,
+.trending-prize-spotlight .trending-prize-rank-grid strong{color:#0bba74}
+.trending-prize-spotlight .trending-prize-controls>button{color:#0bba74}
+.trending-prize-spotlight .trending-prize-controls>div button.active{background:#0bba74}
+.trending-prize-spotlight .trending-prize-controls>button:hover{border-color:#0bba74}
+/* Full uncropped Tether artwork, matching the other independent prize images. */
+.trending-prize-photo[data-prize=usdt]{background-image:url('/prize-usdt-full.png');background-size:contain;background-color:#080A0D;background-position:center}
+/* All award copy is white; only numeric prize values use MITMARKET orange. */
+.trending-prize-spotlight .trending-prize-head span,
+.trending-prize-spotlight .trending-prize-head strong,
+.trending-prize-spotlight .trending-prize-detail>span,
+.trending-prize-spotlight .trending-prize-detail h3,
+.trending-prize-spotlight .trending-prize-detail small,
+.trending-prize-spotlight .trending-prize-winners>span,
+.trending-prize-spotlight .trending-prize-winners>small,
+.trending-prize-spotlight .trending-prize-winners>div{color:#F4F6FA}
+.trending-prize-spotlight .trending-prize-detail b,
+.trending-prize-spotlight .trending-prize-rank-grid span,
+.trending-prize-spotlight .trending-prize-rank-grid strong{color:#EAA343}
+.trending-prize-spotlight .trending-prize-controls>button{color:#F4F6FA}
+.trending-prize-spotlight .trending-prize-controls>div button.active{background:#EAA343}
+.trending-prize-spotlight .trending-prize-controls>button:hover{border-color:#EAA343}
+/* Original MITMARKET prize campaign artwork, each aspect-ratio-safe inside its slide. */
+.trending-prize-photo[data-prize=car]{background-image:url('/prize-lamborghini-atlas-v2.png')}
+.trending-prize-photo[data-prize=gold]{background-image:url('/prize-gold-atlas-v2.png')}
+.trending-prize-photo[data-prize=usdt]{background-image:url('/prize-usdt-atlas-v2.png')}
+/* Consistent MITMARKET brand blue for promo metrics and awards (approved palette). */
+.trending-promo-tile:after{background:radial-gradient(circle,#1463ff22,transparent 70%)}
+.trending-promo-tile:hover{border-color:#1463ff;background:linear-gradient(145deg,#162037,#101216 65%)}
+.trending-promo-icon{background:#1463ff1c;color:#1463ff}
+.trending-promo-metric{color:#1463ff}
+.trending-prize-spotlight .trending-prize-detail b,
+.trending-prize-spotlight .trending-prize-rank-grid span,
+.trending-prize-spotlight .trending-prize-rank-grid strong{color:#1463ff}
+.trending-prize-spotlight .trending-prize-controls>div button.active{background:#1463ff}
+.trending-prize-spotlight .trending-prize-controls>button:hover{border-color:#1463ff}
+/* Final MITMARKET campaign banner trio, same uncropped safe-area rendering. */
+.trending-prize-photo[data-prize=car]{background-image:url('/atlas-banner-lamborghini.png')}
+.trending-prize-photo[data-prize=gold]{background-image:url('/atlas-banner-gold.png')}
+.trending-prize-photo[data-prize=usdt]{background-image:url('/atlas-banner-usdt.png')}
+/* Green numbers only; navigation, icons and other copy retain MITMARKET blue/white. */
+.trending-promo-metric{color:#0bba74}
+.trending-prize-spotlight .trending-prize-detail b,
+.trending-prize-spotlight .trending-prize-rank-grid strong{color:#0bba74}
+.trending-promo-text small{font:500 11px Inter,sans-serif;color:#9DA9B9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trending-promo-text em{font:700 9px Inter,sans-serif;letter-spacing:.35px;color:#0bba74;font-style:normal;margin-top:4px}
+@media(max-width:1150px){.trending-promo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:750px){.trending-feature-card>.trending-feature-graph{padding-top:20px}.trending-slide-controls{top:13px;right:13px;gap:6px;font-size:10px}.trending-slide-controls button{width:29px;height:29px;font-size:22px}.trending-feature-topline .trending-category{max-width:55%}.trending-promo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:16px 0 22px}.trending-promo-tile{min-height:116px;padding:10px;gap:8px}.trending-promo-icon{width:33px;height:33px}.trending-promo-icon svg{width:19px;height:19px}.trending-promo-text strong{font-size:12px}.trending-promo-metric{font-size:20px}.trending-promo-text small{font-size:10px}.trending-promo-text em{font-size:8px}}
+@media(max-width:750px){.trending-feature-card{height:440px;grid-template-rows:minmax(0,1fr) minmax(0,1fr) 15px}.trending-feature-card>.trending-feature-graph{padding-top:20px}.trending-slide-controls{top:13px;right:13px;gap:6px;font-size:10px}.trending-slide-controls button{width:29px;height:29px;font-size:22px}.trending-feature-topline .trending-category{max-width:55%}.trending-promo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:16px 0 22px}.trending-promo-tile{min-height:116px;padding:10px;gap:8px}.trending-promo-icon{width:33px;height:33px}.trending-promo-icon svg{width:19px;height:19px}.trending-promo-text strong{font-size:12px}.trending-promo-metric{font-size:20px}.trending-promo-text small{font-size:10px}.trending-promo-text em{font-size:8px}}
+/* MITMARKET tonal-card system: alternating light sources, no changes to layout or values. */
+.atlas-trending-screen :is(.trending-market-card,.trending-feature-card,.trending-spotlight){background-image:linear-gradient(118deg,#0d1017 0%,#151c29 65%,#1e2939 100%);background-color:#101216}
+.trending-market-grid>.trending-market-card:nth-child(4n+2){background-image:linear-gradient(258deg,#0d1017 0%,#151d2a 69%,#202b3a 100%)}
+.trending-market-grid>.trending-market-card:nth-child(4n+3){background-image:linear-gradient(165deg,#1d2937 0%,#141b26 41%,#0b0e15 100%)}
+.trending-market-grid>.trending-market-card:nth-child(4n){background-image:linear-gradient(32deg,#0b0e15 0%,#131d2c 55%,#202a38 100%)}
+.trending-feature-card{background-image:linear-gradient(115deg,#111924,#1b2634 70%,#101216)!important}
+/* Skip off-screen paint while retaining the already measured section height. */
+.trending-bento-section{content-visibility:auto;contain-intrinsic-size:auto 900px}

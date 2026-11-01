@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container-highest": "#101216", "secondary": "#EAA343", "error": "#ff4761", "surface-dim": "#000000", "background": "#000000", "surface": "#000000", "on-secondary": "#000000", "on-primary-container": "#000000", "surface-variant": "#101216", "surface-container": "#101216", "on-secondary-container": "#F4F6FA", "surface-container-low": "#101216", "on-tertiary-fixed": "#000000", "inverse-on-surface": "#101216", "secondary-container": "#101216", "tertiary": "#0bba74", "surface-tint": "#1463ff", "tertiary-container": "#0bba74", "primary-container": "#1463ff", "on-tertiary": "#000000", "outline": "#98A5B5", "on-primary-fixed-variant": "#000000", "primary-fixed-dim": "#1463ff", "on-surface": "#F4F6FA", "on-primary": "#000000", "secondary-fixed-dim": "#EAA343", "on-secondary-fixed-variant": "#000000", "on-error-container": "#ff4761", "outline-variant": "#29313D", "inverse-surface": "#F4F6FA", "on-primary-fixed": "#000000", "error-container": "#101216", "on-error": "#000000", "on-tertiary-fixed-variant": "#000000", "tertiary-fixed": "#0bba74", "on-background": "#F4F6FA", "primary": "#1463ff", "surface-bright": "#29313D", "on-tertiary-container": "#000000", "on-surface-variant": "#98A5B5", "tertiary-fixed-dim": "#0bba74", "surface-container-high": "#101216", "secondary-fixed": "#EAA343", "inverse-primary": "#1463ff", "surface-container-lowest": "#101216", "primary-fixed": "#1463ff", "on-secondary-fixed": "#000000" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "1.5rem", "gutter": "0.75rem", "space-lg": "1rem", "gutter-desktop": "1rem", "margin": "1rem", "space-md": "0.75rem", "margin-desktop": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem" }, "fontFamily": { "headline-md": ["Inter"], "label-caps": ["Inter"], "data-md": ["Inter"], "headline-lg": ["Inter"], "body-lg": ["Inter"], "micro": ["Inter"], "data-lg": ["Inter"], "body-sm": ["Inter"], "display-lg": ["Inter"], "data-sm": ["Inter"], "body-md": ["Inter"] }, "fontSize": { "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "data-md": ["14px", { "lineHeight": "18px", "fontWeight": "600" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "micro": ["10px", { "lineHeight": "12px", "fontWeight": "500" }], "data-lg": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "body-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }] } } } };</script><style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-md"><div class="h-14 w-full px-gutter-desktop flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs cursor-pointer"><div class="w-6 h-6 rounded bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[16px]">polyline</span></div><span class="font-headline-md text-headline-md tracking-wider font-bold text-on-surface uppercase">MITMARKET</span><span class="font-micro text-micro px-space-xs py-0.5 rounded bg-surface-container-high text-tertiary uppercase">PRO</span></div><div class="relative flex items-center w-64 bg-surface-container-low rounded px-space-sm py-1"><span class="material-symbols-outlined text-outline text-[16px] mr-space-xs">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search markets, events..." type="text"/><div class="flex items-center gap-0.5 px-1 py-0.5 rounded bg-surface-container-highest text-outline font-micro text-micro"><span>⌘</span><span>K</span></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-bold rounded"><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="markets-overview" href="#">Home</a><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="explore-terminal" href="#">Explore</a><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="portfolio-performance" href="#">Portfolio</a><a aria-current="page" class="px-space-sm py-1.5 transition-colors bg-surface-container-high text-on-surface font-bold rounded" data-path="active-positions" href="#">Positions</a><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="order-management" href="#">Orders</a><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="wallet-ledger" href="#">Wallet</a></nav></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low"><div class="flex items-center gap-1.5"><div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></div><span class="font-label-caps text-label-caps text-outline uppercase">USDC Available</span></div><span class="font-data-md text-data-md text-on-surface tabular-nums">—</span></div><button class="px-space-md py-1.5 rounded bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-body-sm text-body-sm font-semibold transition-colors flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[16px]">add</span><span>Deposit</span></button><button class="relative p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span></button><div class="flex items-center gap-space-xs pl-space-xs py-1 pr-space-sm rounded bg-surface-container-low cursor-pointer hover:bg-surface-container-high transition-colors"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-data-sm text-data-sm text-on-surface font-semibold">Connect account</span><span class="font-micro text-micro text-outline">Polygon POS</span></div><span class="material-symbols-outlined text-outline text-[16px]">expand_more</span></div></div></div><div class="h-9 w-full px-gutter-desktop bg-surface-container-low flex items-center justify-between text-on-surface-variant"><div class="flex items-center gap-space-xs font-body-sm text-body-sm"><a class="hover:text-on-surface transition-colors" data-path="markets-overview" href="#">Terminal</a><span class="text-outline">/</span><span class="text-on-surface font-medium capitalize">Account Subsystem</span><span class="text-outline">/</span><span class="text-tertiary font-medium capitalize">Live Execution Ledger</span></div><div class="flex items-center gap-space-md font-label-caps text-label-caps"><div class="flex items-center gap-1.5"><span class="text-outline">LATENCY:</span><span class="text-tertiary tabular-nums">18ms</span></div><div class="flex items-center gap-1.5"><span class="text-outline">BLOCK:</span><span class="text-on-surface tabular-nums">#58291410</span></div><div class="flex items-center gap-1.5"><span class="text-outline">GAS:</span><span class="text-secondary tabular-nums">31 Gwei</span></div></div></div></header><aside class="fixed left-0 top-[92px] bottom-0 w-64 bg-surface-container-lowest z-40 flex flex-col justify-between py-space-md"><div class="px-space-md flex flex-col gap-space-md"><div class="px-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Navigation Rail</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container-high text-on-surface font-bold rounded"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="markets-overview" href="#"><span class="material-symbols-outlined text-[18px]">insights</span><span>Markets Overview</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="explore-terminal" href="#"><span class="material-symbols-outlined text-[18px]">travel_explore</span><span>Explore Terminal</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="portfolio-performance" href="#"><span class="material-symbols-outlined text-[18px]">pie_chart</span><span>Portfolio Matrix</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 transition-colors bg-surface-container-high text-on-surface font-bold rounded" data-path="active-positions" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span>Active Positions</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="order-management" href="#"><span class="material-symbols-outlined text-[18px]">reorder</span><span>Order Book &amp; Depth</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="wallet-ledger" href="#"><span class="material-symbols-outlined text-[18px]">payments</span><span>Settlement &amp; Wallet</span></a></nav></div><div class="px-space-md flex flex-col gap-space-xs"><div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-1"><div class="flex items-center justify-between font-label-caps text-label-caps text-outline"><span class="uppercase">CLOB Engine</span><span class="text-tertiary">ONLINE</span></div><div class="font-micro text-micro text-on-surface-variant">Throughput: 14.2k ops/sec</div></div></div></aside><div class="pl-64"><main class="relative pt-[92px] w-full min-h-screen bg-surface px-gutter-desktop pb-space-xl"><div class="flex flex-col w-full">
+<!-- Top Stat HUD: Historical Realized Ledger -->
+<div class="relative w-full mb-space-lg overflow-hidden rounded bg-surface-container-low p-space-lg shadow-sm">
+<div class="absolute -top-12 -right-12 w-96 h-96 rounded-full bg-tertiary/5 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-space-md">
+<!-- Section Tag & Status Meta -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-sm border-b border-surface-container-highest/60">
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 px-space-xs py-0.5 rounded bg-surface-container-highest text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider">SETTLED ARCHIVE</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">CLOB Resolution Ledger • Realized Book Only (Excludes Open Mark-to-Market)</span>
+</div>
+<div class="flex items-center gap-space-md font-label-caps text-label-caps text-outline">
+<span>ORACLE PROOF: <strong class="text-on-surface font-normal">UMA Optimistic V3</strong></span>
+<span>CURRENCY: <strong class="text-tertiary font-normal">USDC</strong></span>
+</div>
+</div>
+<!-- Institutional Metrics Ribbon (Bento Micro-Grid) -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-space-md">
+<!-- Realized Lifetime P&L -->
+<div class="flex flex-col p-space-sm rounded bg-surface-container-lowest">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider mb-1">Realized Lifetime P&amp;L</span>
+<div class="flex items-baseline gap-1.5">
+<span class="font-data-lg text-data-lg text-tertiary tabular-nums font-bold">+$18,420.80</span>
+<span class="font-micro text-micro text-tertiary font-semibold">USDC</span>
+</div>
+<span class="font-micro text-micro text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-tertiary">trending_up</span> Net Return +34.2%
+          </span>
+</div>
+<!-- Total Closed Positions -->
+<div class="flex flex-col p-space-sm rounded bg-surface-container-lowest">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider mb-1">Total Closed Contracts</span>
+<div class="flex items-baseline gap-1.5">
+<span class="font-data-lg text-data-lg text-on-surface tabular-nums font-bold">48</span>
+<span class="font-micro text-micro text-outline">Positions</span>
+</div>
+<span class="font-micro text-micro text-outline mt-1">100% Settled &amp; Reconciled</span>
+</div>
+<!-- Winning Positions -->
+<div class="flex flex-col p-space-sm rounded bg-surface-container-lowest">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider mb-1">Winning Positions</span>
+<div class="flex items-baseline gap-1.5">
+<span class="font-data-lg text-data-lg text-tertiary tabular-nums font-bold">34</span>
+<span class="font-micro text-micro text-tertiary">Wins</span>
+</div>
+<span class="font-micro text-micro text-on-surface-variant mt-1">Avg Win +$684.20</span>
+</div>
+<!-- Losing Positions -->
+<div class="flex flex-col p-space-sm rounded bg-surface-container-lowest">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider mb-1">Losing Positions</span>
+<div class="flex items-baseline gap-1.5">
+<span class="font-data-lg text-data-lg text-error tabular-nums font-bold">14</span>
+<span class="font-micro text-micro text-error">Losses</span>
+</div>
+<span class="font-micro text-micro text-on-surface-variant mt-1">Avg Loss -$346.10</span>
+</div>
+<!-- Win Rate -->
+<div class="flex flex-col p-space-sm rounded bg-surface-container-lowest">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider mb-1">Win Rate</span>
+<span class="font-micro text-micro text-tertiary">High Alpha</span>
+</div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-data-lg text-data-lg text-on-surface tabular-nums font-bold">—</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden mt-2">
+<div class="bg-tertiary h-full rounded-full" style="width: 70.8%"></div>
+</div>
+</div>
+<!-- Traded Volume -->
+<div class="flex flex-col p-space-sm rounded bg-surface-container-lowest">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider mb-1">Total Realized Turnover</span>
+<div class="flex items-baseline gap-1.5">
+<span class="font-data-lg text-data-lg text-on-surface tabular-nums font-bold">—</span>
+<span class="font-micro text-micro text-outline">USDC</span>
+</div>
+<span class="font-micro text-micro text-outline mt-1">Turnover Multiplier: 9.8x</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Realized Execution Filter & Control Toolbar -->
+<div class="w-full mb-space-md flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-sm bg-surface-container-low p-space-sm rounded">
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Search Input -->
+<div class="relative flex items-center bg-surface-container-lowest rounded px-space-sm py-1.5 w-64 focus-within:ring-1 focus-within:ring-primary">
+<span class="material-symbols-outlined text-outline text-[16px] mr-space-xs">search</span>
+<input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" id="closed-search" placeholder="Filter closed position..." type="text"/>
+</div>
+<!-- Date Range Selectors -->
+<div class="flex items-center bg-surface-container-lowest rounded p-0.5">
+<button class="date-filter-btn px-space-sm py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-range="30d">30 Days</button>
+<button class="date-filter-btn px-space-sm py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-range="90d">90 Days</button>
+<button class="date-filter-btn px-space-sm py-1 rounded bg-surface-container-high text-on-surface font-semibold font-body-sm text-body-sm shadow-sm" data-range="ytd">2025 YTD</button>
+<button class="date-filter-btn px-space-sm py-1 rounded font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-range="all">All Time</button>
+</div>
+<!-- Category Filter -->
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest text-on-surface font-body-sm text-body-sm py-1.5 pl-space-sm pr-7 rounded focus:outline-none cursor-pointer">
+<option value="all">All Categories</option>
+<option value="politics">Politics &amp; Geo</option>
+<option value="crypto">Crypto &amp; Defi</option>
+<option value="tech">Space &amp; DeepTech</option>
+<option value="sports">Sports &amp; E-Sports</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-1.5 top-1/2 -translate-y-1/2 text-outline text-[16px]">unfold_more</span>
+</div>
+<!-- Settlement Status Filter -->
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest text-on-surface font-body-sm text-body-sm py-1.5 pl-space-sm pr-7 rounded focus:outline-none cursor-pointer" id="status-filter">
+<option value="all">All Statuses (Won, Lost, Sold Early)</option>
+<option value="won">Settled: Won Only</option>
+<option value="lost">Settled: Lost Only</option>
+<option value="sold">Exited: Sold Early</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-1.5 top-1/2 -translate-y-1/2 text-outline text-[16px]">expand_more</span>
+</div>
+</div>
+<!-- Actions Right -->
+<div class="flex items-center gap-space-sm justify-end">
+<div class="text-outline font-micro text-micro hidden sm:block">
+        EXPORT AUDIT RECORD:
+      </div>
+<button class="flex items-center gap-1.5 px-space-md py-1.5 rounded bg-surface-container-highest hover:bg-surface-bright text-on-surface font-body-sm text-body-sm font-semibold transition-colors shadow-sm" id="export-csv-btn" title="Download strict tax and settlement ledger">
+<span class="material-symbols-outlined text-[16px] text-tertiary">download</span>
+<span>Export CSV</span>
+</button>
+</div>
+</div>
+<!-- Ledger Table Master Container -->
+<div class="w-full bg-surface-container-low rounded overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<!-- Table Column Headers -->
+<thead>
+<tr class="bg-surface-container-lowest font-label-caps text-label-caps text-outline uppercase tracking-wider select-none">
+<th class="py-space-md px-space-md font-semibold">Contract / Resolution Event</th>
+<th class="py-space-md px-space-sm font-semibold">Side</th>
+<th class="py-space-md px-space-sm font-semibold">Resolution Outcome</th>
+<th class="py-space-md px-space-sm font-semibold text-right">Avg Entry</th>
+<th class="py-space-md px-space-sm font-semibold text-right">Final Exit</th>
+<th class="py-space-md px-space-sm font-semibold text-right">Shares Filled</th>
+<th class="py-space-md px-space-sm font-semibold text-right">Total Invested</th>
+<th class="py-space-md px-space-sm font-semibold text-right">Net Proceeds</th>
+<th class="py-space-md px-space-md font-semibold text-right">Realized P&amp;L</th>
+<th class="py-space-md px-space-sm text-center font-semibold">Audit</th>
+</tr>
+</thead>
+<!-- Position Records Body -->
+<tbody class="divide-y divide-surface-container-highest/40 font-body-md text-body-md">
+<!-- Position 1: US Election 2024 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-7 h-7 rounded bg-surface-container-highest flex items-center justify-center shrink-0 mt-0.5 text-primary">
+<span class="material-symbols-outlined text-[16px]">how_to_vote</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">
+                    US Presidential Election 2024
+                  </span>
+<div class="flex items-center gap-1.5 font-micro text-micro text-outline mt-0.5">
+<span>POLITICS</span>
+<span>•</span>
+<span>ID: #MITMARKET-PLT-8821</span>
+<span>•</span>
+<span class="tabular-nums">Resolved Nov 06, 2024</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps font-bold">YES</span>
+</td>
+<td class="py-space-md px-space-sm">
+<div class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-tertiary/15 text-tertiary font-data-sm text-data-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Resolved — Won</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              52.0¢
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              100.0¢
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              20,000
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              —
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              —
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex flex-col items-end">
+<span class="font-data-md text-data-md text-tertiary font-bold tabular-nums">+$9,600.00</span>
+<span class="font-micro text-micro text-tertiary font-semibold tabular-nums">—</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-center">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-highest transition-colors" title="Inspect oracle resolution bundle">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</button>
+</td>
+</tr>
+<!-- Position 2: Bitcoin $90k in 2024 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-7 h-7 rounded bg-surface-container-highest flex items-center justify-center shrink-0 mt-0.5 text-secondary">
+<span class="material-symbols-outlined text-[16px]">currency_bitcoin</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">
+                    Bitcoin Reaches $90,000 Before Dec 31, 2024
+                  </span>
+<div class="flex items-center gap-1.5 font-micro text-micro text-outline mt-0.5">
+<span>CRYPTO</span>
+<span>•</span>
+<span>ID: #MITMARKET-CRY-9104</span>
+<span>•</span>
+<span class="tabular-nums">Resolved Nov 12, 2024</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps font-bold">YES</span>
+</td>
+<td class="py-space-md px-space-sm">
+<div class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-tertiary/15 text-tertiary font-data-sm text-data-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Resolved — Won</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              41.0¢
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              100.0¢
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              10,000
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              —
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              —
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex flex-col items-end">
+<span class="font-data-md text-data-md text-tertiary font-bold tabular-nums">+$5,900.00</span>
+<span class="font-micro text-micro text-tertiary font-semibold tabular-nums">—</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-center">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-highest transition-colors" title="Inspect oracle resolution bundle">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</button>
+</td>
+</tr>
+<!-- Position 3: ETH Dencun Hardfork Q1 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-7 h-7 rounded bg-surface-container-highest flex items-center justify-center shrink-0 mt-0.5 text-primary">
+<span class="material-symbols-outlined text-[16px]">token</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">
+                    Ethereum Dencun Upgrade Live on Mainnet in Q1
+                  </span>
+<div class="flex items-center gap-1.5 font-micro text-micro text-outline mt-0.5">
+<span>CRYPTO</span>
+<span>•</span>
+<span>ID: #MITMARKET-CRY-7712</span>
+<span>•</span>
+<span class="tabular-nums">Resolved Mar 13, 2024</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps font-bold">YES</span>
+</td>
+<td class="py-space-md px-space-sm">
+<div class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-tertiary/15 text-tertiary font-data-sm text-data-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Resolved — Won</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              78.0¢
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              100.0¢
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              5,000
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              —
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              —
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex flex-col items-end">
+<span class="font-data-md text-data-md text-tertiary font-bold tabular-nums">+$1,100.00</span>
+<span class="font-micro text-micro text-tertiary font-semibold tabular-nums">—</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-center">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-highest transition-colors" title="Inspect oracle resolution bundle">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</button>
+</td>
+</tr>
+<!-- Position 4: SpaceX Starship IFT-4 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-7 h-7 rounded bg-surface-container-highest flex items-center justify-center shrink-0 mt-0.5 text-secondary">
+<span class="material-symbols-outlined text-[16px]">rocket_launch</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">
+                    SpaceX Starship IFT-4 Splashdown Success
+                  </span>
+<div class="flex items-center gap-1.5 font-micro text-micro text-outline mt-0.5">
+<span>AEROSPACE</span>
+<span>•</span>
+<span>ID: #MITMARKET-AER-4401</span>
+<span>•</span>
+<span class="tabular-nums">Exited Jun 04, 2024</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps font-bold">YES</span>
+</td>
+<td class="py-space-md px-space-sm">
+<div class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-secondary/15 text-secondary font-data-sm text-data-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">logout</span>
+<span>Sold Early</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              45.0¢
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              72.0¢
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              8,000
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              —
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              —
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex flex-col items-end">
+<span class="font-data-md text-data-md text-tertiary font-bold tabular-nums">+$2,160.00</span>
+<span class="font-micro text-micro text-tertiary font-semibold tabular-nums">—</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-center">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-highest transition-colors" title="Inspect CLOB execution trade logs">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+</td>
+</tr>
+<!-- Position 5: Super Bowl LVIII: 49ers Win -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-7 h-7 rounded bg-surface-container-highest flex items-center justify-center shrink-0 mt-0.5 text-error">
+<span class="material-symbols-outlined text-[16px]">sports_football</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">
+                    Super Bowl LVIII: SF 49ers Win Championship
+                  </span>
+<div class="flex items-center gap-1.5 font-micro text-micro text-outline mt-0.5">
+<span>SPORTS</span>
+<span>•</span>
+<span>ID: #MITMARKET-SPT-1049</span>
+<span>•</span>
+<span class="tabular-nums">Resolved Feb 11, 2024</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps font-bold">YES</span>
+</td>
+<td class="py-space-md px-space-sm">
+<div class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-error/15 text-error font-data-sm text-data-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">cancel</span>
+<span>Resolved — Lost</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              55.0¢
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-error font-medium font-data-sm text-data-sm">
+              0.0¢
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              4,000
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              —
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              —
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex flex-col items-end">
+<span class="font-data-md text-data-md text-error font-bold tabular-nums">-$2,200.00</span>
+<span class="font-micro text-micro text-error font-semibold tabular-nums">—</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-center">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-highest transition-colors" title="Inspect oracle resolution bundle">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</button>
+</td>
+</tr>
+<!-- Position 6: UK Early Election in May -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-7 h-7 rounded bg-surface-container-highest flex items-center justify-center shrink-0 mt-0.5 text-error">
+<span class="material-symbols-outlined text-[16px]">gavel</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">
+                    UK General Election Called for May 2024
+                  </span>
+<div class="flex items-center gap-1.5 font-micro text-micro text-outline mt-0.5">
+<span>POLITICS</span>
+<span>•</span>
+<span>ID: #MITMARKET-PLT-5510</span>
+<span>•</span>
+<span class="tabular-nums">Resolved May 31, 2024</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps font-bold">YES</span>
+</td>
+<td class="py-space-md px-space-sm">
+<div class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-error/15 text-error font-data-sm text-data-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">cancel</span>
+<span>Resolved — Lost</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              30.0¢
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-error font-medium font-data-sm text-data-sm">
+              0.0¢
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              3,500
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              —
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              —
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex flex-col items-end">
+<span class="font-data-md text-data-md text-error font-bold tabular-nums">-$1,050.00</span>
+<span class="font-micro text-micro text-error font-semibold tabular-nums">—</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-center">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-highest transition-colors" title="Inspect oracle resolution bundle">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</button>
+</td>
+</tr>
+<!-- Position 7: Champions League Semi-Final -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-7 h-7 rounded bg-surface-container-highest flex items-center justify-center shrink-0 mt-0.5 text-secondary">
+<span class="material-symbols-outlined text-[16px]">sports_soccer</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">
+                    UEFA Champions League: Bayern Advances to Final
+                  </span>
+<div class="flex items-center gap-1.5 font-micro text-micro text-outline mt-0.5">
+<span>SPORTS</span>
+<span>•</span>
+<span>ID: #MITMARKET-SPT-9022</span>
+<span>•</span>
+<span class="tabular-nums">Exited May 08, 2024</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps font-bold">YES</span>
+</td>
+<td class="py-space-md px-space-sm">
+<div class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded bg-secondary/15 text-secondary font-data-sm text-data-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">logout</span>
+<span>Sold Early</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              38.0¢
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              62.0¢
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              6,000
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">
+              —
+            </td>
+<td class="py-space-md px-space-sm text-right tabular-nums text-on-surface font-medium font-data-sm text-data-sm">
+              —
+            </td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex flex-col items-end">
+<span class="font-data-md text-data-md text-tertiary font-bold tabular-nums">+$1,440.00</span>
+<span class="font-micro text-micro text-tertiary font-semibold tabular-nums">—</span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-center">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-highest transition-colors" title="Inspect CLOB execution trade logs">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer & Strict Pagination -->
+<div class="px-space-md py-space-sm bg-surface-container-lowest flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md font-body-sm text-body-sm text-outline">
+<span>Showing <strong class="text-on-surface font-semibold">1 – 7</strong> of <strong class="text-on-surface font-semibold">48</strong> settled positions</span>
+<span class="hidden sm:inline">•</span>
+<span class="hidden sm:inline">Page 1 of 7</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="flex items-center justify-center w-8 h-8 rounded bg-surface-container-low text-outline opacity-40 cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="flex items-center justify-center w-8 h-8 rounded bg-surface-container-high text-on-surface font-data-sm text-data-sm font-bold shadow-sm">
+          1
+        </button>
+<button class="flex items-center justify-center w-8 h-8 rounded bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-data-sm text-data-sm transition-colors">
+          2
+        </button>
+<button class="flex items-center justify-center w-8 h-8 rounded bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-data-sm text-data-sm transition-colors">
+          3
+        </button>
+<span class="px-1 text-outline font-body-sm text-body-sm">...</span>
+<button class="flex items-center justify-center w-8 h-8 rounded bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-data-sm text-data-sm transition-colors">
+          7
+        </button>
+<button class="flex items-center justify-center w-8 h-8 rounded bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Realized Audit Disclaimer Banner -->
+<div class="mt-space-md p-space-sm rounded bg-surface-container-low flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[18px]">verified_user</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+        All figures reflect final on-chain settlement via Polygon CLOB smart contracts. Realized calculations exclude gas execution fees and slippage incurred during manual unwinds.
+      </span>
+</div>
+<div class="flex items-center gap-1 font-label-caps text-label-caps text-outline whitespace-nowrap">
+<span>HASH VERIFIED</span>
+<span class="text-tertiary">•</span>
+<span>BLOCK: #58291410</span>
+</div>
+</div>
+</div>
+<script>
+  // Interactive Filter Button Behavior
+  document.querySelectorAll('.date-filter-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      document.querySelectorAll('.date-filter-btn').forEach(b => {
+        b.classList.remove('bg-surface-container-high', 'text-on-surface', 'font-semibold', 'shadow-sm');
+        b.classList.add('text-on-surface-variant');
+      });
+      btn.classList.add('bg-surface-container-high', 'text-on-surface', 'font-semibold', 'shadow-sm');
+      btn.classList.remove('text-on-surface-variant');
+    });
+  });
+
+  // Client-side CSV download trigger stub
+  const exportBtn = document.getElementById('export-csv-btn');
+  if (exportBtn) {
+    exportBtn.addEventListener('click', () => {
+      const originalText = exportBtn.innerHTML;
+      exportBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin text-tertiary">sync</span> Generating...';
+      exportBtn.disabled = true;
+      setTimeout(() => {
+        exportBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Exported';
+        setTimeout(() => {
+          exportBtn.innerHTML = originalText;
+          exportBtn.disabled = false;
+        }, 1800);
+      }, 700);
+    });
+  }
+
+  // Position search filtering micro-logic
+  const searchInput = document.getElementById('closed-search');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      const rows = document.querySelectorAll('tbody tr');
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  }
+</script></main><footer class="w-full bg-surface-container-lowest py-space-md text-on-surface-variant"><div class="w-full px-gutter-desktop flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-wrap items-center gap-space-md font-body-sm text-body-sm"><div class="flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-tertiary"></div><span class="text-on-surface font-medium">Operational</span><span class="text-outline">(99.98% Uptime)</span></div><span class="text-outline">|</span><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">sync_alt</span><span>Polygon CLOB Engine</span></div><span class="text-outline">|</span><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">gavel</span><span>UMA Oracle Resolution</span></div></div><div class="flex items-center gap-space-md font-body-sm text-body-sm"><a class="hover:text-on-surface transition-colors" data-path="api-documentation" href="#">Documentation</a><a class="hover:text-on-surface transition-colors" data-path="api-feeds" href="#">API Feeds</a><a class="hover:text-on-surface transition-colors" data-path="terms-and-settlement" href="#">Terms of Protocol</a><span class="text-outline">© 2025 MITMARKET Markets Global Ltd.</span></div></div></footer></div></body></html>

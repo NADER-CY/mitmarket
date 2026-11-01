@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-low": "#101216", "surface-variant": "#101216", "surface": "#000000", "surface-container-high": "#101216", "surface-container-highest": "#101216", "tertiary-fixed": "#0bba74", "on-tertiary-container": "#000000", "on-secondary-fixed": "#000000", "primary-fixed-dim": "#1463ff", "surface-bright": "#29313D", "on-secondary-container": "#F4F6FA", "on-surface-variant": "#98A5B5", "on-primary-container": "#000000", "on-primary-fixed": "#000000", "inverse-on-surface": "#101216", "secondary-fixed": "#EAA343", "secondary-container": "#101216", "surface-tint": "#1463ff", "inverse-surface": "#F4F6FA", "on-tertiary": "#000000", "outline": "#98A5B5", "on-error": "#000000", "error": "#ff4761", "on-tertiary-fixed": "#000000", "tertiary": "#0bba74", "on-surface": "#F4F6FA", "primary-container": "#1463ff", "on-background": "#F4F6FA", "on-secondary-fixed-variant": "#000000", "on-error-container": "#ff4761", "surface-container-lowest": "#101216", "primary": "#1463ff", "surface-container": "#101216", "on-tertiary-fixed-variant": "#000000", "on-secondary": "#000000", "surface-dim": "#000000", "on-primary-fixed-variant": "#000000", "primary-fixed": "#1463ff", "outline-variant": "#29313D", "tertiary-fixed-dim": "#0bba74", "on-primary": "#000000", "secondary-fixed-dim": "#EAA343", "tertiary-container": "#0bba74", "secondary": "#EAA343", "inverse-primary": "#1463ff", "error-container": "#101216", "background": "#000000" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-xl": "1.5rem", "space-sm": "0.5rem", "gutter": "0.75rem", "space-lg": "1rem", "margin": "1rem", "gutter-desktop": "1rem", "margin-desktop": "1.5rem", "space-xs": "0.25rem", "space-md": "0.75rem" }, fontFamily: { "data-md": ["Inter"], "data-sm": ["Inter"], "display-lg": ["Inter"], "label-caps": ["Inter"], "body-md": ["Inter"], "body-sm": ["Inter"], "body-lg": ["Inter"], "data-lg": ["Inter"], "headline-md": ["Inter"], "headline-lg": ["Inter"], "micro": ["Inter"] }, fontSize: { "data-md": ["14px", { lineHeight: "18px", fontWeight: "600" }], "data-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }], "display-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }], "label-caps": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }], "body-md": ["13px", { lineHeight: "18px", fontWeight: "400" }], "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }], "body-lg": ["15px", { lineHeight: "22px", fontWeight: "400" }], "data-lg": ["20px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "700" }], "headline-md": ["18px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "600" }], "headline-lg": ["24px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" }], "micro": ["10px", { lineHeight: "12px", fontWeight: "500" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-14 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-xs"><button class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="history.back()"><span class="material-symbols-outlined text-[20px]">arrow_back</span></button><h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">Rewards Center</h1></div><div class="flex items-center gap-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full text-on-surface pb-10">
+<!-- Protocol Operational Status Banner -->
+<section class="px-gutter pt-space-md">
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-primary/5 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider">Epoch #18 Active</span>
+</div>
+<span class="font-micro text-micro text-on-surface-variant uppercase tracking-widest bg-surface-variant/40 px-2 py-0.5 rounded">Non-Custodial</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Liquidity Mining Desk</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+          Administered autonomously by the MITMARKET Treasury Engine. Rewards reflect mathematical two-sided quoting density and order persistence.
+        </p>
+</div>
+<div class="flex items-center gap-space-xs pt-1">
+<span class="material-symbols-outlined text-[16px] text-outline">verified_user</span>
+<span class="font-micro text-micro text-on-surface-variant">Continuous CLOB Sampling • 00:00 UTC Epoch Close</span>
+</div>
+</div>
+</section>
+<!-- 4 Capital Reward Cards (2x2 Grid) -->
+<section class="px-gutter pt-space-md">
+<div class="grid grid-cols-2 gap-space-xs">
+<!-- Card 1: Total Rewards -->
+<div class="bg-surface-container rounded-lg p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Total Earned</span>
+<span class="font-micro text-micro text-tertiary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">trending_up</span>—
+          </span>
+</div>
+<div class="mt-space-sm">
+<div class="font-data-lg text-data-lg text-on-surface tabular-nums">—</div>
+<span class="font-micro text-micro text-on-surface-variant uppercase tracking-wider">USDC Cumulative</span>
+</div>
+</div>
+<!-- Card 2: Maker Share -->
+<div class="bg-surface-container rounded-lg p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Maker Share</span>
+<span class="font-micro text-micro text-primary uppercase bg-primary/10 px-1.5 py-0.5 rounded">Top 5%</span>
+</div>
+<div class="mt-space-sm">
+<div class="font-data-lg text-data-lg text-on-surface tabular-nums">—</div>
+<span class="font-micro text-micro text-on-surface-variant uppercase tracking-wider">$41,890 Active Depth</span>
+</div>
+</div>
+<!-- Card 3: Pending Epoch -->
+<div class="bg-surface-container rounded-lg p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Epoch #18 Accrual</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">hourglass_top</span>
+</div>
+<div class="mt-space-sm">
+<div class="font-data-lg text-data-lg text-secondary tabular-nums">—</div>
+<span class="font-micro text-micro text-on-surface-variant tabular-nums">Remaining: 18h 42m</span>
+</div>
+</div>
+<!-- Card 4: Available to Claim -->
+<div class="bg-surface-container rounded-lg p-space-md flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-tertiary uppercase">Available</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary">toll</span>
+</div>
+<div class="mt-space-sm">
+<div class="font-data-lg text-data-lg text-on-surface tabular-nums">—</div>
+<span class="font-micro text-micro text-on-surface-variant uppercase tracking-wider">Unclaimed USDC</span>
+</div>
+</div>
+</div>
+<!-- Quick Action: Claim Banner -->
+<div class="mt-space-xs bg-surface-container-high rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">account_balance_wallet</span>
+<div>
+<div class="font-data-sm text-data-sm text-on-surface tabular-nums">$620.40 Available</div>
+<div class="font-micro text-micro text-on-surface-variant">Instant non-custodial payout</div>
+</div>
+</div>
+<button class="min-h-[44px] px-space-lg bg-primary text-on-primary rounded font-data-sm text-data-sm flex items-center justify-center gap-1 active:scale-[0.98] transition-all" id="claimBtn">
+<span>Claim Rewards</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Interactive Yield Simulator -->
+<section class="px-gutter pt-space-lg">
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary">query_stats</span>
+<span class="font-headline-md text-headline-md text-on-surface">Yield Simulator</span>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary bg-tertiary/10 px-2 py-0.5 rounded">Model v2.4</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Estimate projected rewards based on committed quoting capital across high-spread CLOB books.
+      </p>
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Committed Quoting Depth</span>
+<span class="font-data-md text-data-md text-primary tabular-nums" id="sliderValueDisplay">$1,500 USDC</span>
+</div>
+<input class="w-full accent-primary h-2 bg-surface-variant rounded-lg cursor-pointer" id="yieldSlider" max="10000" min="250" step="250" type="range" value="1500"/>
+<div class="flex justify-between font-micro text-micro text-outline tabular-nums pt-1">
+<span>—</span>
+<span>—</span>
+<span>—</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<div class="bg-surface-container-high rounded p-space-sm">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Est. Daily Yield</span>
+<div class="font-data-lg text-data-lg text-tertiary tabular-nums mt-0.5" id="estDailyYield">—</div>
+<span class="font-micro text-micro text-on-surface-variant">USDC / 24h</span>
+</div>
+<div class="bg-surface-container-high rounded p-space-sm">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Effective APR</span>
+<div class="font-data-lg text-data-lg text-on-surface tabular-nums mt-0.5" id="estApr">—</div>
+<span class="font-micro text-micro text-tertiary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">bolt</span> Boosted
+          </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter & Market Controls -->
+<section class="px-gutter pt-space-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface">Qualified Opportunities</h3>
+<span class="font-micro text-micro text-on-surface-variant uppercase bg-surface-container px-2 py-1 rounded">4 Verified Books</span>
+</div>
+<!-- Search Input -->
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[18px]">search</span>
+</div>
+<input class="w-full h-11 pl-10 pr-4 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:bg-surface-container-high transition-colors placeholder:text-outline" id="marketSearch" placeholder="Filter by asset, contract or tag..." type="text"/>
+</div>
+<!-- Horizontal Category Chips -->
+<div class="flex items-center gap-space-xs overflow-x-auto no-scrollbar py-0.5">
+<button class="filter-chip active-filter px-3 py-1.5 rounded bg-primary text-on-primary font-data-sm text-data-sm whitespace-nowrap min-h-[36px] flex items-center">
+        All Markets
+      </button>
+<button class="filter-chip px-3 py-1.5 rounded bg-surface-container text-on-surface-variant font-data-sm text-data-sm whitespace-nowrap min-h-[36px] flex items-center hover:text-on-surface">
+        Crypto
+      </button>
+<button class="filter-chip px-3 py-1.5 rounded bg-surface-container text-on-surface-variant font-data-sm text-data-sm whitespace-nowrap min-h-[36px] flex items-center hover:text-on-surface">
+        Macro
+      </button>
+<button class="filter-chip px-3 py-1.5 rounded bg-surface-container text-on-surface-variant font-data-sm text-data-sm whitespace-nowrap min-h-[36px] flex items-center hover:text-on-surface">
+        Sports
+      </button>
+<button class="filter-chip px-3 py-1.5 rounded bg-surface-container text-on-surface-variant font-data-sm text-data-sm whitespace-nowrap min-h-[36px] flex items-center hover:text-on-surface">
+        Politics
+      </button>
+</div>
+<!-- Quick Param Metric Filters -->
+<div class="flex items-center justify-between text-on-surface-variant font-micro text-micro px-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+<span>Spread: ≤ 3.0¢</span>
+</div>
+<div class="flex items-center gap-1">
+<span>Min Size: ≥ $200 USDC</span>
+</div>
+<div class="flex items-center gap-1 text-primary">
+<span>Sort: Yield (APR)</span>
+<span class="material-symbols-outlined text-[12px]">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Qualified Liquidity Opportunities List -->
+<section class="px-gutter pt-space-sm flex flex-col gap-space-md" id="marketsList">
+<!-- Card 1: Bitcoin -->
+<div class="market-card bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm transition-all" data-category="crypto">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-micro text-micro bg-primary/10 text-primary px-1.5 py-0.5 rounded uppercase font-semibold">Crypto</span>
+<span class="font-micro text-micro text-outline tabular-nums">ID: BTC-120K-26</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">Will Bitcoin reach $120,000 before Dec 31, 2026?</h4>
+</div>
+<div class="bg-surface-container-high rounded px-2 py-1 text-right flex-shrink-0">
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase">Pool</div>
+<div class="font-data-md text-data-md text-primary tabular-nums">—<span class="font-micro text-micro text-on-surface-variant">/d</span></div>
+</div>
+</div>
+<!-- Key Market Param Grid -->
+<div class="grid grid-cols-4 gap-1 bg-surface-container-low rounded-lg p-space-sm">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">APR</span>
+<span class="font-data-md text-data-md text-tertiary tabular-nums">—</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">Max Spread</span>
+<span class="font-data-md text-data-md text-on-surface tabular-nums">≤ 1.5¢</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">Min Size</span>
+<span class="font-data-md text-data-md text-on-surface tabular-nums">—</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">Density</span>
+<span class="font-micro text-micro text-secondary font-semibold uppercase mt-0.5">HIGH</span>
+</div>
+</div>
+<!-- Bottom Yield + Action Rail -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Est. Daily Yield</span>
+<span class="font-data-md text-data-md text-tertiary tabular-nums">$42.50 / day</span>
+</div>
+<button class="min-h-[44px] px-space-md bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface rounded font-data-sm text-data-sm flex items-center gap-1.5 transition-colors">
+<span>Provide Liquidity</span>
+<span class="material-symbols-outlined text-[16px]">add_chart</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Fed Rate Cuts -->
+<div class="market-card bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm transition-all" data-category="macro">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-micro text-micro bg-secondary/10 text-secondary px-1.5 py-0.5 rounded uppercase font-semibold">Macro</span>
+<span class="font-micro text-micro text-outline tabular-nums">ID: FED-Q2-25</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">Fed cuts interest rate by ≥25bps in Q2</h4>
+</div>
+<div class="bg-surface-container-high rounded px-2 py-1 text-right flex-shrink-0">
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase">Pool</div>
+<div class="font-data-md text-data-md text-primary tabular-nums">—<span class="font-micro text-micro text-on-surface-variant">/d</span></div>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-1 bg-surface-container-low rounded-lg p-space-sm">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">APR</span>
+<span class="font-data-md text-data-md text-tertiary tabular-nums">—</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">Max Spread</span>
+<span class="font-data-md text-data-md text-on-surface tabular-nums">≤ 2.0¢</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">Min Size</span>
+<span class="font-data-md text-data-md text-on-surface tabular-nums">—</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">Density</span>
+<span class="font-micro text-micro text-primary font-semibold uppercase mt-0.5">MEDIUM</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Est. Daily Yield</span>
+<span class="font-data-md text-data-md text-tertiary tabular-nums">$31.00 / day</span>
+</div>
+<button class="min-h-[44px] px-space-md bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface rounded font-data-sm text-data-sm flex items-center gap-1.5 transition-colors">
+<span>Provide Liquidity</span>
+<span class="material-symbols-outlined text-[16px]">add_chart</span>
+</button>
+</div>
+</div>
+<!-- Card 3: FIFA World Cup Outrights -->
+<div class="market-card bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm transition-all" data-category="sports">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-micro text-micro bg-tertiary/10 text-tertiary px-1.5 py-0.5 rounded uppercase font-semibold">Sports</span>
+<span class="font-micro text-micro text-outline tabular-nums">ID: WC-2026-OUT</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">2026 FIFA World Cup Winner (Outrights)</h4>
+</div>
+<div class="bg-surface-container-high rounded px-2 py-1 text-right flex-shrink-0">
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase">Pool</div>
+<div class="font-data-md text-data-md text-primary tabular-nums">—<span class="font-micro text-micro text-on-surface-variant">/d</span></div>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-1 bg-surface-container-low rounded-lg p-space-sm">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">APR</span>
+<span class="font-data-md text-data-md text-tertiary tabular-nums font-bold">—</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">Max Spread</span>
+<span class="font-data-md text-data-md text-on-surface tabular-nums">≤ 3.0¢</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">Min Size</span>
+<span class="font-data-md text-data-md text-on-surface tabular-nums">—</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">Density</span>
+<span class="font-micro text-micro text-tertiary font-semibold uppercase mt-0.5">LOW</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Est. Daily Yield</span>
+<span class="font-data-md text-data-md text-tertiary tabular-nums">$58.20 / day</span>
+</div>
+<button class="min-h-[44px] px-space-md bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface rounded font-data-sm text-data-sm flex items-center gap-1.5 transition-colors">
+<span>Provide Liquidity</span>
+<span class="material-symbols-outlined text-[16px]">add_chart</span>
+</button>
+</div>
+</div>
+<!-- Card 4: OpenAI GPT-5 -->
+<div class="market-card bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm transition-all" data-category="crypto">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-micro text-micro bg-primary/10 text-primary px-1.5 py-0.5 rounded uppercase font-semibold">Tech / AI</span>
+<span class="font-micro text-micro text-outline tabular-nums">ID: OAI-GPT5-JUL25</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">OpenAI commercial GPT-5 before July 2025</h4>
+</div>
+<div class="bg-surface-container-high rounded px-2 py-1 text-right flex-shrink-0">
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase">Pool</div>
+<div class="font-data-md text-data-md text-primary tabular-nums">—<span class="font-micro text-micro text-on-surface-variant">/d</span></div>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-1 bg-surface-container-low rounded-lg p-space-sm">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">APR</span>
+<span class="font-data-md text-data-md text-tertiary tabular-nums">—</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">Max Spread</span>
+<span class="font-data-md text-data-md text-on-surface tabular-nums">≤ 2.0¢</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">Min Size</span>
+<span class="font-data-md text-data-md text-on-surface tabular-nums">—</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-outline uppercase">Density</span>
+<span class="font-micro text-micro text-primary font-semibold uppercase mt-0.5">MEDIUM</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Est. Daily Yield</span>
+<span class="font-data-md text-data-md text-tertiary tabular-nums">$24.80 / day</span>
+</div>
+<button class="min-h-[44px] px-space-md bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface rounded font-data-sm text-data-sm flex items-center gap-1.5 transition-colors">
+<span>Provide Liquidity</span>
+<span class="material-symbols-outlined text-[16px]">add_chart</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Mathematical Scoring Engine Drawer / Collapsible Rules -->
+<section class="px-gutter pt-space-lg">
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<button class="w-full min-h-[48px] px-space-md py-space-sm flex items-center justify-between text-left active:bg-surface-container transition-colors" id="engineAccordionToggle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">functions</span>
+<span class="font-data-md text-data-md text-on-surface">Scoring Engine & Protocol Rules</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-outline transition-transform duration-200" id="accordionIcon">expand_more</span>
+</button>
+<div class="hidden px-space-md pb-space-md flex flex-col gap-space-sm" id="engineAccordionContent">
+<!-- Formula Card -->
+<div class="bg-surface-container rounded-lg p-space-sm flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-tertiary uppercase">Time-Weighted Two-Sided Depth Formula</span>
+<div class="bg-surface-container-lowest p-space-sm rounded font-data-md text-data-md text-center text-primary tabular-nums tracking-wide">
+            Score = Σ [ ( Depth<sub>t</sub> / Spread<sub>t</sub><sup>2</sup> ) × Δt ]
+          </div>
+<p class="font-micro text-micro text-on-surface-variant leading-relaxed mt-1">
+            Quotes tighter to mid-market receive exponential score weight. As spread decreases, marginal yield increases quadratically.
+          </p>
+</div>
+<!-- Strict Rules List -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-start gap-2 bg-surface-container/60 p-space-xs rounded">
+<span class="material-symbols-outlined text-[16px] text-primary mt-0.5">timer</span>
+<div class="flex flex-col">
+<span class="font-data-sm text-data-sm text-on-surface">60-Second Persistence Rule</span>
+<span class="font-micro text-micro text-on-surface-variant">Limit GTC orders must remain active on the CLOB for ≥60 continuous seconds to be eligible for tick-interval score accumulation.</span>
+</div>
+</div>
+<div class="flex items-start gap-2 bg-surface-container/60 p-space-xs rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary mt-0.5">sync_alt</span>
+<div class="flex flex-col">
+<span class="font-data-sm text-data-sm text-on-surface">Dual-Sided Quoting Requirement</span>
+<span class="font-micro text-micro text-on-surface-variant">Both YES and NO bids/asks must be maintained simultaneously within the contract's specified maximum spread threshold.</span>
+</div>
+</div>
+<div class="flex items-start gap-2 bg-surface-container/60 p-space-xs rounded">
+<span class="material-symbols-outlined text-[16px] text-tertiary mt-0.5">event_repeat</span>
+<div class="flex flex-col">
+<span class="font-data-sm text-data-sm text-on-surface">Epoch Settlement at 00:00 UTC</span>
+<span class="font-micro text-micro text-on-surface-variant">Scores snapshot daily. Rewards disburse instantly into the self-custodial smart contract claiming safe.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Accordion Interaction
+  const accordionBtn = document.getElementById('engineAccordionToggle');
+  const accordionContent = document.getElementById('engineAccordionContent');
+  const accordionIcon = document.getElementById('accordionIcon');
+
+  accordionBtn.addEventListener('click', () => {
+    const isHidden = accordionContent.classList.contains('hidden');
+    if (isHidden) {
+      accordionContent.classList.remove('hidden');
+      accordionIcon.classList.add('rotate-180');
+    } else {
+      accordionContent.classList.add('hidden');
+      accordionIcon.classList.remove('rotate-180');
+    }
+  });
+
+  // Dynamic Yield Calculator Simulator
+  const yieldSlider = document.getElementById('yieldSlider');
+  const sliderValueDisplay = document.getElementById('sliderValueDisplay');
+  const estDailyYield = document.getElementById('estDailyYield');
+  const estApr = document.getElementById('estApr');
+
+  yieldSlider.addEventListener('input', (e) => {
+    const val = parseInt(e.target.value, 10);
+    sliderValueDisplay.textContent = `$${val.toLocaleString()} USDC`;
+    
+    // Formula estimation: Base 32% to 44% APR with depth curve
+    const aprRate = (34.2 + (val / 10000) * 8.6).toFixed(1);
+    const dailyReturn = ((val * (parseFloat(aprRate) / 100)) / 365).toFixed(2);
+    
+    estDailyYield.textContent = `$${dailyReturn}`;
+    estApr.textContent = `${aprRate}%`;
+  });
+
+  // Filter Chips UI Toggle
+  const filterChips = document.querySelectorAll('.filter-chip');
+  const marketCards = document.querySelectorAll('.market-card');
+
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChips.forEach(c => {
+        c.classList.remove('bg-primary', 'text-on-primary');
+        c.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+      chip.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      chip.classList.add('bg-primary', 'text-on-primary');
+
+      const category = chip.textContent.trim().toLowerCase();
+      marketCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (category === 'all markets' || cardCategory === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Market Search Filter
+  const marketSearch = document.getElementById('marketSearch');
+  marketSearch.addEventListener('input', (e) => {
+    const term = e.target.value.toLowerCase();
+    marketCards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      if (text.includes(term)) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+
+  // Claim Rewards Micro-interaction
+  const claimBtn = document.getElementById('claimBtn');
+  claimBtn.addEventListener('click', () => {
+    claimBtn.innerHTML = `
+      <span class="material-symbols-outlined text-[16px] animate-spin">refresh</span>
+      <span>Claiming...</span>
+    `;
+    claimBtn.disabled = true;
+    setTimeout(() => {
+      claimBtn.innerHTML = `
+        <span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+        <span>Claimed!</span>
+      `;
+    }, 1200);
+  });
+</script></main></body></html>

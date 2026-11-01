@@ -1,0 +1,7 @@
+import type {Market} from './marketCatalog';
+export type CatalogSnapshot={key:string;markets:Market[];savedAt:number;complete:boolean;count:number};
+const dbName='mitmarket-market-cache-v1',storeName='catalog';
+const memory=new Map<string,CatalogSnapshot>();let dbPromise:Promise<IDBDatabase|null>|null=null;
+function database(){if(dbPromise)return dbPromise;dbPromise=new Promise(resolve=>{try{const req=indexedDB.open(dbName,1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains(storeName))req.result.createObjectStore(storeName,{keyPath:'key'})};req.onsuccess=()=>resolve(req.result);req.onerror=()=>resolve(null);req.onblocked=()=>resolve(null)}catch{resolve(null)}});return dbPromise}
+export async function readCatalog(key:string):Promise<CatalogSnapshot|null>{const existing=memory.get(key);if(existing&&Date.now()-existing.savedAt<3600000)return existing;const db=await database();if(!db)return null;return new Promise(resolve=>{try{const r=db.transaction(storeName,'readonly').objectStore(storeName).get(key);r.onsuccess=()=>{const x=r.result as CatalogSnapshot|undefined;if(!x||!Array.isArray(x.markets)||!Number.isFinite(x.savedAt)||Date.now()-x.savedAt>3600000){resolve(null);return}memory.set(key,x);resolve(x)};r.onerror=()=>resolve(null)}catch{resolve(null)}})}
+export async function writeCatalog(snapshot:CatalogSnapshot){memory.set(snapshot.key,snapshot);const db=await database();if(!db)return;try{const tx=db.transaction(storeName,'readwrite');tx.objectStore(storeName).put(snapshot);tx.onerror=()=>{};}catch{/* Cache is optional. */}}

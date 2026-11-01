@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-dim": "#000000", "inverse-on-surface": "#101216", "tertiary-fixed-dim": "#0bba74", "on-primary-fixed": "#000000", "surface-container-low": "#101216", "secondary": "#EAA343", "on-surface": "#F4F6FA", "surface-bright": "#29313D", "on-primary-container": "#000000", "secondary-container": "#101216", "surface-container": "#101216", "on-error-container": "#ff4761", "tertiary-container": "#0bba74", "on-tertiary-fixed-variant": "#000000", "outline-variant": "#29313D", "on-primary-fixed-variant": "#000000", "error-container": "#101216", "primary-container": "#1463ff", "surface-container-high": "#101216", "secondary-fixed": "#EAA343", "primary-fixed-dim": "#1463ff", "background": "#000000", "on-error": "#000000", "on-tertiary": "#000000", "on-background": "#F4F6FA", "on-surface-variant": "#98A5B5", "error": "#ff4761", "inverse-surface": "#F4F6FA", "surface-variant": "#101216", "on-tertiary-fixed": "#000000", "surface-container-highest": "#101216", "surface-container-lowest": "#101216", "surface": "#000000", "secondary-fixed-dim": "#EAA343", "on-tertiary-container": "#000000", "inverse-primary": "#1463ff", "primary": "#1463ff", "surface-tint": "#1463ff", "outline": "#98A5B5", "primary-fixed": "#1463ff", "tertiary-fixed": "#0bba74", "on-secondary-container": "#F4F6FA", "on-secondary": "#000000", "tertiary": "#0bba74", "on-secondary-fixed-variant": "#000000", "on-secondary-fixed": "#000000", "on-primary": "#000000" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin": "1rem", "gutter": "0.75rem", "margin-desktop": "1.5rem", "gutter-desktop": "1rem", "space-md": "0.75rem", "space-xs": "0.25rem", "space-lg": "1rem", "space-xl": "1.5rem", "space-sm": "0.5rem" }, "fontFamily": { "body-sm": ["Inter"], "body-md": ["Inter"], "headline-lg": ["Inter"], "data-lg": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "micro": ["Inter"], "data-md": ["Inter"], "display-lg": ["Inter"], "label-caps": ["Inter"], "data-sm": ["Inter"] }, "fontSize": { "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "data-lg": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "micro": ["10px", { "lineHeight": "12px", "fontWeight": "500" }], "data-md": ["14px", { "lineHeight": "18px", "fontWeight": "600" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="h-16 px-space-md flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-sm"><div class="flex items-center gap-1"><span class="font-headline-md text-headline-md tracking-tight font-bold text-on-surface">MITMARKET</span><span class="font-label-caps text-label-caps px-1 py-0.5 rounded bg-primary-container/20 text-primary uppercase font-bold tracking-wider">PRO</span></div><div class="flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-high"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="font-micro text-micro text-tertiary uppercase tracking-wider font-semibold">CLOB SYNC</span></div></div><div class="flex items-center gap-space-xs"><div class="hidden xs:flex flex-col items-end px-2 py-0.5 rounded bg-surface-container"><span class="font-micro text-micro text-on-surface-variant uppercase tracking-wider">LIQUIDITY</span><span class="font-data-sm text-data-sm text-on-surface font-bold">— <span class="font-micro text-micro text-outline font-medium">USDC</span></span></div><button aria-label="Notifications" class="w-11 h-11 flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full text-on-surface select-none pb-8">
+<!-- Top Calendar Header Section -->
+<div class="flex flex-col px-space-md pt-3 pb-2 gap-1.5 bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider font-semibold">ORACLE HORIZON</span>
+</div>
+<!-- UTC Live Telemetry Clock -->
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-high">
+<span class="material-symbols-outlined text-[13px] text-primary">schedule</span>
+<span class="font-micro text-micro text-on-surface font-semibold tracking-wider font-mono" id="utc-clock">18:42:09 UTC</span>
+</div>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">Event Horizon Calendar</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Deterministic market expiries &amp; oracle settlements</p>
+</div>
+<!-- Quick Telemetry Stats Row -->
+<div class="grid grid-cols-3 gap-1.5 mt-1.5 pt-2 border-t border-outline-variant/30">
+<div class="flex flex-col bg-surface-container px-2 py-1.5 rounded">
+<span class="font-micro text-micro text-on-surface-variant uppercase tracking-wider">EXPIRING &lt;48H</span>
+<span class="font-data-md text-data-md font-bold text-secondary">14 MKT</span>
+<span class="font-micro text-micro text-outline">$28.4M Locked</span>
+</div>
+<div class="flex flex-col bg-surface-container px-2 py-1.5 rounded">
+<span class="font-micro text-micro text-on-surface-variant uppercase tracking-wider">DISPUTES</span>
+<span class="font-data-md text-data-md font-bold text-tertiary">0 Pending</span>
+<span class="font-micro text-micro text-outline">L1 Sync: 82m</span>
+</div>
+<div class="flex flex-col bg-surface-container px-2 py-1.5 rounded">
+<span class="font-micro text-micro text-on-surface-variant uppercase tracking-wider">MAY VOLUME</span>
+<span class="font-data-md text-data-md font-bold text-primary">—</span>
+<span class="font-micro text-micro text-outline">+18.4% WoW</span>
+</div>
+</div>
+</div>
+<!-- View Switcher Segmented Control -->
+<div class="px-space-md pt-2 pb-1 bg-surface">
+<div class="grid grid-cols-4 p-0.5 rounded-lg bg-surface-container-high text-center">
+<button class="view-btn py-1 rounded font-label-caps text-label-caps text-on-surface-variant transition-colors hover:text-on-surface" data-view="month" type="button">Month</button>
+<button class="view-btn py-1 rounded font-label-caps text-label-caps bg-surface text-primary shadow-sm font-bold transition-colors" data-view="week" type="button">Week</button>
+<button class="view-btn py-1 rounded font-label-caps text-label-caps text-on-surface-variant transition-colors hover:text-on-surface" data-view="day" type="button">Day</button>
+<button class="view-btn py-1 rounded font-label-caps text-label-caps text-on-surface-variant transition-colors hover:text-on-surface flex items-center justify-center gap-1" data-view="list" type="button">
+<span>List</span>
+<span class="px-1 py-0.2 rounded-full bg-primary/20 text-primary font-micro text-micro">14</span>
+</button>
+</div>
+</div>
+<!-- Interactive Date Navigator & Scope Toggle -->
+<div class="flex items-center justify-between px-space-md py-2 bg-surface">
+<div class="flex items-center gap-1.5">
+<button aria-label="Previous Month" class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-on-surface-variant active:bg-surface-bright transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container font-data-md text-data-md font-bold text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">calendar_month</span>
+<span>May 2025</span>
+</div>
+<button aria-label="Next Month" class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-on-surface-variant active:bg-surface-bright transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="px-2 py-1 rounded bg-surface-container-high text-primary font-label-caps text-label-caps font-bold hover:bg-surface-bright transition-colors" type="button">
+        TODAY
+      </button>
+</div>
+<!-- Watchlist Only Toggle -->
+<button class="flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container text-on-surface-variant text-label-caps font-label-caps transition-colors" id="watchlist-toggle" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline" id="watchlist-icon">star</span>
+<span class="font-medium text-micro uppercase tracking-wider">Pinned</span>
+</button>
+</div>
+<!-- Horizontal Calendar Week Strip -->
+<div class="px-space-md pb-2.5 bg-surface">
+<div class="grid grid-cols-7 gap-1">
+<!-- Mon 12 -->
+<button class="flex flex-col items-center py-1.5 rounded bg-surface-container-low text-on-surface-variant hover:bg-surface-container" type="button">
+<span class="font-micro text-micro uppercase">Mon</span>
+<span class="font-data-md text-data-md font-bold text-on-surface">12</span>
+<span class="w-1 h-1 rounded-full bg-outline/40 mt-1"></span>
+</button>
+<!-- Tue 13 -->
+<button class="flex flex-col items-center py-1.5 rounded bg-surface-container-low text-on-surface-variant hover:bg-surface-container" type="button">
+<span class="font-micro text-micro uppercase">Tue</span>
+<span class="font-data-md text-data-md font-bold text-on-surface">13</span>
+<span class="w-1 h-1 rounded-full bg-tertiary mt-1"></span>
+</button>
+<!-- Wed 14 (CPI) -->
+<button class="flex flex-col items-center py-1.5 rounded bg-surface-container text-on-surface relative" type="button">
+<span class="font-micro text-micro uppercase text-secondary">Wed</span>
+<span class="font-data-md text-data-md font-bold text-on-surface">14</span>
+<div class="flex gap-0.5 mt-1">
+<span class="w-1 h-1 rounded-full bg-secondary"></span>
+<span class="w-1 h-1 rounded-full bg-primary"></span>
+</div>
+</button>
+<!-- Thu 15 -->
+<button class="flex flex-col items-center py-1.5 rounded bg-surface-container-low text-on-surface-variant hover:bg-surface-container" type="button">
+<span class="font-micro text-micro uppercase">Thu</span>
+<span class="font-data-md text-data-md font-bold text-on-surface">15</span>
+<span class="w-1 h-1 rounded-full bg-outline/40 mt-1"></span>
+</button>
+<!-- Fri 16 -->
+<button class="flex flex-col items-center py-1.5 rounded bg-surface-container-low text-on-surface-variant hover:bg-surface-container" type="button">
+<span class="font-micro text-micro uppercase">Fri</span>
+<span class="font-data-md text-data-md font-bold text-on-surface">16</span>
+<span class="w-1 h-1 rounded-full bg-tertiary mt-1"></span>
+</button>
+<!-- Sat 17 -->
+<button class="flex flex-col items-center py-1.5 rounded bg-surface-container-low text-on-surface-variant hover:bg-surface-container" type="button">
+<span class="font-micro text-micro uppercase">Sat</span>
+<span class="font-data-md text-data-md font-bold text-on-surface">17</span>
+<span class="w-1 h-1 rounded-full bg-outline/20 mt-1"></span>
+</button>
+<!-- Sun 18 (CRITICAL - Active/Selected Day) -->
+<button class="flex flex-col items-center py-1.5 rounded bg-primary-container/20 text-on-surface relative ring-1 ring-primary/60" type="button">
+<span class="font-micro text-micro uppercase font-bold text-primary">Sun</span>
+<span class="font-data-md text-data-md font-bold text-on-surface">18</span>
+<div class="flex items-center gap-0.5 mt-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+</div>
+</button>
+</div>
+</div>
+<!-- Upcoming Settlement Radar (<72h) Carousel -->
+<div class="flex flex-col gap-1.5 pt-2 pb-2 bg-surface-container-lowest">
+<div class="flex items-center justify-between px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">radar</span>
+<span class="font-label-caps text-label-caps font-bold uppercase tracking-wider text-on-surface">Settlement Radar (&lt;72h)</span>
+</div>
+<span class="font-micro text-micro text-secondary font-semibold">2 High Velocity</span>
+</div>
+<!-- Horizontal Swipe Cards -->
+<div class="flex gap-2.5 overflow-x-auto px-space-md py-1 no-scrollbar scroll-smooth">
+<!-- Radar Card 1: FOMC Rate Cut (Interactive Trigger for Sheet) -->
+<div class="min-w-[270px] max-w-[270px] bg-surface-container p-2.5 rounded-lg flex flex-col justify-between shrink-0 shadow-sm cursor-pointer hover:bg-surface-container-high transition-all active:scale-[0.99] relative overflow-hidden group" onclick="openFomcModal()" role="button" tabindex="0">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<div class="flex items-center justify-between pl-1.5 mb-1.5">
+<span class="font-micro text-micro px-1.5 py-0.5 rounded bg-secondary/20 text-secondary font-bold uppercase tracking-wider">FOMC MACRO</span>
+<div class="flex items-center gap-1 text-secondary font-micro text-micro font-mono">
+<span class="material-symbols-outlined text-[12px] animate-spin">timer</span>
+<span>T-48h 12m</span>
+</div>
+</div>
+<p class="font-data-md text-data-md font-bold text-on-surface leading-snug pl-1.5 line-clamp-2">
+          Federal Reserve ≥25bps Rate Cut
+        </p>
+<div class="flex items-center justify-between mt-2.5 pt-2 border-t border-outline-variant/30 pl-1.5">
+<div class="flex items-baseline gap-1">
+<span class="font-label-caps text-label-caps text-tertiary uppercase">YES</span>
+<span class="font-data-lg text-data-lg font-bold text-tertiary">68.0¢</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-2 py-0.5 rounded text-on-surface-variant font-micro text-micro">
+<span class="material-symbols-outlined text-[12px] text-tertiary">verified_user</span>
+<span>UMA OO: 2h challenge</span>
+</div>
+</div>
+</div>
+<!-- Radar Card 2: US Headline CPI -->
+<div class="min-w-[270px] max-w-[270px] bg-surface-container p-2.5 rounded-lg flex flex-col justify-between shrink-0 shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex items-center justify-between pl-1.5 mb-1.5">
+<span class="font-micro text-micro px-1.5 py-0.5 rounded bg-primary/20 text-primary font-bold uppercase tracking-wider">US ECON</span>
+<div class="flex items-center gap-1 text-on-surface-variant font-micro text-micro font-mono">
+<span class="material-symbols-outlined text-[12px] text-secondary">timer</span>
+<span class="text-secondary">T-14h 45m</span>
+</div>
+</div>
+<p class="font-data-md text-data-md font-bold text-on-surface leading-snug pl-1.5 line-clamp-2">
+          US Headline CPI YoY &lt;3.1% (April Print)
+        </p>
+<div class="flex items-center justify-between mt-2.5 pt-2 border-t border-outline-variant/30 pl-1.5">
+<div class="flex items-baseline gap-1">
+<span class="font-label-caps text-label-caps text-tertiary uppercase">YES</span>
+<span class="font-data-lg text-data-lg font-bold text-tertiary">64.0¢</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-2 py-0.5 rounded text-on-surface-variant font-micro text-micro">
+<span class="material-symbols-outlined text-[12px] text-primary">analytics</span>
+<span>BLS Direct Stream</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Category Filter Chips -->
+<div class="flex items-center gap-1.5 px-space-md py-2 overflow-x-auto no-scrollbar bg-surface">
+<button class="filter-chip px-2.5 py-1 rounded font-label-caps text-label-caps font-semibold whitespace-nowrap bg-primary text-on-primary shadow-sm" data-cat="all" type="button">All (128)</button>
+<button class="filter-chip px-2.5 py-1 rounded font-label-caps text-label-caps font-semibold whitespace-nowrap bg-surface-container text-on-surface-variant hover:text-on-surface" data-cat="macro" type="button">Macro &amp; Central Banks</button>
+<button class="filter-chip px-2.5 py-1 rounded font-label-caps text-label-caps font-semibold whitespace-nowrap bg-surface-container text-on-surface-variant hover:text-on-surface" data-cat="crypto" type="button">Crypto</button>
+<button class="filter-chip px-2.5 py-1 rounded font-label-caps text-label-caps font-semibold whitespace-nowrap bg-surface-container text-on-surface-variant hover:text-on-surface" data-cat="tech" type="button">Tech &amp; AI</button>
+<button class="filter-chip px-2.5 py-1 rounded font-label-caps text-label-caps font-semibold whitespace-nowrap bg-surface-container text-on-surface-variant hover:text-on-surface" data-cat="sports" type="button">Sports</button>
+</div>
+<!-- Chronological Expiry Feed -->
+<div class="flex flex-col gap-2 px-space-md pt-1 pb-4">
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider font-semibold">Chronological Expiry Sequence</span>
+<span class="font-micro text-micro text-outline font-mono">Sorted by T-Minus</span>
+</div>
+<!-- Event 1: May 18 FOMC (CRITICAL HIGHLIGHT - Tap opens Bottom Sheet) -->
+<div class="w-full bg-surface-container p-3 rounded-lg flex flex-col gap-2 cursor-pointer shadow-md active:bg-surface-container-high transition-colors relative overflow-hidden group" onclick="openFomcModal()" role="button" tabindex="0">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary/5 rounded-full blur-xl pointer-events-none"></div>
+<!-- Top Meta -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-micro text-micro font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+            CRITICAL
+          </span>
+<span class="font-micro text-micro px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-medium">Macro</span>
+<span class="font-micro text-micro text-on-surface-variant font-mono">May 18, 18:00 UTC</span>
+</div>
+<div class="flex items-center gap-1 text-secondary font-micro text-micro font-mono font-bold">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>T-48h</span>
+</div>
+</div>
+<!-- Title -->
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface leading-tight">
+          Federal Reserve cuts benchmark interest rate by ≥25bps
+        </h3>
+<span class="material-symbols-outlined text-[20px] text-outline group-hover:text-primary transition-colors shrink-0">expand_circle_right</span>
+</div>
+<!-- Metrics Row -->
+<div class="grid grid-cols-3 gap-1.5 bg-surface-container-low p-2 rounded">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Implied YES</span>
+<span class="font-data-md text-data-md font-bold text-tertiary">68.0¢</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Open Int.</span>
+<span class="font-data-md text-data-md font-bold text-on-surface">—</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Oracle</span>
+<span class="font-micro text-micro text-primary font-medium truncate max-w-[85px]">UMA OO v3</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-micro font-micro text-on-surface-variant pt-0.5">
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[13px]">gavel</span>
+          Resolution Imminent
+        </span>
+<span class="text-outline font-mono">Tap for resolution roadmap →</span>
+</div>
+</div>
+<!-- Event 2: May 14 US CPI Print -->
+<div class="w-full bg-surface-container p-3 rounded-lg flex flex-col gap-2 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-micro text-micro px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-medium">Macro</span>
+<span class="font-micro text-micro text-on-surface-variant font-mono">May 14, 12:30 UTC</span>
+</div>
+<span class="text-secondary font-micro text-micro font-mono font-semibold">T-14h 45m</span>
+</div>
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface leading-tight">
+        US CPI Inflation Print YoY &lt;3.1%
+      </h3>
+<div class="grid grid-cols-3 gap-1.5 bg-surface-container-low p-2 rounded">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Implied YES</span>
+<span class="font-data-md text-data-md font-bold text-tertiary">64.0¢</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Open Int.</span>
+<span class="font-data-md text-data-md font-bold text-on-surface">—</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Oracle</span>
+<span class="font-micro text-micro text-primary font-medium">BLS Direct</span>
+</div>
+</div>
+</div>
+<!-- Event 3: May 25 ETH Staked -->
+<div class="w-full bg-surface-container p-3 rounded-lg flex flex-col gap-2 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-micro text-micro px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-medium">Crypto</span>
+<span class="font-micro text-micro text-on-surface-variant font-mono">May 25, 23:59 UTC</span>
+</div>
+<span class="text-outline font-micro text-micro font-mono">T-7d</span>
+</div>
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface leading-tight">
+        ETH Beaconchain Staked crosses &gt;34.0M ETH
+      </h3>
+<div class="grid grid-cols-3 gap-1.5 bg-surface-container-low p-2 rounded">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Implied YES</span>
+<span class="font-data-md text-data-md font-bold text-tertiary">88.0¢</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Open Int.</span>
+<span class="font-data-md text-data-md font-bold text-on-surface">—</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Oracle</span>
+<span class="font-micro text-micro text-primary font-medium">Multi-RPC</span>
+</div>
+</div>
+</div>
+<!-- Event 4: Jun 01 UEFA Champions League -->
+<div class="w-full bg-surface-container p-3 rounded-lg flex flex-col gap-2 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-micro text-micro px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-medium">Sports</span>
+<span class="font-micro text-micro text-on-surface-variant font-mono">Jun 01, 21:00 UTC</span>
+</div>
+<span class="text-outline font-micro text-micro font-mono">T-14d</span>
+</div>
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface leading-tight">
+        UEFA Champions League Winner 2025
+      </h3>
+<div class="grid grid-cols-3 gap-1.5 bg-surface-container-low p-2 rounded">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Leader (Madrid)</span>
+<span class="font-data-md text-data-md font-bold text-secondary">44.0¢</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Open Int.</span>
+<span class="font-data-md text-data-md font-bold text-on-surface">—</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Oracle</span>
+<span class="font-micro text-micro text-primary font-medium">Optic Match</span>
+</div>
+</div>
+</div>
+<!-- Event 5: Jun 15 OpenAI GPT-5 -->
+<div class="w-full bg-surface-container p-3 rounded-lg flex flex-col gap-2 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-micro text-micro px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-medium">Tech &amp; AI</span>
+<span class="font-micro text-micro text-on-surface-variant font-mono">Jun 15, 17:00 UTC</span>
+</div>
+<span class="text-outline font-micro text-micro font-mono">T-28d</span>
+</div>
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface leading-tight">
+        OpenAI Announces GPT-5 GA or Dev Preview
+      </h3>
+<div class="grid grid-cols-3 gap-1.5 bg-surface-container-low p-2 rounded">
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Implied YES</span>
+<span class="font-data-md text-data-md font-bold text-tertiary">32.0¢</span>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Open Int.</span>
+<span class="font-data-md text-data-md font-bold text-on-surface">—</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Oracle</span>
+<span class="font-micro text-micro text-primary font-medium">UMA Digest</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Settlement Bottom Sheet (Inspect View) -->
+<div class="fixed inset-0 bg-surface-dim/80 backdrop-blur-sm z-50 hidden transition-opacity" id="fomc-sheet-backdrop" onclick="closeFomcModal()"></div>
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-surface-container-high rounded-t-xl max-h-[751px] overflow-y-auto transform translate-y-full transition-transform duration-300 ease-out shadow-2xl p-4 flex flex-col gap-3" id="fomc-sheet">
+<!-- Drag Handle -->
+<div class="w-10 h-1 bg-outline-variant/60 rounded-full mx-auto mb-1"></div>
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-micro text-micro px-1.5 py-0.5 rounded bg-secondary/20 text-secondary font-bold uppercase tracking-wider">CRITICAL EXPIRY</span>
+<span class="font-micro text-micro text-on-surface-variant font-mono">Market ID: #MKT-FOMC-MAY25</span>
+</div>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface mt-1">FOMC May 2025 Settlement Schedule</h2>
+</div>
+<button aria-label="Close detail sheet" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="closeFomcModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Settlement Probability Pill -->
+<div class="flex items-center justify-between bg-surface-container p-2.5 rounded-lg">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></div>
+<div class="flex flex-col">
+<span class="font-micro text-micro text-on-surface-variant uppercase">Current Best Ask</span>
+<span class="font-data-md text-data-md font-bold text-on-surface">YES 68.0¢ (68%)</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-micro text-micro text-on-surface-variant uppercase">L1 Bond Required</span>
+<div class="font-data-md text-data-md font-bold text-secondary font-mono">$50,000 USDC</div>
+</div>
+</div>
+<!-- Settlement Milestones Timeline -->
+<div class="flex flex-col gap-2.5 bg-surface-container-lowest p-3 rounded-lg">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider font-semibold">Deterministic Execution Roadmap</span>
+<div class="relative pl-5 flex flex-col gap-3.5 before:content-[''] before:absolute before:left-1.5 before:top-1.5 before:bottom-1.5 before:w-0.5 before:bg-outline-variant/40">
+<!-- Milestone 1 -->
+<div class="relative flex flex-col">
+<span class="absolute -left-5 top-1 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface"></span>
+<div class="flex items-center justify-between">
+<span class="font-data-sm text-data-sm font-bold text-on-surface font-mono">18:00 UTC</span>
+<span class="font-micro text-micro px-1 rounded bg-secondary/10 text-secondary">Step 1</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Scheduled Trading Freeze — CLOB halts matching engines and cancels open limit orders.</span>
+</div>
+<!-- Milestone 2 -->
+<div class="relative flex flex-col">
+<span class="absolute -left-5 top-1 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface"></span>
+<div class="flex items-center justify-between">
+<span class="font-data-sm text-data-sm font-bold text-on-surface font-mono">18:30 UTC</span>
+<span class="font-micro text-micro px-1 rounded bg-primary/10 text-primary">Step 2</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">FOMC Policy Statement Release — Official discount window rate data fetched.</span>
+</div>
+<!-- Milestone 3 -->
+<div class="relative flex flex-col">
+<span class="absolute -left-5 top-1 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface"></span>
+<div class="flex items-center justify-between">
+<span class="font-data-sm text-data-sm font-bold text-on-surface font-mono">19:00 UTC</span>
+<span class="font-micro text-micro px-1 rounded bg-primary/10 text-primary">Step 3</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">UMA Proposed Outcome — Oracle bot stakes $50,000 bond. 2-hour dispute window opens.</span>
+</div>
+<!-- Milestone 4 -->
+<div class="relative flex flex-col">
+<span class="absolute -left-5 top-1 w-2.5 h-2.5 rounded-full bg-tertiary ring-2 ring-surface"></span>
+<div class="flex items-center justify-between">
+<span class="font-data-sm text-data-sm font-bold text-tertiary font-mono">21:00 UTC</span>
+<span class="font-micro text-micro px-1 rounded bg-tertiary/10 text-tertiary font-bold">Payout</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Final Payout &amp; Collateral Release — 100¢ YES token automated redemption via vault smart contracts.</span>
+</div>
+</div>
+</div>
+<!-- Action Bar inside Sheet -->
+<div class="grid grid-cols-2 gap-2 pt-1">
+<button class="py-2.5 px-3 rounded-lg bg-surface-container font-label-caps text-label-caps font-bold text-on-surface flex items-center justify-center gap-1.5 active:bg-surface-bright transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">notifications_active</span>
+<span>Set Priority Alert</span>
+</button>
+<button class="py-2.5 px-3 rounded-lg bg-primary font-label-caps text-label-caps font-bold text-on-primary flex items-center justify-center gap-1.5 shadow-md active:bg-primary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">show_chart</span>
+<span>Trade Contract</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // UTC Telemetry Clock
+  function updateUtcClock() {
+    const el = document.getElementById('utc-clock');
+    if (!el) return;
+    const now = new Date();
+    const h = String(now.getUTCHours()).padStart(2, '0');
+    const m = String(now.getUTCMinutes()).padStart(2, '0');
+    const s = String(now.getUTCSeconds()).padStart(2, '0');
+    el.textContent = `${h}:${m}:${s} UTC`;
+  }
+  setInterval(updateUtcClock, 1000);
+
+  // View Switcher Interactions
+  const viewBtns = document.querySelectorAll('.view-btn');
+  viewBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      viewBtns.forEach(b => {
+        b.classList.remove('bg-surface', 'text-primary', 'shadow-sm', 'font-bold');
+        b.classList.add('text-on-surface-variant');
+      });
+      btn.classList.add('bg-surface', 'text-primary', 'shadow-sm', 'font-bold');
+      btn.classList.remove('text-on-surface-variant');
+    });
+  });
+
+  // Watchlist Toggle
+  const wlToggle = document.getElementById('watchlist-toggle');
+  const wlIcon = document.getElementById('watchlist-icon');
+  let wlActive = false;
+  if (wlToggle && wlIcon) {
+    wlToggle.addEventListener('click', () => {
+      wlActive = !wlActive;
+      if (wlActive) {
+        wlToggle.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        wlToggle.classList.add('bg-primary-container/30', 'text-primary');
+        wlIcon.style.fontVariationSettings = "'FILL' 1";
+        wlIcon.classList.remove('text-outline');
+        wlIcon.classList.add('text-primary');
+      } else {
+        wlToggle.classList.add('bg-surface-container', 'text-on-surface-variant');
+        wlToggle.classList.remove('bg-primary-container/30', 'text-primary');
+        wlIcon.style.fontVariationSettings = "'FILL' 0";
+        wlIcon.classList.add('text-outline');
+        wlIcon.classList.remove('text-primary');
+      }
+    });
+  }
+
+  // Category Filter Chips
+  const filterChips = document.querySelectorAll('.filter-chip');
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChips.forEach(c => {
+        c.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+        c.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+      chip.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+      chip.classList.remove('bg-surface-container', 'text-on-surface-variant');
+    });
+  });
+
+  // Bottom Sheet Modal Control
+  function openFomcModal() {
+    const backdrop = document.getElementById('fomc-sheet-backdrop');
+    const sheet = document.getElementById('fomc-sheet');
+    if (!backdrop || !sheet) return;
+    backdrop.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      sheet.classList.remove('translate-y-full');
+      sheet.classList.add('translate-y-0');
+    });
+  }
+
+  function closeFomcModal() {
+    const backdrop = document.getElementById('fomc-sheet-backdrop');
+    const sheet = document.getElementById('fomc-sheet');
+    if (!backdrop || !sheet) return;
+    sheet.classList.remove('translate-y-0');
+    sheet.classList.add('translate-y-full');
+    setTimeout(() => {
+      backdrop.classList.add('hidden');
+    }, 300);
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.4)]" data-active-classes="text-primary font-semibold"><div class="flex justify-around items-center h-16 px-1"><a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] py-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">analytics</span><span class="font-micro text-micro tracking-tight">Home</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] py-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="explore" href="#"><span class="material-symbols-outlined text-[22px]">explore</span><span class="font-micro text-micro tracking-tight">Explore</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] py-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="market-watchlist" href="#"><span class="material-symbols-outlined text-[22px]">candlestick_chart</span><span class="font-micro text-micro tracking-tight">Markets</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] py-1 transition-colors text-primary font-semibold" data-path="market-calendar" href="#"><span class="material-symbols-outlined text-[22px]">event_upcoming</span><span class="font-micro text-micro tracking-tight">Activity</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] py-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="portfolio-settings" href="#"><span class="material-symbols-outlined text-[22px]">account_balance_wallet</span><span class="font-micro text-micro tracking-tight">Portfolio</span></a></div></nav></body></html>

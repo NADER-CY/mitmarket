@@ -1,0 +1,7 @@
+/* Compact category logos; high-resolution image assets retain their source quality. */
+.cr-side .cr-coin-link>i,.cr-side .cr-side-topic-icon,.cr-side .cr-shared-topic-icon,.mit-combo-category-side .combo-sport-row>svg,.mms-sidebar .mms-side-entry i,.mit-combos-sidebar .mit-combos-side i{width:20px!important;height:20px!important;min-width:20px!important;flex:0 0 20px!important;font-size:12px!important;display:inline-grid!important;place-items:center!important;line-height:1!important}
+.cr-side button:has(.cr-coin-link),.cr-side button:has(.cr-side-topic-icon),.cr-side button:has(.cr-shared-topic-icon),.mit-combo-category-side .combo-sport-row,.mms-sidebar .mms-side-entry,.mit-combos-sidebar .mit-combos-side{min-height:42px!important;gap:10px!important;white-space:normal!important}
+.cr-side .cr-coin-link,.cr-side .cr-side-label,.mms-sidebar .mms-side-entry>span,.mit-combos-sidebar .mit-combos-side>span{display:flex!important;align-items:center!important;gap:10px!important;min-width:0;white-space:normal}
+
+/* Category icons share one compact size, including fallback SVGs and images. */
+.cr-side .finance-icon,.cr-side .mit-sports-icon{width:20px!important;height:20px!important;min-width:20px!important;flex:0 0 20px!important}.cr-side .finance-icon svg,.cr-side .mit-sports-icon svg,.cr-side .mit-sports-icon img{width:20px!important;height:20px!important;display:block!important;object-fit:contain}

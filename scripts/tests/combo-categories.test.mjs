@@ -1,0 +1,14 @@
+import {readFileSync} from 'node:fs';
+import ts from 'typescript';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+const code=ts.transpileModule(readFileSync(new URL('../../src/comboCategories.ts',import.meta.url),'utf8'),{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText;
+const {comboCategories,comboTopicMatches,comboCounts,compactComboCount}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
+const market=(id,tags)=>({id,title:'Match winner',eventTitle:'A vs B',eventSlug:'a-vs-b',tags});
+test('sidebar order matches the reference',()=>assert.deepEqual(comboCategories.map(c=>c.label),['NFL','College Football','Esports','Soccer','NBA','Tennis','UFC','Cricket','MLB','NHL','Basketball']));
+test('NFL and college football cannot enter Soccer',()=>{for(const tag of ['NFL','College Football','NCAAF'])assert.equal(comboTopicMatches(market(tag,[tag]),'Soccer'),false);});
+test('NBA is separated from other basketball',()=>{assert.equal(comboTopicMatches(market('a',['NBA','Basketball']),'Basketball'),false);assert.equal(comboTopicMatches(market('b',['Euroleague','Basketball']),'Basketball'),true);});
+test('counts come from unique API contracts',()=>{const rows=[market('a',['NFL']),market('a',['NFL']),market('b',['Soccer']),market('c',['Esports','CS2'])];assert.deepEqual([comboCounts(rows).All,comboCounts(rows).NFL,comboCounts(rows).Soccer,comboCounts(rows).Esports],[3,1,1,1]);});
+test('formats full catalog counts like the source navigation',()=>{assert.equal(compactComboCount(2549),'2.5K');assert.equal(compactComboCount(2480),'2.5K');assert.equal(compactComboCount(43),'43');assert.equal(compactComboCount(0),'0');});
+test('provider league tags override incidental title words',()=>{const m={...market('x',['NBA','Basketball']),title:'NFL player attends NBA game'};assert.equal(comboTopicMatches(m,'NBA'),true);assert.equal(comboTopicMatches(m,'NFL'),false);assert.equal(comboTopicMatches(m,'Basketball'),false);});
+test('specific leagues and generic sports do not share counts',()=>{const rows=[market('nba',['NBA','Basketball']),market('nfl',['NFL','Football']),market('cfb',['College Football','Football']),market('soccer',['Soccer']),market('other-basketball',['Basketball'])];const counts=comboCounts(rows);assert.equal(counts.All,5);assert.equal(comboCategories.reduce((sum,c)=>sum+counts[c.label],0),5);});

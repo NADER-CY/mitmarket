@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>MITMARKET | Institutional Prediction Market Terminal</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed": "#EAA343", "tertiary-container": "#0bba74", "on-surface": "#F4F6FA", "inverse-primary": "#1463ff", "on-secondary-fixed-variant": "#000000", "surface-variant": "#101216", "secondary-container": "#101216", "on-primary-fixed-variant": "#000000", "on-error": "#000000", "on-background": "#F4F6FA", "surface-tint": "#1463ff", "error": "#ff4761", "on-tertiary-container": "#000000", "on-secondary": "#000000", "on-error-container": "#ff4761", "surface-container-lowest": "#101216", "surface": "#000000", "inverse-on-surface": "#101216", "on-primary-container": "#000000", "on-primary-fixed": "#000000", "outline-variant": "#29313D", "outline": "#98A5B5", "background": "#000000", "tertiary": "#0bba74", "primary": "#1463ff", "primary-fixed-dim": "#1463ff", "tertiary-fixed-dim": "#0bba74", "on-secondary-container": "#F4F6FA", "primary-container": "#1463ff", "surface-container-low": "#101216", "surface-dim": "#000000", "tertiary-fixed": "#0bba74", "on-secondary-fixed": "#000000", "surface-container-high": "#101216", "primary-fixed": "#1463ff", "surface-container-highest": "#101216", "inverse-surface": "#F4F6FA", "on-surface-variant": "#98A5B5", "surface-container": "#101216", "secondary": "#EAA343", "on-tertiary-fixed": "#000000", "on-tertiary-fixed-variant": "#000000", "error-container": "#101216", "secondary-fixed-dim": "#EAA343", "on-tertiary": "#000000", "on-primary": "#000000", "surface-bright": "#29313D" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin-desktop": "1.5rem", "gutter": "0.75rem", "space-xl": "1.5rem", "gutter-desktop": "1rem", "space-xs": "0.25rem", "space-lg": "1rem", "space-sm": "0.5rem", "margin": "1rem", "space-md": "0.75rem" }, "fontFamily": { "headline-md": ["Inter"], "headline-lg": ["Inter"], "data-lg": ["Inter"], "body-md": ["Inter"], "data-md": ["Inter"], "micro": ["Inter"], "display-lg": ["Inter"], "data-sm": ["Inter"], "label-caps": ["Inter"], "body-sm": ["Inter"], "body-lg": ["Inter"] }, "fontSize": { "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "data-lg": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "data-md": ["14px", { "lineHeight": "18px", "fontWeight": "600" }], "micro": ["10px", { "lineHeight": "12px", "fontWeight": "500" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "400" }] } } } };</script><style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 flex flex-col bg-surface shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-14 px-margin-desktop flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center gap-space-sm"><img alt="MITMARKET Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WQ7e4D86uLOwuyHmQZlCQW2I7FCjQoPa0wjUbqQDJ_h5deSvkaYKD8guT0gVlC4aRAx5dNO2iyEOxzbXjDGKiHzROjTaX6kVjxl9di2N54aTcrZJHGtsFosfurt0WzG5D1DcZjQUsfQmXu1tS3fw5jt6Ft-5fohTZlFe-3_lK96x5cyGHsFilIukdYnkEqNeH9UrKPg-_q7rcX2-nLIcF8wVGJN-NnYQUghq0RunNNsEOQXCYG2O6Hmpw"/><span class="font-headline-md text-headline-md tracking-tight uppercase text-on-surface">MITMARKET</span></div><div class="flex items-center gap-1.5 px-2 py-0.5 rounded-lg bg-surface-container border border-outline-variant/30 text-tertiary"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="font-label-caps text-label-caps tracking-wider uppercase text-on-surface-variant">LIVE MARKETS <strong class="text-tertiary font-data-sm">— 24H</strong></span></div></div><div class="flex-1 max-w-xl hidden lg:block"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-3 text-[18px] text-outline pointer-events-none">search</span><input class="w-full h-8 pl-9 pr-14 bg-surface-container-lowest rounded-lg border border-outline-variant/40 text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:border-primary-container transition-colors" placeholder="Search markets, contracts, politicians, tokens..." type="text"/><kbd class="absolute right-2 px-1.5 py-0.5 rounded bg-surface-container text-outline font-micro text-micro border border-outline-variant/30">⌘K</kbd></div></div><div class="flex items-center gap-space-md shrink-0"><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-on-surface font-semibold"><a aria-current="page" class="transition-colors text-on-surface font-semibold" data-path="explore" href="#">Explore</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="trending" href="#">Trending</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="portfolio" href="#">Portfolio</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="leaderboard" href="#">Leaderboard</a></nav><div class="flex items-center gap-space-sm"><div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface-container-high border border-outline-variant/40"><span class="font-micro text-micro text-outline uppercase">USDC</span><span class="font-data-sm text-data-sm text-on-surface">—</span></div><button class="px-3 py-1 bg-primary-container text-on-primary-container hover:bg-secondary hover:text-on-secondary rounded-lg font-data-sm text-data-sm transition-colors" type="button">Deposit</button><button class="p-1 text-on-surface-variant hover:text-on-surface transition-colors flex items-center" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button><div class="flex items-center gap-1.5 pl-1"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="hidden md:inline font-data-sm text-data-sm text-on-surface-variant">Connect account</span></div></div></div></div><div class="h-10 px-margin-desktop flex items-center justify-between bg-surface-container-lowest border-t border-b border-outline-variant/30"><div class="flex items-center gap-1 overflow-x-auto py-1"><a class="flex items-center gap-1 px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="trending" href="#"><span class="material-symbols-outlined text-[14px] text-secondary">local_fire_department</span>Trending</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="breaking" href="#">Breaking</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="new" href="#">New</a><a class="px-2.5 py-1 rounded-lg bg-surface-container-high text-primary font-semibold text-body-sm whitespace-nowrap border border-primary/20" data-path="crypto" href="#">Crypto</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="politics" href="#">Politics</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="sports" href="#">Sports</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="finance" href="#">Finance</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="geopolitics" href="#">Geopolitics</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="technology" href="#">Technology</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="elections" href="#">Elections</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="economy" href="#">Economy</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="culture" href="#">Culture</a><button class="flex items-center gap-0.5 px-2 py-1 rounded-lg text-outline hover:text-on-surface font-body-sm text-body-sm whitespace-nowrap transition-colors" type="button">More<span class="material-symbols-outlined text-[14px]">arrow_drop_down</span></button></div><div class="hidden md:flex items-center gap-space-sm shrink-0 pl-space-md"><div class="flex items-center gap-1.5 font-micro text-micro text-outline"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>Ethereum Gas: <strong class="text-on-surface font-semibold">— Gwei</strong></span><span>•</span><span>Polygon: <strong class="text-tertiary font-semibold">Fast</strong></span></div></div></div></header><main class="w-full pt-24 min-h-[calc(100vh-96px)] bg-surface-container-lowest"><div class="max-w-[1440px] mx-auto p-margin-desktop"><div class="flex flex-col w-full gap-space-lg text-on-surface">
+<!-- TOP HERO FEATURED DESK -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Primary Mega Featured Market (8 Cols) -->
+<div class="lg:col-span-8 relative overflow-hidden rounded-xl bg-surface-container-low p-space-xl flex flex-col justify-between shadow-xl">
+<!-- Subtle Visual Data Backdrop -->
+<div class="absolute -right-10 -bottom-10 w-96 h-96 bg-primary-container/5 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Top Meta Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm z-10">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-high text-primary font-label-caps text-label-caps tracking-wider uppercase">
+<span class="material-symbols-outlined text-[14px]">account_balance</span>
+            Macro / Economy
+          </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-data-sm text-data-sm">
+<span class="material-symbols-outlined text-[13px] text-outline">event</span>
+            Ends Jun 12, 2025
+          </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-data-sm text-data-sm">
+<span class="material-symbols-outlined text-[13px] text-tertiary">query_stats</span>
+            $34.2M Vol
+          </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+            Live Resolution
+          </span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="p-1 text-outline hover:text-secondary transition-colors" title="Bookmark" type="button">
+<span class="material-symbols-outlined text-[20px]">bookmark_border</span>
+</button>
+<button class="p-1 text-outline hover:text-on-surface transition-colors" title="Share Market" type="button">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+</div>
+<!-- Core Market Title & Implied Probability -->
+<div class="my-space-lg grid grid-cols-1 md:grid-cols-12 gap-space-md items-center z-10">
+<div class="md:col-span-8">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-snug">
+            Will the Federal Reserve cut interest rates at the next FOMC meeting?
+          </h1>
+<p class="mt-2 text-on-surface-variant font-body-sm text-body-sm max-w-xl">
+            Implied consensus resolves to YES if the Federal Open Market Committee announces a target federal funds rate reduction of at least 25 bps.
+          </p>
+</div>
+<!-- Metric Tile -->
+<div class="md:col-span-4 flex flex-col items-start md:items-end justify-center bg-surface-container/60 p-space-md rounded-lg">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Market Probability</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="font-display-lg text-display-lg text-tertiary font-bold tracking-tight">—</span>
+<span class="font-data-md text-data-md text-tertiary font-semibold">YES</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary font-data-sm text-data-sm mt-1">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>+4.2% (24h)</span>
+</div>
+</div>
+</div>
+<!-- Live Interactive Sparkline & Dual Execution Bar -->
+<div class="z-10 flex flex-col gap-space-md">
+<!-- SVG Sparkline Background Graphic -->
+<div class="w-full h-14 relative flex items-end overflow-hidden rounded bg-surface-container-lowest/60 px-2 pt-1">
+<svg class="w-full h-full text-tertiary overflow-visible" preserveaspectratio="none" viewbox="0 0 500 50">
+<defs>
+<lineargradient id="gradPrimary" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="currentColor" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="currentColor" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,42 Q60,38 120,32 T240,24 T340,30 T420,14 T500,6 L500,50 L0,50 Z" fill="url(#gradPrimary)"></path>
+<path d="M0,42 Q60,38 120,32 T240,24 T340,30 T420,14 T500,6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+</svg>
+<div class="absolute bottom-1 right-3 text-outline font-micro text-micro uppercase">30D Dynamic Vector</div>
+</div>
+<!-- Action Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<button class="flex items-center justify-between px-space-lg py-3 rounded-lg bg-tertiary/15 hover:bg-tertiary/25 text-tertiary font-data-md text-data-md transition-all active:scale-[0.99] group" type="button">
+<span class="font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">arrow_circle_up</span>
+              Buy YES
+            </span>
+<span class="px-2.5 py-0.5 rounded bg-tertiary text-on-tertiary font-data-lg text-data-lg font-bold group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+              68¢
+            </span>
+</button>
+<button class="flex items-center justify-between px-space-lg py-3 rounded-lg bg-error/15 hover:bg-error/25 text-error font-data-md text-data-md transition-all active:scale-[0.99] group" type="button">
+<span class="font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">arrow_circle_down</span>
+              Buy NO
+            </span>
+<span class="px-2.5 py-0.5 rounded bg-error text-on-error font-data-lg text-data-lg font-bold group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+              32¢
+            </span>
+</button>
+</div>
+</div>
+</div>
+<!-- Secondary Featured Rail (4 Cols: 2 Cards Stacked) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Secondary Card 1: Bitcoin -->
+<div class="flex-1 bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between hover:bg-surface-container transition-all shadow-md">
+<div>
+<div class="flex items-center justify-between text-outline font-data-sm text-data-sm mb-2">
+<span class="inline-flex items-center gap-1 text-primary font-label-caps text-label-caps uppercase bg-primary-container/20 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px]">currency_bitcoin</span> Crypto
+            </span>
+<span class="text-on-surface-variant">$18.9M Vol</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface line-clamp-2">
+            Bitcoin to reach $100k in Q2 2025
+          </h2>
+</div>
+<div class="mt-4">
+<!-- Dual Bar Preview -->
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden flex mb-3">
+<div class="h-full bg-tertiary" style="width: 74%"></div>
+<div class="h-full bg-error" style="width: 26%"></div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-between px-3 py-2 rounded bg-tertiary/15 hover:bg-tertiary/25 text-tertiary font-data-sm text-data-sm transition-colors" type="button">
+<span>YES</span>
+<strong class="font-data-md text-data-md">74¢</strong>
+</button>
+<button class="flex items-center justify-between px-3 py-2 rounded bg-error/15 hover:bg-error/25 text-error font-data-sm text-data-sm transition-colors" type="button">
+<span>NO</span>
+<strong class="font-data-md text-data-md">26¢</strong>
+</button>
+</div>
+</div>
+</div>
+<!-- Secondary Card 2: AI Licensing Bill -->
+<div class="flex-1 bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between hover:bg-surface-container transition-all shadow-md">
+<div>
+<div class="flex items-center justify-between text-outline font-data-sm text-data-sm mb-2">
+<span class="inline-flex items-center gap-1 text-secondary font-label-caps text-label-caps uppercase bg-secondary-container/20 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px]">policy</span> Policy
+            </span>
+<span class="text-on-surface-variant">$8.4M Vol</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface line-clamp-2">
+            US Senate passage of AI Licensing Bill by August
+          </h2>
+</div>
+<div class="mt-4">
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden flex mb-3">
+<div class="h-full bg-tertiary" style="width: 41%"></div>
+<div class="h-full bg-error" style="width: 59%"></div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-between px-3 py-2 rounded bg-tertiary/15 hover:bg-tertiary/25 text-tertiary font-data-sm text-data-sm transition-colors" type="button">
+<span>YES</span>
+<strong class="font-data-md text-data-md">41¢</strong>
+</button>
+<button class="flex items-center justify-between px-3 py-2 rounded bg-error/15 hover:bg-error/25 text-error font-data-sm text-data-sm transition-colors" type="button">
+<span>NO</span>
+<strong class="font-data-md text-data-md">59¢</strong>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- MARKET NAVIGATION CONTROL BAR & DISCOVERY TABS -->
+<section class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md py-space-sm bg-surface-container-low px-space-md rounded-xl">
+<!-- Filtering Pills -->
+<div class="flex items-center gap-1 overflow-x-auto py-0.5">
+<button class="px-3.5 py-1.5 rounded-lg bg-primary-container text-on-primary-container font-data-sm text-data-sm font-semibold flex items-center gap-1.5 shrink-0 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">local_fire_department</span>
+        Trending
+      </button>
+<button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-data-sm text-data-sm shrink-0 transition-colors" type="button">
+        Breaking News
+      </button>
+<button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-data-sm text-data-sm shrink-0 transition-colors" type="button">
+        High Liquidity
+      </button>
+<button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-data-sm text-data-sm shrink-0 transition-colors" type="button">
+        Ending Soon
+      </button>
+<button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-data-sm text-data-sm shrink-0 transition-colors" type="button">
+        New Markets
+      </button>
+</div>
+<!-- Right Utility Stack: View Toggle & Fast Search -->
+<div class="flex items-center gap-space-sm shrink-0">
+<div class="relative w-full md:w-56">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-[16px] text-outline">search</span>
+<input class="w-full h-8 pl-8 pr-3 bg-surface-container text-on-surface placeholder:text-outline rounded-lg text-body-sm font-body-sm focus:outline-none focus:bg-surface-container-highest transition-colors" placeholder="Filter current view..." type="text"/>
+</div>
+<div class="flex items-center p-0.5 rounded-lg bg-surface-container">
+<button class="p-1 rounded bg-surface-container-highest text-primary" title="Grid View" type="button">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-on-surface" title="List View" type="button">
+<span class="material-symbols-outlined text-[18px]">view_list</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 3-COLUMN HIGH DENSITY MARKET FEED GRID -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md">
+<!-- CARD 1: Crypto / Solana vs Eth -->
+<article class="bg-surface-container-low hover:bg-surface-container rounded-xl p-space-md flex flex-col justify-between transition-all duration-150 shadow-md group">
+<div>
+<div class="flex items-center justify-between gap-2 mb-2.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-primary font-label-caps text-label-caps uppercase">
+<span class="material-symbols-outlined text-[13px]">dataset</span> Crypto
+          </span>
+<div class="flex items-center gap-1.5 text-outline font-micro text-micro">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+            Dec 31, 2025
+            <button class="text-outline hover:text-secondary pl-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_border</span>
+</button>
+</div>
+</div>
+<h3 class="font-data-md text-data-md text-on-surface group-hover:text-primary transition-colors line-clamp-2 min-h-[36px]">
+          Solana to flip Ethereum market cap by end of 2025
+        </h3>
+<!-- Probability Track -->
+<div class="mt-4">
+<div class="flex justify-between items-center font-data-sm text-data-sm mb-1.5">
+<span class="text-tertiary font-semibold">YES 18%</span>
+<span class="text-error font-semibold">NO 82%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-tertiary transition-all" style="width: 18%"></div>
+<div class="h-full bg-error transition-all" style="width: 82%"></div>
+</div>
+</div>
+</div>
+<!-- Price Buttons & Metadata -->
+<div class="mt-4 pt-3 bg-surface-container-lowest/40 -mx-space-md -mb-space-md p-space-md rounded-b-xl flex flex-col gap-2.5">
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-between px-3 py-1.5 rounded bg-tertiary/15 hover:bg-tertiary/25 text-tertiary font-data-sm text-data-sm transition-colors" type="button">
+<span>YES</span>
+<strong class="font-data-md text-data-md">18¢</strong>
+</button>
+<button class="flex items-center justify-between px-3 py-1.5 rounded bg-error/15 hover:bg-error/25 text-error font-data-sm text-data-sm transition-colors" type="button">
+<span>NO</span>
+<strong class="font-data-md text-data-md">82¢</strong>
+</button>
+</div>
+<div class="flex items-center justify-between font-micro text-micro text-outline pt-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface-variant">
+<span class="material-symbols-outlined text-[13px] text-tertiary">water_drop</span>
+            $12.4M Vol
+          </span>
+<span class="flex items-center gap-2">
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant">Spread 0.4¢</span>
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">chat</span> 84</span>
+</span>
+</div>
+</div>
+</article>
+<!-- CARD 2: Politics / UK Snap Election -->
+<article class="bg-surface-container-low hover:bg-surface-container rounded-xl p-space-md flex flex-col justify-between transition-all duration-150 shadow-md group">
+<div>
+<div class="flex items-center justify-between gap-2 mb-2.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-secondary font-label-caps text-label-caps uppercase">
+<span class="material-symbols-outlined text-[13px]">how_to_vote</span> Politics
+          </span>
+<div class="flex items-center gap-1.5 text-outline font-micro text-micro">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+            Nov 30, 2025
+            <button class="text-outline hover:text-secondary pl-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_border</span>
+</button>
+</div>
+</div>
+<h3 class="font-data-md text-data-md text-on-surface group-hover:text-secondary transition-colors line-clamp-2 min-h-[36px]">
+          Will UK prime minister call early snap election?
+        </h3>
+<!-- Probability Track -->
+<div class="mt-4">
+<div class="flex justify-between items-center font-data-sm text-data-sm mb-1.5">
+<span class="text-tertiary font-semibold">YES 12%</span>
+<span class="text-error font-semibold">NO 88%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-tertiary transition-all" style="width: 12%"></div>
+<div class="h-full bg-error transition-all" style="width: 88%"></div>
+</div>
+</div>
+</div>
+<!-- Price Buttons & Metadata -->
+<div class="mt-4 pt-3 bg-surface-container-lowest/40 -mx-space-md -mb-space-md p-space-md rounded-b-xl flex flex-col gap-2.5">
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-between px-3 py-1.5 rounded bg-tertiary/15 hover:bg-tertiary/25 text-tertiary font-data-sm text-data-sm transition-colors" type="button">
+<span>YES</span>
+<strong class="font-data-md text-data-md">12¢</strong>
+</button>
+<button class="flex items-center justify-between px-3 py-1.5 rounded bg-error/15 hover:bg-error/25 text-error font-data-sm text-data-sm transition-colors" type="button">
+<span>NO</span>
+<strong class="font-data-md text-data-md">88¢</strong>
+</button>
+</div>
+<div class="flex items-center justify-between font-micro text-micro text-outline pt-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface-variant">
+<span class="material-symbols-outlined text-[13px] text-tertiary">water_drop</span>
+            $5.1M Vol
+          </span>
+<span class="flex items-center gap-2">
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant">Spread 0.2¢</span>
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">chat</span> 31</span>
+</span>
+</div>
+</div>
+</article>
+<!-- CARD 3: Tech & AI / OpenAI GPT-5 -->
+<article class="bg-surface-container-low hover:bg-surface-container rounded-xl p-space-md flex flex-col justify-between transition-all duration-150 shadow-md group">
+<div>
+<div class="flex items-center justify-between gap-2 mb-2.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-tertiary font-label-caps text-label-caps uppercase">
+<span class="material-symbols-outlined text-[13px]">psychology</span> Tech &amp; AI
+          </span>
+<div class="flex items-center gap-1.5 text-outline font-micro text-micro">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+            Jun 30, 2025
+            <button class="text-outline hover:text-secondary pl-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_border</span>
+</button>
+</div>
+</div>
+<h3 class="font-data-md text-data-md text-on-surface group-hover:text-tertiary transition-colors line-clamp-2 min-h-[36px]">
+          OpenAI to release GPT-5 before July 2025
+        </h3>
+<!-- Probability Track -->
+<div class="mt-4">
+<div class="flex justify-between items-center font-data-sm text-data-sm mb-1.5">
+<span class="text-tertiary font-semibold">YES 61%</span>
+<span class="text-error font-semibold">NO 39%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-tertiary transition-all" style="width: 61%"></div>
+<div class="h-full bg-error transition-all" style="width: 39%"></div>
+</div>
+</div>
+</div>
+<!-- Price Buttons & Metadata -->
+<div class="mt-4 pt-3 bg-surface-container-lowest/40 -mx-space-md -mb-space-md p-space-md rounded-b-xl flex flex-col gap-2.5">
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-between px-3 py-1.5 rounded bg-tertiary/15 hover:bg-tertiary/25 text-tertiary font-data-sm text-data-sm transition-colors" type="button">
+<span>YES</span>
+<strong class="font-data-md text-data-md">61¢</strong>
+</button>
+<button class="flex items-center justify-between px-3 py-1.5 rounded bg-error/15 hover:bg-error/25 text-error font-data-sm text-data-sm transition-colors" type="button">
+<span>NO</span>
+<strong class="font-data-md text-data-md">39¢</strong>
+</button>
+</div>
+<div class="flex items-center justify-between font-micro text-micro text-outline pt-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface-variant">
+<span class="material-symbols-outlined text-[13px] text-tertiary">water_drop</span>
+            $22.7M Vol
+          </span>
+<span class="flex items-center gap-2">
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant">Spread 0.1¢</span>
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">chat</span> 142</span>
+</span>
+</div>
+</div>
+</article>
+<!-- CARD 4: Finance / S&P 500 Year Close -->
+<article class="bg-surface-container-low hover:bg-surface-container rounded-xl p-space-md flex flex-col justify-between transition-all duration-150 shadow-md group">
+<div>
+<div class="flex items-center justify-between gap-2 mb-2.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-primary-container font-label-caps text-label-caps uppercase">
+<span class="material-symbols-outlined text-[13px]">show_chart</span> Finance
+          </span>
+<div class="flex items-center gap-1.5 text-outline font-micro text-micro">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+            Dec 31, 2025
+            <button class="text-outline hover:text-secondary pl-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_border</span>
+</button>
+</div>
+</div>
+<h3 class="font-data-md text-data-md text-on-surface group-hover:text-primary transition-colors line-clamp-2 min-h-[36px]">
+          S&amp;P 500 to close above 6,200 at end of year
+        </h3>
+<!-- Probability Track -->
+<div class="mt-4">
+<div class="flex justify-between items-center font-data-sm text-data-sm mb-1.5">
+<span class="text-tertiary font-semibold">YES 54%</span>
+<span class="text-error font-semibold">NO 46%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-tertiary transition-all" style="width: 54%"></div>
+<div class="h-full bg-error transition-all" style="width: 46%"></div>
+</div>
+</div>
+</div>
+<!-- Price Buttons & Metadata -->
+<div class="mt-4 pt-3 bg-surface-container-lowest/40 -mx-space-md -mb-space-md p-space-md rounded-b-xl flex flex-col gap-2.5">
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-between px-3 py-1.5 rounded bg-tertiary/15 hover:bg-tertiary/25 text-tertiary font-data-sm text-data-sm transition-colors" type="button">
+<span>YES</span>
+<strong class="font-data-md text-data-md">54¢</strong>
+</button>
+<button class="flex items-center justify-between px-3 py-1.5 rounded bg-error/15 hover:bg-error/25 text-error font-data-sm text-data-sm transition-colors" type="button">
+<span>NO</span>
+<strong class="font-data-md text-data-md">46¢</strong>
+</button>
+</div>
+<div class="flex items-center justify-between font-micro text-micro text-outline pt-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface-variant">
+<span class="material-symbols-outlined text-[13px] text-tertiary">water_drop</span>
+            $15.8M Vol
+          </span>
+<span class="flex items-center gap-2">
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant">Spread 0.3¢</span>
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">chat</span> 67</span>
+</span>
+</div>
+</div>
+</article>
+<!-- CARD 5: Sports / Multi-Outcome Champions League -->
+<article class="bg-surface-container-low hover:bg-surface-container rounded-xl p-space-md flex flex-col justify-between transition-all duration-150 shadow-md group">
+<div>
+<div class="flex items-center justify-between gap-2 mb-2.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-secondary font-label-caps text-label-caps uppercase">
+<span class="material-symbols-outlined text-[13px]">sports_soccer</span> Sports
+          </span>
+<div class="flex items-center gap-1.5 text-outline font-micro text-micro">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+            May 31, 2025
+            <button class="text-outline hover:text-secondary pl-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_border</span>
+</button>
+</div>
+</div>
+<h3 class="font-data-md text-data-md text-on-surface group-hover:text-secondary transition-colors line-clamp-2 min-h-[36px]">
+          Real Madrid to win Champions League 2024/25
+        </h3>
+<!-- Multi Outcome Compact Tier List -->
+<div class="mt-3 flex flex-col gap-1.5">
+<div class="flex items-center justify-between bg-surface-container/70 px-2.5 py-1 rounded">
+<span class="font-data-sm text-data-sm text-on-surface">Real Madrid</span>
+<span class="font-data-sm text-data-sm font-bold text-tertiary">34¢ (34%)</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container/70 px-2.5 py-1 rounded">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Manchester City</span>
+<span class="font-data-sm text-data-sm font-semibold text-primary">28¢ (28%)</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container/70 px-2.5 py-1 rounded">
+<span class="font-data-sm text-data-sm text-on-surface-variant">Arsenal</span>
+<span class="font-data-sm text-data-sm font-semibold text-outline">18¢ (18%)</span>
+</div>
+</div>
+</div>
+<!-- Price Buttons & Metadata -->
+<div class="mt-4 pt-3 bg-surface-container-lowest/40 -mx-space-md -mb-space-md p-space-md rounded-b-xl flex flex-col gap-2.5">
+<button class="w-full flex items-center justify-between px-3 py-1.5 rounded bg-primary-container/20 hover:bg-primary-container/30 text-primary font-data-sm text-data-sm transition-colors" type="button">
+<span>Bet Leader (Real Madrid)</span>
+<strong class="font-data-md text-data-md">34¢</strong>
+</button>
+<div class="flex items-center justify-between font-micro text-micro text-outline pt-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface-variant">
+<span class="material-symbols-outlined text-[13px] text-tertiary">water_drop</span>
+            $9.3M Vol
+          </span>
+<span class="flex items-center gap-2">
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant">Multi-Outcome</span>
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">chat</span> 93</span>
+</span>
+</div>
+</div>
+</article>
+<!-- CARD 6: Geopolitics / Ceasefire -->
+<article class="bg-surface-container-low hover:bg-surface-container rounded-xl p-space-md flex flex-col justify-between transition-all duration-150 shadow-md group">
+<div>
+<div class="flex items-center justify-between gap-2 mb-2.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-tertiary font-label-caps text-label-caps uppercase">
+<span class="material-symbols-outlined text-[13px]">public</span> Geopolitics
+          </span>
+<div class="flex items-center gap-1.5 text-outline font-micro text-micro">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+            Jun 30, 2025
+            <button class="text-outline hover:text-secondary pl-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_border</span>
+</button>
+</div>
+</div>
+<h3 class="font-data-md text-data-md text-on-surface group-hover:text-tertiary transition-colors line-clamp-2 min-h-[36px]">
+          Ceasefire agreement ratified in Middle East before July
+        </h3>
+<!-- Probability Track -->
+<div class="mt-4">
+<div class="flex justify-between items-center font-data-sm text-data-sm mb-1.5">
+<span class="text-tertiary font-semibold">YES 45%</span>
+<span class="text-error font-semibold">NO 55%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-tertiary transition-all" style="width: 45%"></div>
+<div class="h-full bg-error transition-all" style="width: 55%"></div>
+</div>
+</div>
+</div>
+<!-- Price Buttons & Metadata -->
+<div class="mt-4 pt-3 bg-surface-container-lowest/40 -mx-space-md -mb-space-md p-space-md rounded-b-xl flex flex-col gap-2.5">
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-between px-3 py-1.5 rounded bg-tertiary/15 hover:bg-tertiary/25 text-tertiary font-data-sm text-data-sm transition-colors" type="button">
+<span>YES</span>
+<strong class="font-data-md text-data-md">45¢</strong>
+</button>
+<button class="flex items-center justify-between px-3 py-1.5 rounded bg-error/15 hover:bg-error/25 text-error font-data-sm text-data-sm transition-colors" type="button">
+<span>NO</span>
+<strong class="font-data-md text-data-md">55¢</strong>
+</button>
+</div>
+<div class="flex items-center justify-between font-micro text-micro text-outline pt-1">
+<span class="flex items-center gap-1 font-semibold text-on-surface-variant">
+<span class="material-symbols-outlined text-[13px] text-tertiary">water_drop</span>
+            $11.6M Vol
+          </span>
+<span class="flex items-center gap-2">
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant">Spread 0.5¢</span>
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">chat</span> 118</span>
+</span>
+</div>
+</div>
+</article>
+</section>
+<!-- BOTTOM STATS TICKER & TOP GAINERS SECTION -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-md mt-space-sm">
+<!-- Institutional Execution Summary (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-low p-space-lg rounded-xl flex flex-col md:flex-row items-center justify-between gap-space-lg shadow-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[26px]">monitoring</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Network Throughput</span>
+<div class="font-headline-md text-headline-md text-on-surface">
+            — <span class="text-tertiary font-data-sm text-data-sm">24h Vol</span>
+</div>
+<p class="font-micro text-micro text-outline mt-0.5">
+            Active settled contracts across 1,842 institutional verified liquidity pools
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-space-lg shrink-0">
+<div class="text-left md:text-right">
+<span class="font-micro text-micro text-outline uppercase">Active Traders</span>
+<p class="font-data-md text-data-md text-on-surface font-semibold">24,198</p>
+</div>
+<div class="text-left md:text-right">
+<span class="font-micro text-micro text-outline uppercase">Avg Settlement</span>
+<p class="font-data-md text-data-md text-tertiary font-semibold">1.4 sec</p>
+</div>
+</div>
+</div>
+<!-- Top Gainers Live Pill Rail (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-low p-space-lg rounded-xl flex flex-col justify-between shadow-md">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps uppercase text-outline tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-tertiary">rocket_launch</span>
+          Top Probability Movers (24h)
+        </span>
+<a class="font-data-sm text-data-sm text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<!-- Mover 1 -->
+<div class="bg-surface-container p-2.5 rounded-lg flex items-center justify-between">
+<div class="truncate mr-2">
+<span class="font-data-sm text-data-sm text-on-surface block truncate font-medium">DOGE $1 by Dec</span>
+<span class="font-micro text-micro text-outline">YES price: 42¢</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary/15 text-tertiary font-data-sm text-data-sm font-bold shrink-0">
+            —
+          </span>
+</div>
+<!-- Mover 2 -->
+<div class="bg-surface-container p-2.5 rounded-lg flex items-center justify-between">
+<div class="truncate mr-2">
+<span class="font-data-sm text-data-sm text-on-surface block truncate font-medium">SpaceX Starship Orbit</span>
+<span class="font-micro text-micro text-outline">YES price: 88¢</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary/15 text-tertiary font-data-sm text-data-sm font-bold shrink-0">
+            —
+          </span>
+</div>
+</div>
+</div>
+</section>
+</div></div></main><footer class="w-full bg-surface border-t border-outline-variant/30 text-on-surface-variant"><div class="max-w-[1440px] mx-auto px-margin-desktop py-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-md text-body-sm font-body-sm"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span class="font-label-caps text-label-caps uppercase text-on-surface">System Operational: <strong class="text-tertiary">99.98% Uptime</strong></span></div><span class="text-outline">|</span><p class="text-outline text-micro font-micro">For demo &amp; analytical prediction markets only. MITMARKET Prime Execution Desk v4.18.2</p></div><div class="flex items-center gap-space-lg font-body-sm text-body-sm"><a class="text-outline hover:text-on-surface transition-colors" data-path="docs" href="#">Documentation</a><a class="text-outline hover:text-on-surface transition-colors" data-path="api" href="#">API Feeds</a><a class="text-outline hover:text-on-surface transition-colors" data-path="terms" href="#">Terms</a><a class="text-outline hover:text-on-surface transition-colors" data-path="privacy" href="#">Privacy</a><span class="text-outline font-micro text-micro">© 2025 MITMARKET Trading Technologies Inc.</span></div></div></footer></body></html>

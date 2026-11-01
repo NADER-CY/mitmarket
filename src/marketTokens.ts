@@ -1,0 +1,5 @@
+const tokens=new Map<string,string[]>();
+const pending=new Map<string,Promise<string[]>>();
+export const cachedMarketTokens=(id:string)=>tokens.get(id);
+export function parseMarketTokens(value:unknown):string[]{try{const rows=typeof value==='string'?JSON.parse(value):value;return Array.isArray(rows)?rows.filter((id):id is string=>typeof id==='string'&&/^\d+$/.test(id)):[];}catch{return[];}}
+export function resolveMarketTokens(id:string):Promise<string[]>{const cached=tokens.get(id);if(cached)return Promise.resolve(cached);const active=pending.get(id);if(active)return active;const request=fetch(`https://gamma-api.polymarket.com/markets/${encodeURIComponent(id)}`,{signal:AbortSignal.timeout(15000)}).then(async response=>{if(!response.ok)throw Error('Market metadata unavailable');const market=await response.json() as {clobTokenIds?:unknown};const ids=parseMarketTokens(market.clobTokenIds);if(ids.length)tokens.set(id,ids);return ids;}).finally(()=>pending.delete(id));pending.set(id,request);return request;}

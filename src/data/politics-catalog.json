@@ -1,0 +1,194 @@
+{
+  "source": "https://polymarket.com/politics",
+  "fetchedAt": "2026-10-26T18:44:13.811759+00:00",
+  "items": [
+    {
+      "id": "2",
+      "label": "All",
+      "href": "/politics",
+      "count": 4289,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "126",
+      "scope": "trump",
+      "label": "Trump",
+      "href": "/politics/trump",
+      "count": 333,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "102289",
+      "scope": "midterms",
+      "label": "Midterms",
+      "href": "/politics/midterms",
+      "count": 1237,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "104093",
+      "scope": "senate-midterms",
+      "label": "Senate Elections",
+      "href": "/politics/senate-midterms",
+      "count": 116,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "103899",
+      "scope": "house-elections",
+      "label": "House Elections",
+      "href": "/politics/house-elections",
+      "count": 874,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "104094",
+      "scope": "governor-midterms",
+      "label": "Governor Elections",
+      "href": "/politics/governor-midterms",
+      "count": 98,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "102788",
+      "scope": "mayoral-elections",
+      "label": "Mayoral Elections",
+      "href": "/politics/mayoral-elections",
+      "count": 48,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "100418",
+      "scope": "derivatives",
+      "label": "Derivatives",
+      "href": "/politics/derivatives",
+      "count": 24,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "1597",
+      "scope": "global-elections",
+      "label": "Global Elections",
+      "href": "/politics/global-elections",
+      "count": 455,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "100185",
+      "scope": "brazil",
+      "label": "Brazil",
+      "href": "/politics/brazil",
+      "count": 17,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "104793",
+      "scope": "israel-election",
+      "label": "Israel Election",
+      "href": "/politics/israel-election",
+      "count": 57,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "100282",
+      "scope": "french-election",
+      "label": "French Election",
+      "href": "/politics/french-election",
+      "count": 19,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "303",
+      "scope": "china",
+      "label": "China",
+      "href": "/politics/china",
+      "count": 49,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "1101",
+      "scope": "us-presidential-election",
+      "label": "US Election",
+      "href": "/politics/us-presidential-election",
+      "count": 733,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "264",
+      "scope": "primaries",
+      "label": "Primaries",
+      "href": "/politics/primaries",
+      "count": 12,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "514",
+      "scope": "congress",
+      "label": "Congress",
+      "href": "/politics/congress",
+      "count": 38,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "101542",
+      "scope": "gov-shutdown",
+      "label": "Gov Shutdown",
+      "href": "/politics/gov-shutdown",
+      "count": 2,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "245",
+      "scope": "canada",
+      "label": "Canada",
+      "href": "/politics/canada",
+      "count": 78,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "95",
+      "scope": "russia",
+      "label": "Russia",
+      "href": "/politics/russia",
+      "count": 59,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "246",
+      "scope": "venezuela",
+      "label": "Venezuela",
+      "href": "/politics/venezuela",
+      "count": 26,
+      "live": false,
+      "children": []
+    },
+    {
+      "id": "756",
+      "scope": "epstein",
+      "label": "Epstein",
+      "href": "/politics/epstein",
+      "count": 14,
+      "live": false,
+      "children": []
+    }
+  ]
+}

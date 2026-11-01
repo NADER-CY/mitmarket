@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="mitmarket" x1="3" y1="2" x2="44" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5DC5FF"/>
+      <stop offset=".46" stop-color="#1463FF"/>
+      <stop offset="1" stop-color="#0A46C2"/>
+    </linearGradient>
+  </defs>
+  <path d="M6.5 39V8.5L24 27L41.5 8.5V39" stroke="url(#mitmarket)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M8.5 32H14.5L19 25L23.4 34.5L28.1 29.2H38" stroke="#8CE5FF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="28.1" cy="29.2" r="2.8" fill="#D8F5FF"/>
+</svg>

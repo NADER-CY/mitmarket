@@ -1,0 +1,33 @@
+import { useEffect, useState } from 'react';
+import type { Currency } from './PreferencesDialog';
+
+type FxRow = { base?: string; quote?: string; rate?: number; date?: string };
+export type FxState = { rate: number | null; date: string | null; status: 'loading' | 'ready' | 'unavailable' };
+
+// USDC is approximately USD, but the displayed FX value is an indicative USD
+// reference, never an executable USDC conversion or a guaranteed peg.
+export function useFxRate(currency: Currency): FxState {
+  const [state, setState] = useState<FxState>({ rate: currency === 'USDC' || currency === 'USD' ? 1 : null, date: null, status: 'loading' });
+  useEffect(() => {
+    if (currency === 'USDC' || currency === 'USD') { setState({ rate: 1, date: null, status: 'ready' }); return; }
+    const abort = new AbortController();
+    setState({ rate: null, date: null, status: 'loading' });
+    fetch(`https://api.frankfurter.dev/v2/rate/USD/${currency}`, { signal: abort.signal })
+      .then(async response => { if (!response.ok) throw new Error(`FX HTTP ${response.status}`); return response.json() as Promise<FxRow>; })
+      .then(data => {
+        if (!abort.signal.aborted) setState(Number.isFinite(data.rate) && Number(data.rate) > 0
+          ? { rate: Number(data.rate), date: data.date ?? null, status: 'ready' }
+          : { rate: null, date: null, status: 'unavailable' });
+      })
+      .catch(() => { if (!abort.signal.aborted) setState({ rate: null, date: null, status: 'unavailable' }); });
+    return () => abort.abort();
+  }, [currency]);
+  return state;
+}
+
+export function formatReferenceMoney(usd: number, currency: Currency, rate: number | null, locale: string): string {
+  if (!Number.isFinite(usd)) return '—';
+  if (currency === 'USDC') return `${Intl.NumberFormat(locale, { notation: 'compact', maximumFractionDigits: 1 }).format(usd)} USDC`;
+  if (rate === null) return '—';
+  return `${Intl.NumberFormat(locale, { notation: 'compact', maximumFractionDigits: 1 }).format(usd * rate)} ${currency}`;
+}

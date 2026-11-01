@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-dim": "#000000", "inverse-on-surface": "#101216", "tertiary-fixed-dim": "#0bba74", "on-primary-fixed": "#000000", "surface-container-low": "#101216", "secondary": "#EAA343", "on-surface": "#F4F6FA", "surface-bright": "#29313D", "on-primary-container": "#000000", "secondary-container": "#101216", "surface-container": "#101216", "on-error-container": "#ff4761", "tertiary-container": "#0bba74", "on-tertiary-fixed-variant": "#000000", "outline-variant": "#29313D", "on-primary-fixed-variant": "#000000", "error-container": "#101216", "primary-container": "#1463ff", "surface-container-high": "#101216", "secondary-fixed": "#EAA343", "primary-fixed-dim": "#1463ff", "background": "#000000", "on-error": "#000000", "on-tertiary": "#000000", "on-background": "#F4F6FA", "on-surface-variant": "#98A5B5", "error": "#ff4761", "inverse-surface": "#F4F6FA", "surface-variant": "#101216", "on-tertiary-fixed": "#000000", "surface-container-highest": "#101216", "surface-container-lowest": "#101216", "surface": "#000000", "secondary-fixed-dim": "#EAA343", "on-tertiary-container": "#000000", "inverse-primary": "#1463ff", "primary": "#1463ff", "surface-tint": "#1463ff", "outline": "#98A5B5", "primary-fixed": "#1463ff", "tertiary-fixed": "#0bba74", "on-secondary-container": "#F4F6FA", "on-secondary": "#000000", "tertiary": "#0bba74", "on-secondary-fixed-variant": "#000000", "on-secondary-fixed": "#000000", "on-primary": "#000000" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin": "1rem", "gutter": "0.75rem", "margin-desktop": "1.5rem", "gutter-desktop": "1rem", "space-md": "0.75rem", "space-xs": "0.25rem", "space-lg": "1rem", "space-xl": "1.5rem", "space-sm": "0.5rem" }, "fontFamily": { "body-sm": ["Inter"], "body-md": ["Inter"], "headline-lg": ["Inter"], "data-lg": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "micro": ["Inter"], "data-md": ["Inter"], "display-lg": ["Inter"], "label-caps": ["Inter"], "data-sm": ["Inter"] }, "fontSize": { "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "data-lg": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "micro": ["10px", { "lineHeight": "12px", "fontWeight": "500" }], "data-md": ["14px", { "lineHeight": "18px", "fontWeight": "600" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="h-14 px-space-md flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs"><button aria-label="Go Back" class="w-11 h-11 flex items-center justify-center rounded text-on-surface hover:text-primary transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[20px]">arrow_back</span></button><h1 class="font-headline-md text-headline-md font-semibold text-on-surface truncate">Market Comparison</h1></div><div class="flex items-center gap-space-xs"><button aria-label="Live Status" class="h-8 px-2 flex items-center gap-1.5 rounded bg-surface-container" type="button"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span class="font-micro text-micro text-on-surface font-semibold uppercase tracking-wider">ORDERBOOK</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full text-on-surface select-none pb-12">
+<!-- Page Header Matrix Section -->
+<section class="px-space-md pt-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="inline-block w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-tertiary tracking-wider uppercase font-semibold">Live Benchmark Active</span>
+</div>
+<div class="px-2 py-0.5 rounded-full bg-surface-container-high flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-primary text-[14px]">layers</span>
+<span class="font-micro text-micro font-semibold text-primary">4 / 4 SLOTS ACTIVE</span>
+</div>
+</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">Multi-Market Comparison</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cross-Asset Benchmark &amp; Co-variance Engine</p>
+</div>
+<!-- Actions & Filter Utility Row -->
+<div class="flex items-center justify-between gap-space-xs mt-space-xs">
+<div class="flex-1 flex items-center bg-surface-container rounded-lg px-2.5 py-1.5 shadow-sm">
+<span class="material-symbols-outlined text-outline text-[18px] mr-2">search</span>
+<input class="bg-transparent border-0 outline-none w-full text-on-surface font-body-sm text-body-sm placeholder:text-outline" onclick="alert('Slot ceiling reached (4/4). Remove an active slot below.')" placeholder="Add or search ticker..." readonly="" type="text"/>
+</div>
+<!-- Timeframe Toggle Pills -->
+<div class="flex items-center bg-surface-container-low p-1 rounded-lg gap-0.5 shadow-sm">
+<button class="px-2 py-1 rounded font-label-caps text-label-caps text-outline hover:text-on-surface transition-colors" type="button">7D</button>
+<button class="px-2 py-1 rounded bg-primary text-on-primary font-label-caps text-label-caps font-semibold shadow" type="button">1M</button>
+<button class="px-2 py-1 rounded font-label-caps text-label-caps text-outline hover:text-on-surface transition-colors" type="button">3M</button>
+<button class="px-2 py-1 rounded font-label-caps text-label-caps text-outline hover:text-on-surface transition-colors" type="button">ALL</button>
+</div>
+</div>
+</section>
+<!-- Horizontal Swipeable Market Selector Badges -->
+<section class="mt-space-md px-space-md">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Active Vector Slots</span>
+<span class="font-micro text-micro text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">swipe</span> Swipe to inspect
+      </span>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 scrollbar-none snap-x snap-mandatory">
+<!-- Market 1: BTC $120k (Cyan) -->
+<div class="min-w-[175px] flex-shrink-0 snap-start bg-surface-container p-2.5 rounded-xl cursor-pointer shadow-sm transition-all relative overflow-hidden" id="card-btc" onclick="toggleSeries('btc')" style="box-shadow: inset 0 0 0 1.5px #06b6d4;">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full" style="background-color: #06b6d4;"></span>
+<span class="font-label-caps text-label-caps font-semibold text-on-surface truncate">BTC $120k</span>
+</div>
+<button class="w-5 h-5 flex items-center justify-center rounded-full bg-surface-container-high text-outline hover:text-error" onclick="event.stopPropagation(); alert('Slot locked in active comparison.');" type="button">
+<span class="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-data-lg text-data-lg font-bold" style="color: #06b6d4;">—</span>
+<span class="font-micro text-micro font-semibold text-tertiary flex items-center">—</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-micro text-micro">
+<span>Dec 2026</span>
+<span class="font-semibold text-on-surface">Vol: $3.9M</span>
+</div>
+</div>
+<!-- Market 2: Fed Cut (Blue) -->
+<div class="min-w-[175px] flex-shrink-0 snap-start bg-surface-container p-2.5 rounded-xl cursor-pointer shadow-sm transition-all relative overflow-hidden" id="card-fed" onclick="toggleSeries('fed')" style="box-shadow: inset 0 0 0 1.5px #1463ff;">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full" style="background-color: #1463ff;"></span>
+<span class="font-label-caps text-label-caps font-semibold text-on-surface truncate">Fed Cut ≥25bps</span>
+</div>
+<button class="w-5 h-5 flex items-center justify-center rounded-full bg-surface-container-high text-outline hover:text-error" onclick="event.stopPropagation(); alert('Slot locked in active comparison.');" type="button">
+<span class="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-data-lg text-data-lg font-bold" style="color: #1463ff;">—</span>
+<span class="font-micro text-micro font-semibold text-tertiary flex items-center">—</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-micro text-micro">
+<span>Jun 2025</span>
+<span class="font-semibold text-on-surface">Vol: $4.2M</span>
+</div>
+</div>
+<!-- Market 3: GPT-5 (Purple) -->
+<div class="min-w-[175px] flex-shrink-0 snap-start bg-surface-container p-2.5 rounded-xl cursor-pointer shadow-sm transition-all relative overflow-hidden" id="card-gpt" onclick="toggleSeries('gpt')" style="box-shadow: inset 0 0 0 1.5px #a855f7;">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full" style="background-color: #a855f7;"></span>
+<span class="font-label-caps text-label-caps font-semibold text-on-surface truncate">GPT-5 Pre-Jul</span>
+</div>
+<button class="w-5 h-5 flex items-center justify-center rounded-full bg-surface-container-high text-outline hover:text-error" onclick="event.stopPropagation(); alert('Slot locked in active comparison.');" type="button">
+<span class="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-data-lg text-data-lg font-bold" style="color: #a855f7;">—</span>
+<span class="font-micro text-micro font-semibold text-error flex items-center">—</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-micro text-micro">
+<span>Jun 2025</span>
+<span class="font-semibold text-on-surface">Vol: $1.9M</span>
+</div>
+</div>
+<!-- Market 4: Solana ETF (Amber) -->
+<div class="min-w-[175px] flex-shrink-0 snap-start bg-surface-container p-2.5 rounded-xl cursor-pointer shadow-sm transition-all relative overflow-hidden" id="card-sol" onclick="toggleSeries('sol')" style="box-shadow: inset 0 0 0 1.5px #f59e0b;">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full" style="background-color: #f59e0b;"></span>
+<span class="font-label-caps text-label-caps font-semibold text-on-surface truncate">Solana ETF</span>
+</div>
+<button class="w-5 h-5 flex items-center justify-center rounded-full bg-surface-container-high text-outline hover:text-error" onclick="event.stopPropagation(); alert('Slot locked in active comparison.');" type="button">
+<span class="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-data-lg text-data-lg font-bold" style="color: #f59e0b;">—</span>
+<span class="font-micro text-micro font-semibold text-tertiary flex items-center">—</span>
+</div>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-micro text-micro">
+<span>Dec 2025</span>
+<span class="font-semibold text-on-surface">Vol: $890k</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Synchronized Multi-Vector Trajectories Chart -->
+<section class="mt-space-md px-space-md">
+<div class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-space-sm relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-semibold text-on-surface">Probability Vector Trajectory</span>
+<button class="text-outline hover:text-on-surface transition-colors" title="Normalized implied volatility projection" type="button">
+<span class="material-symbols-outlined text-[16px]">info</span>
+</button>
+</div>
+<span class="font-micro text-micro px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-semibold">1M INDEXED</span>
+</div>
+<!-- Crosshair Timestamp Readout Bar -->
+<div class="bg-surface-container-lowest p-2 rounded-lg flex items-center justify-between gap-1 text-on-surface shadow-inner">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-outline text-[14px]">file_download_done</span>
+<span class="font-label-caps text-label-caps font-bold text-primary">MAY 18</span>
+</div>
+<div class="flex items-center gap-2 text-micro font-micro">
+<span class="font-semibold" style="color: #06b6d4;">BTC 69.4%</span>
+<span class="font-semibold" style="color: #1463ff;">FED 61.2%</span>
+<span class="font-semibold" style="color: #a855f7;">GPT 34.1%</span>
+<span class="font-semibold" style="color: #f59e0b;">SOL 27.5%</span>
+</div>
+</div>
+<!-- SVG Chart Canvas Area -->
+<div class="w-full h-56 relative bg-surface-container-lowest rounded-lg p-2 overflow-hidden flex flex-col justify-between">
+<!-- SVG Vectors -->
+<svg class="w-full h-full overflow-visible" viewbox="0 0 340 180">
+<!-- Horizontal Grid Lines -->
+<line stroke="#101216" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="340" y1="20" y2="20"></line>
+<line stroke="#101216" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="340" y1="65" y2="65"></line>
+<line stroke="#101216" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="340" y1="110" y2="110"></line>
+<line stroke="#101216" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="340" y1="155" y2="155"></line>
+<!-- Vertical Crosshair Line (May 18) -->
+<line opacity="0.85" stroke="#1463ff" stroke-dasharray="2,2" stroke-width="1.2" x1="220" x2="220" y1="10" y2="170"></line>
+<!-- Crosshair Node Points -->
+<circle cx="220" cy="55" fill="#06b6d4" r="3.5" stroke="#000000" stroke-width="1.5"></circle>
+<circle cx="220" cy="70" fill="#1463ff" r="3.5" stroke="#000000" stroke-width="1.5"></circle>
+<circle cx="220" cy="118" fill="#a855f7" r="3.5" stroke="#000000" stroke-width="1.5"></circle>
+<circle cx="220" cy="130" fill="#f59e0b" r="3.5" stroke="#000000" stroke-width="1.5"></circle>
+<!-- Market 1: BTC $120k Curve (Cyan #06b6d4) -->
+<path d="M 0,72 Q 40,80 80,68 T 160,60 T 220,55 T 280,52 T 340,50" fill="none" id="path-btc" stroke="#06b6d4" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Market 2: Fed Cut Curve (Blue #1463ff) -->
+<path d="M 0,98 Q 45,102 90,88 T 170,80 T 220,70 T 280,62 T 340,58" fill="none" id="path-fed" stroke="#1463ff" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Market 3: GPT-5 Curve (Purple #a855f7) -->
+<path d="M 0,114 Q 50,110 100,122 T 180,116 T 220,118 T 280,124 T 340,123" fill="none" id="path-gpt" stroke="#a855f7" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Market 4: Solana ETF Curve (Amber #f59e0b) -->
+<path d="M 0,135 Q 50,132 100,134 T 170,128 T 220,130 T 280,128 T 340,130" fill="none" id="path-sol" stroke="#f59e0b" stroke-linecap="round" stroke-width="2.5"></path>
+</svg>
+<!-- Y-Axis Value Labels Overlay -->
+<div class="absolute left-1 top-1 bottom-1 flex flex-col justify-between pointer-events-none text-micro font-micro text-outline font-semibold">
+<span>—</span>
+<span>—</span>
+<span>—</span>
+<span>—</span>
+<span>—</span>
+</div>
+</div>
+<!-- X-Axis Timeline Markers -->
+<div class="flex items-center justify-between px-2 text-micro font-micro text-outline uppercase font-semibold">
+<span>Apr 22</span>
+<span>May 01</span>
+<span>May 10</span>
+<span class="text-primary font-bold">May 18</span>
+<span>Today</span>
+</div>
+<!-- Interactive Visibility Toggles (44px Minimum Touch Target) -->
+<div class="grid grid-cols-2 gap-2 mt-1">
+<button class="h-11 px-3 rounded-lg bg-surface-container-high flex items-center justify-between text-left transition-colors" onclick="toggleSeries('btc')" type="button">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-3 h-3 rounded-sm flex items-center justify-center" style="background-color: #06b6d4;">
+<span class="material-symbols-outlined text-[12px] text-surface-container-lowest font-bold" id="check-btc">check</span>
+</span>
+<span class="font-body-sm text-body-sm text-on-surface truncate">BTC $120k</span>
+</div>
+<span class="font-label-caps text-label-caps font-bold" style="color: #06b6d4;">—</span>
+</button>
+<button class="h-11 px-3 rounded-lg bg-surface-container-high flex items-center justify-between text-left transition-colors" onclick="toggleSeries('fed')" type="button">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-3 h-3 rounded-sm flex items-center justify-center" style="background-color: #1463ff;">
+<span class="material-symbols-outlined text-[12px] text-surface-container-lowest font-bold" id="check-fed">check</span>
+</span>
+<span class="font-body-sm text-body-sm text-on-surface truncate">Fed Cut ≥25b</span>
+</div>
+<span class="font-label-caps text-label-caps font-bold" style="color: #1463ff;">—</span>
+</button>
+<button class="h-11 px-3 rounded-lg bg-surface-container-high flex items-center justify-between text-left transition-colors" onclick="toggleSeries('gpt')" type="button">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-3 h-3 rounded-sm flex items-center justify-center" style="background-color: #a855f7;">
+<span class="material-symbols-outlined text-[12px] text-surface-container-lowest font-bold" id="check-gpt">check</span>
+</span>
+<span class="font-body-sm text-body-sm text-on-surface truncate">GPT-5 Launch</span>
+</div>
+<span class="font-label-caps text-label-caps font-bold" style="color: #a855f7;">—</span>
+</button>
+<button class="h-11 px-3 rounded-lg bg-surface-container-high flex items-center justify-between text-left transition-colors" onclick="toggleSeries('sol')" type="button">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-3 h-3 rounded-sm flex items-center justify-center" style="background-color: #f59e0b;">
+<span class="material-symbols-outlined text-[12px] text-surface-container-lowest font-bold" id="check-sol">check</span>
+</span>
+<span class="font-body-sm text-body-sm text-on-surface truncate">Solana ETF</span>
+</div>
+<span class="font-label-caps text-label-caps font-bold" style="color: #f59e0b;">—</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Side-by-Side Comparative Matrix / Metric Breakdown -->
+<section class="mt-space-md px-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between mb-1">
+<h3 class="font-headline-md text-headline-md font-semibold text-on-surface">Institutional Matrix</h3>
+<span class="font-label-caps text-label-caps text-primary uppercase font-bold tracking-wider">Tabular CLOB View</span>
+</div>
+<!-- Comparative Table with Responsive Horizontal Scroll -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-md">
+<div class="overflow-x-auto scrollbar-none">
+<table class="w-full text-left border-collapse text-body-sm font-body-sm min-w-[360px]">
+<thead>
+<tr class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps uppercase">
+<th class="py-2.5 px-3">Metric</th>
+<th class="py-2.5 px-2 text-right" style="color: #06b6d4;">BTC</th>
+<th class="py-2.5 px-2 text-right" style="color: #1463ff;">FED</th>
+<th class="py-2.5 px-2 text-right" style="color: #a855f7;">GPT-5</th>
+<th class="py-2.5 px-3 text-right" style="color: #f59e0b;">SOL</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 font-data-sm text-data-sm">
+<!-- Row: Implied Probability -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors">
+<td class="py-2 px-3 font-semibold text-on-surface">Implied Prob</td>
+<td class="py-2 px-2 text-right font-bold text-on-surface">—</td>
+<td class="py-2 px-2 text-right font-bold text-on-surface">—</td>
+<td class="py-2 px-2 text-right font-bold text-on-surface">—</td>
+<td class="py-2 px-3 text-right font-bold text-on-surface">—</td>
+</tr>
+<!-- Row: 24h Delta -->
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<td class="py-2 px-3 text-on-surface-variant font-medium">24h Delta</td>
+<td class="py-2 px-2 text-right text-tertiary font-bold">—</td>
+<td class="py-2 px-2 text-right text-tertiary font-bold">—</td>
+<td class="py-2 px-2 text-right text-error font-bold">—</td>
+<td class="py-2 px-3 text-right text-tertiary font-bold">—</td>
+</tr>
+<!-- Row: 7D Realized Volatility -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors">
+<td class="py-2 px-3 text-on-surface-variant font-medium">7D Realized Vol</td>
+<td class="py-2 px-2 text-right text-on-surface">—</td>
+<td class="py-2 px-2 text-right text-on-surface">—</td>
+<td class="py-2 px-2 text-right text-secondary font-semibold">—</td>
+<td class="py-2 px-3 text-right text-on-surface">—</td>
+</tr>
+<!-- Row: 24h MITMARKET CLOB Volume -->
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<td class="py-2 px-3 text-on-surface-variant font-medium">CLOB 24h Vol</td>
+<td class="py-2 px-2 text-right text-on-surface font-semibold">—</td>
+<td class="py-2 px-2 text-right text-on-surface font-semibold">—</td>
+<td class="py-2 px-2 text-right text-on-surface font-semibold">—</td>
+<td class="py-2 px-3 text-right text-on-surface font-semibold">$890k</td>
+</tr>
+<!-- Row: Depth (±2%) -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors">
+<td class="py-2 px-3 text-on-surface-variant font-medium">Depth (±2%)</td>
+<td class="py-2 px-2 text-right text-tertiary font-semibold">—</td>
+<td class="py-2 px-2 text-right text-on-surface font-semibold">$940k</td>
+<td class="py-2 px-2 text-right text-on-surface font-semibold">$620k</td>
+<td class="py-2 px-3 text-right text-on-surface font-semibold">$410k</td>
+</tr>
+<!-- Row: Average Spread -->
+<tr class="bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<td class="py-2 px-3 text-on-surface-variant font-medium">Avg Spread</td>
+<td class="py-2 px-2 text-right text-tertiary font-bold">0.4¢</td>
+<td class="py-2 px-2 text-right text-on-surface font-medium">0.6¢</td>
+<td class="py-2 px-2 text-right text-on-surface font-medium">1.2¢</td>
+<td class="py-2 px-3 text-right text-on-surface font-medium">1.5¢</td>
+</tr>
+<!-- Row: Expiration Target -->
+<tr class="bg-surface-container hover:bg-surface-container-high transition-colors">
+<td class="py-2 px-3 text-on-surface-variant font-medium">Target Exp</td>
+<td class="py-2 px-2 text-right text-outline font-micro">Dec '26</td>
+<td class="py-2 px-2 text-right text-outline font-micro">Jun '25</td>
+<td class="py-2 px-2 text-right text-outline font-micro">Jun '25</td>
+<td class="py-2 px-3 text-right text-outline font-micro">Dec '25</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Pearson Correlation & Macro Divergence Section -->
+<section class="mt-space-md px-space-md">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">hub</span>
+<h3 class="font-headline-md text-headline-md font-semibold text-on-surface">Pearson Co-variance</h3>
+</div>
+<span class="font-micro text-micro text-outline font-medium">30D Rolling Window</span>
+</div>
+<div class="flex flex-col gap-2">
+<!-- Pair 1: BTC <-> SOL (+0.78) -->
+<div class="bg-surface-container p-3 rounded-xl shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full" style="background-color: #06b6d4;"></span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">BTC $120k</span>
+<span class="material-symbols-outlined text-[14px] text-outline">swap_horiz</span>
+<span class="w-2 h-2 rounded-full" style="background-color: #f59e0b;"></span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Solana ETF</span>
+</div>
+<span class="font-data-md text-data-md font-bold text-tertiary">+0.78</span>
+</div>
+<!-- Correlation Progress Bar -->
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-tertiary h-full rounded-full" style="width: 89%;"></div>
+</div>
+<p class="font-micro text-micro text-on-surface-variant flex items-center justify-between">
+<span>Strong positive macro crypto-beta alignment</span>
+<span class="text-tertiary font-semibold uppercase">High Synch</span>
+</p>
+</div>
+<!-- Pair 2: Fed <-> BTC (+0.44) -->
+<div class="bg-surface-container p-3 rounded-xl shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full" style="background-color: #1463ff;"></span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Fed Cut June</span>
+<span class="material-symbols-outlined text-[14px] text-outline">swap_horiz</span>
+<span class="w-2 h-2 rounded-full" style="background-color: #06b6d4;"></span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">BTC $120k</span>
+</div>
+<span class="font-data-md text-data-md font-bold text-primary">+0.44</span>
+</div>
+<!-- Correlation Progress Bar -->
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-primary h-full rounded-full" style="width: 72%;"></div>
+</div>
+<p class="font-micro text-micro text-on-surface-variant flex items-center justify-between">
+<span>Moderate co-movement; liquidity-driven beta</span>
+<span class="text-primary font-semibold uppercase">Moderate</span>
+</p>
+</div>
+<!-- Pair 3: Fed <-> GPT-5 (-0.12) -->
+<div class="bg-surface-container p-3 rounded-xl shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full" style="background-color: #1463ff;"></span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Fed Cut June</span>
+<span class="material-symbols-outlined text-[14px] text-outline">swap_horiz</span>
+<span class="w-2 h-2 rounded-full" style="background-color: #a855f7;"></span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">OpenAI GPT-5</span>
+</div>
+<span class="font-data-md text-data-md font-bold text-outline-variant">-0.12</span>
+</div>
+<!-- Correlation Progress Bar -->
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-outline h-full rounded-full" style="width: 44%;"></div>
+</div>
+<p class="font-micro text-micro text-on-surface-variant flex items-center justify-between">
+<span>Statistically decoupled tech execution cycle</span>
+<span class="text-outline font-semibold uppercase">Decoupled</span>
+</p>
+</div>
+</div>
+</section>
+<!-- Execution Desk Quick Access Footer Bar -->
+<section class="mt-space-md px-space-md">
+<div class="p-3 bg-surface-container-high rounded-xl flex items-center justify-between shadow-md">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase">Synthesis Hedge Ratio</span>
+<span class="font-data-md text-data-md font-bold text-on-surface">1.0 BTC : 2.4 SOL : -0.8 FED</span>
+</div>
+<button class="h-11 px-4 rounded-lg bg-primary hover:bg-secondary text-on-primary hover:text-surface-lowest font-body-sm text-body-sm font-bold flex items-center gap-1.5 transition-all shadow-md" onclick="alert('Order routing engine initialized with current comparative ratios.');" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>Route Basket</span>
+</button>
+</div>
+</section>
+</div>
+<script>
+  // Series visibility toggle handler
+  const seriesState = {
+    btc: true,
+    fed: true,
+    gpt: true,
+    sol: true
+  };
+
+  function toggleSeries(key) {
+    seriesState[key] = !seriesState[key];
+    const path = document.getElementById('path-' + key);
+    const check = document.getElementById('check-' + key);
+    const card = document.getElementById('card-' + key);
+
+    if (path) {
+      path.style.display = seriesState[key] ? 'block' : 'none';
+    }
+
+    if (check) {
+      check.style.visibility = seriesState[key] ? 'visible' : 'hidden';
+    }
+
+    if (card) {
+      card.style.opacity = seriesState[key] ? '1' : '0.45';
+    }
+  }
+</script></main></body></html>

@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container-highest": "#101216", "secondary": "#EAA343", "error": "#ff4761", "surface-dim": "#000000", "background": "#000000", "surface": "#000000", "on-secondary": "#000000", "on-primary-container": "#000000", "surface-variant": "#101216", "surface-container": "#101216", "on-secondary-container": "#F4F6FA", "surface-container-low": "#101216", "on-tertiary-fixed": "#000000", "inverse-on-surface": "#101216", "secondary-container": "#101216", "tertiary": "#0bba74", "surface-tint": "#1463ff", "tertiary-container": "#0bba74", "primary-container": "#1463ff", "on-tertiary": "#000000", "outline": "#98A5B5", "on-primary-fixed-variant": "#000000", "primary-fixed-dim": "#1463ff", "on-surface": "#F4F6FA", "on-primary": "#000000", "secondary-fixed-dim": "#EAA343", "on-secondary-fixed-variant": "#000000", "on-error-container": "#ff4761", "outline-variant": "#29313D", "inverse-surface": "#F4F6FA", "on-primary-fixed": "#000000", "error-container": "#101216", "on-error": "#000000", "on-tertiary-fixed-variant": "#000000", "tertiary-fixed": "#0bba74", "on-background": "#F4F6FA", "primary": "#1463ff", "surface-bright": "#29313D", "on-tertiary-container": "#000000", "on-surface-variant": "#98A5B5", "tertiary-fixed-dim": "#0bba74", "surface-container-high": "#101216", "secondary-fixed": "#EAA343", "inverse-primary": "#1463ff", "surface-container-lowest": "#101216", "primary-fixed": "#1463ff", "on-secondary-fixed": "#000000" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "1.5rem", "gutter": "0.75rem", "space-lg": "1rem", "gutter-desktop": "1rem", "margin": "1rem", "space-md": "0.75rem", "margin-desktop": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem" }, "fontFamily": { "headline-md": ["Inter"], "label-caps": ["Inter"], "data-md": ["Inter"], "headline-lg": ["Inter"], "body-lg": ["Inter"], "micro": ["Inter"], "data-lg": ["Inter"], "body-sm": ["Inter"], "display-lg": ["Inter"], "data-sm": ["Inter"], "body-md": ["Inter"] }, "fontSize": { "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "data-md": ["14px", { "lineHeight": "18px", "fontWeight": "600" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "micro": ["10px", { "lineHeight": "12px", "fontWeight": "500" }], "data-lg": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "body-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }] } } } };</script><style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-md"><div class="h-14 w-full px-gutter-desktop flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs cursor-pointer"><div class="w-6 h-6 rounded bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[16px]">polyline</span></div><span class="font-headline-md text-headline-md tracking-wider font-bold text-on-surface uppercase">MITMARKET</span><span class="font-micro text-micro px-space-xs py-0.5 rounded bg-surface-container-high text-tertiary uppercase">PRO</span></div><div class="relative flex items-center w-64 bg-surface-container-low rounded px-space-sm py-1"><span class="material-symbols-outlined text-outline text-[16px] mr-space-xs">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search markets, events..." type="text"/><div class="flex items-center gap-0.5 px-1 py-0.5 rounded bg-surface-container-highest text-outline font-micro text-micro"><span>⌘</span><span>K</span></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-bold rounded"><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="markets-overview" href="#">Home</a><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="explore-terminal" href="#">Explore</a><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="portfolio-performance" href="#">Portfolio</a><a aria-current="page" class="px-space-sm py-1.5 transition-colors bg-surface-container-high text-on-surface font-bold rounded" data-path="active-positions" href="#">Positions</a><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="order-management" href="#">Orders</a><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="wallet-ledger" href="#">Wallet</a></nav></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low"><div class="flex items-center gap-1.5"><div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></div><span class="font-label-caps text-label-caps text-outline uppercase">USDC Available</span></div><span class="font-data-md text-data-md text-on-surface tabular-nums">—</span></div><button class="px-space-md py-1.5 rounded bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-body-sm text-body-sm font-semibold transition-colors flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[16px]">add</span><span>Deposit</span></button><button class="relative p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span></button><div class="flex items-center gap-space-xs pl-space-xs py-1 pr-space-sm rounded bg-surface-container-low cursor-pointer hover:bg-surface-container-high transition-colors"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-data-sm text-data-sm text-on-surface font-semibold">Connect account</span><span class="font-micro text-micro text-outline">Polygon POS</span></div><span class="material-symbols-outlined text-outline text-[16px]">expand_more</span></div></div></div><div class="h-9 w-full px-gutter-desktop bg-surface-container-low flex items-center justify-between text-on-surface-variant"><div class="flex items-center gap-space-xs font-body-sm text-body-sm"><a class="hover:text-on-surface transition-colors" data-path="markets-overview" href="#">Terminal</a><span class="text-outline">/</span><span class="text-on-surface font-medium capitalize">Account Subsystem</span><span class="text-outline">/</span><span class="text-tertiary font-medium capitalize">Live Execution Ledger</span></div><div class="flex items-center gap-space-md font-label-caps text-label-caps"><div class="flex items-center gap-1.5"><span class="text-outline">LATENCY:</span><span class="text-tertiary tabular-nums">18ms</span></div><div class="flex items-center gap-1.5"><span class="text-outline">BLOCK:</span><span class="text-on-surface tabular-nums">#58291410</span></div><div class="flex items-center gap-1.5"><span class="text-outline">GAS:</span><span class="text-secondary tabular-nums">31 Gwei</span></div></div></div></header><aside class="fixed left-0 top-[92px] bottom-0 w-64 bg-surface-container-lowest z-40 flex flex-col justify-between py-space-md"><div class="px-space-md flex flex-col gap-space-md"><div class="px-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Navigation Rail</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container-high text-on-surface font-bold rounded"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="markets-overview" href="#"><span class="material-symbols-outlined text-[18px]">insights</span><span>Markets Overview</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="explore-terminal" href="#"><span class="material-symbols-outlined text-[18px]">travel_explore</span><span>Explore Terminal</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="portfolio-performance" href="#"><span class="material-symbols-outlined text-[18px]">pie_chart</span><span>Portfolio Matrix</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 transition-colors bg-surface-container-high text-on-surface font-bold rounded" data-path="active-positions" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span>Active Positions</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="order-management" href="#"><span class="material-symbols-outlined text-[18px]">reorder</span><span>Order Book &amp; Depth</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="wallet-ledger" href="#"><span class="material-symbols-outlined text-[18px]">payments</span><span>Settlement &amp; Wallet</span></a></nav></div><div class="px-space-md flex flex-col gap-space-xs"><div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-1"><div class="flex items-center justify-between font-label-caps text-label-caps text-outline"><span class="uppercase">CLOB Engine</span><span class="text-tertiary">ONLINE</span></div><div class="font-micro text-micro text-on-surface-variant">Throughput: 14.2k ops/sec</div></div></div></aside><div class="pl-64"><main class="relative pt-[92px] w-full min-h-screen bg-surface px-gutter-desktop pb-space-xl"><div class="flex flex-col w-full gap-space-md">
+<!-- Top Metric Ribbon -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-sm">
+<div class="bg-surface-container-low p-space-md rounded shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Active Exposure</span>
+<span class="material-symbols-outlined text-outline text-[18px]">account_tree</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-on-surface tabular-nums">8</span>
+<span class="font-body-sm text-body-sm text-outline">Open Contracts</span>
+</div>
+<div class="mt-space-xs flex items-center gap-space-xs font-micro text-micro text-outline">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Polygon L1 / CLOB settlement</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md rounded shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Total Position Value</span>
+<span class="material-symbols-outlined text-primary text-[18px]">account_balance</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-on-surface tabular-nums">—</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">USDC</span>
+</div>
+<div class="mt-space-xs flex items-center justify-between font-micro text-micro">
+<span class="text-outline">Cost Basis: $19,989.50</span>
+<span class="text-tertiary tabular-nums">+21.05% ROI</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md rounded shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Unrealized P&amp;L</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">trending_up</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-tertiary tabular-nums">+$4,210.50</span>
+<span class="font-data-md text-data-md text-tertiary font-bold tabular-nums">(+21.05%)</span>
+</div>
+<div class="mt-space-xs flex items-center gap-1 font-micro text-micro text-tertiary">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+<span class="tabular-nums">+$420.00 intraday delta</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md rounded shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Health &amp; Distribution</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">pie_chart</span>
+</div>
+<div class="mt-space-sm flex items-center gap-space-sm">
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-tertiary tabular-nums">6</span>
+<span class="font-micro text-micro text-outline">Profitable</span>
+</div>
+<span class="text-surface-variant font-data-lg text-data-lg">/</span>
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-error tabular-nums">2</span>
+<span class="font-micro text-micro text-outline">Drawdown</span>
+</div>
+<div class="ml-auto w-20 bg-surface-container-highest h-2 rounded overflow-hidden flex">
+<div class="bg-tertiary h-full" style="width: 75%"></div>
+<div class="bg-error h-full" style="width: 25%"></div>
+</div>
+</div>
+<div class="mt-space-xs flex items-center justify-between font-micro text-micro text-outline">
+<span>Win Ratio: 75.0%</span>
+<span>Max Drawdown: -21.6%</span>
+</div>
+</div>
+</div>
+<!-- Filter & Control Toolbar -->
+<div class="bg-surface-container-low p-space-sm rounded shadow-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-space-sm flex-1 min-w-[280px]">
+<div class="relative flex items-center w-full max-w-xs bg-surface-container rounded px-space-sm py-1.5">
+<span class="material-symbols-outlined text-outline text-[16px] mr-space-xs">search</span>
+<input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" id="searchInput" placeholder="Search by market, ticker or tag..." type="text"/>
+</div>
+<!-- Category Filter -->
+<div class="relative">
+<select class="appearance-none bg-surface-container text-on-surface font-body-sm text-body-sm pl-space-sm pr-space-xl py-1.5 rounded cursor-pointer focus:outline-none" id="categoryFilter">
+<option value="ALL">All Categories</option>
+<option value="CRYPTO">Crypto</option>
+<option value="POLITICS">Politics &amp; Macro</option>
+<option value="TECH">Technology</option>
+<option value="SPORTS">Sports &amp; Global</option>
+</select>
+<span class="material-symbols-outlined text-outline text-[16px] absolute right-space-xs top-1/2 -translate-y-1/2 pointer-events-none">arrow_drop_down</span>
+</div>
+<!-- Outcome Filter -->
+<div class="relative">
+<select class="appearance-none bg-surface-container text-on-surface font-body-sm text-body-sm pl-space-sm pr-space-xl py-1.5 rounded cursor-pointer focus:outline-none" id="outcomeFilter">
+<option value="ALL">All Sides (YES/NO)</option>
+<option value="YES">YES Only</option>
+<option value="NO">NO Only</option>
+</select>
+<span class="material-symbols-outlined text-outline text-[16px] absolute right-space-xs top-1/2 -translate-y-1/2 pointer-events-none">arrow_drop_down</span>
+</div>
+<!-- Quick Toggles -->
+<div class="flex items-center bg-surface-container p-0.5 rounded gap-0.5">
+<button class="px-space-sm py-1 rounded text-on-surface bg-surface-container-high font-label-caps text-label-caps transition-colors" id="btnAllFilter" type="button">ALL (8)</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-tertiary font-label-caps text-label-caps transition-colors" id="btnProfitableFilter" type="button">PROFITABLE (6)</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-error font-label-caps text-label-caps transition-colors" id="btnLosingFilter" type="button">LOSING (2)</button>
+</div>
+</div>
+<!-- Right Controls: Sort & Bulk -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1.5 rounded">
+<span class="font-micro text-micro text-outline uppercase tracking-wider">Sort:</span>
+<select class="appearance-none bg-transparent text-on-surface font-body-sm text-body-sm pr-space-md cursor-pointer focus:outline-none" id="sortSelect">
+<option value="VALUE_DESC">Highest Value</option>
+<option value="PNL_DESC">Highest P&amp;L</option>
+<option value="PNL_ASC">Lowest P&amp;L</option>
+<option value="EXP_ASC">Expiration Soonest</option>
+</select>
+</div>
+<button class="p-1.5 rounded bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Export CSV Ledger" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-1.5 rounded bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Refresh Live Book" type="button">
+<span class="material-symbols-outlined text-[18px]">autorenew</span>
+</button>
+</div>
+</div>
+<!-- High-Density Terminal Positions Matrix -->
+<div class="bg-surface-container-low rounded shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left whitespace-nowrap">
+<thead>
+<tr class="bg-surface-container-lowest text-outline font-label-caps text-label-caps uppercase tracking-wider">
+<th class="py-space-sm px-space-md text-left font-semibold">Contract / Specification</th>
+<th class="py-space-sm px-space-sm text-center font-semibold">Side</th>
+<th class="py-space-sm px-space-md text-right font-semibold">Entry Avg</th>
+<th class="py-space-sm px-space-md text-right font-semibold">Mark Price</th>
+<th class="py-space-sm px-space-md text-right font-semibold">Shares Owned</th>
+<th class="py-space-sm px-space-md text-right font-semibold">Position Value</th>
+<th class="py-space-sm px-space-md text-right font-semibold">Unrealized P&amp;L</th>
+<th class="py-space-sm px-space-md text-center font-semibold">Maturity / Settlement</th>
+<th class="py-space-sm px-space-md text-right font-semibold pr-space-lg">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm divide-y-0" id="positionsTableBody">
+<!-- Row 1: BTC -->
+<tr class="group hover:bg-surface-container transition-colors bg-surface-container-low cursor-pointer" data-category="CRYPTO" data-entry="0.54" data-exp="2025-12-31" data-market="BTC $120k by 2026" data-pnl="2160.00" data-price="0.72" data-shares="12000" data-side="YES" data-status="profit" data-value="8640.00">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded bg-secondary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[16px]">currency_bitcoin</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface truncate">BTC $120k by 2026</span>
+<span class="px-1 py-0.5 rounded bg-surface-container-high text-outline font-micro text-micro">POLY-BTC-26</span>
+</div>
+<span class="font-micro text-micro text-outline truncate">Binary Settlement: Pyth / UMA Resolution Engine</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-center">
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps uppercase font-bold">YES</span>
+</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">54.0¢</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-tertiary font-data-md text-data-md">72.0¢</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface font-data-md text-data-md">12,000</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface font-data-md text-data-md font-bold">—</td>
+<td class="py-space-sm px-space-md text-right tabular-nums">
+<div class="flex flex-col items-end">
+<span class="text-tertiary font-data-md text-data-md font-bold">+$2,160.00</span>
+<span class="text-tertiary font-micro text-micro">—</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="flex flex-col items-center">
+<span class="text-on-surface font-data-sm text-data-sm">Dec 31, 2025</span>
+<span class="text-outline font-micro text-micro">311d left</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right pr-space-lg">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-secondary text-on-secondary hover:bg-secondary-fixed-dim font-label-caps text-label-caps uppercase font-bold transition-colors" onclick="openSellModal('BTC $120k by 2026', 'YES', 12000, 0.72, '8,640.00', 'CRYPTO')" type="button">Sell Shares</button>
+<button class="p-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Inspect Terminal Book" type="button">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Fed Rate Cut -->
+<tr class="group hover:bg-surface-container transition-colors bg-surface-container-low cursor-pointer" data-category="POLITICS" data-entry="0.57" data-exp="2025-05-15" data-market="Fed 25bps Rate Cut" data-pnl="935.00" data-price="0.68" data-shares="8500" data-side="YES" data-status="profit" data-value="5780.00">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[16px]">account_balance</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface truncate">Fed 25bps Rate Cut</span>
+<span class="px-1 py-0.5 rounded bg-surface-container-high text-outline font-micro text-micro">FOMC-MAY25</span>
+</div>
+<span class="font-micro text-micro text-outline truncate">Federal Reserve Target Rate Lower Bound</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-center">
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps uppercase font-bold">YES</span>
+</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">57.0¢</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-tertiary font-data-md text-data-md">68.0¢</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface font-data-md text-data-md">8,500</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface font-data-md text-data-md font-bold">—</td>
+<td class="py-space-sm px-space-md text-right tabular-nums">
+<div class="flex flex-col items-end">
+<span class="text-tertiary font-data-md text-data-md font-bold">+$935.00</span>
+<span class="text-tertiary font-micro text-micro">—</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="flex flex-col items-center">
+<span class="text-on-surface font-data-sm text-data-sm">May 15, 2025</span>
+<span class="text-secondary font-micro text-micro">78d left</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right pr-space-lg">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-secondary text-on-secondary hover:bg-secondary-fixed-dim font-label-caps text-label-caps uppercase font-bold transition-colors" onclick="openSellModal('Fed 25bps Rate Cut', 'YES', 8500, 0.68, '5,780.00', 'POLITICS')" type="button">Sell Shares</button>
+<button class="p-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Inspect Terminal Book" type="button">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: GPT-5 (Drawdown) -->
+<tr class="group hover:bg-surface-container transition-colors bg-surface-container-low cursor-pointer" data-category="TECH" data-entry="0.66" data-exp="2025-06-30" data-market="GPT-5 before July 2025" data-pnl="-420.00" data-price="0.59" data-shares="6000" data-side="YES" data-status="loss" data-value="3540.00">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-outline text-[16px]">memory</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface truncate">GPT-5 before July 2025</span>
+<span class="px-1 py-0.5 rounded bg-surface-container-high text-outline font-micro text-micro">OAI-LLM-05</span>
+</div>
+<span class="font-micro text-micro text-outline truncate">Public Commercial API Deployment Standard</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-center">
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps uppercase font-bold">YES</span>
+</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">66.0¢</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-error font-data-md text-data-md">59.0¢</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface font-data-md text-data-md">6,000</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface font-data-md text-data-md font-bold">—</td>
+<td class="py-space-sm px-space-md text-right tabular-nums">
+<div class="flex flex-col items-end">
+<span class="text-error font-data-md text-data-md font-bold">-$420.00</span>
+<span class="text-error font-micro text-micro">—</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="flex flex-col items-center">
+<span class="text-on-surface font-data-sm text-data-sm">Jun 30, 2025</span>
+<span class="text-outline font-micro text-micro">124d left</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right pr-space-lg">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-secondary text-on-secondary hover:bg-secondary-fixed-dim font-label-caps text-label-caps uppercase font-bold transition-colors" onclick="openSellModal('GPT-5 before July 2025', 'YES', 6000, 0.59, '3,540.00', 'TECH')" type="button">Sell Shares</button>
+<button class="p-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Inspect Terminal Book" type="button">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: World Cup Spain -->
+<tr class="group hover:bg-surface-container transition-colors bg-surface-container-low cursor-pointer" data-category="SPORTS" data-entry="0.15" data-exp="2026-07-19" data-market="World Cup 2026: Spain" data-pnl="700.00" data-price="0.22" data-shares="10000" data-side="YES" data-status="profit" data-value="2200.00">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded bg-tertiary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[16px]">sports_soccer</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface truncate">World Cup 2026: Spain</span>
+<span class="px-1 py-0.5 rounded bg-surface-container-high text-outline font-micro text-micro">FIFA-2026-ESP</span>
+</div>
+<span class="font-micro text-micro text-outline truncate">FIFA Mens Trophy Winner Resolution</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-center">
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps uppercase font-bold">YES</span>
+</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">15.0¢</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-tertiary font-data-md text-data-md">22.0¢</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface font-data-md text-data-md">10,000</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface font-data-md text-data-md font-bold">—</td>
+<td class="py-space-sm px-space-md text-right tabular-nums">
+<div class="flex flex-col items-end">
+<span class="text-tertiary font-data-md text-data-md font-bold">+$700.00</span>
+<span class="text-tertiary font-micro text-micro">—</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="flex flex-col items-center">
+<span class="text-on-surface font-data-sm text-data-sm">Jul 19, 2026</span>
+<span class="text-outline font-micro text-micro">512d left</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right pr-space-lg">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-secondary text-on-secondary hover:bg-secondary-fixed-dim font-label-caps text-label-caps uppercase font-bold transition-colors" onclick="openSellModal('World Cup 2026: Spain', 'YES', 10000, 0.22, '2,200.00', 'SPORTS')" type="button">Sell Shares</button>
+<button class="p-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Inspect Terminal Book" type="button">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Solana Spot ETF 2025 -->
+<tr class="group hover:bg-surface-container transition-colors bg-surface-container-low cursor-pointer" data-category="CRYPTO" data-entry="0.20" data-exp="2025-12-31" data-market="Solana Spot ETF 2025" data-pnl="1200.00" data-price="0.28" data-shares="15000" data-side="YES" data-status="profit" data-value="4200.00">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded bg-tertiary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[16px]">bolt</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface truncate">Solana Spot ETF 2025</span>
+<span class="px-1 py-0.5 rounded bg-surface-container-high text-outline font-micro text-micro">SEC-SOL-S1</span>
+</div>
+<span class="font-micro text-micro text-outline truncate">US SEC S-1 / 19b-4 Formal Approval</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-center">
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps uppercase font-bold">YES</span>
+</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">20.0¢</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-tertiary font-data-md text-data-md">28.0¢</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface font-data-md text-data-md">15,000</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface font-data-md text-data-md font-bold">—</td>
+<td class="py-space-sm px-space-md text-right tabular-nums">
+<div class="flex flex-col items-end">
+<span class="text-tertiary font-data-md text-data-md font-bold">+$1,200.00</span>
+<span class="text-tertiary font-micro text-micro">—</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="flex flex-col items-center">
+<span class="text-on-surface font-data-sm text-data-sm">Dec 31, 2025</span>
+<span class="text-outline font-micro text-micro">311d left</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right pr-space-lg">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-secondary text-on-secondary hover:bg-secondary-fixed-dim font-label-caps text-label-caps uppercase font-bold transition-colors" onclick="openSellModal('Solana Spot ETF 2025', 'YES', 15000, 0.28, '4,200.00', 'CRYPTO')" type="button">Sell Shares</button>
+<button class="p-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Inspect Terminal Book" type="button">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: El Clásico (Drawdown) -->
+<tr class="group hover:bg-surface-container transition-colors bg-surface-container-low cursor-pointer" data-category="SPORTS" data-entry="0.56" data-exp="2025-04-21" data-market="El Clásico: Real Madrid" data-pnl="-364.50" data-price="0.44" data-shares="3000" data-side="YES" data-status="loss" data-value="955.50">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded bg-error/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-error text-[16px]">shield</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface truncate">El Clásico: Real Madrid</span>
+<span class="px-1 py-0.5 rounded bg-surface-container-high text-outline font-micro text-micro">LALIGA-RMA-FCB</span>
+</div>
+<span class="font-micro text-micro text-outline truncate">Match Day 32 Regular Time Outright Win</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-center">
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps uppercase font-bold">YES</span>
+</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface-variant font-data-sm text-data-sm">56.1¢</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-error font-data-md text-data-md">44.0¢</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface font-data-md text-data-md">3,000</td>
+<td class="py-space-sm px-space-md text-right tabular-nums text-on-surface font-data-md text-data-md font-bold">—</td>
+<td class="py-space-sm px-space-md text-right tabular-nums">
+<div class="flex flex-col items-end">
+<span class="text-error font-data-md text-data-md font-bold">-$364.50</span>
+<span class="text-error font-micro text-micro">—</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<div class="flex flex-col items-center">
+<span class="text-on-surface font-data-sm text-data-sm">Apr 21, 2025</span>
+<span class="text-secondary font-micro text-micro">54d left</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right pr-space-lg">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-secondary text-on-secondary hover:bg-secondary-fixed-dim font-label-caps text-label-caps uppercase font-bold transition-colors" onclick="openSellModal('El Clásico: Real Madrid', 'YES', 3000, 0.44, '1,320.00', 'SPORTS')" type="button">Sell Shares</button>
+<button class="p-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Inspect Terminal Book" type="button">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Telemetry -->
+<div class="bg-surface-container-lowest px-space-md py-space-sm flex flex-col sm:flex-row items-center justify-between text-outline font-micro text-micro gap-space-xs">
+<div class="flex items-center gap-space-md">
+<span>Showing 6 of 8 Institutional Positions</span>
+<span class="text-surface-variant">|</span>
+<span class="text-tertiary">Real-time L2 orderbook feeds synced</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span>Aggregate Collateral Lock: 100% On-Chain Safe</span>
+<span class="text-surface-variant">|</span>
+<button class="text-primary hover:underline uppercase font-bold">Audit Contract Calls</button>
+</div>
+</div>
+</div>
+<!-- Micro Portfolio Breakdown Bento Row -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-sm">
+<!-- Risk & Concentration Bar -->
+<div class="bg-surface-container-low p-space-md rounded shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase">Asset Concentration</span>
+<span class="font-micro text-micro text-tertiary">Diversified</span>
+</div>
+<div class="my-space-sm flex flex-col gap-1.5">
+<div class="flex justify-between font-micro text-micro">
+<span class="text-on-surface">Crypto Exposure (BTC / SOL)</span>
+<span class="text-on-surface font-semibold tabular-nums">—</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded overflow-hidden">
+<div class="bg-primary h-full" style="width: 53%"></div>
+</div>
+<div class="flex justify-between font-micro text-micro mt-1">
+<span class="text-on-surface">Macro &amp; Politics (Fed FOMC)</span>
+<span class="text-on-surface font-semibold tabular-nums">—</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded overflow-hidden">
+<div class="bg-secondary h-full" style="width: 23.9%"></div>
+</div>
+<div class="flex justify-between font-micro text-micro mt-1">
+<span class="text-on-surface">AI &amp; Sports Markets</span>
+<span class="text-on-surface font-semibold tabular-nums">—</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded overflow-hidden">
+<div class="bg-tertiary h-full" style="width: 23.1%"></div>
+</div>
+</div>
+<span class="font-micro text-micro text-outline">Automated liquidation threshold is set at $0.02 nominal floor.</span>
+</div>
+<!-- Settlement Oracle & Hedging -->
+<div class="bg-surface-container-low p-space-md rounded shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase">UMA Oracle State</span>
+<span class="flex items-center gap-1 font-micro text-micro text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+          NO DISPUTES
+        </span>
+</div>
+<div class="my-space-xs font-body-sm text-body-sm text-on-surface-variant">
+        All 8 active contracts are secured via Optimistic Oracle v3. Challenge windows average 2 hours from event finality.
+      </div>
+<div class="flex items-center justify-between bg-surface-container p-space-xs rounded font-micro text-micro">
+<span class="text-outline">Next Resolution:</span>
+<span class="text-secondary font-semibold">Apr 21, 2025 (El Clásico)</span>
+</div>
+</div>
+<!-- Institutional Position Sizing Tip -->
+<div class="bg-surface-container-low p-space-md rounded shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase">Secondary Liquidity</span>
+<span class="font-micro text-micro text-outline">CLOB Taker Fee: 0.05%</span>
+</div>
+<div class="my-space-xs flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[20px]">flash_on</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-data-md text-data-md text-on-surface">Instant Book Liquidity</span>
+<span class="font-micro text-micro text-outline">Over $1.4M USDC depth within 1.5% of mark prices.</span>
+</div>
+</div>
+<button class="w-full py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-caps text-label-caps uppercase font-bold text-center transition-colors" type="button">
+        View Depth Matrix Rail
+      </button>
+</div>
+</div>
+<!-- Interactive Sell Shares Drawer / Modal Backdrop -->
+<div class="fixed inset-0 z-50 bg-surface-container-lowest/80 backdrop-blur-sm hidden flex items-center justify-center p-space-md transition-opacity" id="sellModalBackdrop">
+<div class="bg-surface-container-low w-full max-w-lg rounded-xl shadow-xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+<!-- Modal Header -->
+<div class="bg-surface-container-lowest px-space-lg py-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<span class="font-headline-md text-headline-md text-on-surface">Execution Desk: Sell Shares</span>
+</div>
+<button class="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors" onclick="closeSellModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="p-space-lg flex flex-col gap-space-md">
+<!-- Target Market Card -->
+<div class="p-space-md rounded bg-surface-container flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-surface" id="modalMarketName">BTC $120k by 2026</span>
+<span class="px-2 py-0.5 rounded bg-tertiary/20 text-tertiary font-label-caps text-label-caps font-bold" id="modalSideBadge">YES</span>
+</div>
+<div class="flex items-center justify-between font-micro text-micro text-outline mt-1">
+<span>Market Depth Best Bid: <strong class="text-tertiary font-data-sm text-data-sm" id="modalMarkPrice">72.0¢</strong></span>
+<span>Position Size: <strong class="text-on-surface font-data-sm text-data-sm" id="modalAvailableShares">12,000</strong> Shares</span>
+</div>
+</div>
+<!-- Execution Order Type Toggle -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Execution Strategy</span>
+<div class="grid grid-cols-2 bg-surface-container p-0.5 rounded gap-0.5">
+<button class="py-1.5 rounded bg-surface-container-high text-on-surface font-data-sm text-data-sm font-semibold transition-colors" id="orderTypeMarket" onclick="setOrderType('MARKET')" type="button">Market (Instant)</button>
+<button class="py-1.5 rounded text-on-surface-variant hover:text-on-surface font-data-sm text-data-sm font-semibold transition-colors" id="orderTypeLimit" onclick="setOrderType('LIMIT')" type="button">Limit (Resting)</button>
+</div>
+</div>
+<!-- Shares Input & Percentage Chips -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Shares to Liquidate</span>
+<span class="font-micro text-micro text-outline">Max: <span class="text-on-surface tabular-nums" id="modalMaxSharesLabel">12,000</span></span>
+</div>
+<div class="relative flex items-center bg-surface-container rounded px-space-md py-2">
+<input class="w-full bg-transparent font-data-lg text-data-lg text-on-surface font-bold focus:outline-none tabular-nums" id="sharesInput" min="1" oninput="updateProceeds()" type="number" value="3000"/>
+<span class="font-label-caps text-label-caps text-outline uppercase">Shares</span>
+</div>
+<!-- Quick Chips -->
+<div class="grid grid-cols-4 gap-space-xs mt-1">
+<button class="py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-caps text-label-caps font-bold transition-colors" onclick="applyPercentage(0.25)" type="button">—</button>
+<button class="py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-caps text-label-caps font-bold transition-colors" onclick="applyPercentage(0.50)" type="button">—</button>
+<button class="py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-caps text-label-caps font-bold transition-colors" onclick="applyPercentage(0.75)" type="button">—</button>
+<button class="py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-caps text-label-caps font-bold transition-colors" onclick="applyPercentage(1.00)" type="button">100% (MAX)</button>
+</div>
+</div>
+<!-- Limit Price Field (conditionally styled) -->
+<div class="flex flex-col gap-space-xs hidden" id="limitPriceContainer">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Target Limit Price</span>
+<span class="font-micro text-micro text-outline">Spread: 0.1¢</span>
+</div>
+<div class="relative flex items-center bg-surface-container rounded px-space-md py-2">
+<input class="w-full bg-transparent font-data-lg text-data-lg text-on-surface font-bold focus:outline-none tabular-nums" id="limitPriceInput" oninput="updateProceeds()" step="0.01" type="number" value="0.72"/>
+<span class="font-label-caps text-label-caps text-outline uppercase">USDC / Share</span>
+</div>
+</div>
+<!-- Financial Breakdown -->
+<div class="bg-surface-container p-space-md rounded flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-outline">Est. Gross Proceeds</span>
+<span class="text-on-surface font-bold tabular-nums" id="modalGrossProceeds">$2,160.00 USDC</span>
+</div>
+<div class="flex items-center justify-between font-micro text-micro">
+<span class="text-outline">CLOB Taker Fee (0.05%)</span>
+<span class="text-outline tabular-nums" id="modalFee">-$1.08 USDC</span>
+</div>
+<div class="flex items-center justify-between font-micro text-micro">
+<span class="text-outline">Polygon Network Gas</span>
+<span class="text-tertiary tabular-nums">&lt; $0.002 (Sponsored)</span>
+</div>
+<div class="h-px bg-surface-container-highest my-0.5"></div>
+<div class="flex items-center justify-between font-data-md text-data-md">
+<span class="text-on-surface font-semibold">Net Payout to Ledger</span>
+<span class="text-tertiary font-bold tabular-nums" id="modalNetProceeds">$2,158.92 USDC</span>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="bg-surface-container-lowest p-space-md flex items-center justify-between gap-space-sm">
+<button class="px-space-md py-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm font-semibold transition-colors" onclick="closeSellModal()" type="button">
+          Cancel
+        </button>
+<button class="flex-1 px-space-lg py-2 rounded bg-secondary hover:bg-secondary-fixed-dim text-on-secondary font-headline-md text-headline-md font-bold transition-colors flex items-center justify-center gap-space-xs" id="btnExecuteSell" onclick="submitSellOrder()" type="button">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span id="executeBtnText">Review &amp; Sign Order</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  let activePositionData = {
+    market: 'BTC $120k by 2026',
+    side: 'YES',
+    totalShares: 12000,
+    unitPrice: 0.72,
+    orderType: 'MARKET'
+  };
+
+  function openSellModal(market, side, totalShares, unitPrice, posValue, category) {
+    activePositionData.market = market;
+    activePositionData.side = side;
+    activePositionData.totalShares = totalShares;
+    activePositionData.unitPrice = unitPrice;
+    activePositionData.orderType = 'MARKET';
+
+    document.getElementById('modalMarketName').textContent = market;
+    document.getElementById('modalSideBadge').textContent = side;
+    document.getElementById('modalMarkPrice').textContent = (unitPrice * 100).toFixed(1) + '¢';
+    document.getElementById('modalAvailableShares').textContent = totalShares.toLocaleString();
+    document.getElementById('modalMaxSharesLabel').textContent = totalShares.toLocaleString();
+
+    document.getElementById('sharesInput').value = Math.floor(totalShares * 0.25);
+    document.getElementById('limitPriceInput').value = unitPrice.toFixed(2);
+
+    setOrderType('MARKET');
+    updateProceeds();
+
+    const modal = document.getElementById('sellModalBackdrop');
+    modal.classList.remove('hidden');
+  }
+
+  function closeSellModal() {
+    document.getElementById('sellModalBackdrop').classList.add('hidden');
+  }
+
+  function setOrderType(type) {
+    activePositionData.orderType = type;
+    const btnMarket = document.getElementById('orderTypeMarket');
+    const btnLimit = document.getElementById('orderTypeLimit');
+    const limitContainer = document.getElementById('limitPriceContainer');
+
+    if (type === 'MARKET') {
+      btnMarket.className = 'py-1.5 rounded bg-surface-container-high text-on-surface font-data-sm text-data-sm font-semibold transition-colors';
+      btnLimit.className = 'py-1.5 rounded text-on-surface-variant hover:text-on-surface font-data-sm text-data-sm font-semibold transition-colors';
+      limitContainer.classList.add('hidden');
+    } else {
+      btnLimit.className = 'py-1.5 rounded bg-surface-container-high text-on-surface font-data-sm text-data-sm font-semibold transition-colors';
+      btnMarket.className = 'py-1.5 rounded text-on-surface-variant hover:text-on-surface font-data-sm text-data-sm font-semibold transition-colors';
+      limitContainer.classList.remove('hidden');
+    }
+    updateProceeds();
+  }
+
+  function applyPercentage(pct) {
+    const input = document.getElementById('sharesInput');
+    input.value = Math.round(activePositionData.totalShares * pct);
+    updateProceeds();
+  }
+
+  function updateProceeds() {
+    const shares = parseFloat(document.getElementById('sharesInput').value) || 0;
+    const price = activePositionData.orderType === 'LIMIT' 
+      ? (parseFloat(document.getElementById('limitPriceInput').value) || activePositionData.unitPrice)
+      : activePositionData.unitPrice;
+
+    const gross = shares * price;
+    const fee = gross * 0.0005;
+    const net = Math.max(0, gross - fee);
+
+    document.getElementById('modalGrossProceeds').textContent = '$' + gross.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' USDC';
+    document.getElementById('modalFee').textContent = '-$' + fee.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' USDC';
+    document.getElementById('modalNetProceeds').textContent = '$' + net.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' USDC';
+  }
+
+  function submitSellOrder() {
+    const btnText = document.getElementById('executeBtnText');
+    btnText.textContent = 'Transmitting CLOB Sell...';
+    setTimeout(() => {
+      btnText.textContent = 'Order Placed & Matched!';
+      setTimeout(() => {
+        closeSellModal();
+        btnText.textContent = 'Review & Sign Order';
+      }, 700);
+    }, 600);
+  }
+
+  // Filter Engine
+  const searchInput = document.getElementById('searchInput');
+  const categoryFilter = document.getElementById('categoryFilter');
+  const outcomeFilter = document.getElementById('outcomeFilter');
+  const sortSelect = document.getElementById('sortSelect');
+  const btnAll = document.getElementById('btnAllFilter');
+  const btnProfitable = document.getElementById('btnProfitableFilter');
+  const btnLosing = document.getElementById('btnLosingFilter');
+  let currentProfitLossFilter = 'ALL';
+
+  function applyFilters() {
+    const term = (searchInput.value || '').toLowerCase().trim();
+    const cat = categoryFilter.value;
+    const outcome = outcomeFilter.value;
+    const rows = Array.from(document.querySelectorAll('#positionsTableBody tr'));
+
+    rows.forEach(row => {
+      const marketText = (row.getAttribute('data-market') || '').toLowerCase();
+      const rowCat = row.getAttribute('data-category');
+      const rowSide = row.getAttribute('data-side');
+      const rowStatus = row.getAttribute('data-status');
+
+      let visible = true;
+
+      if (term && !marketText.includes(term)) visible = false;
+      if (cat !== 'ALL' && rowCat !== cat) visible = false;
+      if (outcome !== 'ALL' && rowSide !== outcome) visible = false;
+      if (currentProfitLossFilter === 'PROFIT' && rowStatus !== 'profit') visible = false;
+      if (currentProfitLossFilter === 'LOSS' && rowStatus !== 'loss') visible = false;
+
+      row.style.display = visible ? '' : 'none';
+    });
+  }
+
+  function sortTable() {
+    const tableBody = document.getElementById('positionsTableBody');
+    const rows = Array.from(tableBody.querySelectorAll('tr'));
+    const sortVal = sortSelect.value;
+
+    rows.sort((a, b) => {
+      if (sortVal === 'VALUE_DESC') {
+        return parseFloat(b.dataset.value) - parseFloat(a.dataset.value);
+      } else if (sortVal === 'PNL_DESC') {
+        return parseFloat(b.dataset.pnl) - parseFloat(a.dataset.pnl);
+      } else if (sortVal === 'PNL_ASC') {
+        return parseFloat(a.dataset.pnl) - parseFloat(b.dataset.pnl);
+      } else if (sortVal === 'EXP_ASC') {
+        return new Date(a.dataset.exp) - new Date(b.dataset.exp);
+      }
+      return 0;
+    });
+
+    rows.forEach(r => tableBody.appendChild(r));
+  }
+
+  searchInput.addEventListener('input', applyFilters);
+  categoryFilter.addEventListener('change', applyFilters);
+  outcomeFilter.addEventListener('change', applyFilters);
+  sortSelect.addEventListener('change', sortTable);
+
+  btnAll.addEventListener('click', () => {
+    currentProfitLossFilter = 'ALL';
+    btnAll.className = 'px-space-sm py-1 rounded text-on-surface bg-surface-container-high font-label-caps text-label-caps transition-colors';
+    btnProfitable.className = 'px-space-sm py-1 rounded text-on-surface-variant hover:text-tertiary font-label-caps text-label-caps transition-colors';
+    btnLosing.className = 'px-space-sm py-1 rounded text-on-surface-variant hover:text-error font-label-caps text-label-caps transition-colors';
+    applyFilters();
+  });
+
+  btnProfitable.addEventListener('click', () => {
+    currentProfitLossFilter = 'PROFIT';
+    btnProfitable.className = 'px-space-sm py-1 rounded text-on-surface bg-surface-container-high font-label-caps text-label-caps transition-colors text-tertiary font-bold';
+    btnAll.className = 'px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps transition-colors';
+    btnLosing.className = 'px-space-sm py-1 rounded text-on-surface-variant hover:text-error font-label-caps text-label-caps transition-colors';
+    applyFilters();
+  });
+
+  btnLosing.addEventListener('click', () => {
+    currentProfitLossFilter = 'LOSS';
+    btnLosing.className = 'px-space-sm py-1 rounded text-on-surface bg-surface-container-high font-label-caps text-label-caps transition-colors text-error font-bold';
+    btnAll.className = 'px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps transition-colors';
+    btnProfitable.className = 'px-space-sm py-1 rounded text-on-surface-variant hover:text-tertiary font-label-caps text-label-caps transition-colors';
+    applyFilters();
+  });
+</script></main><footer class="w-full bg-surface-container-lowest py-space-md text-on-surface-variant"><div class="w-full px-gutter-desktop flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-wrap items-center gap-space-md font-body-sm text-body-sm"><div class="flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-tertiary"></div><span class="text-on-surface font-medium">Operational</span><span class="text-outline">(99.98% Uptime)</span></div><span class="text-outline">|</span><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">sync_alt</span><span>Polygon CLOB Engine</span></div><span class="text-outline">|</span><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">gavel</span><span>UMA Oracle Resolution</span></div></div><div class="flex items-center gap-space-md font-body-sm text-body-sm"><a class="hover:text-on-surface transition-colors" data-path="api-documentation" href="#">Documentation</a><a class="hover:text-on-surface transition-colors" data-path="api-feeds" href="#">API Feeds</a><a class="hover:text-on-surface transition-colors" data-path="terms-and-settlement" href="#">Terms of Protocol</a><span class="text-outline">© 2025 MITMARKET Markets Global Ltd.</span></div></div></footer></div></body></html>

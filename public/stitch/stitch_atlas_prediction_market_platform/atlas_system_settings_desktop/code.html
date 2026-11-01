@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "background": "#000000",
+        "inverse-surface": "#F4F6FA",
+        "on-surface": "#F4F6FA",
+        "tertiary-fixed": "#0bba74",
+        "primary-fixed-dim": "#1463ff",
+        "on-primary-fixed": "#000000",
+        "secondary-fixed": "#EAA343",
+        "on-error-container": "#ff4761",
+        "error-container": "#101216",
+        "error": "#ff4761",
+        "on-primary-fixed-variant": "#000000",
+        "outline": "#98A5B5",
+        "on-background": "#F4F6FA",
+        "on-error": "#000000",
+        "primary": "#1463ff",
+        "surface-tint": "#1463ff",
+        "on-surface-variant": "#98A5B5",
+        "on-tertiary-fixed": "#000000",
+        "surface-container": "#101216",
+        "on-secondary": "#000000",
+        "on-primary-container": "#000000",
+        "inverse-on-surface": "#101216",
+        "secondary-fixed-dim": "#EAA343",
+        "primary-container": "#1463ff",
+        "on-secondary-fixed": "#000000",
+        "tertiary-container": "#0bba74",
+        "on-secondary-fixed-variant": "#000000",
+        "outline-variant": "#29313D",
+        "on-tertiary": "#000000",
+        "on-tertiary-fixed-variant": "#000000",
+        "secondary-container": "#101216",
+        "tertiary-fixed-dim": "#0bba74",
+        "tertiary": "#0bba74",
+        "on-tertiary-container": "#000000",
+        "inverse-primary": "#1463ff",
+        "surface-container-high": "#101216",
+        "on-secondary-container": "#F4F6FA",
+        "surface-container-highest": "#101216",
+        "surface-variant": "#101216",
+        "primary-fixed": "#1463ff",
+        "on-primary": "#000000",
+        "surface-bright": "#29313D",
+        "surface-dim": "#000000",
+        "surface-container-lowest": "#101216",
+        "surface": "#000000",
+        "surface-container-low": "#101216",
+        "secondary": "#EAA343"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.125rem",
+        "lg": "0.25rem",
+        "xl": "0.5rem",
+        "full": "0.75rem"
+      },
+      "spacing": {
+        "space-md": "0.75rem",
+        "margin": "1rem",
+        "space-xs": "0.25rem",
+        "gutter": "0.75rem",
+        "space-xl": "1.5rem",
+        "margin-desktop": "1.5rem",
+        "space-lg": "1rem",
+        "space-sm": "0.5rem",
+        "gutter-desktop": "1rem"
+      },
+      "fontFamily": {
+        "display-lg": ["Inter"],
+        "data-md": ["Inter"],
+        "label-caps": ["Inter"],
+        "headline-md": ["Inter"],
+        "headline-lg": ["Inter"],
+        "body-md": ["Inter"],
+        "data-sm": ["Inter"],
+        "micro": ["Inter"],
+        "body-lg": ["Inter"],
+        "data-lg": ["Inter"],
+        "body-sm": ["Inter"]
+      },
+      "fontSize": {
+        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "data-md": ["14px", {"lineHeight": "18px", "fontWeight": "600"}],
+        "label-caps": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+        "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "body-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+        "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+        "micro": ["10px", {"lineHeight": "12px", "fontWeight": "500"}],
+        "body-lg": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+        "data-lg": ["20px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+      }
+    }
+  }
+}</script><style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><aside class="fixed left-0 top-0 h-full w-60 bg-surface-container-lowest z-50 flex flex-col justify-between select-none shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="flex flex-col"><div class="h-14 px-space-lg flex items-center gap-space-sm bg-surface-container-low"><div class="w-5 h-5 bg-primary-container rounded flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[14px]">layers</span></div><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight font-bold text-on-surface">MITMARKET</span><span class="font-headline-md text-headline-md tracking-tight font-light text-primary">PRO</span></div><span class="ml-auto font-label-caps text-label-caps uppercase bg-primary-container text-on-primary-container px-space-xs py-[1px] rounded">ADMIN</span></div><div class="px-space-md py-space-sm"><div class="font-micro text-micro uppercase tracking-wider text-outline px-space-sm mb-space-xs">Terminal Core</div><nav class="flex flex-col gap-[2px]" data-active-classes="bg-surface-container-high text-primary font-bold shadow-[inset_2px_0_0_0_#1463ff]"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="overview" href="#"><span class="material-symbols-outlined text-[16px]">monitoring</span>Overview</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="markets" href="#"><span class="material-symbols-outlined text-[16px]">storefront</span>Markets</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="trading" href="#"><span class="material-symbols-outlined text-[16px]">candlestick_chart</span>Trading</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="users" href="#"><span class="material-symbols-outlined text-[16px]">group</span>Users</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="resolution" href="#"><span class="material-symbols-outlined text-[16px]">gavel</span>Resolution</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="wallets" href="#"><span class="material-symbols-outlined text-[16px]">account_balance_wallet</span>Wallets</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports" href="#"><span class="material-symbols-outlined text-[16px]">analytics</span>Reports</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="audit-logs" href="#"><span class="material-symbols-outlined text-[16px]">receipt_long</span>Audit Logs</a></nav></div><div class="px-space-md py-space-xs"><div class="font-micro text-micro uppercase tracking-wider text-outline px-space-sm mb-space-xs">Operations</div><nav class="flex flex-col gap-[2px]" data-active-classes="bg-surface-container-high text-primary font-bold shadow-[inset_2px_0_0_0_#1463ff]"><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-xs rounded transition-all bg-surface-container-high text-primary font-bold shadow-[inset_2px_0_0_0_#1463ff]" data-path="settings" href="#"><span class="material-symbols-outlined text-[16px]">tune</span>Settings</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="api-feeds" href="#"><span class="material-symbols-outlined text-[16px]">hub</span>API &amp; Feeds</a></nav></div></div><div class="p-space-md bg-surface-container-low"><div class="bg-surface-container p-space-sm rounded flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-micro text-micro uppercase tracking-wider text-outline">CLOB Engine</span><span class="font-data-sm text-data-sm text-tertiary">0.8ms</span></div><div class="flex items-center justify-between"><span class="font-micro text-micro uppercase tracking-wider text-outline">Memory Pool</span><span class="font-data-sm text-data-sm text-on-surface">—</span></div></div></div></aside><div class="pl-60"><header class="fixed top-0 left-60 right-0 h-14 bg-surface-container-lowest/90 backdrop-blur-md z-40 flex items-center justify-between px-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm px-space-sm py-[2px] bg-surface-container rounded"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span><span class="font-micro text-micro uppercase tracking-wider font-semibold text-tertiary">LIVE</span><span class="text-outline text-[10px]">/</span><span class="font-data-sm text-data-sm text-on-surface-variant">CLOB Matching Engine: <span class="text-tertiary font-semibold">0.8ms</span></span><span class="text-outline text-[10px]">/</span><span class="font-data-sm text-data-sm text-outline">Node us-east-1 // Zero-Trust Enclave</span></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-sm text-[16px] text-outline pointer-events-none">search</span><input class="w-80 h-8 pl-8 pr-12 bg-surface-container text-on-surface font-body-sm text-body-sm rounded placeholder:text-outline focus:outline-none focus:bg-surface-container-high focus:text-on-surface transition-colors" placeholder="Omni-search commands, hashes, markets..." type="text"/><kbd class="absolute right-space-sm font-label-caps text-label-caps uppercase bg-surface-container-highest text-on-surface-variant px-space-xs py-[1px] rounded pointer-events-none">⌘K</kbd></div><button aria-label="Notifications" class="relative w-8 h-8 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[18px]">notifications</span><span class="absolute -top-1 -right-1 w-4 h-4 bg-error-container text-on-error-container font-micro text-micro flex items-center justify-center rounded-full font-bold">3</span></button><div class="h-6 w-[1px] bg-surface-container-high"></div><div class="flex items-center gap-space-sm"><div class="text-right"><div class="font-data-sm text-data-sm font-semibold text-on-surface leading-none">Alexander Vance</div><div class="font-micro text-micro uppercase tracking-wider text-secondary leading-none mt-1">L4 SUPER_ADMIN</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-14 w-full bg-surface min-h-[calc(100vh-3.5rem)]"><div class="flex flex-col w-full">
+<!-- Governance Warning & Multi-Sig Alert Banner -->
+<div class="w-full bg-surface-container-high px-space-lg py-space-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-6 h-6 rounded bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface truncate">
+<strong class="font-data-sm text-data-sm text-secondary">GOVERNANCE ENCLAVE ACTIVE:</strong>
+        Staged changes require 2-of-3 Multi-Sig Admin Approval before activation on production nodes. Historical configurations remain immutable and archived.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<span class="font-micro text-micro uppercase tracking-wider text-outline">Epoch ID: #9842-PROD</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-data-sm text-data-sm text-tertiary">Consensus Synced</span>
+</div>
+</div>
+<!-- Main Viewport Layout -->
+<div class="w-full p-space-lg flex flex-col gap-space-lg">
+<!-- Header Section with Metadata & Staged Changes -->
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-md pb-space-xs">
+<div class="flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="font-label-caps text-label-caps uppercase bg-surface-container-high text-primary px-space-xs py-[2px] rounded font-semibold">
+            ACTIVE CONFIG: v4.18.2-PROD
+          </span>
+<span class="font-label-caps text-label-caps uppercase bg-secondary-container text-on-secondary-container px-space-xs py-[2px] rounded font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+            STAGED PROPOSALS: 1 PENDING DUAL-SIG
+          </span>
+<span class="font-label-caps text-label-caps uppercase bg-surface-container text-outline px-space-xs py-[2px] rounded font-medium">
+            HASH: 0x9f8c...3e21
+          </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">
+          Platform Configuration &amp; Global Risk Parameters
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+          Centralized governance over CLOB matching rules, fee schedules, risk thresholds, security policies, and 29-locale configurations across high-throughput distributed matching nodes.
+        </p>
+</div>
+<!-- Actions Strip -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="h-9 px-space-md bg-surface-container hover:bg-surface-container-high text-on-surface rounded font-data-sm text-data-sm flex items-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline">history</span>
+          Change History
+        </button>
+<button class="h-9 px-space-md bg-surface-container-low hover:bg-surface-container text-error rounded font-data-sm text-data-sm flex items-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+          Discard Draft
+        </button>
+<button class="h-9 px-space-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary rounded font-data-sm text-data-sm font-bold flex items-center gap-space-xs shadow-md transition-all" id="btn-submit-multisig" type="button">
+<span class="material-symbols-outlined text-[16px]">how_to_reg</span>
+          Submit for Multi-Sig Approval
+        </button>
+</div>
+</div>
+<!-- 2-Column Institutional Chassis: Sidebar Navigation (220px) + Configuration Form Workspace -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Sub-Navigation Rail (Col span 2 on large screens) -->
+<nav class="lg:col-span-3 xl:col-span-2 flex flex-col gap-space-xs bg-surface-container-lowest p-space-sm rounded shadow-sm">
+<div class="px-space-sm py-space-xs font-micro text-micro uppercase tracking-wider text-outline">
+          Configuration Domains
+        </div>
+<button class="nav-domain-btn w-full text-left px-space-sm py-space-xs rounded font-data-sm text-data-sm flex items-center justify-between bg-surface-container-high text-primary font-bold shadow-sm" data-tab="general" type="button">
+<span class="flex items-center gap-space-sm truncate">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+            General Platform
+          </span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</button>
+<button class="nav-domain-btn w-full text-left px-space-sm py-space-xs rounded font-data-sm text-data-sm flex items-center justify-between text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-tab="clob" type="button">
+<span class="flex items-center gap-space-sm truncate">
+<span class="material-symbols-outlined text-[16px]">candlestick_chart</span>
+            CLOB Trading Parameters
+          </span>
+<span class="font-micro text-micro text-secondary font-semibold">1 STAGED</span>
+</button>
+<button class="nav-domain-btn w-full text-left px-space-sm py-space-xs rounded font-data-sm text-data-sm flex items-center justify-between text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-tab="fees" type="button">
+<span class="flex items-center gap-space-sm truncate">
+<span class="material-symbols-outlined text-[16px]">percent</span>
+            Fee Schedules &amp; Rebates
+          </span>
+</button>
+<button class="nav-domain-btn w-full text-left px-space-sm py-space-xs rounded font-data-sm text-data-sm flex items-center justify-between text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-tab="lifecycle" type="button">
+<span class="flex items-center gap-space-sm truncate">
+<span class="material-symbols-outlined text-[16px]">timelapse</span>
+            Market Lifecycle Rules
+          </span>
+</button>
+<button class="nav-domain-btn w-full text-left px-space-sm py-space-xs rounded font-data-sm text-data-sm flex items-center justify-between text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-tab="risk" type="button">
+<span class="flex items-center gap-space-sm truncate">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+            Risk &amp; Circuit Breakers
+          </span>
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+</button>
+<button class="nav-domain-btn w-full text-left px-space-sm py-space-xs rounded font-data-sm text-data-sm flex items-center justify-between text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-tab="security" type="button">
+<span class="flex items-center gap-space-sm truncate">
+<span class="material-symbols-outlined text-[16px]">shield_person</span>
+            Security &amp; RBAC
+          </span>
+</button>
+<button class="nav-domain-btn w-full text-left px-space-sm py-space-xs rounded font-data-sm text-data-sm flex items-center justify-between text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-tab="webhooks" type="button">
+<span class="flex items-center gap-space-sm truncate">
+<span class="material-symbols-outlined text-[16px]">webhook</span>
+            Webhooks &amp; Feeds
+          </span>
+</button>
+<button class="nav-domain-btn w-full text-left px-space-sm py-space-xs rounded font-data-sm text-data-sm flex items-center justify-between text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-tab="localization" type="button">
+<span class="flex items-center gap-space-sm truncate">
+<span class="material-symbols-outlined text-[16px]">translate</span>
+            Localization (29 Locales)
+          </span>
+<span class="font-micro text-micro text-tertiary">RTL ON</span>
+</button>
+<button class="nav-domain-btn w-full text-left px-space-sm py-space-xs rounded font-data-sm text-data-sm flex items-center justify-between text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-tab="enclave" type="button">
+<span class="flex items-center gap-space-sm truncate">
+<span class="material-symbols-outlined text-[16px]">memory</span>
+            Maintenance &amp; Enclave
+          </span>
+</button>
+<!-- System Hardware Footnote in Sidebar -->
+<div class="mt-space-md p-space-sm bg-surface-container rounded flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-micro text-micro uppercase tracking-wider text-outline">SGX Attestation</span>
+<span class="font-data-sm text-data-sm text-tertiary">VALID</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-micro text-micro uppercase tracking-wider text-outline">State Sync</span>
+<span class="font-data-sm text-data-sm text-on-surface">Block #18,492,022</span>
+</div>
+</div>
+</nav>
+<!-- Main Settings Form Workstation (Col span 9/10) -->
+<div class="lg:col-span-9 xl:col-span-10 flex flex-col gap-space-lg">
+<!-- 1. General Platform Identification & Display -->
+<section class="bg-surface-container-low p-space-lg rounded shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-primary">domain</span>
+<div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">General Platform Identification &amp; Display</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Core institutional platform identifiers and reference consensus metadata.</p>
+</div>
+</div>
+<span class="font-label-caps text-label-caps uppercase bg-surface-container text-tertiary px-space-xs py-[2px] rounded font-semibold">Active Profile</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Platform Name -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-semibold">Platform Brand Name</label>
+<div class="relative">
+<input class="w-full h-10 px-space-sm bg-surface-container text-on-surface font-body-md text-body-md rounded focus:bg-surface-container-high focus:outline-none focus:text-on-surface transition-colors" type="text" value="MITMARKET Prediction Market Platform"/>
+<span class="material-symbols-outlined absolute right-space-sm top-2.5 text-[18px] text-tertiary">check_circle</span>
+</div>
+<span class="font-micro text-micro text-outline">Displayed across institutional terminal banners and client settlement statements.</span>
+</div>
+<!-- Base Currency -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-semibold">Base Reference Currency</label>
+<div class="relative">
+<select class="w-full h-10 px-space-sm bg-surface-container text-on-surface font-body-md text-body-md rounded focus:bg-surface-container-high focus:outline-none transition-colors appearance-none pr-8">
+<option selected="">USDC (Circle USD Fiat-Backed Stablecoin)</option>
+<option>USDT (Tether USD Liquid Token)</option>
+<option>EURC (Circle Euro Stablecoin)</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-2.5 text-[18px] text-outline pointer-events-none">expand_more</span>
+</div>
+<span class="font-micro text-micro text-outline">Consensus settlement quote unit across all order books.</span>
+</div>
+<!-- Operational Timezone -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-semibold">Operational Timezone</label>
+<div class="relative">
+<input class="w-full h-10 px-space-sm bg-surface-container text-on-surface-variant font-body-md text-body-md rounded cursor-not-allowed" readonly="" type="text" value="UTC (Coordinated Universal Time — Institutional Standard)"/>
+<span class="material-symbols-outlined absolute right-space-sm top-2.5 text-[18px] text-outline">lock</span>
+</div>
+<span class="font-micro text-micro text-outline">System time standard is locked to UTC for regulatory market settlement.</span>
+</div>
+<!-- Support Contact & PGP -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-semibold">Support Contact &amp; PGP Key Hash</label>
+<div class="flex gap-space-xs">
+<input class="w-2/3 h-10 px-space-sm bg-surface-container text-on-surface font-body-md text-body-md rounded focus:bg-surface-container-high focus:outline-none transition-colors" type="email" value="security@atlas-exchange.io"/>
+<button class="w-1/3 h-10 px-space-xs bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-caps text-label-caps uppercase tracking-wider rounded transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px] text-primary">key</span>
+                  PGP Key
+                </button>
+</div>
+<span class="font-micro text-micro text-outline">PGP Fingerprint: 4E91 B71A 902C 493F</span>
+</div>
+</div>
+</section>
+<!-- 2. CLOB Trading & Engine Parameters -->
+<section class="bg-surface-container-low p-space-lg rounded shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-space-xs gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-primary">speed</span>
+<div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">CLOB Trading &amp; Execution Engine Parameters</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Central Limit Order Book algorithmic matching precision and order admission throughput.</p>
+</div>
+</div>
+<span class="font-label-caps text-label-caps uppercase bg-secondary-container text-on-secondary-container px-space-xs py-[2px] rounded font-semibold self-start sm:self-auto">
+              1 Uncommitted Parameter Staged
+            </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Minimum Order Size -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-semibold">Min Order Size</label>
+<span class="font-micro text-micro text-outline font-mono">BASE_MIN</span>
+</div>
+<div class="relative flex items-center">
+<input class="w-full h-10 px-space-sm bg-surface-container text-on-surface font-data-md text-data-md rounded focus:bg-surface-container-high focus:outline-none transition-colors" type="text" value="10.00"/>
+<span class="absolute right-space-sm font-label-caps text-label-caps uppercase text-outline font-semibold">USDC</span>
+</div>
+<span class="font-micro text-micro text-outline">Minimum valid execution threshold per leaf node.</span>
+</div>
+<!-- Maximum Single Order Size -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-semibold">Max Single Order</label>
+<span class="font-micro text-micro text-secondary font-semibold">MODIFIED</span>
+</div>
+<div class="relative flex items-center bg-surface-container rounded">
+<input class="w-full h-10 px-space-sm bg-transparent text-secondary font-data-md text-data-md rounded focus:outline-none font-bold" type="text" value="250,000.00"/>
+<span class="absolute right-space-sm font-label-caps text-label-caps uppercase text-secondary font-semibold">USDC</span>
+</div>
+<span class="font-micro text-micro text-secondary">Staged from 200,000.00 USDC. Pending Multi-Sig.</span>
+</div>
+<!-- Price Tick Size -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-semibold">Price Tick Size</label>
+<span class="font-micro text-micro text-outline font-mono">TICK_MIN</span>
+</div>
+<div class="relative flex items-center">
+<input class="w-full h-10 px-space-sm bg-surface-container text-on-surface font-data-md text-data-md rounded focus:bg-surface-container-high focus:outline-none transition-colors" type="text" value="0.1¢ ($0.001)"/>
+<span class="material-symbols-outlined absolute right-space-sm text-[16px] text-tertiary">tune</span>
+</div>
+<span class="font-micro text-micro text-outline">Sub-cent implied binary contract quantization.</span>
+</div>
+<!-- Order Rate Limit -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-semibold">Rate Limit per Trader</label>
+<div class="relative flex items-center">
+<input class="w-full h-10 px-space-sm bg-surface-container text-on-surface font-data-md text-data-md rounded focus:bg-surface-container-high focus:outline-none transition-colors" type="text" value="100 orders / 10s"/>
+<span class="material-symbols-outlined absolute right-space-sm text-[16px] text-outline">timer</span>
+</div>
+<span class="font-micro text-micro text-outline">Token-bucket rate limiter throttles burst API bursts.</span>
+</div>
+<!-- Max Open Orders per Account -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-semibold">Max Open Orders / Acct</label>
+<div class="relative flex items-center">
+<input class="w-full h-10 px-space-sm bg-surface-container text-on-surface font-data-md text-data-md rounded focus:bg-surface-container-high focus:outline-none transition-colors" type="text" value="500 orders"/>
+<span class="material-symbols-outlined absolute right-space-sm text-[16px] text-outline">list_alt</span>
+</div>
+<span class="font-micro text-micro text-outline">Prevents memory exhaustion in the active in-memory ledger.</span>
+</div>
+<!-- Self-Trade Prevention (STP) -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-semibold">Self-Trade Prevention (STP)</label>
+<div class="relative">
+<select class="w-full h-10 px-space-sm bg-surface-container text-on-surface font-body-md text-body-md rounded focus:bg-surface-container-high focus:outline-none transition-colors appearance-none pr-8">
+<option selected="">Cancel Passive (Default)</option>
+<option>Cancel Aggressive</option>
+<option>Cancel Both</option>
+<option>Decrement and Cancel</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-2.5 text-[18px] text-outline pointer-events-none">expand_more</span>
+</div>
+<span class="font-micro text-micro text-outline">Prevents wash trading and internal maker/taker collision.</span>
+</div>
+</div>
+</section>
+<!-- 3. Exchange Fee Schedule & Maker Rebates -->
+<section class="bg-surface-container-low p-space-lg rounded shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-primary">account_balance</span>
+<div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">Exchange Fee Schedule &amp; Maker Rebates</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Protocol monetization and institutional liquidity provider incentive matrix.</p>
+</div>
+</div>
+<span class="font-label-caps text-label-caps uppercase bg-surface-container text-on-surface-variant px-space-xs py-[2px] rounded font-semibold">Tier 1 Production</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Standard Taker Fee -->
+<div class="p-space-md bg-surface-container rounded flex flex-col gap-space-xs">
+<span class="font-micro text-micro uppercase tracking-wider text-outline">Standard Taker Fee</span>
+<div class="flex items-baseline justify-between">
+<span class="font-data-lg text-data-lg text-on-surface font-bold">—</span>
+<span class="font-label-caps text-label-caps uppercase text-primary font-semibold">10 BPS</span>
+</div>
+<p class="font-micro text-micro text-on-surface-variant mt-1">Levied instantly upon aggressive market order fill.</p>
+</div>
+<!-- Designated Market Maker Rebate -->
+<div class="p-space-md bg-surface-container rounded flex flex-col gap-space-xs">
+<span class="font-micro text-micro uppercase tracking-wider text-outline">DMM Maker Rebate</span>
+<div class="flex items-baseline justify-between">
+<span class="font-data-lg text-data-lg text-tertiary font-bold">—</span>
+<span class="font-label-caps text-label-caps uppercase text-tertiary font-semibold">-2 BPS REBATE</span>
+</div>
+<p class="font-micro text-micro text-on-surface-variant mt-1">Paid directly to qualified resting book makers at midnight UTC.</p>
+</div>
+<!-- Settlement Resolution Fee -->
+<div class="p-space-md bg-surface-container rounded flex flex-col gap-space-xs">
+<span class="font-micro text-micro uppercase tracking-wider text-outline">Settlement Resolution Fee</span>
+<div class="flex items-baseline justify-between">
+<span class="font-data-lg text-data-lg text-on-surface font-bold">—</span>
+<span class="font-label-caps text-label-caps uppercase bg-tertiary-container text-on-tertiary-container px-space-xs rounded font-semibold">ZERO-FEE</span>
+</div>
+<p class="font-micro text-micro text-on-surface-variant mt-1">Guaranteed zero-fee contract outcome redemption policy.</p>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container-highest rounded flex items-center justify-between text-on-surface-variant font-data-sm text-data-sm">
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-outline">event_available</span>
+              Effective Fee Schedule Policy Date: <strong class="text-on-surface">2025-01-01 00:00 UTC</strong>
+</span>
+<span class="font-micro text-micro uppercase tracking-wider text-outline">Next Scheduled Governance Review: Q3 2025</span>
+</div>
+</section>
+<!-- 4. Risk Controls & Automated Circuit Breakers -->
+<section class="bg-surface-container-low p-space-lg rounded shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-error">gpp_maybe</span>
+<div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">Risk Controls &amp; Automated Circuit Breakers</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time risk protection engines, flash crash mitigation, and defensive throttle policies.</p>
+</div>
+</div>
+<span class="font-label-caps text-label-caps uppercase bg-surface-container text-tertiary px-space-xs py-[2px] rounded font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+              All Engines Active
+            </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Account Exposure Cap -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-semibold">Single-Account Exposure Cap</label>
+<div class="relative flex items-center">
+<input class="w-full h-10 px-space-sm bg-surface-container text-on-surface font-data-md text-data-md rounded focus:bg-surface-container-high focus:outline-none transition-colors" type="text" value="8.5%"/>
+<span class="absolute right-space-sm font-label-caps text-label-caps uppercase text-outline font-semibold">POOL NOTIONAL</span>
+</div>
+<span class="font-micro text-micro text-outline">Rejects orders exceeding 8.5% of total pool notional depth.</span>
+</div>
+<!-- Price Divergence Breaker -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-semibold">Rapid Divergence Breaker</label>
+<div class="relative flex items-center">
+<input class="w-full h-10 px-space-sm bg-surface-container text-on-surface font-data-md text-data-md rounded focus:bg-surface-container-high focus:outline-none transition-colors" type="text" value="15.0¢ delta / &lt;120s"/>
+<span class="material-symbols-outlined absolute right-space-sm text-[16px] text-error">bolt</span>
+</div>
+<span class="font-micro text-micro text-outline">Triggers automated 60-second matcher halt upon rapid swing.</span>
+</div>
+<!-- Cancel-to-Fill Ratio Threshold -->
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-semibold">Cancel-to-Fill Threshold</label>
+<div class="relative flex items-center">
+<input class="w-full h-10 px-space-sm bg-surface-container text-on-surface font-data-md text-data-md rounded focus:bg-surface-container-high focus:outline-none transition-colors" type="text" value="50:1 in 60s"/>
+<span class="material-symbols-outlined absolute right-space-sm text-[16px] text-secondary">shield</span>
+</div>
+<span class="font-micro text-micro text-outline">Enforces step-down rate limit on quote stuffing algorithms.</span>
+</div>
+</div>
+<!-- Emergency Global Trading Pause Box -->
+<div class="p-space-md bg-surface-container-lowest rounded flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded bg-error-container text-on-error-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">e911_emergency</span>
+</div>
+<div>
+<div class="font-data-md text-data-md text-error font-bold flex items-center gap-space-xs">
+                  Emergency Global Trading Pause
+                  <span class="font-label-caps text-label-caps uppercase bg-error-container text-on-error-container px-space-xs py-[1px] rounded">CRITICAL ACTION</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl mt-0.5">
+                  Immediately halts all active matching engines, freezes market transitions, and prevents all incoming order execution. Requires dual-admin biometric/YubiKey re-authentication.
+                </p>
+</div>
+</div>
+<div class="flex items-center gap-space-md shrink-0 self-end sm:self-auto">
+<span class="font-label-caps text-label-caps uppercase text-outline font-semibold" id="trading-status-label">SYSTEM ARMED</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" id="emergency-pause-toggle" type="checkbox"/>
+<div class="w-12 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-error"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- 5. Localization & Multilingual Governance (29 Locales & RTL) -->
+<section class="bg-surface-container-low p-space-lg rounded shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-primary">public</span>
+<div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">Localization &amp; Multilingual Governance</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Global reach across 29 synchronized regulatory locales with strict financial numeric formatting.</p>
+</div>
+</div>
+<span class="font-label-caps text-label-caps uppercase bg-surface-container text-tertiary px-space-xs py-[2px] rounded font-semibold">29 Active Locales</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Supported Locales Overview -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-semibold">Active Deployed Locales (29 Languages)</label>
+<div class="p-space-sm bg-surface-container rounded flex flex-wrap gap-1 max-h-32 overflow-y-auto">
+<span class="font-micro text-micro bg-surface-container-high px-space-xs py-0.5 rounded text-on-surface font-semibold">en-US (Default)</span>
+<span class="font-micro text-micro bg-surface-container-high px-space-xs py-0.5 rounded text-on-surface">tr-TR (Turkish)</span>
+<span class="font-micro text-micro bg-surface-container-high px-space-xs py-0.5 rounded text-on-surface">az-AZ (Azerbaijani)</span>
+<span class="font-micro text-micro bg-surface-container-high px-space-xs py-0.5 rounded text-on-surface">fa-IR (Persian)</span>
+<span class="font-micro text-micro bg-surface-container-high px-space-xs py-0.5 rounded text-on-surface">ar-SA (Arabic)</span>
+<span class="font-micro text-micro bg-surface-container-high px-space-xs py-0.5 rounded text-on-surface">he-IL (Hebrew)</span>
+<span class="font-micro text-micro bg-surface-container-high px-space-xs py-0.5 rounded text-on-surface">de-DE</span>
+<span class="font-micro text-micro bg-surface-container-high px-space-xs py-0.5 rounded text-on-surface">fr-FR</span>
+<span class="font-micro text-micro bg-surface-container-high px-space-xs py-0.5 rounded text-on-surface">es-ES</span>
+<span class="font-micro text-micro bg-surface-container-high px-space-xs py-0.5 rounded text-on-surface">ja-JP</span>
+<span class="font-micro text-micro bg-surface-container-high px-space-xs py-0.5 rounded text-on-surface">zh-CN</span>
+<span class="font-micro text-micro bg-surface-container-high px-space-xs py-0.5 rounded text-on-surface">ko-KR</span>
+<span class="font-micro text-micro bg-surface-container-high px-space-xs py-0.5 rounded text-on-surface">+17 more</span>
+</div>
+<span class="font-micro text-micro text-outline">Crowdin OTA OTA sync completed: 4 minutes ago.</span>
+</div>
+<!-- Bidirectional RTL Engine Settings -->
+<div class="flex flex-col justify-between p-space-sm bg-surface-container rounded gap-space-sm">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-data-md text-data-md font-semibold text-on-surface">Bidirectional RTL Engine</span>
+<span class="font-label-caps text-label-caps uppercase bg-tertiary-container text-on-tertiary-container px-space-xs py-0.5 rounded font-semibold">ENABLED</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                  Enforces strict LTR isolation for financial amounts, order hashes, hexadecimal smart contracts (0x...), and depth chart axes when running in Arabic, Persian, or Hebrew viewports.
+                </p>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-outline">Numeric Formatting Standard</span>
+<span class="font-data-sm text-data-sm font-mono text-tertiary">ISO 31-1 Tabular Figures</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<!-- Inline Script for UI feedback interactions -->
+<script>
+    (function initSettingsDashboard() {
+      // Emergency switch alert simulation
+      const toggle = document.getElementById('emergency-pause-toggle');
+      const label = document.getElementById('trading-status-label');
+      if (toggle && label) {
+        toggle.addEventListener('change', (e) => {
+          if (e.target.checked) {
+            const confirmed = confirm('WARNING: You are about to initiate an EMERGENCY GLOBAL TRADING PAUSE. All matching engines will halt. Continue?');
+            if (confirmed) {
+              label.textContent = 'GLOBAL PAUSE ARMED';
+              label.className = 'font-label-caps text-label-caps uppercase text-error font-bold';
+            } else {
+              e.target.checked = false;
+            }
+          } else {
+            label.textContent = 'SYSTEM ARMED';
+            label.className = 'font-label-caps text-label-caps uppercase text-outline font-semibold';
+          }
+        });
+      }
+
+      // Sidebar Tab Switching Visual Effect
+      const tabs = document.querySelectorAll('.nav-domain-btn');
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          tabs.forEach((t) => {
+            t.className = 'nav-domain-btn w-full text-left px-space-sm py-space-xs rounded font-data-sm text-data-sm flex items-center justify-between text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors';
+          });
+          tab.className = 'nav-domain-btn w-full text-left px-space-sm py-space-xs rounded font-data-sm text-data-sm flex items-center justify-between bg-surface-container-high text-primary font-bold shadow-sm';
+        });
+      });
+
+      // Submit Multi-Sig modal trigger
+      const submitBtn = document.getElementById('btn-submit-multisig');
+      if (submitBtn) {
+        submitBtn.addEventListener('click', () => {
+          alert('STAGED PROPOSAL SUBMITTED:\n\nPayload: Max Single Order Size changed from 200,000.00 USDC to 250,000.00 USDC.\nTarget: Dual-Sig Required (0/2 signatures registered).\nAudit Transaction ID: 0x88f2...e309');
+        });
+      }
+    })();
+  </script>
+</div></main></div></body></html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#000000;font-family:'Inter',sans-serif;color:#F4F6FA;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary-fixed":"#1463ff","inverse-surface":"#F4F6FA","primary-fixed-dim":"#1463ff","surface-container-highest":"#101216","error":"#ff4761","surface-container-lowest":"#101216","on-secondary-fixed-variant":"#000000","surface-variant":"#101216","tertiary-container":"#0bba74","surface-bright":"#29313D","inverse-on-surface":"#101216","on-primary-fixed-variant":"#000000","on-primary":"#000000","on-surface-variant":"#98A5B5","outline":"#98A5B5","on-error-container":"#ff4761","on-tertiary":"#000000","on-secondary-container":"#F4F6FA","outline-variant":"#29313D","surface-container-low":"#101216","surface-dim":"#000000","primary-container":"#1463ff","surface-tint":"#1463ff","error-container":"#101216","on-surface":"#F4F6FA","on-background":"#F4F6FA","on-error":"#000000","tertiary":"#0bba74","on-tertiary-fixed-variant":"#000000","surface-container-high":"#101216","tertiary-fixed":"#0bba74","background":"#000000","tertiary-fixed-dim":"#0bba74","on-primary-container":"#000000","surface":"#000000","primary":"#1463ff","on-tertiary-fixed":"#000000","on-primary-fixed":"#000000","secondary":"#EAA343","on-secondary-fixed":"#000000","secondary-fixed-dim":"#EAA343","surface-container":"#101216","secondary-container":"#101216","secondary-fixed":"#EAA343","on-secondary":"#000000","on-tertiary-container":"#000000","inverse-primary":"#1463ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin":"1rem","gutter-desktop":"1rem","space-md":"0.75rem","space-lg":"1rem","margin-desktop":"1.5rem","space-xl":"1.5rem","space-sm":"0.5rem","gutter":"0.75rem","space-xs":"0.25rem"},"fontFamily":{"body-md":["Inter"],"micro":["Inter"],"data-md":["Inter"],"headline-md":["Inter"],"data-lg":["Inter"],"label-caps":["Inter"],"headline-lg":["Inter"],"body-lg":["Inter"],"body-sm":["Inter"],"display-lg":["Inter"],"data-sm":["Inter"]},"fontSize":{"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"micro":["10px",{"lineHeight":"12px","fontWeight":"500"}],"data-md":["14px",{"lineHeight":"18px","fontWeight":"600"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"data-lg":["20px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-caps":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"data-sm":["12px",{"lineHeight":"16px","fontWeight":"500"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.35)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[20px]">stacked_line_chart</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-data-md uppercase text-on-surface tracking-wider font-bold">MITMARKET</span><span class="font-label-caps text-label-caps text-primary bg-surface-container-high px-space-xs py-[1px] rounded">PRO</span></div><div class="flex items-center gap-[6px]"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-micro text-micro text-on-surface-variant font-mono">CLOB 14ms</span></div></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center bg-surface-container-low px-space-sm py-space-xs rounded gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-data-sm text-data-sm font-semibold text-on-surface">—</span><span class="font-micro text-micro text-on-surface-variant uppercase">USDC</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 bg-surface pb-24"><div class="flex flex-col w-full px-margin py-space-md">
+<!-- Header / Breadcrumb Context -->
+<div class="flex flex-col gap-space-xs mb-space-md">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Account &amp; Security</span>
+<div class="flex items-center gap-[6px] bg-tertiary-container/15 px-space-sm py-[3px] rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-micro text-micro text-tertiary font-semibold uppercase tracking-wider">Tier 3 (Institutional)</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Trader identity, cryptographic keys, notifications &amp; preferences</p>
+<div class="flex items-center gap-space-xs mt-[2px]">
+<span class="material-symbols-outlined text-tertiary text-[14px]">verified_user</span>
+<span class="font-micro text-micro text-tertiary font-mono">FIDO2 Active • Multi-Sig Enforced</span>
+</div>
+</div>
+<!-- Card 1: Trader Profile & Identity -->
+<section class="bg-surface-container rounded-xl p-space-lg mb-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">badge</span>
+<h2 class="font-label-caps text-label-caps uppercase text-on-surface tracking-wider font-semibold">Trader Profile &amp; Identity</h2>
+</div>
+<span class="font-micro text-micro bg-surface-container-high text-primary px-space-xs py-[2px] rounded">Firm MM</span>
+</div>
+<!-- Avatar & ID Badge -->
+<div class="flex items-center gap-space-md bg-surface-container-low p-space-md rounded-lg">
+<div class="relative w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+<span class="font-headline-md text-headline-md font-bold text-on-primary-container">AV</span>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary text-[10px]">check</span>
+</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-data-md text-data-md text-on-surface truncate">Alexander Vance</span>
+<span class="material-symbols-outlined text-primary text-[15px]">verified</span>
+</div>
+<span class="font-micro text-micro text-on-surface-variant font-mono">0x71A4...94F9</span>
+</div>
+</div>
+<!-- Metadata Attributes -->
+<div class="flex flex-col gap-space-sm bg-surface-container-low p-space-md rounded-lg">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Public Handle</span>
+<div class="flex items-center gap-1">
+<span class="font-data-sm text-data-sm text-on-surface font-mono">@avance_capital</span>
+<span class="font-micro text-micro bg-surface-bright text-tertiary px-1 rounded font-semibold">PRO</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Work Email</span>
+<span class="font-data-sm text-data-sm text-on-surface font-mono truncate max-w-[200px]">a.vance@primecap.fund</span>
+</div>
+</div>
+<!-- Telemetry Toggle Row -->
+<div class="flex items-center justify-between bg-surface-container-low p-space-md rounded-lg">
+<div class="flex flex-col pr-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="font-data-sm text-data-sm text-on-surface">Win Rate Telemetry</span>
+<span class="font-micro text-micro text-tertiary font-mono bg-tertiary-container/20 px-1 py-[1px] rounded">70.8% Score</span>
+</div>
+<span class="font-micro text-micro text-on-surface-variant mt-[2px]">Publicly broadcast execution accuracy to MITMARKET CLOB</span>
+</div>
+<button aria-checked="true" class="w-12 h-6 bg-tertiary rounded-full relative transition-colors cursor-pointer shrink-0" onclick="this.classList.toggle('bg-tertiary'); this.classList.toggle('bg-surface-variant'); this.firstElementChild.classList.toggle('translate-x-6'); this.firstElementChild.classList.toggle('translate-x-1');" role="switch" type="button">
+<span class="w-4 h-4 bg-on-tertiary rounded-full absolute top-1 translate-x-6 transition-transform shadow-sm block"></span>
+</button>
+</div>
+</section>
+<!-- Card 2: Cryptographic Security & MFA -->
+<section class="bg-surface-container rounded-xl p-space-lg mb-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[18px]">key</span>
+<h2 class="font-label-caps text-label-caps uppercase text-on-surface tracking-wider font-semibold">Cryptographic Security &amp; MFA</h2>
+</div>
+<span class="font-micro text-micro text-tertiary bg-tertiary-container/15 px-space-xs py-[2px] rounded uppercase font-semibold">Optimal</span>
+</div>
+<!-- TOTP 2FA -->
+<div class="flex items-center justify-between bg-surface-container-low p-space-md rounded-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[18px]">phonelink_lock</span>
+</div>
+<div class="flex flex-col">
+<span class="font-data-sm text-data-sm text-on-surface">Time-based OTP (2FA)</span>
+<span class="font-micro text-micro text-on-surface-variant">Google / Aegis Authenticator</span>
+</div>
+</div>
+<span class="font-micro text-micro bg-tertiary/15 text-tertiary px-space-xs py-1 rounded font-semibold uppercase">Active</span>
+</div>
+<!-- Hardware Keys -->
+<div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-lg">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-on-surface text-[16px]">security</span>
+<span class="font-data-sm text-data-sm text-on-surface">FIDO2 Hardware Keys</span>
+</div>
+<span class="font-micro text-micro text-primary font-semibold">2 Enrolled</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-high/60 px-space-sm rounded">
+<div class="flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-mono">YubiKey 5C NFC</span>
+</div>
+<span class="font-micro text-micro text-on-surface-variant">Primary Slot</span>
+</div>
+<div class="flex items-center justify-between py-1 bg-surface-container-high/60 px-space-sm rounded">
+<div class="flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-body-sm text-body-sm text-on-surface font-mono">YubiKey 5Ci</span>
+</div>
+<span class="font-micro text-micro text-on-surface-variant">Cold Vault</span>
+</div>
+</div>
+<!-- Active Sessions -->
+<div class="flex flex-col gap-space-sm bg-surface-container-low p-space-md rounded-lg">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Authorized Sessions</span>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary text-[18px]">desktop_windows</span>
+<div class="flex flex-col">
+<span class="font-data-sm text-data-sm text-on-surface">Desktop Terminal</span>
+<span class="font-micro text-micro text-on-surface-variant font-mono">Current • 192.168.1.104</span>
+</div>
+</div>
+<span class="font-micro text-micro text-tertiary font-semibold uppercase">This Device</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">smartphone</span>
+<div class="flex flex-col">
+<span class="font-data-sm text-data-sm text-on-surface">Mobile App v2.4</span>
+<span class="font-micro text-micro text-on-surface-variant">Active 2h ago • iOS</span>
+</div>
+</div>
+<button class="min-h-[32px] px-space-sm py-1 bg-error-container/40 text-error rounded font-data-sm text-data-sm active:bg-error-container cursor-pointer transition-colors" onclick="this.parentElement.remove()" type="button">
+          Revoke
+        </button>
+</div>
+</div>
+</section>
+<!-- Card 3: Notification Feeds -->
+<section class="bg-surface-container rounded-xl p-space-lg mb-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">notifications_active</span>
+<h2 class="font-label-caps text-label-caps uppercase text-on-surface tracking-wider font-semibold">Notification Feeds</h2>
+</div>
+<span class="font-micro text-micro text-on-surface-variant">Low-Latency Push</span>
+</div>
+<!-- Feed 1 -->
+<div class="flex items-center justify-between bg-surface-container-low p-space-md rounded-lg">
+<div class="flex flex-col">
+<span class="font-data-sm text-data-sm text-on-surface">Order Fills &amp; Liquidations</span>
+<span class="font-micro text-micro text-on-surface-variant">Execution matches &amp; settlement credits</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-space-xs py-1 rounded">
+<span class="font-micro text-micro text-secondary font-mono">Push &amp; Email</span>
+</div>
+</div>
+<!-- Feed 2 -->
+<div class="flex items-center justify-between bg-surface-container-low p-space-md rounded-lg">
+<div class="flex flex-col">
+<span class="font-data-sm text-data-sm text-on-surface">Oracle Resolutions</span>
+<span class="font-micro text-micro text-on-surface-variant">UMA &amp; Chainlink market finality events</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-space-xs py-1 rounded">
+<span class="font-micro text-micro text-tertiary font-mono">Push Active</span>
+</div>
+</div>
+<!-- Feed 3 -->
+<div class="flex items-center justify-between bg-surface-container-low p-space-md rounded-lg">
+<div class="flex flex-col">
+<span class="font-data-sm text-data-sm text-on-surface">Threshold &amp; Volatility</span>
+<span class="font-micro text-micro text-on-surface-variant">CLOB book delta &gt; 15% within 60s</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-space-xs py-1 rounded">
+<span class="font-micro text-micro text-tertiary font-mono">Push Active</span>
+</div>
+</div>
+</section>
+<!-- Card 4: Regional & Preferences -->
+<section class="bg-surface-container rounded-xl p-space-lg mb-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">language</span>
+<h2 class="font-label-caps text-label-caps uppercase text-on-surface tracking-wider font-semibold">Regional &amp; Preferences</h2>
+</div>
+<span class="font-micro text-micro text-primary bg-primary-container/20 px-space-xs py-[2px] rounded font-semibold">Configured</span>
+</div>
+<!-- Language Selector Row (Interactive) -->
+<div class="flex flex-col bg-surface-container-low p-space-md rounded-lg min-h-[48px] active:bg-surface-container-high cursor-pointer transition-colors" onclick="openLanguageModal()" role="button" tabindex="0">
+<div class="flex items-center justify-between">
+<span class="font-data-sm text-data-sm text-on-surface font-medium">Language</span>
+<div class="flex items-center gap-space-xs">
+<span class="font-data-sm text-data-sm text-primary font-semibold" id="selected-language-label">English (en) — Default</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">chevron_right</span>
+</div>
+</div>
+<span class="font-micro text-micro text-on-surface-variant mt-1">29 Locales Supported (inc. Türkçe, Azərbaycanca, Persian RTL)</span>
+</div>
+<!-- Currency Selector Row -->
+<div class="flex flex-col bg-surface-container-low p-space-md rounded-lg min-h-[48px] active:bg-surface-container-high cursor-pointer transition-colors" role="button" tabindex="0">
+<div class="flex items-center justify-between">
+<span class="font-data-sm text-data-sm text-on-surface font-medium">Display Currency</span>
+<div class="flex items-center gap-space-xs">
+<span class="font-data-sm text-data-sm text-primary font-semibold">USD ($) — Reference Rate</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">chevron_right</span>
+</div>
+</div>
+<span class="font-micro text-micro text-on-surface-variant mt-1">Order books remain USDC denominated natively</span>
+</div>
+<!-- Timezone & Tabular Precision Info -->
+<div class="flex flex-col gap-space-sm bg-surface-container-low p-space-md rounded-lg">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Resolution Time Zone</span>
+<span class="font-data-sm text-data-sm text-on-surface font-mono">UTC (Coordinated Universal Time)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tabular Numeral Precision</span>
+<span class="font-data-sm text-data-sm text-tertiary font-mono">TNUM Enabled (1,234.56)</span>
+</div>
+</div>
+</section>
+<!-- Institutional Audit Footer Note -->
+<div class="flex items-center justify-between px-space-xs py-space-sm text-on-surface-variant">
+<span class="font-micro text-micro font-mono">Firm Session Key Hash: 0x9e88...b201</span>
+<button class="font-micro text-micro text-error font-semibold uppercase hover:underline" type="button">Emergency Lockout</button>
+</div>
+<!-- Interactive Language Selector Modal (Hidden by Default) -->
+<div class="fixed inset-0 z-50 bg-surface-container-lowest/80 backdrop-blur-md hidden flex-col justify-end p-margin transition-opacity" id="language-modal">
+<div class="bg-surface-container-high rounded-t-xl rounded-b-lg p-space-lg flex flex-col gap-space-md max-h-[663px] shadow-xl overflow-hidden">
+<!-- Modal Header -->
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">Select Interface Locale</span>
+<span class="font-micro text-micro text-on-surface-variant">Deterministic font rendering enabled for 29 institutional locales</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface cursor-pointer" onclick="closeLanguageModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Locale Options Grid / List -->
+<div class="flex flex-col gap-space-xs overflow-y-auto max-h-[442px] pr-1">
+<button class="flex items-center justify-between p-space-md rounded-lg bg-surface-container min-h-[48px] active:bg-surface-container-highest cursor-pointer text-left" onclick="selectLocale('English (en) — Default')" type="button">
+<div class="flex flex-col">
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">English (en)</span>
+<span class="font-micro text-micro text-on-surface-variant">Default Terminal Setting</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</button>
+<button class="flex items-center justify-between p-space-md rounded-lg bg-surface-container min-h-[48px] active:bg-surface-container-highest cursor-pointer text-left" onclick="selectLocale('Türkçe (tr)')" type="button">
+<div class="flex flex-col">
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">Türkçe (tr)</span>
+<span class="font-micro text-micro text-on-surface-variant">Tam Finansal Yerelleştirme</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40 text-[20px]">radio_button_unchecked</span>
+</button>
+<button class="flex items-center justify-between p-space-md rounded-lg bg-surface-container min-h-[48px] active:bg-surface-container-highest cursor-pointer text-left" onclick="selectLocale('Azərbaycanca (az)')" type="button">
+<div class="flex flex-col">
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">Azərbaycanca (az)</span>
+<span class="font-micro text-micro text-on-surface-variant">Tam Dəstək • Baki Region</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40 text-[20px]">radio_button_unchecked</span>
+</button>
+<button class="flex items-center justify-between p-space-md rounded-lg bg-surface-container min-h-[48px] active:bg-surface-container-highest cursor-pointer text-left" onclick="selectLocale('فارسی (fa) — RTL')" type="button">
+<div class="flex flex-col">
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">ژارسی (fa)</span>
+<span class="font-micro text-micro text-on-surface-variant">Persian RTL Alignment</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40 text-[20px]">radio_button_unchecked</span>
+</button>
+<button class="flex items-center justify-between p-space-md rounded-lg bg-surface-container min-h-[48px] active:bg-surface-container-highest cursor-pointer text-left" onclick="selectLocale('Deutsch (de)')" type="button">
+<div class="flex flex-col">
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">Deutsch (de)</span>
+<span class="font-micro text-micro text-on-surface-variant">Frankfurt Engine Standard</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40 text-[20px]">radio_button_unchecked</span>
+</button>
+<button class="flex items-center justify-between p-space-md rounded-lg bg-surface-container min-h-[48px] active:bg-surface-container-highest cursor-pointer text-left" onclick="selectLocale('日本語 (ja)')" type="button">
+<div class="flex flex-col">
+<span class="font-data-sm text-data-sm text-on-surface font-semibold">日本語 (ja)</span>
+<span class="font-micro text-micro text-on-surface-variant">Tokyo CLOB Optimization</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40 text-[20px]">radio_button_unchecked</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function openLanguageModal() {
+    const modal = document.getElementById('language-modal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function closeLanguageModal() {
+    const modal = document.getElementById('language-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  function selectLocale(localeName) {
+    const label = document.getElementById('selected-language-label');
+    if (label) {
+      label.textContent = localeName;
+    }
+    closeLanguageModal();
+  }
+
+  // Highlight bottom navigation Settings icon active state
+  document.addEventListener('DOMContentLoaded', () => {
+    const navItems = document.querySelectorAll('nav a');
+    navItems.forEach(item => {
+      if (item.getAttribute('data-path') === 'institutional-settings') {
+        item.classList.add('text-primary', 'font-semibold');
+        item.classList.remove('text-on-surface-variant');
+      }
+    });
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.45)]" data-active-classes="text-primary font-semibold"><div class="flex justify-between items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] flex-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="markets-feed" href="#"><span class="material-symbols-outlined text-[20px]">candlestick_chart</span><span class="font-label-caps text-[10px] tracking-tight">Markets</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] flex-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="explore-categories" href="#"><span class="material-symbols-outlined text-[20px]">travel_explore</span><span class="font-label-caps text-[10px] tracking-tight">Explore</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] flex-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="positions-and-orders" href="#"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="font-label-caps text-[10px] tracking-tight">Positions</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] flex-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="settlement-wallet" href="#"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span><span class="font-label-caps text-[10px] tracking-tight">Wallet</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-1 min-w-[56px] min-h-[44px] flex-1 transition-colors text-primary font-semibold" data-path="institutional-settings" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-label-caps text-[10px] tracking-tight">Settings</span></a></div></nav></body></html>

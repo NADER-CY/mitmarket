@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "background": "#000000",
+        "inverse-surface": "#F4F6FA",
+        "on-surface": "#F4F6FA",
+        "tertiary-fixed": "#0bba74",
+        "primary-fixed-dim": "#1463ff",
+        "on-primary-fixed": "#000000",
+        "secondary-fixed": "#EAA343",
+        "on-error-container": "#ff4761",
+        "error-container": "#101216",
+        "error": "#ff4761",
+        "on-primary-fixed-variant": "#000000",
+        "outline": "#98A5B5",
+        "on-background": "#F4F6FA",
+        "on-error": "#000000",
+        "primary": "#1463ff",
+        "surface-tint": "#1463ff",
+        "on-surface-variant": "#98A5B5",
+        "on-tertiary-fixed": "#000000",
+        "surface-container": "#101216",
+        "on-secondary": "#000000",
+        "on-primary-container": "#000000",
+        "inverse-on-surface": "#101216",
+        "secondary-fixed-dim": "#EAA343",
+        "primary-container": "#1463ff",
+        "on-secondary-fixed": "#000000",
+        "tertiary-container": "#0bba74",
+        "on-secondary-fixed-variant": "#000000",
+        "outline-variant": "#29313D",
+        "on-tertiary": "#000000",
+        "on-tertiary-fixed-variant": "#000000",
+        "secondary-container": "#101216",
+        "tertiary-fixed-dim": "#0bba74",
+        "tertiary": "#0bba74",
+        "on-tertiary-container": "#000000",
+        "inverse-primary": "#1463ff",
+        "surface-container-high": "#101216",
+        "on-secondary-container": "#F4F6FA",
+        "surface-container-highest": "#101216",
+        "surface-variant": "#101216",
+        "primary-fixed": "#1463ff",
+        "on-primary": "#000000",
+        "surface-bright": "#29313D",
+        "surface-dim": "#000000",
+        "surface-container-lowest": "#101216",
+        "surface": "#000000",
+        "surface-container-low": "#101216",
+        "secondary": "#EAA343"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.125rem",
+        "lg": "0.25rem",
+        "xl": "0.5rem",
+        "full": "0.75rem"
+      },
+      "spacing": {
+        "space-md": "0.75rem",
+        "margin": "1rem",
+        "space-xs": "0.25rem",
+        "gutter": "0.75rem",
+        "space-xl": "1.5rem",
+        "margin-desktop": "1.5rem",
+        "space-lg": "1rem",
+        "space-sm": "0.5rem",
+        "gutter-desktop": "1rem"
+      },
+      "fontFamily": {
+        "display-lg": ["Inter"],
+        "data-md": ["Inter"],
+        "label-caps": ["Inter"],
+        "headline-md": ["Inter"],
+        "headline-lg": ["Inter"],
+        "body-md": ["Inter"],
+        "data-sm": ["Inter"],
+        "micro": ["Inter"],
+        "body-lg": ["Inter"],
+        "data-lg": ["Inter"],
+        "body-sm": ["Inter"]
+      },
+      "fontSize": {
+        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "data-md": ["14px", {"lineHeight": "18px", "fontWeight": "600"}],
+        "label-caps": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+        "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "body-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+        "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+        "micro": ["10px", {"lineHeight": "12px", "fontWeight": "500"}],
+        "body-lg": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+        "data-lg": ["20px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+      }
+    }
+  }
+}</script><style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><aside class="fixed left-0 top-0 h-full w-60 bg-surface-container-lowest z-50 flex flex-col justify-between select-none shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="flex flex-col"><div class="h-14 px-space-lg flex items-center gap-space-sm bg-surface-container-low"><div class="w-5 h-5 bg-primary-container rounded flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[14px]">layers</span></div><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight font-bold text-on-surface">MITMARKET</span><span class="font-headline-md text-headline-md tracking-tight font-light text-primary">PRO</span></div><span class="ml-auto font-label-caps text-label-caps uppercase bg-primary-container text-on-primary-container px-space-xs py-[1px] rounded">ADMIN</span></div><div class="px-space-md py-space-sm"><div class="font-micro text-micro uppercase tracking-wider text-outline px-space-sm mb-space-xs">Terminal Core</div><nav class="flex flex-col gap-[2px]" data-active-classes="bg-surface-container-high text-primary font-bold shadow-[inset_2px_0_0_0_#1463ff]"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="overview" href="#"><span class="material-symbols-outlined text-[16px]">monitoring</span>Overview</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="markets" href="#"><span class="material-symbols-outlined text-[16px]">storefront</span>Markets</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="trading" href="#"><span class="material-symbols-outlined text-[16px]">candlestick_chart</span>Trading</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="users" href="#"><span class="material-symbols-outlined text-[16px]">group</span>Users</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="resolution" href="#"><span class="material-symbols-outlined text-[16px]">gavel</span>Resolution</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="wallets" href="#"><span class="material-symbols-outlined text-[16px]">account_balance_wallet</span>Wallets</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports" href="#"><span class="material-symbols-outlined text-[16px]">analytics</span>Reports</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="audit-logs" href="#"><span class="material-symbols-outlined text-[16px]">receipt_long</span>Audit Logs</a></nav></div><div class="px-space-md py-space-xs"><div class="font-micro text-micro uppercase tracking-wider text-outline px-space-sm mb-space-xs">Operations</div><nav class="flex flex-col gap-[2px]" data-active-classes="bg-surface-container-high text-primary font-bold shadow-[inset_2px_0_0_0_#1463ff]"><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[16px]">tune</span>Settings</a><a class="flex items-center gap-space-sm px-space-sm py-space-xs rounded font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="api-feeds" href="#"><span class="material-symbols-outlined text-[16px]">hub</span>API &amp; Feeds</a></nav></div></div><div class="p-space-md bg-surface-container-low"><div class="bg-surface-container p-space-sm rounded flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-micro text-micro uppercase tracking-wider text-outline">CLOB Engine</span><span class="font-data-sm text-data-sm text-tertiary">0.8ms</span></div><div class="flex items-center justify-between"><span class="font-micro text-micro uppercase tracking-wider text-outline">Memory Pool</span><span class="font-data-sm text-data-sm text-on-surface">—</span></div></div></div></aside><div class="pl-60"><header class="fixed top-0 left-60 right-0 h-14 bg-surface-container-lowest/90 backdrop-blur-md z-40 flex items-center justify-between px-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm px-space-sm py-[2px] bg-surface-container rounded"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span><span class="font-micro text-micro uppercase tracking-wider font-semibold text-tertiary">LIVE</span><span class="text-outline text-[10px]">/</span><span class="font-data-sm text-data-sm text-on-surface-variant">CLOB Matching Engine: <span class="text-tertiary font-semibold">0.8ms</span></span><span class="text-outline text-[10px]">/</span><span class="font-data-sm text-data-sm text-outline">Node us-east-1 // Zero-Trust Enclave</span></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-sm text-[16px] text-outline pointer-events-none">search</span><input class="w-80 h-8 pl-8 pr-12 bg-surface-container text-on-surface font-body-sm text-body-sm rounded placeholder:text-outline focus:outline-none focus:bg-surface-container-high focus:text-on-surface transition-colors" placeholder="Omni-search commands, hashes, markets..." type="text"/><kbd class="absolute right-space-sm font-label-caps text-label-caps uppercase bg-surface-container-highest text-on-surface-variant px-space-xs py-[1px] rounded pointer-events-none">⌘K</kbd></div><button aria-label="Notifications" class="relative w-8 h-8 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[18px]">notifications</span><span class="absolute -top-1 -right-1 w-4 h-4 bg-error-container text-on-error-container font-micro text-micro flex items-center justify-center rounded-full font-bold">3</span></button><div class="h-6 w-[1px] bg-surface-container-high"></div><div class="flex items-center gap-space-sm"><div class="text-right"><div class="font-data-sm text-data-sm font-semibold text-on-surface leading-none">Alexander Vance</div><div class="font-micro text-micro uppercase tracking-wider text-secondary leading-none mt-1">L4 SUPER_ADMIN</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-14 w-full bg-surface min-h-[calc(100vh-3.5rem)]"><div class="flex flex-col w-full text-on-surface">
+<!-- Top Architecture Notice & Operational Header -->
+<div class="px-space-lg pt-space-md pb-space-sm bg-surface-container-low">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md mb-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">hub</span>
+            Feed Orchestration &amp; Telemetry
+          </span>
+<span class="text-outline text-micro">/</span>
+<span class="bg-surface-container-high px-space-xs py-[1px] rounded font-label-caps text-label-caps text-primary uppercase">
+            READ-ONLY PASSIVE INGESTION
+          </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">
+          External Reference Feeds &amp; Market Data Management
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+          Real-time orchestration of Polymarket reference APIs, WebSocket liquidity streams, market contract cross-mapping, and data freshness telemetry.
+        </p>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase px-space-md py-space-sm rounded transition-colors flex items-center gap-space-xs active:scale-95" id="btn-refresh">
+<span class="material-symbols-outlined text-[14px]">sync</span>
+          Refresh External Metadata
+        </button>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase px-space-md py-space-sm rounded transition-colors flex items-center gap-space-xs active:scale-95" id="btn-test-latency">
+<span class="material-symbols-outlined text-[14px]">speed</span>
+          Test Endpoint Latency
+        </button>
+<button class="bg-primary-container text-on-primary-container font-label-caps text-label-caps uppercase px-space-md py-space-sm rounded transition-colors flex items-center gap-space-xs font-semibold hover:bg-primary">
+<span class="material-symbols-outlined text-[14px]">history</span>
+          Sync Configuration History
+        </button>
+</div>
+</div>
+<!-- Architectural Isolation Banners -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm pt-space-xs">
+<div class="bg-surface-container px-space-md py-space-xs rounded flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold tracking-wider">
+            REFERENCE FEED: POLYMARKET (READ-ONLY)
+          </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Public price &amp; benchmark signal layer (Zero execution dependency)</span>
+</div>
+<div class="bg-surface-container px-space-md py-space-xs rounded flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="font-label-caps text-label-caps uppercase text-tertiary font-bold tracking-wider">
+            MATCHING ENGINE: 100% NATIVE INDEPENDENT
+          </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Deterministic CLOB &amp; Settlement executed entirely on native smart contracts</span>
+</div>
+</div>
+</div>
+<!-- Main Viewport Chassis -->
+<div class="p-space-lg flex flex-col gap-space-md">
+<!-- Data Sources Health Matrix (6 Live Infrastructure Blocks) -->
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-micro text-micro uppercase tracking-wider text-outline font-semibold">Data Pipeline Health Matrix</span>
+<span class="text-outline text-micro">•</span>
+<span class="font-micro text-micro uppercase tracking-wider text-tertiary">6/6 Operational</span>
+</div>
+<span class="font-micro text-micro text-outline uppercase tracking-wider">Telemetry sampling rate: 500ms</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-space-sm">
+<!-- 1. Gamma API -->
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-on-surface font-semibold truncate">Polymarket Gamma</span>
+<span class="bg-tertiary/10 text-tertiary font-micro text-micro uppercase px-1 py-[1px] rounded font-bold">Online</span>
+</div>
+<div class="flex flex-col gap-[2px]">
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Req/Rate</span>
+<span class="text-on-surface font-bold">48 req/s</span>
+</div>
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Latency</span>
+<span class="text-tertiary">42ms</span>
+</div>
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Freshness</span>
+<span class="text-on-surface">0.4s ago</span>
+</div>
+</div>
+<div class="mt-space-xs pt-space-xs flex justify-between items-center text-outline font-micro text-micro">
+<span>Last Sync</span>
+<span class="text-on-surface-variant font-medium">14:32:10 UTC</span>
+</div>
+</div>
+<!-- 2. CLOB Market Data API -->
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-on-surface font-semibold truncate">Polymarket CLOB API</span>
+<span class="bg-tertiary/10 text-tertiary font-micro text-micro uppercase px-1 py-[1px] rounded font-bold">Online 100%</span>
+</div>
+<div class="flex flex-col gap-[2px]">
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Throughput</span>
+<span class="text-on-surface font-bold">120 req/s</span>
+</div>
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Latency</span>
+<span class="text-tertiary">38ms</span>
+</div>
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Book Jitter</span>
+<span class="text-on-surface">±2ms</span>
+</div>
+</div>
+<div class="mt-space-xs pt-space-xs flex justify-between items-center text-outline font-micro text-micro">
+<span>Error Rate</span>
+<span class="text-tertiary font-bold">—</span>
+</div>
+</div>
+<!-- 3. Data & Analytics API -->
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-on-surface font-semibold truncate">Data &amp; Analytics API</span>
+<span class="bg-tertiary/10 text-tertiary font-micro text-micro uppercase px-1 py-[1px] rounded font-bold">Synced</span>
+</div>
+<div class="flex flex-col gap-[2px]">
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Batch Mode</span>
+<span class="text-on-surface font-bold">15m poll</span>
+</div>
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Latency</span>
+<span class="text-on-surface">110ms</span>
+</div>
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Aggregates</span>
+<span class="text-tertiary">OK</span>
+</div>
+</div>
+<div class="mt-space-xs pt-space-xs flex justify-between items-center text-outline font-micro text-micro">
+<span>Scope</span>
+<span class="text-on-surface-variant font-medium">Vol / OI / TVL</span>
+</div>
+</div>
+<!-- 4. Polymarket Real-Time WebSocket -->
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-on-surface font-semibold truncate">Polymarket Live WS</span>
+<span class="bg-tertiary/10 text-tertiary font-micro text-micro uppercase px-1 py-[1px] rounded font-bold">Connected</span>
+</div>
+<div class="flex flex-col gap-[2px]">
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Streams</span>
+<span class="text-on-surface font-bold">142 Books</span>
+</div>
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Msg Flow</span>
+<span class="text-primary font-bold">1,480 /s</span>
+</div>
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Engine Lag</span>
+<span class="text-tertiary">0.8ms</span>
+</div>
+</div>
+<div class="mt-space-xs pt-space-xs flex justify-between items-center text-outline font-micro text-micro">
+<span>Dropped Frames</span>
+<span class="text-tertiary font-bold">0</span>
+</div>
+</div>
+<!-- 5. MITMARKET Internal Gateway -->
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-on-surface font-semibold truncate">MITMARKET Data Gateway</span>
+<span class="bg-primary/10 text-primary font-micro text-micro uppercase px-1 py-[1px] rounded font-bold">Optimal</span>
+</div>
+<div class="flex flex-col gap-[2px]">
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Internal Lag</span>
+<span class="text-tertiary font-bold">0.42ms</span>
+</div>
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Subs Clients</span>
+<span class="text-on-surface font-bold">24,190</span>
+</div>
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Protocol</span>
+<span class="text-on-surface">Binary FlatBuf</span>
+</div>
+</div>
+<div class="mt-space-xs pt-space-xs flex justify-between items-center text-outline font-micro text-micro">
+<span>Core Cluster</span>
+<span class="text-on-surface-variant font-medium">us-east-1 // ZeroT</span>
+</div>
+</div>
+<!-- 6. MITMARKET Relayer Node -->
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-on-surface font-semibold truncate">MITMARKET Relayer Node</span>
+<span class="bg-tertiary/10 text-tertiary font-micro text-micro uppercase px-1 py-[1px] rounded font-bold">Synced</span>
+</div>
+<div class="flex flex-col gap-[2px]">
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Block Height</span>
+<span class="text-on-surface font-bold">#67,419,002</span>
+</div>
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">P2P Peers</span>
+<span class="text-on-surface font-bold">48 Connected</span>
+</div>
+<div class="flex items-baseline justify-between font-data-sm text-data-sm">
+<span class="text-on-surface-variant font-micro text-micro uppercase">Mempool Hold</span>
+<span class="text-tertiary">0 tx pending</span>
+</div>
+</div>
+<div class="mt-space-xs pt-space-xs flex justify-between items-center text-outline font-micro text-micro">
+<span>State Drift</span>
+<span class="text-tertiary font-bold">0 blocks</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Synchronization Statistics Strip -->
+<div class="bg-surface-container-low p-space-md rounded grid grid-cols-2 lg:grid-cols-6 gap-space-md">
+<div class="flex flex-col">
+<span class="font-micro text-micro uppercase tracking-wider text-outline">Total Ext. Events</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-data-lg text-data-lg text-on-surface">1,842</span>
+<span class="font-micro text-micro text-on-surface-variant">tracked</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro uppercase tracking-wider text-outline">Active Ref Markets</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-data-lg text-data-lg text-on-surface">486</span>
+<span class="font-micro text-micro text-tertiary">online</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro uppercase tracking-wider text-outline">Mapped Native Markets</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-data-lg text-data-lg text-primary">142</span>
+<span class="font-micro text-micro text-tertiary font-semibold">100% Active</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro uppercase tracking-wider text-outline">Unmapped Ref Catalog</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-data-lg text-data-lg text-secondary">344</span>
+<span class="font-micro text-micro text-outline">ready to list</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro uppercase tracking-wider text-outline">Last Full Contract Sync</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-data-lg text-data-lg text-on-surface">12m ago</span>
+<span class="font-micro text-micro text-outline">(1h cycle)</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-micro text-micro uppercase tracking-wider text-outline">Integrity Anomalies</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-data-lg text-data-lg text-tertiary">0 Breaches</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">verified_user</span>
+</div>
+</div>
+</div>
+<!-- Main Workspace Layout: Market Mapping & Parity Table + Diagnostics Rail -->
+<div class="flex flex-col xl:flex-row gap-space-md items-start">
+<!-- Center Table Chassis (Table Layout) -->
+<div class="flex-1 w-full bg-surface-container rounded overflow-hidden flex flex-col">
+<!-- Table Toolbar -->
+<div class="p-space-sm bg-surface-container-high flex flex-col md:flex-row items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs w-full md:w-auto">
+<button class="filter-tab active bg-surface-container-lowest text-primary px-space-sm py-[4px] rounded font-label-caps text-label-caps uppercase font-bold flex items-center gap-1">
+<span>All Mapped</span>
+<span class="bg-primary/20 text-primary px-1 rounded font-micro text-micro">142</span>
+</button>
+<button class="filter-tab bg-transparent text-on-surface-variant hover:text-on-surface px-space-sm py-[4px] rounded font-label-caps text-label-caps uppercase font-medium flex items-center gap-1 transition-colors">
+<span>Live Arbitrage Radar</span>
+<span class="bg-secondary/20 text-secondary px-1 rounded font-micro text-micro">Δ &gt; 0.5¢</span>
+</button>
+<button class="filter-tab bg-transparent text-on-surface-variant hover:text-on-surface px-space-sm py-[4px] rounded font-label-caps text-label-caps uppercase font-medium flex items-center gap-1 transition-colors">
+<span>Stale Feed Alerts</span>
+<span class="bg-surface-container text-outline px-1 rounded font-micro text-micro">0</span>
+</button>
+</div>
+<!-- Search & Filters -->
+<div class="flex items-center gap-space-xs w-full md:w-auto">
+<div class="relative flex-1 md:w-64">
+<span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-[14px] text-outline">search</span>
+<input class="w-full h-7 pl-7 pr-3 bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-sm text-body-sm rounded focus:outline-none focus:ring-1 focus:ring-primary" id="market-filter-input" placeholder="Search MITMARKET ID, Ref Hash, Slug..." type="text"/>
+</div>
+<button class="h-7 px-space-xs bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant rounded flex items-center justify-center" title="Export Table as CSV">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+</button>
+</div>
+</div>
+<!-- Table Viewport -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-outline font-label-caps text-label-caps uppercase tracking-wider select-none">
+<th class="py-space-xs px-space-sm">MITMARKET Native Market</th>
+<th class="py-space-xs px-space-sm">Polymarket Reference ID</th>
+<th class="py-space-xs px-space-sm">Category</th>
+<th class="py-space-xs px-space-sm">Mapping State</th>
+<th class="py-space-xs px-space-sm text-right">MITMARKET CLOB (YES)</th>
+<th class="py-space-xs px-space-sm text-right">Polymarket (YES)</th>
+<th class="py-space-xs px-space-sm text-right">Cross-Parity Δ</th>
+<th class="py-space-xs px-space-sm text-center">Freshness</th>
+<th class="py-space-xs px-space-sm text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-data-sm text-data-sm" id="market-table-body">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-high/60 transition-colors group">
+<td class="py-space-sm px-space-sm">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface group-hover:text-primary transition-colors">Bitcoin Exceeds $120k by Dec 2026</span>
+<div class="flex items-center gap-1 font-micro text-micro text-outline">
+<span class="text-primary font-mono font-medium">#MKT-BTC-120K</span>
+<span>•</span>
+<span>Resolves 2026-12-31</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm font-mono text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="truncate max-w-[120px]" title="0x71a2e49c89139fbbd812399b1">0x71a2...99b1</span>
+<button class="text-outline hover:text-on-surface" title="Copy polymarket ID">
+<span class="material-symbols-outlined text-[12px]">content_copy</span>
+</button>
+</div>
+</td>
+<td class="py-space-sm px-space-sm">
+<span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps uppercase px-space-xs py-[1px] rounded">
+                    Crypto
+                  </span>
+</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-1 text-tertiary font-label-caps text-label-caps uppercase font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                    Synchronized
+                  </div>
+</td>
+<td class="py-space-sm px-space-sm text-right font-bold text-on-surface">
+                  72.0¢
+                </td>
+<td class="py-space-sm px-space-sm text-right text-on-surface-variant font-medium">
+                  71.8¢
+                </td>
+<td class="py-space-sm px-space-sm text-right">
+<span class="text-tertiary font-semibold font-mono bg-tertiary/10 px-1 py-[1px] rounded">
+                    +0.2¢ spread
+                  </span>
+</td>
+<td class="py-space-sm px-space-sm text-center">
+<span class="text-tertiary font-mono">0.4s</span>
+</td>
+<td class="py-space-sm px-space-sm text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 hover:bg-surface-container-lowest rounded text-outline hover:text-primary" title="Review Mapping">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</button>
+<button class="p-1 hover:bg-surface-container-lowest rounded text-outline hover:text-on-surface" title="View Raw JSON Payload">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-high/60 transition-colors group">
+<td class="py-space-sm px-space-sm">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface group-hover:text-primary transition-colors">Federal Reserve Cuts ≥25bps June 2025</span>
+<div class="flex items-center gap-1 font-micro text-micro text-outline">
+<span class="text-primary font-mono font-medium">#MKT-FED-25BPS</span>
+<span>•</span>
+<span>FOMC Decision Matrix</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm font-mono text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="truncate max-w-[120px]" title="0x48e1b213890f91a2741132a0">0x48e1...32a0</span>
+<button class="text-outline hover:text-on-surface" title="Copy polymarket ID">
+<span class="material-symbols-outlined text-[12px]">content_copy</span>
+</button>
+</div>
+</td>
+<td class="py-space-sm px-space-sm">
+<span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps uppercase px-space-xs py-[1px] rounded">
+                    Macro
+                  </span>
+</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-1 text-tertiary font-label-caps text-label-caps uppercase font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                    Synchronized
+                  </div>
+</td>
+<td class="py-space-sm px-space-sm text-right font-bold text-on-surface">
+                  68.0¢
+                </td>
+<td class="py-space-sm px-space-sm text-right text-on-surface-variant font-medium">
+                  67.5¢
+                </td>
+<td class="py-space-sm px-space-sm text-right">
+<span class="text-secondary font-semibold font-mono bg-secondary/10 px-1 py-[1px] rounded">
+                    +0.5¢ spread
+                  </span>
+</td>
+<td class="py-space-sm px-space-sm text-center">
+<span class="text-on-surface-variant font-mono">1.1s</span>
+</td>
+<td class="py-space-sm px-space-sm text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 hover:bg-surface-container-lowest rounded text-outline hover:text-primary" title="Review Mapping">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</button>
+<button class="p-1 hover:bg-surface-container-lowest rounded text-outline hover:text-on-surface" title="View Raw JSON Payload">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-high/60 transition-colors group">
+<td class="py-space-sm px-space-sm">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface group-hover:text-primary transition-colors">OpenAI GPT-5 Public GA Release Before Q4 2025</span>
+<div class="flex items-center gap-1 font-micro text-micro text-outline">
+<span class="text-primary font-mono font-medium">#MKT-GPT5-REL</span>
+<span>•</span>
+<span>OpenAI Official Blog</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm font-mono text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="truncate max-w-[120px]" title="0x12c49921bcdefa80392019ff">0x12c4...19ff</span>
+<button class="text-outline hover:text-on-surface" title="Copy polymarket ID">
+<span class="material-symbols-outlined text-[12px]">content_copy</span>
+</button>
+</div>
+</td>
+<td class="py-space-sm px-space-sm">
+<span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps uppercase px-space-xs py-[1px] rounded">
+                    Tech &amp; AI
+                  </span>
+</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-1 text-tertiary font-label-caps text-label-caps uppercase font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                    Synchronized
+                  </div>
+</td>
+<td class="py-space-sm px-space-sm text-right font-bold text-on-surface">
+                  32.0¢
+                </td>
+<td class="py-space-sm px-space-sm text-right text-on-surface-variant font-medium">
+                  32.2¢
+                </td>
+<td class="py-space-sm px-space-sm text-right">
+<span class="text-error font-semibold font-mono bg-error-container/20 text-error px-1 py-[1px] rounded">
+                    -0.2¢ spread
+                  </span>
+</td>
+<td class="py-space-sm px-space-sm text-center">
+<span class="text-tertiary font-mono">0.8s</span>
+</td>
+<td class="py-space-sm px-space-sm text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 hover:bg-surface-container-lowest rounded text-outline hover:text-primary" title="Review Mapping">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</button>
+<button class="p-1 hover:bg-surface-container-lowest rounded text-outline hover:text-on-surface" title="View Raw JSON Payload">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-high/60 transition-colors group">
+<td class="py-space-sm px-space-sm">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface group-hover:text-primary transition-colors">SpaceX Starship IFT-5 Booster Tower Catch Success</span>
+<div class="flex items-center gap-1 font-micro text-micro text-outline">
+<span class="text-primary font-mono font-medium">#MKT-SPX-IFT5</span>
+<span>•</span>
+<span>FAA &amp; Live Webcast</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-sm font-mono text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="truncate max-w-[120px]" title="0x9920bbac4021389aa31102ec">0x9920...02ec</span>
+<button class="text-outline hover:text-on-surface" title="Copy polymarket ID">
+<span class="material-symbols-outlined text-[12px]">content_copy</span>
+</button>
+</div>
+</td>
+<td class="py-space-sm px-space-sm">
+<span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps uppercase px-space-xs py-[1px] rounded">
+                    Space
+                  </span>
+</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-1 text-secondary font-label-caps text-label-caps uppercase font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    Dispute Sync Hold
+                  </div>
+</td>
+<td class="py-space-sm px-space-sm text-right font-bold text-on-surface">
+                  54.0¢
+                </td>
+<td class="py-space-sm px-space-sm text-right text-on-surface-variant font-medium">
+                  53.6¢
+                </td>
+<td class="py-space-sm px-space-sm text-right">
+<span class="text-tertiary font-semibold font-mono bg-tertiary/10 px-1 py-[1px] rounded">
+                    +0.4¢ spread
+                  </span>
+</td>
+<td class="py-space-sm px-space-sm text-center">
+<span class="text-on-surface-variant font-mono">2.4s</span>
+</td>
+<td class="py-space-sm px-space-sm text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 hover:bg-surface-container-lowest rounded text-outline hover:text-primary" title="Review Mapping">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</button>
+<button class="p-1 hover:bg-surface-container-lowest rounded text-outline hover:text-on-surface" title="View Raw JSON Payload">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Pagination -->
+<div class="p-space-xs bg-surface-container-low flex items-center justify-between font-label-caps text-label-caps text-outline">
+<div class="flex items-center gap-2">
+<span>Showing 1 to 4 of 142 linked reference contracts</span>
+<span class="text-outline text-micro">•</span>
+<span class="text-tertiary">All feed endpoints responding normally</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2 py-1 bg-surface-container rounded hover:text-on-surface" disabled="">&lt; Prev</button>
+<span class="px-2 py-1 bg-surface-container-highest text-primary font-bold rounded">1</span>
+<button class="px-2 py-1 bg-surface-container rounded hover:text-on-surface">2</button>
+<button class="px-2 py-1 bg-surface-container rounded hover:text-on-surface">3</button>
+<span class="px-1">...</span>
+<button class="px-2 py-1 bg-surface-container rounded hover:text-on-surface">36</button>
+<button class="px-2 py-1 bg-surface-container rounded hover:text-on-surface">Next &gt;</button>
+</div>
+</div>
+</div>
+<!-- WebSocket Streaming Diagnostics Drawer (Right Side, 380px fixed width on desktop) -->
+<aside class="w-full xl:w-[380px] shrink-0 bg-surface-container rounded flex flex-col overflow-hidden">
+<!-- Drawer Header -->
+<div class="p-space-sm bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface font-bold">
+              WebSocket Stream Inspector
+            </span>
+</div>
+<span class="font-micro text-micro bg-tertiary/10 text-tertiary font-bold px-1.5 py-[1px] rounded">LIVE</span>
+</div>
+<!-- Stream Endpoint & Telemetry Summary -->
+<div class="p-space-md flex flex-col gap-space-sm">
+<div class="bg-surface-container-lowest p-space-xs rounded font-mono text-micro text-primary break-all select-all flex items-center justify-between">
+<span>wss://ws-subscriptions-clob.polymarket.com</span>
+<span class="material-symbols-outlined text-[12px] text-outline">lock</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs font-data-sm text-data-sm">
+<div class="bg-surface-container-low p-space-xs rounded">
+<span class="font-micro text-micro text-outline uppercase block">Ingest Rate</span>
+<span class="font-bold text-tertiary text-data-md">1,480 msgs/s</span>
+</div>
+<div class="bg-surface-container-low p-space-xs rounded">
+<span class="font-micro text-micro text-outline uppercase block">Disconnects (24h)</span>
+<span class="font-bold text-on-surface text-data-md">0 Events</span>
+</div>
+<div class="bg-surface-container-low p-space-xs rounded">
+<span class="font-micro text-micro text-outline uppercase block">Heartbeat Ping</span>
+<span class="text-on-surface">15s int (Ack 12ms)</span>
+</div>
+<div class="bg-surface-container-low p-space-xs rounded">
+<span class="font-micro text-micro text-outline uppercase block">Buffer Pressure</span>
+<span class="text-on-surface">3.4% capacity</span>
+</div>
+</div>
+</div>
+<!-- Active Subscriptions Scope -->
+<div class="px-space-md pb-space-xs flex flex-col gap-1">
+<div class="flex items-center justify-between text-micro uppercase tracking-wider text-outline font-semibold">
+<span>Active Subscriptions Topics</span>
+<span class="text-on-surface font-mono">284 Total</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-low px-space-sm py-1 rounded text-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">check_circle</span>
+              L2 Orderbook Snapshots &amp; Diffs
+            </span>
+<span class="font-mono text-on-surface font-semibold">142</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-low px-space-sm py-1 rounded text-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">check_circle</span>
+              Real-Time Trades Feed
+            </span>
+<span class="font-mono text-on-surface font-semibold">142</span>
+</div>
+</div>
+<!-- Live Raw Message Terminal Tail -->
+<div class="px-space-md py-space-xs">
+<div class="flex items-center justify-between mb-1">
+<span class="font-micro text-micro uppercase tracking-wider text-outline font-semibold">Stream Event Tail (L2 Ingest)</span>
+<span class="font-micro text-micro text-outline font-mono" id="stream-clock">LIVE FEED</span>
+</div>
+<div class="bg-surface-container-lowest p-space-xs rounded font-mono text-micro text-outline space-y-1 h-36 overflow-y-hidden select-none">
+<div class="text-tertiary truncate">▸ [14:32:11.402] {event: "book", asset: "0x71a2..", bids: [[0.718, 12000]]}</div>
+<div class="text-on-surface-variant truncate">▸ [14:32:11.418] {event: "price_change", market: "BTC-120K", p: 0.718}</div>
+<div class="text-tertiary truncate">▸ [14:32:11.480] {event: "book", asset: "0x48e1..", asks: [[0.676, 5400]]}</div>
+<div class="text-on-surface-variant truncate">▸ [14:32:11.512] {event: "last_trade_price", id: "0x12c4..", size: 450}</div>
+<div class="text-tertiary truncate">▸ [14:32:11.604] {event: "heartbeat", server_time: 1718900400}</div>
+<div class="text-on-surface-variant truncate">▸ [14:32:11.644] {event: "book", asset: "0x9920..", delta: "none"}</div>
+</div>
+</div>
+<!-- Latency / Freshness Threshold Settings -->
+<div class="p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-micro text-micro uppercase tracking-wider text-outline font-semibold">Stale Alert Threshold</span>
+<span class="font-label-caps text-label-caps text-secondary font-bold">&gt; 5.0s</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded overflow-hidden">
+<div class="bg-secondary h-full w-[24%]"></div>
+</div>
+<span class="font-micro text-micro text-outline">Current max lag across all registered 142 feeds is 2.4s (well within threshold).</span>
+</div>
+<!-- Strict Regulatory / Architecture Compliance Notice -->
+<div class="p-space-md bg-surface-container-low mt-auto">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">verified</span>
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps uppercase text-on-surface font-bold tracking-wider">
+                Independent Execution Notice
+              </span>
+<p class="font-micro text-micro text-on-surface-variant leading-relaxed">
+                Polymarket reference data is strictly advisory and used solely for comparative liquidity metrics. MITMARKET never executes automated orders against external order books. Zero private keys, API credentials, or settlement liabilities are linked to external protocols.
+              </p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+<script>
+  // Simple interactive filtering for market table
+  const searchInput = document.getElementById('market-filter-input');
+  const tableBody = document.getElementById('market-table-body');
+  
+  if (searchInput && tableBody) {
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      const rows = tableBody.querySelectorAll('tr');
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  }
+
+  // Micro-interaction for test latency button
+  const testBtn = document.getElementById('btn-test-latency');
+  if (testBtn) {
+    testBtn.addEventListener('click', () => {
+      const originalText = testBtn.innerHTML;
+      testBtn.innerHTML = '<span class="material-symbols-outlined text-[14px] animate-spin">refresh</span> Pinging Edge Nodes...';
+      setTimeout(() => {
+        testBtn.innerHTML = '<span class="material-symbols-outlined text-[14px] text-tertiary">check</span> Latency: 39ms Avg';
+        setTimeout(() => {
+          testBtn.innerHTML = originalText;
+        }, 2200);
+      }, 700);
+    });
+  }
+
+  // Micro-interaction for refresh button
+  const refreshBtn = document.getElementById('btn-refresh');
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', () => {
+      refreshBtn.classList.add('opacity-50');
+      setTimeout(() => {
+        refreshBtn.classList.remove('opacity-50');
+      }, 500);
+    });
+  }
+</script></main></div></body></html>

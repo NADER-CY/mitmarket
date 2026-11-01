@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>MITMARKET PRO // Institutional Prediction Terminal</title><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}.tabular-nums{font-variant-numeric:tabular-nums;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "surface-container-high": "#101216",
+        "secondary-fixed-dim": "#EAA343",
+        "surface": "#000000",
+        "primary": "#1463ff",
+        "surface-container-highest": "#101216",
+        "primary-container": "#1463ff",
+        "on-primary-fixed-variant": "#000000",
+        "on-secondary-fixed": "#000000",
+        "tertiary-fixed": "#0bba74",
+        "outline-variant": "#29313D",
+        "on-tertiary-fixed": "#000000",
+        "on-background": "#F4F6FA",
+        "surface-container-lowest": "#101216",
+        "secondary-container": "#101216",
+        "on-primary-fixed": "#000000",
+        "on-secondary-fixed-variant": "#000000",
+        "on-tertiary": "#000000",
+        "surface-container": "#101216",
+        "on-primary-container": "#000000",
+        "inverse-surface": "#F4F6FA",
+        "on-primary": "#000000",
+        "tertiary-fixed-dim": "#0bba74",
+        "surface-variant": "#101216",
+        "tertiary": "#0bba74",
+        "on-error": "#000000",
+        "primary-fixed-dim": "#1463ff",
+        "surface-tint": "#1463ff",
+        "surface-bright": "#29313D",
+        "error": "#ff4761",
+        "surface-dim": "#000000",
+        "on-error-container": "#ff4761",
+        "surface-container-low": "#101216",
+        "inverse-primary": "#1463ff",
+        "secondary-fixed": "#EAA343",
+        "secondary": "#EAA343",
+        "on-tertiary-fixed-variant": "#000000",
+        "primary-fixed": "#1463ff",
+        "error-container": "#101216",
+        "on-surface": "#F4F6FA",
+        "on-tertiary-container": "#000000",
+        "on-secondary-container": "#F4F6FA",
+        "tertiary-container": "#0bba74",
+        "inverse-on-surface": "#101216",
+        "outline": "#98A5B5",
+        "on-secondary": "#000000",
+        "background": "#000000",
+        "on-surface-variant": "#98A5B5"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.125rem",
+        "lg": "0.25rem",
+        "xl": "0.5rem",
+        "full": "0.75rem"
+      },
+      "spacing": {
+        "space-md": "0.75rem",
+        "gutter-desktop": "1rem",
+        "space-lg": "1rem",
+        "margin": "1rem",
+        "space-sm": "0.5rem",
+        "gutter": "0.75rem",
+        "space-xs": "0.25rem",
+        "margin-desktop": "1.5rem",
+        "space-xl": "1.5rem"
+      },
+      "fontFamily": {
+        "headline-lg": ["Inter"],
+        "data-sm": ["Inter"],
+        "display-lg": ["Inter"],
+        "label-caps": ["Inter"],
+        "body-lg": ["Inter"],
+        "body-sm": ["Inter"],
+        "micro": ["Inter"],
+        "data-lg": ["Inter"],
+        "data-md": ["Inter"],
+        "body-md": ["Inter"],
+        "headline-md": ["Inter"]
+      },
+      "fontSize": {
+        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "data-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+        "label-caps": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+        "body-lg": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+        "micro": ["10px", {"lineHeight": "12px", "fontWeight": "500"}],
+        "data-lg": ["20px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+        "data-md": ["14px", {"lineHeight": "18px", "fontWeight": "600"}],
+        "body-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+        "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+      }
+    }
+  }
+}</script><style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-outline-variant/30 backdrop-blur-md"><div class="h-14 w-full px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg shrink-0"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md tracking-wider text-primary font-bold uppercase">MITMARKET</span><span class="px-space-xs py-0.5 rounded bg-surface-container text-tertiary font-label-caps text-label-caps border border-tertiary/20">PRO</span></div><div class="hidden xl:flex items-center gap-space-xs pl-space-sm border-l border-outline-variant/30 text-on-surface-variant font-data-sm text-data-sm"><span class="inline-block w-2 h-2 rounded-full bg-tertiary animate-pulse"></span><span class="text-tertiary font-medium">MATCHING ENGINE ONLINE</span><span class="text-outline font-micro text-micro ml-1 tabular-nums">1.2ms</span></div></div><div class="hidden lg:flex items-center flex-1 max-w-xs relative"><span class="material-symbols-outlined absolute left-2.5 text-outline text-[16px]">search</span><input class="w-full h-8 pl-8 pr- space-sm bg-surface-container border border-outline-variant/40 rounded text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:border-primary-container transition-colors" placeholder="Search markets, contract ID, or ticker..." type="text"/></div><nav class="hidden 2xl:flex items-center h-full gap-space-md overflow-x-auto shrink-0" data-active-classes="text-primary font-semibold border-b-2 border-primary"><a class="h-full flex items-center px-space-xs text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors border-b-2 border-transparent" data-path="home" href="#">Home</a><a class="h-full flex items-center px-space-xs text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors border-b-2 border-transparent" data-path="explore" href="#">Explore</a><a class="h-full flex items-center px-space-xs text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors border-b-2 border-transparent" data-path="portfolio" href="#">Portfolio</a><a class="h-full flex items-center px-space-xs text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors border-b-2 border-transparent" data-path="positions" href="#">Positions</a><a class="h-full flex items-center px-space-xs text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors border-b-2 border-transparent" data-path="orders" href="#">Orders</a><a class="h-full flex items-center px-space-xs text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors border-b-2 border-transparent" data-path="wallet" href="#">Wallet</a><a class="h-full flex items-center px-space-xs text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors border-b-2 border-transparent" data-path="activity" href="#">Activity</a><a class="h-full flex items-center px-space-xs text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors border-b-2 border-transparent" data-path="leaderboard" href="#">Leaderboard</a><a aria-current="page" class="h-full flex items-center px-space-xs transition-colors text-primary font-semibold border-b-2 border-primary" data-path="rewards" href="#">Rewards</a><a class="h-full flex items-center px-space-xs text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors border-b-2 border-transparent" data-path="notifications" href="#">Notifications</a></nav><div class="flex items-center gap-space-md shrink-0"><div class="hidden sm:flex flex-col items-end px-space-sm py-1 bg-surface-container rounded border border-outline-variant/30 tabular-nums"><span class="font-micro text-micro text-outline uppercase tracking-wider">Available Balance</span><span class="font-data-md text-data-md text-on-surface font-semibold">— <span class="text-outline text-micro font-normal">USDC</span></span></div><button class="h-8 px-space-md bg-primary-container hover:bg-primary text-on-primary-container font-label-caps text-label-caps rounded transition-colors uppercase flex items-center justify-center font-bold tracking-wide">Deposit</button><a class="relative w-8 h-8 rounded flex items-center justify-center bg-surface-container border border-outline-variant/30 text-on-surface-variant hover:text-on-surface transition-colors" data-path="notifications" href="#"><span class="material-symbols-outlined text-[18px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary-fixed-dim"></span></a><div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container rounded border border-outline-variant/30 cursor-pointer hover:border-outline-variant transition-colors"><span class="font-data-sm text-data-sm text-on-surface font-medium tabular-nums">Connect account</span><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-14 flex-1 bg-background"><div class="flex flex-col w-full">
+<div class="w-full px-gutter-desktop py-space-xl flex flex-col gap-space-xl max-w-[1680px] mx-auto">
+<!-- Protocol Header & Compliance Disclosure -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex items-center gap-space-sm text-outline font-label-caps text-label-caps uppercase tracking-wider">
+<span class="inline-block w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Program Operational // Epoch #18 Active</span>
+<span class="text-outline-variant">•</span>
+<span class="text-primary font-medium">Smart Settlement: 0x9f1a...C830</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight font-bold">
+          Liquidity Mining &amp; Market Making Rewards
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Incentivized liquidity program for central limit order book (CLOB) market makers and order depth providers.
+        </p>
+</div>
+<!-- Legal Disclosure Pill -->
+<div class="bg-surface-container-low px-space-md py-space-sm rounded-lg flex items-start gap-space-sm max-w-md shadow-sm">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[18px] shrink-0 mt-0.5">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<span class="text-on-surface font-medium">Protocol Notice:</span> Administered independently by MITMARKET Treasury Engine. Rewards are performance-based and non-custodial.
+        </p>
+</div>
+</div>
+<!-- 4 Master Rewards Telemetry Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Metric 1: Total Lifetime Rewards -->
+<div class="bg-surface-container-low p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-28 h-28 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-outline">Total Rewards Earned</span>
+<span class="material-symbols-outlined text-outline text-[20px]">account_balance_wallet</span>
+</div>
+<div class="my-space-md">
+<div class="font-display-lg text-display-lg font-bold text-on-surface tabular-nums tracking-tight">
+            — <span class="text-primary text-headline-md font-semibold">USDC</span>
+</div>
+<div class="flex items-center gap-space-xs mt-1">
+<span class="text-tertiary font-data-sm text-data-sm font-semibold flex items-center">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> —
+            </span>
+<span class="text-outline font-micro text-micro uppercase tracking-wider">vs Last 30-Day Period</span>
+</div>
+</div>
+<div class="pt-space-sm bg-surface-container/50 px-space-sm py-space-xs rounded flex justify-between items-center text-outline font-micro text-micro">
+<span>Settled to: Connect account</span>
+<span class="text-on-surface tabular-nums">Lifetime</span>
+</div>
+</div>
+<!-- Metric 2: Available to Claim (Primary Actionable) -->
+<div class="bg-surface-container-low p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary-container/10 via-transparent to-transparent pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-primary">Available to Claim</span>
+<span class="px-space-xs py-0.5 rounded bg-tertiary-container/30 text-tertiary font-micro text-micro font-bold uppercase tracking-wider">Instant</span>
+</div>
+<div class="my-space-md">
+<div class="font-display-lg text-display-lg font-bold text-on-surface tabular-nums tracking-tight">
+            — <span class="text-primary text-headline-md font-semibold">USDC</span>
+</div>
+<div class="text-on-surface-variant font-data-sm text-data-sm">
+            Unlocked &amp; verified by treasury multisig
+          </div>
+</div>
+<button class="w-full h-9 bg-primary-container hover:bg-primary text-on-primary-container font-label-caps text-label-caps rounded transition-colors uppercase flex items-center justify-center gap-space-xs font-bold tracking-wide shadow-md" id="claim-button">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+          Claim Rewards
+        </button>
+</div>
+<!-- Metric 3: Pending Epoch Rewards -->
+<div class="bg-surface-container-low p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-outline">Pending Epoch Rewards</span>
+<span class="text-secondary font-label-caps text-label-caps font-bold">Epoch #18</span>
+</div>
+<div class="my-space-md">
+<div class="font-display-lg text-display-lg font-bold text-on-surface tabular-nums tracking-tight">
+            — <span class="text-outline text-headline-md font-normal">USDC</span>
+</div>
+<!-- Progress bar towards epoch end -->
+<div class="mt-2 flex flex-col gap-1">
+<div class="flex justify-between items-center text-outline font-micro text-micro">
+<span>Time Remaining</span>
+<span class="text-on-surface font-semibold tabular-nums">18h 42m</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim rounded-full transition-all duration-500" style="width: 22.1%"></div>
+</div>
+</div>
+</div>
+<div class="pt-space-sm bg-surface-container/50 px-space-sm py-space-xs rounded flex justify-between items-center text-outline font-micro text-micro">
+<span>Next Snapshot</span>
+<span class="text-on-surface tabular-nums">00:00 UTC</span>
+</div>
+</div>
+<!-- Metric 4: Maker Share & Pool Dominance -->
+<div class="bg-surface-container-low p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-outline">Your Maker Share</span>
+<span class="text-tertiary font-micro text-micro font-bold uppercase tracking-wider">Top 5% Tier</span>
+</div>
+<div class="my-space-md">
+<div class="font-display-lg text-display-lg font-bold text-tertiary tabular-nums tracking-tight">
+            —
+          </div>
+<div class="text-on-surface-variant font-data-sm text-data-sm">
+            of daily <span class="text-on-surface font-semibold tabular-nums">$25,000 USDC</span> pool
+          </div>
+</div>
+<div class="pt-space-sm bg-surface-container/50 px-space-sm py-space-xs rounded flex justify-between items-center text-outline font-micro text-micro">
+<span>Active Quoting Depth</span>
+<span class="text-on-surface font-semibold tabular-nums">—</span>
+</div>
+</div>
+</div>
+<!-- Filter Control Desk -->
+<div class="bg-surface-container-low p-space-md rounded-xl shadow-sm flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-space-md">
+<!-- Category Tabs -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 xl:pb-0" id="category-tabs">
+<button class="px-space-md py-1.5 rounded font-label-caps text-label-caps uppercase font-bold tracking-wider bg-primary-container text-on-primary-container shadow-sm transition-all" data-category="ALL">
+          All Markets
+        </button>
+<button class="px-space-md py-1.5 rounded font-label-caps text-label-caps uppercase font-medium tracking-wider bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-category="CRYPTO">
+          Crypto
+        </button>
+<button class="px-space-md py-1.5 rounded font-label-caps text-label-caps uppercase font-medium tracking-wider bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-category="MACRO">
+          Macro
+        </button>
+<button class="px-space-md py-1.5 rounded font-label-caps text-label-caps uppercase font-medium tracking-wider bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-category="SPORTS">
+          Sports
+        </button>
+<button class="px-space-md py-1.5 rounded font-label-caps text-label-caps uppercase font-medium tracking-wider bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-category="POLITICS">
+          Politics
+        </button>
+</div>
+<!-- Advanced Filters Matrix -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Max Spread Filter -->
+<div class="flex items-center bg-surface-container px-space-sm py-1 rounded">
+<span class="text-outline font-micro text-micro uppercase tracking-wider mr-2">Spread:</span>
+<select class="bg-transparent text-on-surface font-body-sm text-body-sm focus:outline-none cursor-pointer" id="spread-filter">
+<option class="bg-surface-container-high" value="all">Any Spread</option>
+<option class="bg-surface-container-high" value="1.5">≤ 1.5¢</option>
+<option class="bg-surface-container-high" value="2.0">≤ 2.0¢</option>
+<option class="bg-surface-container-high" value="2.5">≤ 2.5¢</option>
+</select>
+</div>
+<!-- Min Size Filter -->
+<div class="flex items-center bg-surface-container px-space-sm py-1 rounded">
+<span class="text-outline font-micro text-micro uppercase tracking-wider mr-2">Min Size:</span>
+<select class="bg-transparent text-on-surface font-body-sm text-body-sm focus:outline-none cursor-pointer" id="size-filter">
+<option class="bg-surface-container-high" value="all">All Sizes</option>
+<option class="bg-surface-container-high" value="200">≥ $200</option>
+<option class="bg-surface-container-high" value="300">≥ $300</option>
+<option class="bg-surface-container-high" value="500">≥ $500</option>
+</select>
+</div>
+<!-- Competition Level Filter -->
+<div class="flex items-center bg-surface-container px-space-sm py-1 rounded">
+<span class="text-outline font-micro text-micro uppercase tracking-wider mr-2">Competition:</span>
+<select class="bg-transparent text-on-surface font-body-sm text-body-sm focus:outline-none cursor-pointer" id="competition-filter">
+<option class="bg-surface-container-high" value="all">All Levels</option>
+<option class="bg-surface-container-high" value="low">Low Comp</option>
+<option class="bg-surface-container-high" value="med">Med Comp</option>
+<option class="bg-surface-container-high" value="high">High Comp</option>
+</select>
+</div>
+<!-- Reset Button -->
+<button class="h-8 px-space-sm rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs font-label-caps text-label-caps uppercase transition-colors" id="reset-filters" title="Reset Filters">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+          Reset
+        </button>
+</div>
+</div>
+<!-- Active Liquidity Rewards Table Section -->
+<div class="bg-surface-container-low rounded-xl shadow-md overflow-hidden flex flex-col">
+<div class="px-space-lg py-space-md bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-md text-headline-md font-semibold text-on-surface">Qualified Liquidity Venues</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-outline font-micro text-micro font-semibold tabular-nums">5 Contracts</span>
+</div>
+<div class="flex items-center gap-space-md text-outline font-micro text-micro uppercase tracking-wider">
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Engine Rate: 100 Hz</span>
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Polygon Settled</span>
+</div>
+</div>
+<!-- Table Wrapper -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest text-outline font-label-caps text-label-caps uppercase tracking-wider">
+<th class="py-space-md px-space-lg">Market Question</th>
+<th class="py-space-md px-space-md">Eligible Outcome</th>
+<th class="py-space-md px-space-md text-right">Max Spread</th>
+<th class="py-space-md px-space-md text-right">Min Order Size</th>
+<th class="py-space-md px-space-md text-right">Daily Reward Pool</th>
+<th class="py-space-md px-space-md text-right">Current APR</th>
+<th class="py-space-md px-space-md text-center">Competition</th>
+<th class="py-space-md px-space-md text-right">Your Est. Daily</th>
+<th class="py-space-md px-space-lg text-right">Action</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md" id="rewards-table-body">
+<!-- Row 1: Bitcoin (Selected/Drawer Expandable) -->
+<tr class="hover:bg-surface-container/60 transition-colors cursor-pointer group" id="row-btc" onclick="toggleDrawer('drawer-btc')">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">currency_bitcoin</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-on-surface font-semibold truncate group-hover:text-primary transition-colors">Will Bitcoin reach $120,000 before Dec 31, 2026?</span>
+<span class="text-outline font-micro text-micro uppercase tracking-wider">ID: BTC-120K-261231 • CRYPTO</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-space-xs py-0.5 rounded bg-tertiary-container/20 text-tertiary font-label-caps text-label-caps uppercase font-bold">YES &amp; NO</span>
+</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-on-surface font-medium">≤ 1.5¢</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-on-surface font-medium">—</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-on-surface font-semibold">— <span class="text-outline text-micro">USDC</span></td>
+<td class="py-space-md px-space-md text-right tabular-nums text-tertiary font-bold">—</td>
+<td class="py-space-md px-space-md text-center">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded bg-error-container/30 text-error font-micro text-micro uppercase font-bold tracking-wider">
+                  High
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-secondary-fixed-dim font-bold">$42.50/day</td>
+<td class="py-space-md px-space-lg text-right" onclick="event.stopPropagation()">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="px-space-sm py-1 bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface rounded font-label-caps text-label-caps uppercase font-semibold transition-all">
+                    Provide
+                  </button>
+<button class="w-7 h-7 flex items-center justify-center rounded bg-surface-container text-on-surface-variant hover:text-primary transition-colors" onclick="toggleDrawer('drawer-btc')" title="View Scoring Matrix">
+<span class="material-symbols-outlined text-[18px]" id="drawer-btc-icon">expand_more</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Expanded Bitcoin Contract Rules & Calculator Drawer -->
+<tr class="bg-surface-container-lowest" id="drawer-btc">
+<td class="p-0" colspan="9">
+<div class="p-space-lg flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md pb-space-sm bg-surface-container px-space-md py-space-sm rounded-lg">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">calculate</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Reward Calculation Engine &amp; Execution Mandate</span>
+<span class="px-space-xs py-0.5 rounded bg-primary-container/20 text-primary font-micro text-micro font-bold uppercase tracking-wider">BTC-120K-261231</span>
+</div>
+<div class="text-outline font-micro text-micro uppercase tracking-wider">
+                      Verified Smart Contract: <span class="text-tertiary tabular-nums">0x37a4...998B</span>
+</div>
+</div>
+<!-- 3 Analytical Columns -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Scoring Formula Card -->
+<div class="bg-surface-container p-space-md rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-outline font-label-caps text-label-caps uppercase tracking-wider">
+<span>1. Scoring Formula</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">functions</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface font-semibold">Time-Weighted Two-Sided Depth</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                        Scores accrue dynamically based on order volume committed inside maximum spread delta (≤1.5¢). Tighter quotes earn quadratic multipliers:
+                      </p>
+<div class="p-space-xs bg-surface-container-lowest rounded font-data-sm text-data-sm text-primary font-mono tabular-nums">
+                        Score = ∑ [ (Depth_t / Spread_t²) × Δt ]
+                      </div>
+<span class="text-outline font-micro text-micro">Snapshots sampled every 10,000ms.</span>
+</div>
+<!-- Order Eligibility Card -->
+<div class="bg-surface-container p-space-md rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-outline font-label-caps text-label-caps uppercase tracking-wider">
+<span>2. Qualifying Order Types</span>
+<span class="material-symbols-outlined text-[16px] text-primary">playlist_add_check</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface font-semibold">Limit GTC on MITMARKET CLOB</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                        Only native Good-‘Til-Cancelled Limit orders resting in the native off-chain matching book qualify. IOC, FOK, or post-only rejections are excluded.
+                      </p>
+<div class="mt-auto flex items-center gap-space-xs text-secondary-fixed-dim font-micro text-micro font-medium uppercase">
+<span class="material-symbols-outlined text-[16px]">info</span>
+                        Minimum book persistence: 60 continuous seconds
+                      </div>
+</div>
+<!-- Distribution Schedule Card -->
+<div class="bg-surface-container p-space-md rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-outline font-label-caps text-label-caps uppercase tracking-wider">
+<span>3. Settlement Schedule</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">schedule</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface font-semibold">Daily 00:00 UTC Epoch</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                        Batch claim roots computed at epoch transition and submitted to the Polygon PoS distributor. Claimable gas-free via MITMARKET paymaster.
+                      </p>
+<div class="mt-auto flex items-center justify-between bg-surface-container-lowest px-space-xs py-1 rounded text-outline font-micro text-micro">
+<span>Current Epoch End:</span>
+<span class="text-on-surface font-bold tabular-nums">18h 42m</span>
+</div>
+</div>
+</div>
+<!-- Live Depth Simulator Snippet inside Drawer -->
+<div class="bg-surface-container p-space-md rounded-lg flex flex-col lg:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined">query_stats</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">Simulate Your Daily Reward Yield</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Enter planned quoting size to calculate projected share of the $5,000/day pool.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full lg:w-auto">
+<div class="flex items-center bg-surface-container-lowest px-space-sm py-1.5 rounded">
+<span class="text-outline font-body-sm text-body-sm mr-1">$</span>
+<input class="w-24 bg-transparent text-on-surface font-data-md text-data-md font-semibold focus:outline-none tabular-nums" id="sim-size-input" placeholder="1500" type="number" value="1500"/>
+<span class="text-outline font-micro text-micro uppercase ml-1">Depth</span>
+</div>
+<button class="h-9 px-space-md bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-caps text-label-caps rounded transition-colors uppercase font-bold" onclick="calculateProjection()">
+                        Estimate
+                      </button>
+<div class="px-space-md py-1.5 bg-surface-container-lowest rounded text-right">
+<span class="font-micro text-micro uppercase text-outline block">Est. Yield</span>
+<span class="font-data-md text-data-md font-bold text-tertiary tabular-nums" id="sim-output">$63.75 / day</span>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<!-- Row 2: Fed Rate Cut -->
+<tr class="hover:bg-surface-container/60 transition-colors cursor-pointer group" data-category="MACRO">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[18px]">account_balance</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-on-surface font-semibold truncate group-hover:text-primary transition-colors">Fed cuts interest rate by ≥25bps in Q2</span>
+<span class="text-outline font-micro text-micro uppercase tracking-wider">ID: FED-RATE-Q2-2025 • MACRO</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-space-xs py-0.5 rounded bg-tertiary-container/20 text-tertiary font-label-caps text-label-caps uppercase font-bold">YES Only</span>
+</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-on-surface font-medium">≤ 2.0¢</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-on-surface font-medium">—</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-on-surface font-semibold">— <span class="text-outline text-micro">USDC</span></td>
+<td class="py-space-md px-space-md text-right tabular-nums text-tertiary font-bold">—</td>
+<td class="py-space-md px-space-md text-center">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded bg-secondary-container/30 text-secondary-fixed-dim font-micro text-micro uppercase font-bold tracking-wider">
+                  Medium
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-secondary-fixed-dim font-bold">$31.00/day</td>
+<td class="py-space-md px-space-lg text-right">
+<button class="px-space-sm py-1 bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface rounded font-label-caps text-label-caps uppercase font-semibold transition-all">
+                  Provide
+                </button>
+</td>
+</tr>
+<!-- Row 3: FIFA World Cup -->
+<tr class="hover:bg-surface-container/60 transition-colors cursor-pointer group" data-category="SPORTS">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-[18px]">sports_soccer</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-on-surface font-semibold truncate group-hover:text-primary transition-colors">2026 FIFA World Cup Winner (Outrights)</span>
+<span class="text-outline font-micro text-micro uppercase tracking-wider">ID: FIFA-WC-2026-WIN • SPORTS</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-space-xs py-0.5 rounded bg-tertiary-container/20 text-tertiary font-label-caps text-label-caps uppercase font-bold">ALL SIDES</span>
+</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-on-surface font-medium">≤ 3.0¢</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-on-surface font-medium">—</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-on-surface font-semibold">— <span class="text-outline text-micro">USDC</span></td>
+<td class="py-space-md px-space-md text-right tabular-nums text-tertiary font-bold">—</td>
+<td class="py-space-md px-space-md text-center">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded bg-tertiary-container/30 text-tertiary font-micro text-micro uppercase font-bold tracking-wider">
+                  Low
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-secondary-fixed-dim font-bold">$58.20/day</td>
+<td class="py-space-md px-space-lg text-right">
+<button class="px-space-sm py-1 bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface rounded font-label-caps text-label-caps uppercase font-semibold transition-all">
+                  Provide
+                </button>
+</td>
+</tr>
+<!-- Row 4: OpenAI GPT-5 -->
+<tr class="hover:bg-surface-container/60 transition-colors cursor-pointer group" data-category="CRYPTO">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-on-surface font-semibold truncate group-hover:text-primary transition-colors">OpenAI commercial GPT-5 before July 2025</span>
+<span class="text-outline font-micro text-micro uppercase tracking-wider">ID: TECH-GPT5-JUL25 • CRYPTO</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-space-xs py-0.5 rounded bg-tertiary-container/20 text-tertiary font-label-caps text-label-caps uppercase font-bold">YES &amp; NO</span>
+</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-on-surface font-medium">≤ 2.0¢</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-on-surface font-medium">—</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-on-surface font-semibold">— <span class="text-outline text-micro">USDC</span></td>
+<td class="py-space-md px-space-md text-right tabular-nums text-tertiary font-bold">—</td>
+<td class="py-space-md px-space-md text-center">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded bg-secondary-container/30 text-secondary-fixed-dim font-micro text-micro uppercase font-bold tracking-wider">
+                  Medium
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-secondary-fixed-dim font-bold">$24.80/day</td>
+<td class="py-space-md px-space-lg text-right">
+<button class="px-space-sm py-1 bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface rounded font-label-caps text-label-caps uppercase font-semibold transition-all">
+                  Provide
+                </button>
+</td>
+</tr>
+<!-- Row 5: Solana Spot ETF -->
+<tr class="hover:bg-surface-container/60 transition-colors cursor-pointer group" data-category="POLITICS">
+<td class="py-space-md px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-on-surface font-semibold truncate group-hover:text-primary transition-colors">US SEC approves Solana Spot ETF in 2025</span>
+<span class="text-outline font-micro text-micro uppercase tracking-wider">ID: REG-SOL-ETF-25 • POLITICS</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="px-space-xs py-0.5 rounded bg-tertiary-container/20 text-tertiary font-label-caps text-label-caps uppercase font-bold">YES Only</span>
+</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-on-surface font-medium">≤ 2.5¢</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-on-surface font-medium">—</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-on-surface font-semibold">— <span class="text-outline text-micro">USDC</span></td>
+<td class="py-space-md px-space-md text-right tabular-nums text-tertiary font-bold">—</td>
+<td class="py-space-md px-space-md text-center">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded bg-tertiary-container/30 text-tertiary font-micro text-micro uppercase font-bold tracking-wider">
+                  Low
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right tabular-nums text-secondary-fixed-dim font-bold">$44.10/day</td>
+<td class="py-space-md px-space-lg text-right">
+<button class="px-space-sm py-1 bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface rounded font-label-caps text-label-caps uppercase font-semibold transition-all">
+                  Provide
+                </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footnote & Pagination Metrics -->
+<div class="px-space-lg py-space-sm bg-surface-container flex flex-col sm:flex-row items-center justify-between gap-space-sm font-data-sm text-data-sm text-outline">
+<div class="flex items-center gap-space-sm">
+<span>Active Quoting Windows: <strong class="text-on-surface tabular-nums">24/7/365</strong></span>
+<span>•</span>
+<span>Slashing Rule: <strong class="text-on-surface">None (Non-custodial)</strong></span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span>Total Program Daily Allocation:</span>
+<span class="text-primary font-bold tabular-nums">$16,000 USDC / day</span>
+</div>
+</div>
+</div>
+<!-- Institutional Market Making Guidelines & Support Banner -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
+<div class="bg-surface-container-low p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center gap-space-sm text-primary mb-space-sm">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">FIX &amp; WebSocket APIs</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+          Execute sub-millisecond liquidity provision via ultra-low latency direct memory access gateways. Colocated in Equinix NY4 and LD4.
+        </p>
+<a class="inline-flex items-center gap-space-xs text-primary font-label-caps text-label-caps uppercase font-bold hover:underline" href="#">
+          Access API Spec &amp; SDKs <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="bg-surface-container-low p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center gap-space-sm text-tertiary mb-space-sm">
+<span class="material-symbols-outlined">shield</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Capital Efficiency</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+          Cross-margining architecture across correlated binary and scalar contracts unlocks up to 8x capital efficiency for registered market makers.
+        </p>
+<a class="inline-flex items-center gap-space-xs text-tertiary font-label-caps text-label-caps uppercase font-bold hover:underline" href="#">
+          View Margin Schedules <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="bg-surface-container-low p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center gap-space-sm text-secondary-fixed-dim mb-space-sm">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Institutional Desk Support</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+          Custom SLA tiers and designated market maker (DMM) contracts available for institutions deploying greater than $500,000 depth.
+        </p>
+<a class="inline-flex items-center gap-space-xs text-secondary-fixed-dim font-label-caps text-label-caps uppercase font-bold hover:underline" href="#">
+          Contact DMM Specialists <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Interactive Logic -->
+<script>
+    function toggleDrawer(id) {
+      const drawer = document.getElementById(id);
+      const icon = document.getElementById(id + '-icon');
+      if (drawer.classList.contains('hidden')) {
+        drawer.classList.remove('hidden');
+        if (icon) icon.textContent = 'expand_less';
+      } else {
+        drawer.classList.add('hidden');
+        if (icon) icon.textContent = 'expand_more';
+      }
+    }
+
+    function calculateProjection() {
+      const input = document.getElementById('sim-size-input');
+      const output = document.getElementById('sim-output');
+      const val = parseFloat(input.value) || 0;
+      // Linear mock estimation with 0.0425 multiplier
+      const est = (val * 0.0425).toFixed(2);
+      output.textContent = '$' + est + ' / day';
+    }
+
+    // Interactive Claim Feedback
+    const claimBtn = document.getElementById('claim-button');
+    if (claimBtn) {
+      claimBtn.addEventListener('click', function() {
+        const originalText = this.innerHTML;
+        this.innerHTML = '<span class="material-symbols-outlined animate-spin text-[16px]">sync</span> Submitting Batch...';
+        this.disabled = true;
+        setTimeout(() => {
+          this.innerHTML = '<span class="material-symbols-outlined text-[16px]">check_circle</span> Claimed to Vault';
+          this.classList.remove('bg-primary-container', 'hover:bg-primary');
+          this.classList.add('bg-tertiary', 'text-on-tertiary');
+        }, 1200);
+      });
+    }
+
+    // Category Tabs Filtering Micro-interaction
+    const tabs = document.querySelectorAll('#category-tabs button');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        tabs.forEach(t => {
+          t.className = 'px-space-md py-1.5 rounded font-label-caps text-label-caps uppercase font-medium tracking-wider bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all';
+        });
+        this.className = 'px-space-md py-1.5 rounded font-label-caps text-label-caps uppercase font-bold tracking-wider bg-primary-container text-on-primary-container shadow-sm transition-all';
+      });
+    });
+
+    // Reset filters
+    const resetBtn = document.getElementById('reset-filters');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        document.getElementById('spread-filter').value = 'all';
+        document.getElementById('size-filter').value = 'all';
+        document.getElementById('competition-filter').value = 'all';
+      });
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 text-on-surface-variant"><div class="w-full px-gutter-desktop py-space-md flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm"><div class="flex flex-wrap items-center gap-space-lg text-outline font-data-sm text-data-sm"><div class="flex items-center gap-space-xs tabular-nums"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span class="text-on-surface font-medium">Order Gateway:</span><span>ONLINE (4ms)</span></div><div class="hidden sm:flex items-center gap-space-xs tabular-nums"><span class="text-on-surface font-medium">Feed WS:</span><span>Subscribed (24,190 msg/s)</span></div><div class="hidden lg:flex items-center gap-space-xs tabular-nums"><span class="text-on-surface font-medium">Gas Station:</span><span>18 Gwei</span></div></div><div class="flex flex-wrap items-center gap-space-lg font-data-sm text-data-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">API Documentation</a><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Institutional Feeds</a><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Trading Rules</a><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms &amp; Risk Disclosure</a><span class="text-outline tabular-nums">© 2025 MITMARKET Trading Technologies Inc.</span></div></div></footer></body></html>

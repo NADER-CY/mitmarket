@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container-highest": "#101216", "secondary": "#EAA343", "error": "#ff4761", "surface-dim": "#000000", "background": "#000000", "surface": "#000000", "on-secondary": "#000000", "on-primary-container": "#000000", "surface-variant": "#101216", "surface-container": "#101216", "on-secondary-container": "#F4F6FA", "surface-container-low": "#101216", "on-tertiary-fixed": "#000000", "inverse-on-surface": "#101216", "secondary-container": "#101216", "tertiary": "#0bba74", "surface-tint": "#1463ff", "tertiary-container": "#0bba74", "primary-container": "#1463ff", "on-tertiary": "#000000", "outline": "#98A5B5", "on-primary-fixed-variant": "#000000", "primary-fixed-dim": "#1463ff", "on-surface": "#F4F6FA", "on-primary": "#000000", "secondary-fixed-dim": "#EAA343", "on-secondary-fixed-variant": "#000000", "on-error-container": "#ff4761", "outline-variant": "#29313D", "inverse-surface": "#F4F6FA", "on-primary-fixed": "#000000", "error-container": "#101216", "on-error": "#000000", "on-tertiary-fixed-variant": "#000000", "tertiary-fixed": "#0bba74", "on-background": "#F4F6FA", "primary": "#1463ff", "surface-bright": "#29313D", "on-tertiary-container": "#000000", "on-surface-variant": "#98A5B5", "tertiary-fixed-dim": "#0bba74", "surface-container-high": "#101216", "secondary-fixed": "#EAA343", "inverse-primary": "#1463ff", "surface-container-lowest": "#101216", "primary-fixed": "#1463ff", "on-secondary-fixed": "#000000" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "1.5rem", "gutter": "0.75rem", "space-lg": "1rem", "gutter-desktop": "1rem", "margin": "1rem", "space-md": "0.75rem", "margin-desktop": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem" }, "fontFamily": { "headline-md": ["Inter"], "label-caps": ["Inter"], "data-md": ["Inter"], "headline-lg": ["Inter"], "body-lg": ["Inter"], "micro": ["Inter"], "data-lg": ["Inter"], "body-sm": ["Inter"], "display-lg": ["Inter"], "data-sm": ["Inter"], "body-md": ["Inter"] }, "fontSize": { "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "data-md": ["14px", { "lineHeight": "18px", "fontWeight": "600" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "micro": ["10px", { "lineHeight": "12px", "fontWeight": "500" }], "data-lg": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "body-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }] } } } };</script><style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-md"><div class="h-14 w-full px-gutter-desktop flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs cursor-pointer"><div class="w-6 h-6 rounded bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[16px]">polyline</span></div><span class="font-headline-md text-headline-md tracking-wider font-bold text-on-surface uppercase">MITMARKET</span><span class="font-micro text-micro px-space-xs py-0.5 rounded bg-surface-container-high text-tertiary uppercase">PRO</span></div><div class="relative flex items-center w-64 bg-surface-container-low rounded px-space-sm py-1"><span class="material-symbols-outlined text-outline text-[16px] mr-space-xs">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search markets, events..." type="text"/><div class="flex items-center gap-0.5 px-1 py-0.5 rounded bg-surface-container-highest text-outline font-micro text-micro"><span>⌘</span><span>K</span></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-bold rounded"><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="markets-overview" href="#">Home</a><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="explore-terminal" href="#">Explore</a><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="portfolio-performance" href="#">Portfolio</a><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="active-positions" href="#">Positions</a><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="order-management" href="#">Orders</a><a class="px-space-sm py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="wallet-ledger" href="#">Wallet</a></nav></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low"><div class="flex items-center gap-1.5"><div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></div><span class="font-label-caps text-label-caps text-outline uppercase">USDC Available</span></div><span class="font-data-md text-data-md text-on-surface tabular-nums">—</span></div><button class="px-space-md py-1.5 rounded bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-body-sm text-body-sm font-semibold transition-colors flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[16px]">add</span><span>Deposit</span></button><button class="relative p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span></button><div class="flex items-center gap-space-xs pl-space-xs py-1 pr-space-sm rounded bg-surface-container-low cursor-pointer hover:bg-surface-container-high transition-colors"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><span class="font-data-sm text-data-sm text-on-surface font-semibold">Connect account</span><span class="font-micro text-micro text-outline">Polygon POS</span></div><span class="material-symbols-outlined text-outline text-[16px]">expand_more</span></div></div></div><div class="h-9 w-full px-gutter-desktop bg-surface-container-low flex items-center justify-between text-on-surface-variant"><div class="flex items-center gap-space-xs font-body-sm text-body-sm"><a class="hover:text-on-surface transition-colors" data-path="markets-overview" href="#">Terminal</a><span class="text-outline">/</span><span class="text-on-surface font-medium capitalize">Account Subsystem</span><span class="text-outline">/</span><span class="text-tertiary font-medium capitalize">Live Execution Ledger</span></div><div class="flex items-center gap-space-md font-label-caps text-label-caps"><div class="flex items-center gap-1.5"><span class="text-outline">LATENCY:</span><span class="text-tertiary tabular-nums">18ms</span></div><div class="flex items-center gap-1.5"><span class="text-outline">BLOCK:</span><span class="text-on-surface tabular-nums">#58291410</span></div><div class="flex items-center gap-1.5"><span class="text-outline">GAS:</span><span class="text-secondary tabular-nums">31 Gwei</span></div></div></div></header><aside class="fixed left-0 top-[92px] bottom-0 w-64 bg-surface-container-lowest z-40 flex flex-col justify-between py-space-md"><div class="px-space-md flex flex-col gap-space-md"><div class="px-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Navigation Rail</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container-high text-on-surface font-bold rounded"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="markets-overview" href="#"><span class="material-symbols-outlined text-[18px]">insights</span><span>Markets Overview</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="explore-terminal" href="#"><span class="material-symbols-outlined text-[18px]">travel_explore</span><span>Explore Terminal</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="portfolio-performance" href="#"><span class="material-symbols-outlined text-[18px]">pie_chart</span><span>Portfolio Matrix</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="active-positions" href="#"><span class="material-symbols-outlined text-[18px]">account_balance_wallet</span><span>Active Positions</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="order-management" href="#"><span class="material-symbols-outlined text-[18px]">reorder</span><span>Order Book &amp; Depth</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="wallet-ledger" href="#"><span class="material-symbols-outlined text-[18px]">payments</span><span>Settlement &amp; Wallet</span></a></nav></div><div class="px-space-md flex flex-col gap-space-xs"><div class="p-space-sm rounded bg-surface-container-low flex flex-col gap-1"><div class="flex items-center justify-between font-label-caps text-label-caps text-outline"><span class="uppercase">CLOB Engine</span><span class="text-tertiary">ONLINE</span></div><div class="font-micro text-micro text-on-surface-variant">Throughput: 14.2k ops/sec</div></div></div></aside><div class="pl-64"><main class="relative pt-[92px] w-full min-h-screen bg-surface px-gutter-desktop pb-space-xl"><div class="flex flex-col w-full gap-space-lg">
+<!-- Header Banner & Action Matrix -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-xs">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-micro text-micro px-space-xs py-0.5 rounded bg-surface-container-high text-tertiary uppercase tracking-wider font-semibold">Subsystem Live</span>
+<span class="text-outline text-body-sm">/</span>
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Settlement Node #04</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Institutional Settlement &amp; Wallet</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Polygon Proof-of-Stake &amp; Layer 2 CLOB Escrow Subsystem</p>
+</div>
+<!-- Action Group -->
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1.5 px-space-md py-2 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface transition-colors font-body-sm text-body-sm shadow-sm" id="refreshLedgerBtn" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary" id="refreshIcon">sync</span>
+<span>Refresh Ledger</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-md py-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors font-body-sm text-body-sm shadow-sm" id="withdrawBtn" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">north_east</span>
+<span>Withdraw USDC</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-md py-2 rounded bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-body-sm text-body-sm font-semibold transition-colors shadow-sm" id="depositBtn" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Deposit USDC</span>
+</button>
+</div>
+</section>
+<!-- 4 Master Balance Metric Cards -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Total Balance -->
+<div class="p-space-lg rounded bg-surface-container-low flex flex-col justify-between relative overflow-hidden shadow-sm">
+<div class="absolute right-0 top-0 w-28 h-28 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none rounded-full blur-xl"></div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Total Wallet Balance</span>
+<span class="material-symbols-outlined text-primary text-[18px]">account_balance</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="font-display-lg text-display-lg text-on-surface tabular-nums tracking-tight">— <span class="font-body-md text-body-md text-outline">USDC</span></div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="text-tertiary flex items-center font-medium"><span class="material-symbols-outlined text-[14px]">arrow_drop_up</span>—</span>
+<span>equiv. to 42,850.20 USD</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between text-on-surface-variant font-micro text-micro bg-surface-container-lowest/50 px-space-sm py-1 rounded">
+<span>Across Escrow + L1</span>
+<span class="text-primary font-medium">Synced</span>
+</div>
+</div>
+<!-- Available Cash -->
+<div class="p-space-lg rounded bg-surface-container-low flex flex-col justify-between relative overflow-hidden shadow-sm">
+<div class="absolute right-0 top-0 w-28 h-28 bg-gradient-to-br from-tertiary/10 to-transparent pointer-events-none rounded-full blur-xl"></div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Available Unencumbered Cash</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="font-display-lg text-display-lg text-tertiary tabular-nums tracking-tight">— <span class="font-body-md text-body-md text-outline">USDC</span></div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span>Instantly withdrawable or allocatable</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between text-on-surface-variant font-micro text-micro bg-surface-container-lowest/50 px-space-sm py-1 rounded">
+<span>34.65% Capital Efficiency</span>
+<span class="text-tertiary font-medium">Free Margin</span>
+</div>
+</div>
+<!-- Reserved in Orders -->
+<div class="p-space-lg rounded bg-surface-container-low flex flex-col justify-between relative overflow-hidden shadow-sm">
+<div class="absolute right-0 top-0 w-28 h-28 bg-gradient-to-br from-secondary/10 to-transparent pointer-events-none rounded-full blur-xl"></div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Reserved in Open Orders</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">lock_clock</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="font-display-lg text-display-lg text-on-surface tabular-nums tracking-tight">— <span class="font-body-md text-body-md text-outline">USDC</span></div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span>Locked in 4 active CLOB limit orders</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between text-on-surface-variant font-micro text-micro bg-surface-container-lowest/50 px-space-sm py-1 rounded">
+<span>Order Depth Buffer</span>
+<span class="text-secondary font-medium">Committed</span>
+</div>
+</div>
+<!-- Invested in Positions -->
+<div class="p-space-lg rounded bg-surface-container-low flex flex-col justify-between relative overflow-hidden shadow-sm">
+<div class="absolute right-0 top-0 w-28 h-28 bg-gradient-to-br from-primary-container/10 to-transparent pointer-events-none rounded-full blur-xl"></div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Invested in Positions</span>
+<span class="material-symbols-outlined text-primary text-[18px]">trending_up</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="font-display-lg text-display-lg text-on-surface tabular-nums tracking-tight">— <span class="font-body-md text-body-md text-outline">USDC</span></div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span>Unrealized value across 8 contracts</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between text-on-surface-variant font-micro text-micro bg-surface-container-lowest/50 px-space-sm py-1 rounded">
+<span>56.48% Portfolio Exposure</span>
+<span class="text-primary font-medium">8 Contracts</span>
+</div>
+</div>
+</section>
+<!-- Connectivity, Verification & Liquidity Allocation Dual Pane -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Left Column: Custody & Settlement Address (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-low p-space-lg rounded flex flex-col justify-between gap-space-lg shadow-sm">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">security</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Custody &amp; Settlement Address</h2>
+</div>
+<span class="flex items-center gap-1.5 px-space-sm py-0.5 rounded bg-surface-container-high text-tertiary font-micro text-micro">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+            Hardware Secured
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Validated Multi-Sig smart contract vault governed by audited Layer-2 execution parameters.</p>
+</div>
+<!-- Identity and Address Strip -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md bg-surface-container p-space-md rounded">
+<div class="sm:col-span-2 flex flex-col gap-1 justify-center">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Connected Trading Address</span>
+<div class="flex items-center gap-space-xs mt-0.5">
+<code class="font-data-md text-data-md text-on-surface tracking-wider bg-surface-container-highest px-space-sm py-1 rounded" id="fullAddress">0x71A4D0219c67Bc5Fa288339bC1284E2971a944F9</code>
+<button class="p-1 rounded bg-surface-container-highest hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-colors" id="copyAddressBtn" title="Copy Address" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+<a class="p-1 rounded bg-surface-container-highest hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-colors" href="https://polygonscan.com" rel="noopener" target="_blank" title="Polygonscan View">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+<span class="font-micro text-micro text-tertiary transition-opacity opacity-0 mt-0.5" id="copiedToast">Address copied to clipboard!</span>
+</div>
+<div class="flex items-center justify-start sm:justify-end gap-space-md">
+<!-- QR thumbnail -->
+<div class="w-16 h-16 bg-surface-container-lowest p-1 rounded flex items-center justify-center cursor-pointer group relative" id="qrTrigger">
+<!-- Stylized Micro QR SVG -->
+<svg class="w-14 h-14 text-on-surface" fill="currentColor" viewbox="0 0 100 100">
+<rect fill="none" height="28" rx="2" stroke="currentColor" stroke-width="8" width="28" x="10" y="10"></rect>
+<rect height="10" width="10" x="19" y="19"></rect>
+<rect fill="none" height="28" rx="2" stroke="currentColor" stroke-width="8" width="28" x="62" y="10"></rect>
+<rect height="10" width="10" x="71" y="19"></rect>
+<rect fill="none" height="28" rx="2" stroke="currentColor" stroke-width="8" width="28" x="10" y="62"></rect>
+<rect height="10" width="10" x="19" y="71"></rect>
+<rect height="12" width="8" x="46" y="14"></rect>
+<rect height="22" width="8" x="46" y="34"></rect>
+<rect height="8" width="12" x="62" y="46"></rect>
+<rect height="8" width="10" x="80" y="46"></rect>
+<rect height="8" width="18" x="46" y="64"></rect>
+<rect height="20" width="20" x="70" y="70"></rect>
+</svg>
+<div class="absolute inset-0 bg-primary/20 backdrop-blur-xs rounded opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-[20px] text-on-surface">zoom_in</span>
+</div>
+</div>
+<div class="flex flex-col text-left">
+<span class="font-label-caps text-label-caps text-outline uppercase">Share Address</span>
+<button class="font-body-sm text-body-sm text-primary hover:underline text-left" id="showQrBtn" type="button">Show QR Code</button>
+</div>
+</div>
+</div>
+<!-- Protocol Metadata Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<div class="p-space-sm rounded bg-surface-container flex flex-col gap-0.5">
+<span class="font-label-caps text-label-caps text-outline uppercase">Settlement Network</span>
+<div class="flex items-center gap-1.5 font-medium text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+            Polygon POS (ID: 137)
+          </div>
+<span class="font-micro text-micro text-outline">Gas baseline: 31 Gwei</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container flex flex-col gap-0.5">
+<span class="font-label-caps text-label-caps text-outline uppercase">Collateral Asset</span>
+<div class="flex items-center gap-1.5 font-medium text-on-surface">
+<span class="material-symbols-outlined text-primary text-[14px]">monetization_on</span>
+<span>USDC Native</span>
+</div>
+<span class="font-micro text-micro text-outline truncate" title="0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359">0x3c499c...3359</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container flex flex-col gap-0.5">
+<span class="font-label-caps text-label-caps text-outline uppercase">Escrow Smart Contract</span>
+<div class="flex items-center gap-1.5 font-medium text-tertiary">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>v3.4 CLOB Escrow</span>
+</div>
+<span class="font-micro text-micro text-outline">OpenZeppelin Audited</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Liquidity Allocation & Escrow Breakdown (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-low p-space-lg rounded flex flex-col justify-between gap-space-md shadow-sm">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface">Liquidity Allocation</h2>
+<span class="font-label-caps text-label-caps text-outline uppercase">Total $42,850.20</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time escrow isolation ratio and unencumbered buying capacity.</p>
+</div>
+<!-- Segmented Visual Bar -->
+<div class="flex flex-col gap-space-xs">
+<div class="w-full h-3 rounded-full bg-surface-container-highest flex overflow-hidden">
+<div class="h-full bg-tertiary" style="width: 34.65%;" title="Available Cash: 34.65%"></div>
+<div class="h-full bg-secondary" style="width: 8.87%;" title="In Escrow: 8.87%"></div>
+<div class="h-full bg-primary-container" style="width: 56.48%;" title="In Positions: 56.48%"></div>
+</div>
+<!-- Legend -->
+<div class="grid grid-cols-3 gap-2 pt-1 font-body-sm text-body-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-on-surface font-medium tabular-nums">—</span>
+</div>
+<span class="font-micro text-micro text-outline">Available Cash</span>
+<span class="font-micro text-micro text-on-surface font-semibold">—</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-on-surface font-medium tabular-nums">—</span>
+</div>
+<span class="font-micro text-micro text-outline">In Escrow</span>
+<span class="font-micro text-micro text-on-surface font-semibold">—</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="text-on-surface font-medium tabular-nums">—</span>
+</div>
+<span class="font-micro text-micro text-outline">In Positions</span>
+<span class="font-micro text-micro text-on-surface font-semibold">—</span>
+</div>
+</div>
+</div>
+<!-- Bridge Status Subsystem -->
+<div class="p-space-sm rounded bg-surface-container flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]">alt_route</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-on-surface font-body-sm text-body-sm font-semibold">
+<span>Ethereum L1</span>
+<span class="material-symbols-outlined text-[14px] text-outline">arrow_forward</span>
+<span>Polygon PoS</span>
+</div>
+<span class="font-micro text-micro text-outline">Avg. Bridge Transit Time: 7.2 min</span>
+</div>
+</div>
+<button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-bright text-primary font-body-sm text-body-sm font-medium transition-colors" type="button">
+          Bridge Hub
+        </button>
+</div>
+</div>
+</section>
+<!-- Settlement & Fund Flow Ledger Section -->
+<section class="bg-surface-container-low rounded p-space-lg flex flex-col gap-space-md shadow-sm">
+<!-- Ledger Toolbar -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-0.5">
+<h2 class="font-headline-md text-headline-md text-on-surface">Settlement &amp; Fund Flow Ledger</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Real-time audit log of all smart contract deposits, settlements, and transfers.</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Filter Tabs -->
+<div class="flex items-center bg-surface-container p-0.5 rounded text-on-surface-variant font-body-sm text-body-sm" id="ledgerTabs">
+<button class="filter-tab px-space-sm py-1 rounded bg-surface-container-high text-on-surface font-semibold transition-colors" data-filter="all" type="button">
+            All Transactions (156)
+          </button>
+<button class="filter-tab px-space-sm py-1 rounded hover:text-on-surface transition-colors" data-filter="deposit" type="button">
+            Deposits (42)
+          </button>
+<button class="filter-tab px-space-sm py-1 rounded hover:text-on-surface transition-colors" data-filter="withdrawal" type="button">
+            Withdrawals (18)
+          </button>
+<button class="filter-tab px-space-sm py-1 rounded hover:text-on-surface transition-colors" data-filter="escrow" type="button">
+            Trade Escrow (96)
+          </button>
+</div>
+<!-- Search Bar -->
+<div class="relative flex items-center bg-surface-container rounded px-space-sm py-1.5 w-60">
+<span class="material-symbols-outlined text-outline text-[16px] mr-space-xs">search</span>
+<input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none" id="ledgerSearch" placeholder="Search Tx hash, amount..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse" id="ledgerTable">
+<thead>
+<tr class="bg-surface-container text-outline font-label-caps text-label-caps uppercase">
+<th class="py-2.5 px-space-md rounded-l">Type</th>
+<th class="py-2.5 px-space-md">Asset</th>
+<th class="py-2.5 px-space-md">Network / Subsystem</th>
+<th class="py-2.5 px-space-md text-right">Amount</th>
+<th class="py-2.5 px-space-md text-right">Gas / Fee</th>
+<th class="py-2.5 px-space-md text-center">Status</th>
+<th class="py-2.5 px-space-md">Timestamp (UTC)</th>
+<th class="py-2.5 px-space-md text-right rounded-r">Transaction Hash</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm divide-y-0" id="ledgerTableBody">
+<!-- Row 1: Deposit -->
+<tr class="hover:bg-surface-container/60 transition-colors group" data-type="deposit">
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-6 h-6 rounded bg-tertiary-container/30 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">south_west</span>
+</div>
+<span class="font-medium text-on-surface">Deposit</span>
+</div>
+</td>
+<td class="py-3 px-space-md font-data-sm text-data-sm text-on-surface font-semibold">USDC</td>
+<td class="py-3 px-space-md text-on-surface-variant">Polygon POS</td>
+<td class="py-3 px-space-md text-right font-data-md text-data-md text-tertiary tabular-nums font-semibold">+$5,000.00 USDC</td>
+<td class="py-3 px-space-md text-right text-outline tabular-nums">—</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-tertiary-container/30 text-tertiary font-micro text-micro font-bold uppercase tracking-wider">
+                COMPLETED
+              </span>
+</td>
+<td class="py-3 px-space-md text-outline tabular-nums">2025-05-17 18:32:10</td>
+<td class="py-3 px-space-md text-right">
+<a class="inline-flex items-center gap-1 font-data-sm text-data-sm text-primary hover:underline tabular-nums" href="#">
+<span>0x3d4e...a9b2</span>
+<span class="material-symbols-outlined text-[13px]">open_in_new</span>
+</a>
+</td>
+</tr>
+<!-- Row 2: Escrow Unlock -->
+<tr class="hover:bg-surface-container/60 transition-colors group" data-type="escrow">
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-6 h-6 rounded bg-primary-container/30 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">lock_open</span>
+</div>
+<span class="font-medium text-on-surface">Order Escrow Unlock</span>
+</div>
+</td>
+<td class="py-3 px-space-md font-data-sm text-data-sm text-on-surface font-semibold">USDC</td>
+<td class="py-3 px-space-md text-on-surface-variant">MITMARKET CLOB Relay</td>
+<td class="py-3 px-space-md text-right font-data-md text-data-md text-tertiary tabular-nums font-semibold">+$1,200.00 USDC</td>
+<td class="py-3 px-space-md text-right text-outline tabular-nums">—</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-tertiary-container/30 text-tertiary font-micro text-micro font-bold uppercase tracking-wider">
+                COMPLETED
+              </span>
+</td>
+<td class="py-3 px-space-md text-outline tabular-nums">2025-05-17 16:11:04</td>
+<td class="py-3 px-space-md text-right">
+<span class="font-micro text-micro text-outline px-1.5 py-0.5 bg-surface-container rounded">Internal Settlement</span>
+</td>
+</tr>
+<!-- Row 3: Withdrawal -->
+<tr class="hover:bg-surface-container/60 transition-colors group" data-type="withdrawal">
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-6 h-6 rounded bg-surface-container-high text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">north_east</span>
+</div>
+<span class="font-medium text-on-surface">Withdrawal</span>
+</div>
+</td>
+<td class="py-3 px-space-md font-data-sm text-data-sm text-on-surface font-semibold">USDC</td>
+<td class="py-3 px-space-md text-on-surface-variant">Ethereum via Bridge</td>
+<td class="py-3 px-space-md text-right font-data-md text-data-md text-on-surface tabular-nums font-semibold">-$2,500.00 USDC</td>
+<td class="py-3 px-space-md text-right text-outline tabular-nums">—</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-tertiary-container/30 text-tertiary font-micro text-micro font-bold uppercase tracking-wider">
+                COMPLETED
+              </span>
+</td>
+<td class="py-3 px-space-md text-outline tabular-nums">2025-05-14 09:20:15</td>
+<td class="py-3 px-space-md text-right">
+<a class="inline-flex items-center gap-1 font-data-sm text-data-sm text-primary hover:underline tabular-nums" href="#">
+<span>0x9a8b...11f4</span>
+<span class="material-symbols-outlined text-[13px]">open_in_new</span>
+</a>
+</td>
+</tr>
+<!-- Row 4: Deposit Arbitrum -->
+<tr class="hover:bg-surface-container/60 transition-colors group" data-type="deposit">
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-6 h-6 rounded bg-tertiary-container/30 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">south_west</span>
+</div>
+<span class="font-medium text-on-surface">Deposit</span>
+</div>
+</td>
+<td class="py-3 px-space-md font-data-sm text-data-sm text-on-surface font-semibold">USDC</td>
+<td class="py-3 px-space-md text-on-surface-variant">Arbitrum One</td>
+<td class="py-3 px-space-md text-right font-data-md text-data-md text-tertiary tabular-nums font-semibold">+$10,000.00 USDC</td>
+<td class="py-3 px-space-md text-right text-outline tabular-nums">—</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-tertiary-container/30 text-tertiary font-micro text-micro font-bold uppercase tracking-wider">
+                COMPLETED
+              </span>
+</td>
+<td class="py-3 px-space-md text-outline tabular-nums">2025-05-10 11:45:00</td>
+<td class="py-3 px-space-md text-right">
+<a class="inline-flex items-center gap-1 font-data-sm text-data-sm text-primary hover:underline tabular-nums" href="#">
+<span>0x7c21...88de</span>
+<span class="material-symbols-outlined text-[13px]">open_in_new</span>
+</a>
+</td>
+</tr>
+<!-- Row 5: Pending Withdrawal -->
+<tr class="hover:bg-surface-container/60 transition-colors group" data-type="withdrawal">
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-6 h-6 rounded bg-surface-container-high text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">north_east</span>
+</div>
+<span class="font-medium text-on-surface">Withdrawal</span>
+</div>
+</td>
+<td class="py-3 px-space-md font-data-sm text-data-sm text-on-surface font-semibold">USDC</td>
+<td class="py-3 px-space-md text-on-surface-variant">Polygon POS</td>
+<td class="py-3 px-space-md text-right font-data-md text-data-md text-on-surface tabular-nums font-semibold">-$1,000.00 USDC</td>
+<td class="py-3 px-space-md text-right text-outline tabular-nums">—</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-secondary-container/40 text-secondary font-micro text-micro font-bold uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                PENDING
+              </span>
+</td>
+<td class="py-3 px-space-md text-outline tabular-nums">2025-05-18 14:10:00</td>
+<td class="py-3 px-space-md text-right">
+<a class="inline-flex items-center gap-1 font-data-sm text-data-sm text-primary hover:underline tabular-nums" href="#">
+<span>0x5e44...32c1</span>
+<span class="material-symbols-outlined text-[13px]">open_in_new</span>
+</a>
+</td>
+</tr>
+<!-- Row 6: Failed Deposit -->
+<tr class="hover:bg-surface-container/60 transition-colors group" data-type="deposit">
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-6 h-6 rounded bg-error-container/30 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">priority_high</span>
+</div>
+<span class="font-medium text-on-surface">Deposit</span>
+</div>
+</td>
+<td class="py-3 px-space-md font-data-sm text-data-sm text-on-surface font-semibold">USDC</td>
+<td class="py-3 px-space-md text-on-surface-variant">Polygon POS</td>
+<td class="py-3 px-space-md text-right font-data-md text-data-md text-outline tabular-nums font-semibold">+$2,000.00 USDC</td>
+<td class="py-3 px-space-md text-right text-outline tabular-nums">—</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-error-container/40 text-error font-micro text-micro font-bold uppercase tracking-wider">
+                FAILED
+              </span>
+</td>
+<td class="py-3 px-space-md text-outline tabular-nums">2025-05-02 08:14:22</td>
+<td class="py-3 px-space-md text-right">
+<a class="inline-flex items-center gap-1 font-data-sm text-data-sm text-primary hover:underline tabular-nums" href="#">
+<span>0x1122...3344</span>
+<span class="material-symbols-outlined text-[13px]">open_in_new</span>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination / Footer Summary -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm pt-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-space-sm">
+<span>Displaying <span class="font-medium text-on-surface">6</span> of <span class="font-medium text-on-surface">156</span> transactions</span>
+<span class="text-outline">|</span>
+<span class="font-micro text-micro text-outline">Deterministic Settlement Latency: &lt;1.2s</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-outline hover:text-on-surface disabled:opacity-40" disabled="" type="button">
+          Previous
+        </button>
+<span class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface font-semibold">1</span>
+<button class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-outline hover:text-on-surface" type="button">
+          2
+        </button>
+<button class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-outline hover:text-on-surface" type="button">
+          3
+        </button>
+<button class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-outline hover:text-on-surface" type="button">
+          Next
+        </button>
+</div>
+</div>
+</section>
+<!-- Full QR Code Modal Overlay -->
+<div class="fixed inset-0 z-50 bg-surface-container-lowest/80 backdrop-blur-sm hidden items-center justify-center p-space-md" id="qrModal">
+<div class="bg-surface-container-high max-w-sm w-full p-space-lg rounded flex flex-col gap-space-md shadow-xl relative animate-in fade-in zoom-in-95 duration-150">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">qr_code_2</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Custody QR Code</h3>
+</div>
+<button class="p-1 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface" id="closeQrModal" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest p-space-lg rounded flex flex-col items-center justify-center gap-space-md">
+<svg class="w-48 h-48 text-on-surface" fill="currentColor" viewbox="0 0 100 100">
+<rect fill="none" height="28" rx="2" stroke="currentColor" stroke-width="6" width="28" x="8" y="8"></rect>
+<rect height="12" width="12" x="16" y="16"></rect>
+<rect fill="none" height="28" rx="2" stroke="currentColor" stroke-width="6" width="28" x="64" y="8"></rect>
+<rect height="12" width="12" x="72" y="16"></rect>
+<rect fill="none" height="28" rx="2" stroke="currentColor" stroke-width="6" width="28" x="8" y="64"></rect>
+<rect height="12" width="12" x="16" y="72"></rect>
+<rect height="12" width="12" x="44" y="12"></rect>
+<rect height="24" width="12" x="44" y="32"></rect>
+<rect height="12" width="12" x="64" y="44"></rect>
+<rect height="12" width="12" x="80" y="44"></rect>
+<rect height="8" width="20" x="44" y="64"></rect>
+<rect height="24" width="20" x="72" y="68"></rect>
+</svg>
+<span class="font-micro text-micro text-outline text-center uppercase tracking-wider">Polygon PoS (Chain ID 137) USDC Only</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-outline uppercase">Deposit Address</span>
+<div class="flex items-center justify-between p-space-xs bg-surface-container-lowest rounded font-data-sm text-data-sm text-on-surface">
+<span class="truncate">0x71A4D0219c67Bc5Fa288339bC1284E2971a944F9</span>
+<button class="p-1 hover:text-primary transition-colors" id="modalCopyBtn" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<div class="flex justify-end gap-space-xs pt-space-xs">
+<button class="w-full py-2 rounded bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-body-sm text-body-sm font-semibold transition-colors" id="doneQrBtn" type="button">
+          Done
+        </button>
+</div>
+</div>
+</div>
+<!-- Interactive Logic -->
+<script>
+    (function initWalletPage() {
+      // 1. Copy Address Clipboard
+      const fullAddressStr = "0x71A4D0219c67Bc5Fa288339bC1284E2971a944F9";
+      const copyBtn = document.getElementById("copyAddressBtn");
+      const modalCopyBtn = document.getElementById("modalCopyBtn");
+      const toast = document.getElementById("copiedToast");
+
+      function triggerCopy() {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(fullAddressStr).then(() => {
+            showToast();
+          }).catch(() => {
+            showToast();
+          });
+        } else {
+          showToast();
+        }
+      }
+
+      function showToast() {
+        if (!toast) return;
+        toast.classList.remove("opacity-0");
+        toast.classList.add("opacity-100");
+        setTimeout(() => {
+          toast.classList.remove("opacity-100");
+          toast.classList.add("opacity-0");
+        }, 2200);
+      }
+
+      if (copyBtn) copyBtn.addEventListener("click", triggerCopy);
+      if (modalCopyBtn) modalCopyBtn.addEventListener("click", triggerCopy);
+
+      // 2. QR Modal controls
+      const qrModal = document.getElementById("qrModal");
+      const qrTrigger = document.getElementById("qrTrigger");
+      const showQrBtn = document.getElementById("showQrBtn");
+      const closeQrModal = document.getElementById("closeQrModal");
+      const doneQrBtn = document.getElementById("doneQrBtn");
+
+      function openModal() {
+        if (qrModal) {
+          qrModal.classList.remove("hidden");
+          qrModal.classList.add("flex");
+        }
+      }
+
+      function closeModal() {
+        if (qrModal) {
+          qrModal.classList.add("hidden");
+          qrModal.classList.remove("flex");
+        }
+      }
+
+      if (qrTrigger) qrTrigger.addEventListener("click", openModal);
+      if (showQrBtn) showQrBtn.addEventListener("click", openModal);
+      if (closeQrModal) closeQrModal.addEventListener("click", closeModal);
+      if (doneQrBtn) doneQrBtn.addEventListener("click", closeModal);
+      if (qrModal) {
+        qrModal.addEventListener("click", (e) => {
+          if (e.target === qrModal) closeModal();
+        });
+      }
+
+      // 3. Refresh Ledger Button Rotation Animation
+      const refreshBtn = document.getElementById("refreshLedgerBtn");
+      const refreshIcon = document.getElementById("refreshIcon");
+
+      if (refreshBtn && refreshIcon) {
+        refreshBtn.addEventListener("click", () => {
+          refreshIcon.classList.add("animate-spin");
+          setTimeout(() => {
+            refreshIcon.classList.remove("animate-spin");
+          }, 800);
+        });
+      }
+
+      // 4. Ledger Filtering & Search
+      const tabs = document.querySelectorAll(".filter-tab");
+      const searchInput = document.getElementById("ledgerSearch");
+      const tableRows = document.querySelectorAll("#ledgerTableBody tr");
+
+      let currentFilter = "all";
+
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          tabs.forEach(t => {
+            t.classList.remove("bg-surface-container-high", "text-on-surface", "font-semibold");
+            t.classList.add("hover:text-on-surface");
+          });
+          tab.classList.add("bg-surface-container-high", "text-on-surface", "font-semibold");
+          tab.classList.remove("hover:text-on-surface");
+
+          currentFilter = tab.getAttribute("data-filter") || "all";
+          applyTableFilters();
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener("input", () => {
+          applyTableFilters();
+        });
+      }
+
+      function applyTableFilters() {
+        const query = (searchInput?.value || "").toLowerCase().trim();
+
+        tableRows.forEach(row => {
+          const rowType = row.getAttribute("data-type") || "";
+          const rowText = row.innerText.toLowerCase();
+
+          const matchesType = (currentFilter === "all") || (rowType === currentFilter);
+          const matchesSearch = !query || rowText.includes(query);
+
+          if (matchesType && matchesSearch) {
+            row.style.display = "";
+          } else {
+            row.style.display = "none";
+          }
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-md text-on-surface-variant"><div class="w-full px-gutter-desktop flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-wrap items-center gap-space-md font-body-sm text-body-sm"><div class="flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-tertiary"></div><span class="text-on-surface font-medium">Operational</span><span class="text-outline">(99.98% Uptime)</span></div><span class="text-outline">|</span><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">sync_alt</span><span>Polygon CLOB Engine</span></div><span class="text-outline">|</span><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">gavel</span><span>UMA Oracle Resolution</span></div></div><div class="flex items-center gap-space-md font-body-sm text-body-sm"><a class="hover:text-on-surface transition-colors" data-path="api-documentation" href="#">Documentation</a><a class="hover:text-on-surface transition-colors" data-path="api-feeds" href="#">API Feeds</a><a class="hover:text-on-surface transition-colors" data-path="terms-and-settlement" href="#">Terms of Protocol</a><span class="text-outline">© 2025 MITMARKET Markets Global Ltd.</span></div></div></footer></div></body></html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>MITMARKET | Institutional Prediction Market Terminal</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed": "#EAA343", "tertiary-container": "#0bba74", "on-surface": "#F4F6FA", "inverse-primary": "#1463ff", "on-secondary-fixed-variant": "#000000", "surface-variant": "#101216", "secondary-container": "#101216", "on-primary-fixed-variant": "#000000", "on-error": "#000000", "on-background": "#F4F6FA", "surface-tint": "#1463ff", "error": "#ff4761", "on-tertiary-container": "#000000", "on-secondary": "#000000", "on-error-container": "#ff4761", "surface-container-lowest": "#101216", "surface": "#000000", "inverse-on-surface": "#101216", "on-primary-container": "#000000", "on-primary-fixed": "#000000", "outline-variant": "#29313D", "outline": "#98A5B5", "background": "#000000", "tertiary": "#0bba74", "primary": "#1463ff", "primary-fixed-dim": "#1463ff", "tertiary-fixed-dim": "#0bba74", "on-secondary-container": "#F4F6FA", "primary-container": "#1463ff", "surface-container-low": "#101216", "surface-dim": "#000000", "tertiary-fixed": "#0bba74", "on-secondary-fixed": "#000000", "surface-container-high": "#101216", "primary-fixed": "#1463ff", "surface-container-highest": "#101216", "inverse-surface": "#F4F6FA", "on-surface-variant": "#98A5B5", "surface-container": "#101216", "secondary": "#EAA343", "on-tertiary-fixed": "#000000", "on-tertiary-fixed-variant": "#000000", "error-container": "#101216", "secondary-fixed-dim": "#EAA343", "on-tertiary": "#000000", "on-primary": "#000000", "surface-bright": "#29313D" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin-desktop": "1.5rem", "gutter": "0.75rem", "space-xl": "1.5rem", "gutter-desktop": "1rem", "space-xs": "0.25rem", "space-lg": "1rem", "space-sm": "0.5rem", "margin": "1rem", "space-md": "0.75rem" }, "fontFamily": { "headline-md": ["Inter"], "headline-lg": ["Inter"], "data-lg": ["Inter"], "body-md": ["Inter"], "data-md": ["Inter"], "micro": ["Inter"], "display-lg": ["Inter"], "data-sm": ["Inter"], "label-caps": ["Inter"], "body-sm": ["Inter"], "body-lg": ["Inter"] }, "fontSize": { "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "data-lg": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "data-md": ["14px", { "lineHeight": "18px", "fontWeight": "600" }], "micro": ["10px", { "lineHeight": "12px", "fontWeight": "500" }], "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "data-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "400" }] } } } };</script><style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 flex flex-col bg-surface shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-14 px-margin-desktop flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center gap-space-sm"><img alt="MITMARKET Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WQ7e4D86uLOwuyHmQZlCQW2I7FCjQoPa0wjUbqQDJ_h5deSvkaYKD8guT0gVlC4aRAx5dNO2iyEOxzbXjDGKiHzROjTaX6kVjxl9di2N54aTcrZJHGtsFosfurt0WzG5D1DcZjQUsfQmXu1tS3fw5jt6Ft-5fohTZlFe-3_lK96x5cyGHsFilIukdYnkEqNeH9UrKPg-_q7rcX2-nLIcF8wVGJN-NnYQUghq0RunNNsEOQXCYG2O6Hmpw"/><span class="font-headline-md text-headline-md tracking-tight uppercase text-on-surface">MITMARKET</span></div><div class="flex items-center gap-1.5 px-2 py-0.5 rounded-lg bg-surface-container border border-outline-variant/30 text-tertiary"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="font-label-caps text-label-caps tracking-wider uppercase text-on-surface-variant">LIVE MARKETS <strong class="text-tertiary font-data-sm">— 24H</strong></span></div></div><div class="flex-1 max-w-xl hidden lg:block"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-3 text-[18px] text-outline pointer-events-none">search</span><input class="w-full h-8 pl-9 pr-14 bg-surface-container-lowest rounded-lg border border-outline-variant/40 text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:border-primary-container transition-colors" placeholder="Search markets, contracts, politicians, tokens..." type="text"/><kbd class="absolute right-2 px-1.5 py-0.5 rounded bg-surface-container text-outline font-micro text-micro border border-outline-variant/30">⌘K</kbd></div></div><div class="flex items-center gap-space-md shrink-0"><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-on-surface font-semibold"><a aria-current="page" class="transition-colors text-on-surface font-semibold" data-path="explore" href="#">Explore</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="trending" href="#">Trending</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="portfolio" href="#">Portfolio</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="leaderboard" href="#">Leaderboard</a></nav><div class="flex items-center gap-space-sm"><div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface-container-high border border-outline-variant/40"><span class="font-micro text-micro text-outline uppercase">USDC</span><span class="font-data-sm text-data-sm text-on-surface">—</span></div><button class="px-3 py-1 bg-primary-container text-on-primary-container hover:bg-secondary hover:text-on-secondary rounded-lg font-data-sm text-data-sm transition-colors" type="button">Deposit</button><button class="p-1 text-on-surface-variant hover:text-on-surface transition-colors flex items-center" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span></button><div class="flex items-center gap-1.5 pl-1"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="hidden md:inline font-data-sm text-data-sm text-on-surface-variant">Connect account</span></div></div></div></div><div class="h-10 px-margin-desktop flex items-center justify-between bg-surface-container-lowest border-t border-b border-outline-variant/30"><div class="flex items-center gap-1 overflow-x-auto py-1"><a class="flex items-center gap-1 px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="trending" href="#"><span class="material-symbols-outlined text-[14px] text-secondary">local_fire_department</span>Trending</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="breaking" href="#">Breaking</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="new" href="#">New</a><a class="px-2.5 py-1 rounded-lg bg-surface-container-high text-primary font-semibold text-body-sm whitespace-nowrap border border-primary/20" data-path="crypto" href="#">Crypto</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="politics" href="#">Politics</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="sports" href="#">Sports</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="finance" href="#">Finance</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="geopolitics" href="#">Geopolitics</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="technology" href="#">Technology</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="elections" href="#">Elections</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="economy" href="#">Economy</a><a class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm whitespace-nowrap transition-colors" data-path="culture" href="#">Culture</a><button class="flex items-center gap-0.5 px-2 py-1 rounded-lg text-outline hover:text-on-surface font-body-sm text-body-sm whitespace-nowrap transition-colors" type="button">More<span class="material-symbols-outlined text-[14px]">arrow_drop_down</span></button></div><div class="hidden md:flex items-center gap-space-sm shrink-0 pl-space-md"><div class="flex items-center gap-1.5 font-micro text-micro text-outline"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>Ethereum Gas: <strong class="text-on-surface font-semibold">— Gwei</strong></span><span>•</span><span>Polygon: <strong class="text-tertiary font-semibold">Fast</strong></span></div></div></div></header><main class="w-full pt-24 min-h-[calc(100vh-96px)] bg-surface-container-lowest"><div class="max-w-[1440px] mx-auto p-margin-desktop"><div class="flex flex-col w-full text-on-surface">
+<div class="flex flex-col xl:flex-row items-start gap-space-lg w-full">
+<!-- LEFT COLUMN: 65% Main Analysis & Markets Pane -->
+<section class="flex flex-col gap-space-md w-full xl:w-[65%] shrink-0 min-w-0">
+<!-- 1. Sports Match Header & High-Density Stadium Banner -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-lg flex flex-col gap-space-md shadow-xl">
+<!-- Visual Scrim Atmosphere -->
+<div class="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10 pointer-events-none"></div>
+<div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<!-- Header Meta & Realtime Pulse -->
+<div class="relative z-10 flex flex-wrap items-center justify-between gap-space-sm text-outline font-micro text-micro">
+<div class="flex items-center gap-space-xs font-label-caps text-label-caps text-on-surface-variant tracking-wider uppercase">
+<span class="material-symbols-outlined text-[16px] text-primary">sports_soccer</span>
+<span>La Liga Santander</span>
+<span>•</span>
+<span>Matchday 32</span>
+<span>•</span>
+<span class="text-on-surface">Santiago Bernabéu, Madrid</span>
+</div>
+<div class="flex items-center gap-2 px-2.5 py-1 rounded bg-surface-container-lowest text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span class="font-data-sm text-data-sm text-tertiary">Match Start: Today 20:00 UTC</span>
+<span class="text-outline-variant font-micro text-micro">• Pre-Match Trading Open</span>
+</div>
+</div>
+<!-- Clásico Team Head-to-Head Hero Presentation -->
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-12 items-center gap-space-md py-space-xs">
+<!-- Real Madrid -->
+<div class="md:col-span-5 flex items-center gap-space-md bg-surface-container p-space-md rounded-lg">
+<div class="relative w-14 h-14 rounded-xl overflow-hidden bg-surface-container-high shrink-0 shadow-md flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Real Madrid football club official emblem crest on dark royal navy textured backdrop with golden crown detail minimalist sports branding" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFH7s7w2_itc0AGor8m8DfkTKFR7CcsZ_TaA8YpaKUNSYOKvWuNDKdPu1d_5n_gD7DROYvCM5N1hVg8JpRKSsYWudmQglu7kRmySGQZXTp2EwYJK87M3Yib4NFeuwQkKUDUfSzhGOMctkLsKyGAb86YVPPYnDmATGySkLtZql2yc7gAh5nBLbgKFiDkHqgclpr-fSWjSPjx3cBb6u9KZB8GM4igYHbLSnBPU7BAszOTk0gZ8KWe1oQ"/>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface truncate">Real Madrid</span>
+<span class="font-micro text-micro px-1.5 py-0.5 rounded bg-surface-container-highest text-primary uppercase font-bold">Home</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1st in Standings • 78 Pts</span>
+</div>
+</div>
+<!-- VS Centerpiece Indicator -->
+<div class="md:col-span-2 flex flex-col items-center justify-center text-center">
+<span class="font-label-caps text-label-caps tracking-widest text-outline uppercase">Clásico #257</span>
+<div class="my-1 px-3 py-1 rounded-full bg-surface-container-highest text-on-surface font-headline-md text-headline-md shadow-inner">
+              VS
+            </div>
+<span class="font-micro text-micro text-tertiary uppercase tracking-tight">Contract: #LL-RMA-FCB</span>
+</div>
+<!-- FC Barcelona -->
+<div class="md:col-span-5 flex items-center justify-end gap-space-md bg-surface-container p-space-md rounded-lg text-right">
+<div class="flex flex-col min-w-0 items-end">
+<div class="flex items-center gap-2">
+<span class="font-micro text-micro px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary uppercase font-bold">Away</span>
+<span class="font-headline-lg text-headline-lg text-on-surface truncate">FC Barcelona</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2nd in Standings • 70 Pts</span>
+</div>
+<div class="relative w-14 h-14 rounded-xl overflow-hidden bg-surface-container-high shrink-0 shadow-md flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="FC Barcelona crest insignia shield with scarlet and deep blue stripes with yellow flag detail set against matte charcoal sports background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-SzsI22XyohlsDuoFDINKZwxGeRH_rD0OM8XeuQowtAja1dFjGNJwdiLW21o8itnLPZ_xD0f53J5K95z6bJuH2ph_JBDupxnTRXQ0BoAGYwWmXZKzalSW-AtQDTa9cb2M6AhjHYnxsYXhWLoDlMzGn5rQKiGw1eZSiyYtDqGz2XvXnc8uf0SIA4Y5H1Yt8YJVizAD2yvb7Lb6u1uipbn3HOF7bg1Pbyyu4lroynBm8MveGKqexqN8"/>
+</div>
+</div>
+</div>
+<!-- Metric Ledger Pill Bar -->
+<div class="relative z-10 flex flex-wrap items-center justify-between gap-space-sm pt-space-xs text-on-surface-variant font-body-sm text-body-sm bg-surface-container-lowest px-space-md py-2 rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">history</span>
+<span class="font-data-sm text-data-sm text-on-surface">Head-to-Head All-Time:</span>
+<span class="text-primary font-bold">RMA 105 wins</span>
+<span class="text-outline">/</span>
+<span class="text-outline font-bold">Draw 52</span>
+<span class="text-outline">/</span>
+<span class="text-secondary font-bold">BAR 100 wins</span>
+</div>
+<div class="flex items-center gap-space-md font-micro text-micro">
+<span>Aggregated Pool: <strong class="text-on-surface font-data-sm text-data-sm">$10.2M USDC</strong></span>
+<span>Resolution Oracle: <strong class="text-tertiary">Optic-Feed Pro</strong></span>
+</div>
+</div>
+</div>
+<!-- 2. Core Match Result 3-Way Prediction Market -->
+<div class="flex flex-col gap-space-sm bg-surface-container-low p-space-lg rounded-xl shadow-lg">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">Full Time Match Result (3-Way Implied Probability)</h2>
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-micro text-micro text-primary uppercase">Primary Book</span>
+</div>
+<span class="font-micro text-micro text-outline uppercase tracking-wider">Live Settlement at Final Whistle</span>
+</div>
+<!-- 3 Prominent Outcome Option Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-space-xs">
+<!-- Real Madrid Win Card -->
+<div class="group relative flex flex-col justify-between p-space-md bg-surface-container rounded-lg hover:bg-surface-container-high transition-all cursor-pointer shadow-md">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-caps text-label-caps text-primary uppercase">Home Outcome</span>
+<h3 class="font-data-lg text-data-lg text-on-surface mt-0.5">Real Madrid Win</h3>
+</div>
+<span class="font-micro text-micro px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-bold">$4.8M Vol</span>
+</div>
+<div class="flex items-end justify-between mt-space-lg pt-space-xs">
+<div>
+<span class="font-micro text-micro text-outline block">Market Probability</span>
+<span class="font-display-lg text-display-lg text-primary tracking-tight">—</span>
+</div>
+<button class="px-space-md py-2 bg-tertiary/15 hover:bg-tertiary text-tertiary hover:text-on-tertiary transition-colors rounded-lg font-data-md text-data-md flex items-center gap-1.5" type="button">
+<span>YES</span>
+<span class="font-bold">44¢</span>
+</button>
+</div>
+</div>
+<!-- Draw Outcome Card -->
+<div class="group relative flex flex-col justify-between p-space-md bg-surface-container rounded-lg hover:bg-surface-container-high transition-all cursor-pointer shadow-md">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-caps text-label-caps text-outline uppercase">Neutral Outcome</span>
+<h3 class="font-data-lg text-data-lg text-on-surface mt-0.5">Draw (Tie)</h3>
+</div>
+<span class="font-micro text-micro px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-bold">$1.9M Vol</span>
+</div>
+<div class="flex items-end justify-between mt-space-lg pt-space-xs">
+<div>
+<span class="font-micro text-micro text-outline block">Market Probability</span>
+<span class="font-display-lg text-display-lg text-on-surface-variant tracking-tight">—</span>
+</div>
+<button class="px-space-md py-2 bg-tertiary/15 hover:bg-tertiary text-tertiary hover:text-on-tertiary transition-colors rounded-lg font-data-md text-data-md flex items-center gap-1.5" type="button">
+<span>YES</span>
+<span class="font-bold">26¢</span>
+</button>
+</div>
+</div>
+<!-- FC Barcelona Win Card -->
+<div class="group relative flex flex-col justify-between p-space-md bg-surface-container rounded-lg hover:bg-surface-container-high transition-all cursor-pointer shadow-md">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-caps text-label-caps text-secondary uppercase">Away Outcome</span>
+<h3 class="font-data-lg text-data-lg text-on-surface mt-0.5">Barcelona Win</h3>
+</div>
+<span class="font-micro text-micro px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-bold">$3.5M Vol</span>
+</div>
+<div class="flex items-end justify-between mt-space-lg pt-space-xs">
+<div>
+<span class="font-micro text-micro text-outline block">Market Probability</span>
+<span class="font-display-lg text-display-lg text-secondary tracking-tight">—</span>
+</div>
+<button class="px-space-md py-2 bg-tertiary/15 hover:bg-tertiary text-tertiary hover:text-on-tertiary transition-colors rounded-lg font-data-md text-data-md flex items-center gap-1.5" type="button">
+<span>YES</span>
+<span class="font-bold">30¢</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Consolidated Tri-Segment Implied Probability Bar -->
+<div class="flex flex-col gap-1.5 pt-space-xs">
+<div class="w-full h-3 rounded-full overflow-hidden bg-surface-container-highest flex">
+<div class="h-full bg-primary transition-all duration-500" style="width: 44%" title="RMA Win 44%"></div>
+<div class="h-full bg-outline transition-all duration-500" style="width: 26%" title="Draw 26%"></div>
+<div class="h-full bg-secondary transition-all duration-500" style="width: 30%" title="BAR Win 30%"></div>
+</div>
+<div class="flex items-center justify-between font-label-caps text-label-caps text-outline px-1">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>RMA (44%)</span>
+</div>
+<div class="flex items-center gap-1.5 text-outline">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span>DRAW (26%)</span>
+</div>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>BAR (30%)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Categorized Sports Sub-Market Tabs & Execution Roster -->
+<div class="flex flex-col gap-space-md bg-surface-container-low p-space-lg rounded-xl shadow-lg">
+<!-- Filter Pills Bar -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1">
+<button class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary-container font-data-sm text-data-sm font-semibold whitespace-nowrap shadow-sm" type="button">
+            Match Winner (3-Way)
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm whitespace-nowrap transition-colors" type="button">
+            Total Goals (Over/Under 2.5)
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm whitespace-nowrap transition-colors" type="button">
+            Both Teams to Score
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm whitespace-nowrap transition-colors" type="button">
+            First Team to Score
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm whitespace-nowrap transition-colors" type="button">
+            Player Specials (Mbappé / Yamal)
+          </button>
+</div>
+<!-- Secondary Sub-Markets Grid -->
+<div class="flex flex-col gap-space-sm">
+<!-- Market A: Over 2.5 Goals -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-space-md bg-surface-container rounded-lg hover:bg-surface-container-high transition-colors gap-space-md">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md text-on-surface truncate">Over 2.5 Total Goals in Match</span>
+<span class="font-micro text-micro px-2 py-0.5 rounded bg-surface-container-highest text-tertiary">Liquid</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Implied Prob: Over 62% • Vol: $2.1M USDC</span>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="flex-1 sm:flex-none flex items-center justify-between sm:justify-center gap-3 px-3 py-2 rounded-lg bg-tertiary/10 hover:bg-tertiary/20 text-tertiary font-data-md text-data-md transition-colors min-w-[100px]" type="button">
+<span class="font-label-caps text-label-caps">YES</span>
+<span class="font-bold">62¢</span>
+</button>
+<button class="flex-1 sm:flex-none flex items-center justify-between sm:justify-center gap-3 px-3 py-2 rounded-lg bg-error/10 hover:bg-error/20 text-error font-data-md text-data-md transition-colors min-w-[100px]" type="button">
+<span class="font-label-caps text-label-caps">NO</span>
+<span class="font-bold">38¢</span>
+</button>
+</div>
+</div>
+<!-- Market B: Both Teams to Score -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-space-md bg-surface-container rounded-lg hover:bg-surface-container-high transition-colors gap-space-md">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md text-on-surface truncate">Both Teams to Score (BTTS) = YES</span>
+<span class="font-micro text-micro px-2 py-0.5 rounded bg-surface-container-highest text-secondary">Trending</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Implied Prob: 71% Yes • Vol: $1.6M USDC</span>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="flex-1 sm:flex-none flex items-center justify-between sm:justify-center gap-3 px-3 py-2 rounded-lg bg-tertiary/10 hover:bg-tertiary/20 text-tertiary font-data-md text-data-md transition-colors min-w-[100px]" type="button">
+<span class="font-label-caps text-label-caps">YES</span>
+<span class="font-bold">71¢</span>
+</button>
+<button class="flex-1 sm:flex-none flex items-center justify-between sm:justify-center gap-3 px-3 py-2 rounded-lg bg-error/10 hover:bg-error/20 text-error font-data-md text-data-md transition-colors min-w-[100px]" type="button">
+<span class="font-label-caps text-label-caps">NO</span>
+<span class="font-bold">29¢</span>
+</button>
+</div>
+</div>
+<!-- Market C: Kylian Mbappé Goal -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-space-md bg-surface-container rounded-lg hover:bg-surface-container-high transition-colors gap-space-md">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high shrink-0">
+<img class="w-full h-full object-cover" data-alt="Athletic French football forward Kylian Mbappe focused portrait in white kit cinematic stadium illumination sharp focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa1CroWdWYBJFeX37qp6H8Q88-JhYOX9J_TXwgpEikOny6eu0eEgI0CvM1npcECmj_2OP-wRWM1Q9epCz8VLbg8hNiqMt_U58UDnVI4TqPQbA-q8ui7QzSB6p1uqLe8TsDC1JutOyUVQiGpP8aJvzaAC6snv7T_EDEh4jxlt353KnYUVaah1tWjeOlVDwOLFDYfGzbYyi60zKQHTbYG-7xC4H6F66EfocVkPQ9iwiLfQtxto-HCb2R"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface truncate">Kylian Mbappé to score anytime</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Player Special • Vol: $980k USDC</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="flex-1 sm:flex-none flex items-center justify-between sm:justify-center gap-3 px-3 py-2 rounded-lg bg-tertiary/10 hover:bg-tertiary/20 text-tertiary font-data-md text-data-md transition-colors min-w-[100px]" type="button">
+<span class="font-label-caps text-label-caps">YES</span>
+<span class="font-bold">48¢</span>
+</button>
+<button class="flex-1 sm:flex-none flex items-center justify-between sm:justify-center gap-3 px-3 py-2 rounded-lg bg-error/10 hover:bg-error/20 text-error font-data-md text-data-md transition-colors min-w-[100px]" type="button">
+<span class="font-label-caps text-label-caps">NO</span>
+<span class="font-bold">52¢</span>
+</button>
+</div>
+</div>
+<!-- Market D: Lamine Yamal Assist -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-space-md bg-surface-container rounded-lg hover:bg-surface-container-high transition-colors gap-space-md">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high shrink-0">
+<img class="w-full h-full object-cover" data-alt="Dynamic teenage Spanish football winger Lamine Yamal looking forward with determination sporting scarlet blue jersey dark studio sports portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKD5DeMM5_mem5kGN1KFuzKe6RKK9YIkjZQI5EfsQMnD8vFqCo3ncyTV2_WSuOSGcqq_vZg9c0shN08ZhsXxBT3iNbwlQm0ATSa3eA9cWfVrMmPoKk1CqC4SW8jGRvX9szggRLiT9-K6nkMJ6eYacC8V52C-DgP8LSJrm76Hh7m0bnzH6FBlkJBEBwIa0o5HEOWd3NkdeK_7YS8juUNdxN2WhaCGmFZLMe8QhgXzvqgdDiEHyVzaKO"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface truncate">Lamine Yamal to record 1+ assist</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Player Special • Vol: $640k USDC</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="flex-1 sm:flex-none flex items-center justify-between sm:justify-center gap-3 px-3 py-2 rounded-lg bg-tertiary/10 hover:bg-tertiary/20 text-tertiary font-data-md text-data-md transition-colors min-w-[100px]" type="button">
+<span class="font-label-caps text-label-caps">YES</span>
+<span class="font-bold">35¢</span>
+</button>
+<button class="flex-1 sm:flex-none flex items-center justify-between sm:justify-center gap-3 px-3 py-2 rounded-lg bg-error/10 hover:bg-error/20 text-error font-data-md text-data-md transition-colors min-w-[100px]" type="button">
+<span class="font-label-caps text-label-caps">NO</span>
+<span class="font-bold">65¢</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Match Analytics, Lineups & Settlement Rules Context -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Squad Form Matrix -->
+<div class="p-space-lg bg-surface-container-low rounded-xl flex flex-col justify-between gap-space-sm shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-surface">Recent Team Form</span>
+<span class="font-micro text-micro text-outline">Last 5 Matches</span>
+</div>
+<div class="flex flex-col gap-space-sm mt-1">
+<div class="flex items-center justify-between bg-surface-container p-2.5 rounded-lg">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Real Madrid (RMA)</span>
+<div class="flex items-center gap-1.5 font-micro text-micro font-bold">
+<span class="w-5 h-5 rounded flex items-center justify-center bg-tertiary text-on-tertiary">W</span>
+<span class="w-5 h-5 rounded flex items-center justify-center bg-tertiary text-on-tertiary">W</span>
+<span class="w-5 h-5 rounded flex items-center justify-center bg-outline text-surface-container-lowest">D</span>
+<span class="w-5 h-5 rounded flex items-center justify-center bg-tertiary text-on-tertiary">W</span>
+<span class="w-5 h-5 rounded flex items-center justify-center bg-tertiary text-on-tertiary">W</span>
+</div>
+</div>
+<div class="flex items-center justify-between bg-surface-container p-2.5 rounded-lg">
+<span class="font-body-md text-body-md text-on-surface font-semibold">FC Barcelona (BAR)</span>
+<div class="flex items-center gap-1.5 font-micro text-micro font-bold">
+<span class="w-5 h-5 rounded flex items-center justify-center bg-tertiary text-on-tertiary">W</span>
+<span class="w-5 h-5 rounded flex items-center justify-center bg-tertiary text-on-tertiary">W</span>
+<span class="w-5 h-5 rounded flex items-center justify-center bg-tertiary text-on-tertiary">W</span>
+<span class="w-5 h-5 rounded flex items-center justify-center bg-error text-on-error">L</span>
+<span class="w-5 h-5 rounded flex items-center justify-center bg-tertiary text-on-tertiary">W</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Settlement & Resolution Specification -->
+<div class="p-space-lg bg-surface-container-low rounded-xl flex flex-col justify-between gap-space-sm shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-surface">Resolution Protocol</span>
+<div class="flex items-center gap-1 font-micro text-micro text-tertiary">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Audited Rulebook</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Official La Liga match result at full time (90 mins + stoppage time). Extra time and penalty shootouts not included unless specified in contract terms. Settled via official RFEF &amp; Opta certified match sheet feeds.
+          </p>
+<div class="flex items-center justify-between font-micro text-micro text-outline pt-1">
+<span>Market ID: <code class="text-on-surface">0x889f...ca12</code></span>
+<span>Fee: <strong class="text-on-surface">0.00% Maker / 0.15% Taker</strong></span>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN: 35% Institutional Order Execution Desk -->
+<aside class="w-full xl:w-[35%] shrink-0 flex flex-col gap-space-md">
+<div class="sticky top-28 bg-surface-container-low p-space-lg rounded-xl flex flex-col gap-space-md shadow-2xl">
+<!-- Execution Desk Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Order Execution</h2>
+</div>
+<span class="font-micro text-micro px-2 py-0.5 rounded bg-surface-container-highest text-tertiary uppercase">Instant Fill</span>
+</div>
+<!-- Selected Asset Banner -->
+<div class="p-space-md bg-surface-container rounded-lg flex items-center justify-between">
+<div class="flex flex-col min-w-0">
+<span class="font-label-caps text-label-caps text-outline uppercase">Active Contract</span>
+<span class="font-data-md text-data-md text-on-surface truncate">Real Madrid Win (Match Winner)</span>
+</div>
+<span class="px-2 py-1 rounded bg-primary/10 text-primary font-data-sm text-data-sm font-bold">44¢ Implied</span>
+</div>
+<!-- Buy / Sell Segmented Tab Strip -->
+<div class="grid grid-cols-2 p-1 bg-surface-container-lowest rounded-lg">
+<button class="py-2 rounded font-data-sm text-data-sm bg-surface-container text-on-surface font-semibold shadow-sm transition-all text-center" type="button">
+            Buy
+          </button>
+<button class="py-2 rounded font-data-sm text-data-sm text-outline hover:text-on-surface transition-all text-center" type="button">
+            Sell
+          </button>
+</div>
+<!-- YES / NO Binary Outcome Toggle -->
+<div class="grid grid-cols-2 gap-space-sm">
+<button class="flex flex-col items-center justify-center p-space-md rounded-lg bg-tertiary/15 text-tertiary font-data-md text-data-md shadow-sm transition-all" id="side-yes-btn" type="button">
+<span class="font-label-caps text-label-caps tracking-wider">YES</span>
+<span class="font-display-lg text-display-lg text-tertiary font-bold">44¢</span>
+<span class="font-micro text-micro text-tertiary/80 mt-0.5">Prob: 44.0%</span>
+</button>
+<button class="flex flex-col items-center justify-center p-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-outline hover:text-on-surface font-data-md text-data-md transition-all" id="side-no-btn" type="button">
+<span class="font-label-caps text-label-caps tracking-wider">NO</span>
+<span class="font-display-lg text-display-lg font-bold text-error">56¢</span>
+<span class="font-micro text-micro text-outline mt-0.5">Prob: 56.0%</span>
+</button>
+</div>
+<!-- Order Type Selector (Market vs Limit) -->
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Order Type</span>
+<div class="flex items-center gap-1 bg-surface-container p-0.5 rounded-lg">
+<button class="px-3 py-1 rounded bg-primary-container text-on-primary-container font-data-sm text-data-sm font-semibold" type="button">Market</button>
+<button class="px-3 py-1 rounded text-outline hover:text-on-surface font-data-sm text-data-sm" type="button">Limit</button>
+</div>
+</div>
+<!-- Trade Amount Entry -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-caps text-label-caps text-on-surface-variant">
+<span>Trade Allocation</span>
+<span class="text-outline">Max Avail: <strong class="text-on-surface font-data-sm text-data-sm">—</strong></span>
+</div>
+<div class="relative flex items-center bg-surface-container-lowest rounded-lg p-space-sm">
+<span class="font-data-lg text-data-lg text-primary pl-2">$</span>
+<input class="w-full bg-transparent px-2 text-on-surface font-data-lg text-data-lg focus:outline-none" id="trade-amount-input" placeholder="0.00" type="number" value="200"/>
+<span class="font-label-caps text-label-caps text-outline uppercase pr-2">USDC</span>
+</div>
+<!-- Quick Preset Chips -->
+<div class="grid grid-cols-4 gap-1.5 pt-1">
+<button class="py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant text-center font-micro text-micro transition-colors" type="button">+$50</button>
+<button class="py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant text-center font-micro text-micro transition-colors" type="button">+$100</button>
+<button class="py-1 rounded bg-surface-container-high text-primary text-center font-micro text-micro font-bold transition-colors" type="button">+$200</button>
+<button class="py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant text-center font-micro text-micro transition-colors" type="button">MAX</button>
+</div>
+</div>
+<!-- Position Calculations & Payout Summary Card -->
+<div class="flex flex-col gap-2 p-space-md bg-surface-container rounded-lg font-body-sm text-body-sm">
+<div class="flex items-center justify-between">
+<span class="text-outline">Contracts (Shares)</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold" id="calc-shares">454.55 YES Shares</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Average Entry Price</span>
+<span class="font-data-sm text-data-sm text-on-surface">44.00¢ / share</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Max Potential Payout</span>
+<span class="font-data-sm text-data-sm text-on-surface font-semibold" id="calc-payout">—</span>
+</div>
+<div class="h-[1px] bg-outline-variant/30 my-0.5"></div>
+<div class="flex items-center justify-between font-data-md text-data-md">
+<span class="text-on-surface font-semibold">Potential Net Return</span>
+<span class="text-tertiary font-bold" id="calc-return">+$254.55 (+127.27%)</span>
+</div>
+</div>
+<!-- High-Impact Institutional Submission CTA -->
+<button class="w-full py-3.5 rounded-lg bg-primary-container hover:bg-secondary text-on-primary-container hover:text-on-secondary font-headline-md text-headline-md tracking-tight uppercase shadow-lg transition-all active:scale-[0.99] flex items-center justify-center gap-2" id="review-trade-btn" type="button">
+<span>Review Trade</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<!-- Compliance & Routing Micro-Notes -->
+<div class="flex items-center justify-between font-micro text-micro text-outline px-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-tertiary">lock</span>
+            Non-custodial settlement
+          </span>
+<span>Slippage Cap: <strong>—</strong></span>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for side selection & live computation
+  const yesBtn = document.getElementById('side-yes-btn');
+  const noBtn = document.getElementById('side-no-btn');
+  const amountInput = document.getElementById('trade-amount-input');
+  const sharesElem = document.getElementById('calc-shares');
+  const payoutElem = document.getElementById('calc-payout');
+  const returnElem = document.getElementById('calc-return');
+
+  let currentSide = 'YES';
+  let yesPrice = 0.44;
+  let noPrice = 0.56;
+
+  function recalculate() {
+    const val = parseFloat(amountInput.value) || 0;
+    const price = currentSide === 'YES' ? yesPrice : noPrice;
+    
+    if (price > 0 && val > 0) {
+      const shares = val / price;
+      const potentialPayout = shares * 1.0;
+      const netReturn = potentialPayout - val;
+      const returnPct = (netReturn / val) * 100;
+
+      sharesElem.textContent = `${shares.toFixed(2)} ${currentSide} Shares`;
+      payoutElem.textContent = `$${potentialPayout.toFixed(2)}`;
+      returnElem.textContent = `+$${netReturn.toFixed(2)} (+${returnPct.toFixed(2)}%)`;
+    } else {
+      sharesElem.textContent = `0.00 ${currentSide} Shares`;
+      payoutElem.textContent = `$0.00`;
+      returnElem.textContent = `+$0.00 (0.00%)`;
+    }
+  }
+
+  if (yesBtn && noBtn && amountInput) {
+    yesBtn.addEventListener('click', () => {
+      currentSide = 'YES';
+      yesBtn.className = "flex flex-col items-center justify-center p-space-md rounded-lg bg-tertiary/15 text-tertiary font-data-md text-data-md shadow-sm transition-all";
+      noBtn.className = "flex flex-col items-center justify-center p-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-outline hover:text-on-surface font-data-md text-data-md transition-all";
+      recalculate();
+    });
+
+    noBtn.addEventListener('click', () => {
+      currentSide = 'NO';
+      noBtn.className = "flex flex-col items-center justify-center p-space-md rounded-lg bg-error/15 text-error font-data-md text-data-md shadow-sm transition-all";
+      yesBtn.className = "flex flex-col items-center justify-center p-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-outline hover:text-on-surface font-data-md text-data-md transition-all";
+      recalculate();
+    });
+
+    amountInput.addEventListener('input', recalculate);
+  }
+</script></div></main><footer class="w-full bg-surface border-t border-outline-variant/30 text-on-surface-variant"><div class="max-w-[1440px] mx-auto px-margin-desktop py-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-md text-body-sm font-body-sm"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span class="font-label-caps text-label-caps uppercase text-on-surface">System Operational: <strong class="text-tertiary">99.98% Uptime</strong></span></div><span class="text-outline">|</span><p class="text-outline text-micro font-micro">For demo &amp; analytical prediction markets only. MITMARKET Prime Execution Desk v4.18.2</p></div><div class="flex items-center gap-space-lg font-body-sm text-body-sm"><a class="text-outline hover:text-on-surface transition-colors" data-path="docs" href="#">Documentation</a><a class="text-outline hover:text-on-surface transition-colors" data-path="api" href="#">API Feeds</a><a class="text-outline hover:text-on-surface transition-colors" data-path="terms" href="#">Terms</a><a class="text-outline hover:text-on-surface transition-colors" data-path="privacy" href="#">Privacy</a><span class="text-outline font-micro text-micro">© 2025 MITMARKET Trading Technologies Inc.</span></div></div></footer></body></html>

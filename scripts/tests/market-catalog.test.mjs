@@ -1,0 +1,13 @@
+import {readFileSync} from 'node:fs';
+import ts from 'typescript';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+const js=ts.transpileModule(readFileSync(new URL('../../src/marketCatalog.ts',import.meta.url),'utf8'),{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText;
+const {normalizeEvents,categoryMarkets,walkCatalog}=await import('data:text/javascript;base64,'+Buffer.from(js).toString('base64'));
+const event=(id,tags=['Politics'])=>({id,title:'Election '+id,tags:tags.map(label=>({label})),markets:[{id:'market-'+id,question:'Will candidate win?',outcomes:'["Yes","No"]',outcomePrices:'["0.4","0.6"]',clobTokenIds:'["yes","no"]'}]});
+test('walks every cursor without truncating at the former 2600 limit',async()=>{let called=0;const received=[];await walkCatalog(async cursor=>{const n=cursor?Number(cursor):0;called++;return{events:Array.from({length:100},(_,i)=>event(String(n*100+i))),next_cursor:n<29?String(n+1):null};},(rows,complete)=>{received.push(...rows);if(complete)assert.equal(received.length,3000);},new AbortController().signal);assert.equal(called,30);assert.equal(normalizeEvents(received).length,3000);});
+test('deduplicates records and excludes closed or inactive contracts',()=>{const e=event('a');e.markets.push({...e.markets[0],id:'closed',closed:true});assert.equal(normalizeEvents([e,e,{...event('b'),active:false}]).length,1);});
+test('classifies cross-category cards from provider tags',()=>{const rows=normalizeEvents([event('a',['Politics','Iran']),event('b',['Sports'])]);assert.equal(categoryMarkets(rows,'iran').length,1);assert.equal(categoryMarkets(rows,'sports').length,1);assert.equal(categoryMarkets(rows,'crypto').length,0);});
+test('does not invent an outcome probability for invalid values',()=>{const e=event('a');e.markets[0].outcomePrices='["bad","1.2",""]';assert.ok(normalizeEvents([e])[0].prices.every(Number.isNaN));});
+test('rejects repeated cursors instead of reporting catalog complete',async()=>{await assert.rejects(walkCatalog(async()=>({events:[event('a')],next_cursor:'same'}),()=>{},new AbortController().signal),/repeated/);});
+test('aborted requests cannot publish late pages',async()=>{const controller=new AbortController();let published=false;await walkCatalog(async()=>{controller.abort();return{events:[event('a')]};},()=>published=true,controller.signal);assert.equal(published,false);});
