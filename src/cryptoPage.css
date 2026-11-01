@@ -108,11 +108,6 @@
 .cr-time-wide .cr-time-details .cr-time-prices{margin-top:auto}
 .cr-time-wide .cr-time-copy h4{font-size:16px;line-height:1.45}
 .cr-time-wide .cr-time-lead strong{font-size:30px}
-.cr-mini-chart{display:flex;flex-direction:column;gap:10px;min-width:0;min-height:140px;background:#101820;border:1px solid #253549;border-radius:9px;padding:10px}
-.cr-mini-chart-title{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:9px;font-weight:800;letter-spacing:.7px;color:#91a8c8}
-.cr-mini-chart-title strong{color:#0bba74;font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap}
-.cr-mini-chart-space{display:flex;align-items:center;justify-content:center;flex:1;min-height:100px}
-.cr-mini-chart-space svg{display:block;width:100%;height:100%;min-height:115px;max-height:175px;cursor:crosshair}
 .cr-chart-wait{width:100%;height:100%;min-height:100px;display:grid;place-items:center;text-align:center;color:#61738a;font-size:11px;border-top:1px dashed #243447}
 .cr-asset-head{padding-top:6px;gap:12px;margin-top:2px}
 .cr-asset-head h3{margin:0;font-size:23px;font-family:Inter,Manrope,sans-serif;font-weight:760}
@@ -126,7 +121,7 @@
 .cr-groups{gap:29px}
 @media(max-width:1100px){.cr-time-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(225px,auto)}.cr-time-card.cr-time-wide{grid-column:span 3}.cr-time-wide .cr-time-body{grid-template-columns:minmax(150px,.85fr) minmax(0,1.15fr);gap:8px}}
 @media(max-width:760px){.cr-time-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(225px,auto);gap:8px}.cr-time-card.cr-time-wide{grid-column:span 2;min-height:225px}.cr-time-wide .cr-time-body{grid-template-columns:minmax(145px,.8fr) minmax(0,1.2fr)}.cr-time-wide .cr-time-copy h4{font-size:14px}}
-@media(max-width:440px){.cr-time-wide .cr-time-body{grid-template-columns:1fr}.cr-time-card.cr-time-wide{min-height:370px}.cr-mini-chart{min-height:125px}.cr-mini-chart-space{min-height:90px}.cr-mini-chart-space svg{min-height:100px}.cr-time-card.cr-time-wide .cr-time-main{min-height:70px}}
+@media(max-width:440px){.cr-time-wide .cr-time-body{grid-template-columns:1fr}.cr-time-card.cr-time-wide{min-height:370px}.cr-time-card.cr-time-wide .cr-time-main{min-height:70px}}
 /* Additional independent Crypto discovery categories. */
 .cr-side-subtopics{margin-top:11px;padding-top:11px;border-top:1px solid #252c37}
 .cr-side-subtopics button{min-height:46px}
@@ -149,11 +144,7 @@
 .cr-time-card.cr-variant-3{background:linear-gradient(120deg,#14181f,#101216 65%);border-color:#30384a}
 .cr-time-card.cr-variant-1::before,.cr-time-card.cr-variant-3::before{content:'';position:absolute;left:13px;top:0;width:48px;height:2px;background:var(--cr-coin-accent);opacity:.8}
 .cr-time-card{position:relative;overflow:hidden}
-.cr-asset-style-1 .cr-time-wide .cr-mini-chart{background:#0c1824;border-color:#2c4261}
-.cr-asset-style-2 .cr-time-wide .cr-mini-chart{background:#111923;border-color:#354157}
-.cr-asset-style-3 .cr-time-wide .cr-mini-chart{background:linear-gradient(160deg,#142035,#101820);border-color:#334561}
 .cr-time-card.cr-variant-2 .cr-time-tag{color:var(--cr-coin-accent)}
-.cr-time-wide .cr-mini-chart{min-width:0}
 .cr-side-subtopics{border-top:0;margin-top:0;padding-top:0}
 .cr-side-subtopics button:first-child{margin-top:0}
 /* Live prediction terminal: no static screenshot, no spot-exchange price. */
@@ -172,10 +163,9 @@
 .cr-live-quote-number{display:flex;flex-direction:column;min-width:0;width:100%;gap:4px}.cr-live-quote-number b{font-size:10px;letter-spacing:.5px;color:#bdcce0}.cr-live-quote-number strong{font-size:clamp(15px,1.45vw,22px);line-height:1.2;font-variant-numeric:tabular-nums;color:#fff}.cr-live-quote-number small{font-size:10px;line-height:1.3;color:#a8bad2;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 .cr-live-prob{display:grid;grid-template-columns:1fr;align-items:center;gap:10px;padding:14px;border:1px solid #29476c;border-radius:12px;background:#10243a99;min-width:0}.cr-live-prob>div:first-child{display:flex;flex-direction:column;gap:5px;min-width:0}.cr-live-prob small{font-size:10px;letter-spacing:.9px;color:#91afdb;font-weight:750}.cr-live-prob strong{font-size:clamp(30px,2.6vw,43px);color:#4389ff;line-height:1.04;font-weight:850;font-variant-numeric:tabular-nums}.cr-live-prob span{font-size:11px;color:#d3e1f2;line-height:1.4}.cr-live-prob-track{height:6px;background:#1c3557;border-radius:10px;overflow:hidden}.cr-live-prob-track span{height:100%;display:block;background:linear-gradient(90deg,#1463ff,#0bba74);border-radius:10px}
 .cr-live-status{display:flex;gap:12px;justify-content:space-between;color:#8eabc9;font-size:9px;font-weight:700;letter-spacing:.4px}
-.cr-live-status span:first-child{color:#0bba74}
-.cr-live-chart{min-height:255px;display:flex;flex-direction:column;min-width:0;border-left:1px solid #23446977;padding-left:13px}.cr-live-chart-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:1px 0 9px;font-size:12px;font-weight:750;color:#b4cced}.cr-live-chart-head strong{color:#0bba74;font-size:18px;font-variant-numeric:tabular-nums}.cr-live-chart svg{display:block;width:100%;flex:1;min-height:195px;cursor:crosshair}.cr-live-chart-empty{display:grid;place-items:center;flex:1;min-height:185px;text-align:center;color:#849ab4;font-size:12px;border:1px dashed #28415f;border-radius:10px}.cr-live-periods{display:flex;justify-content:flex-end;gap:5px;margin-top:6px}.cr-live-periods button{background:transparent;color:#91a7c2;border:1px solid transparent;border-radius:15px;padding:6px 13px;font-size:11px;font-weight:750;cursor:pointer}.cr-live-periods button:hover{color:#eaa343}.cr-live-periods button.active{background:#1463ff;color:#fff}
-@media(max-width:1200px){.cr-live-hero{grid-template-columns:minmax(220px,.8fr) minmax(290px,1fr);}.cr-live-chart{grid-column:1/-1;border-left:0;border-top:1px solid #23446977;padding:16px 0 0}}
-@media(max-width:760px){.cr-live-hero{grid-template-columns:1fr;padding:20px;gap:18px}.cr-live-hero-copy h1{font-size:43px;margin:14px 0}.cr-live-chart{grid-column:auto}.cr-live-quotes{gap:5px}.cr-live-quote{padding:9px 7px}.cr-live-quote-number strong{font-size:16px}.cr-live-coin-icon{width:29px;height:29px;font-size:20px}}
+.cr-live-status span:first-child{color:#0bba74}.cr-live-periods{display:flex;justify-content:flex-end;gap:5px;margin-top:6px}.cr-live-periods button{background:transparent;color:#91a7c2;border:1px solid transparent;border-radius:15px;padding:6px 13px;font-size:11px;font-weight:750;cursor:pointer}.cr-live-periods button:hover{color:#eaa343}.cr-live-periods button.active{background:#1463ff;color:#fff}
+@media(max-width:1200px){.cr-live-hero{grid-template-columns:minmax(220px,.8fr) minmax(290px,1fr);}}
+@media(max-width:760px){.cr-live-hero{grid-template-columns:1fr;padding:20px;gap:18px}.cr-live-hero-copy h1{font-size:43px;margin:14px 0}.cr-live-quotes{gap:5px}.cr-live-quote{padding:9px 7px}.cr-live-quote-number strong{font-size:16px}.cr-live-coin-icon{width:29px;height:29px;font-size:20px}}
 /* Eight independent coin mosaics: the silhouette, not merely card color, changes. */
 .cr-time-grid{grid-auto-rows:minmax(242px,auto);grid-auto-flow:row dense}
 .cr-time-card.cr-time-wide{grid-column:span 3;grid-row:span 1}
@@ -187,18 +177,15 @@
 .cr-time-feature .cr-time-copy h4{font-size:16px;line-height:1.4}
 .cr-time-half .cr-time-body,.cr-time-banner .cr-time-body{display:grid;grid-template-columns:minmax(155px,.85fr) minmax(0,1.15fr);gap:12px}
 .cr-time-giant .cr-time-body,.cr-time-tall .cr-time-body{display:flex;flex-direction:column;gap:16px}
-.cr-time-giant .cr-mini-chart,.cr-time-tall .cr-mini-chart{flex:1;min-height:190px}
-.cr-time-giant .cr-mini-chart-space svg,.cr-time-tall .cr-mini-chart-space svg{min-height:170px;max-height:none}
-.cr-time-banner .cr-mini-chart-space svg{min-height:142px}
 .cr-time-banner .cr-time-copy h4{font-size:18px}
 .cr-time-giant .cr-time-copy h4{font-size:18px}
 .cr-time-tall .cr-time-main{flex-wrap:wrap}
 .cr-time-feature .cr-time-lead strong{font-size:30px}
 @media(max-width:1100px){.cr-time-card.cr-time-half{grid-column:span 2}.cr-time-card.cr-time-banner{grid-column:span 4}.cr-time-card.cr-time-giant{grid-column:span 2;grid-row:span 2}.cr-time-card.cr-time-tall{grid-column:span 1;grid-row:span 2}}
-@media(max-width:760px){.cr-time-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(235px,auto)}.cr-time-card.cr-time-wide,.cr-time-card.cr-time-half,.cr-time-card.cr-time-banner{grid-column:span 2}.cr-time-card.cr-time-giant{grid-column:span 2;grid-row:span 1}.cr-time-card.cr-time-tall{grid-column:span 1;grid-row:span 2}.cr-time-tall .cr-mini-chart-space svg{min-height:150px}.cr-time-giant .cr-time-body{display:grid;grid-template-columns:minmax(145px,.8fr) minmax(0,1.2fr)}}
+@media(max-width:760px){.cr-time-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(235px,auto)}.cr-time-card.cr-time-wide,.cr-time-card.cr-time-half,.cr-time-card.cr-time-banner{grid-column:span 2}.cr-time-card.cr-time-giant{grid-column:span 2;grid-row:span 1}.cr-time-card.cr-time-tall{grid-column:span 1;grid-row:span 2}.cr-time-giant .cr-time-body{display:grid;grid-template-columns:minmax(145px,.8fr) minmax(0,1.2fr)}}
 @media(max-width:440px){.cr-time-half .cr-time-body,.cr-time-banner .cr-time-body,.cr-time-giant .cr-time-body{grid-template-columns:1fr}.cr-time-card.cr-time-half,.cr-time-card.cr-time-banner,.cr-time-card.cr-time-giant{min-height:370px}.cr-time-card.cr-time-tall{grid-column:span 2;grid-row:span 1;min-height:370px}.cr-time-tall .cr-time-body{display:grid;grid-template-columns:1fr}.cr-time-card.cr-time-giant{grid-row:span 1}}
 /* MITMARKET's quantitative values are always green; interactions keep brand blue. */
-.cr-live-prob strong,.cr-time-lead strong,.cr-insight-probability>strong,.cr-chance-arc strong,.cr-mini-chart-title strong{color:#0bba74!important}
+.cr-live-prob strong,.cr-time-lead strong,.cr-insight-probability>strong,.cr-chance-arc strong{color:#0bba74!important}
 .cr-insight-probability{display:flex;justify-content:space-between;align-items:center;min-height:42px}
 .cr-insight-probability>strong{color:#0bba74;font-size:24px;font-weight:850}
 .cr-insight-detail .cr-time-prices{margin-top:auto}

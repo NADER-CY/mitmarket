@@ -63,6 +63,8 @@ function App() {
   const commonCategory=current==='explore'?category:commonScreens[current];
   const [commonMount,setCommonMount]=useState<HTMLElement|null>(null);
   const marketId = searchParams.get('market');
+  const outcomeParam = Number(searchParams.get('outcome'));
+  const requestedOutcome = Number.isInteger(outcomeParam) && outcomeParam >= 0 ? outcomeParam : 0;
   const frameRef = useRef<HTMLIFrameElement>(null);
   const [trendingMount,setTrendingMount] = useState<HTMLElement|null>(null);
   const [breakingMount,setBreakingMount] = useState<HTMLElement|null>(null);
@@ -106,9 +108,9 @@ function App() {
   function chooseScreen(next: string) { navigate(`/preview/${next}?view=${viewport}`); setActivePanel(null); }
   function chooseTrending() { navigate(`/preview/trending?view=${viewport}`); setActivePanel(null); }
   function chooseCategory(next: string) { if (next === 'trending') { chooseTrending(); return; }if(next==='perps'){chooseScreen('perps');return;}if(next==='combos'){chooseScreen('combos');return;} if(next==='breaking'){chooseScreen('breaking');return;}if(next==='sports'){chooseScreen('sportsbook');return;}if(next==='crypto'){chooseScreen('crypto_category');return;} navigate(`/preview/explore?view=${viewport}&category=${next}`); setActivePanel(null); setFilter(''); }
-  const openMarket=useCallback((id: string) => { navigate(`/preview/binary_market?view=${viewport}&category=${current==='trending'?'trending':current==='crypto_category'?'crypto':current==='sportsbook'?'sports':current==='combos'?'combos':category}&market=${encodeURIComponent(id)}`); setActivePanel(null); },[navigate,current,viewport,category]);
+  const openMarket=useCallback((id: string, outcome?:number) => { navigate(`/preview/binary_market?view=${viewport}&category=${current==='trending'?'trending':current==='crypto_category'?'crypto':current==='sportsbook'?'sports':current==='combos'?'combos':category}&market=${encodeURIComponent(id)}${outcome===undefined?'':`&outcome=${outcome}`}`); setActivePanel(null); },[navigate,current,viewport,category]);
 
-  const bridge = useFrameBridge({frame: frameRef, screen: current, category, markets, selected: current==='binary_market'&&(category==='crypto'||category==='combos')?undefined:selectedMarket, viewport, onCategory: chooseCategory, onMarket: openMarket, onTrending: chooseTrending, currency, fxRate: fx.rate, language});
+  const bridge = useFrameBridge({frame: frameRef, screen: current, category, markets, selected: current==='binary_market'&&(category==='crypto'||category==='combos')?undefined:selectedMarket, viewport, selectedOutcome: requestedOutcome, onCategory: chooseCategory, onMarket: openMarket, onTrending: chooseTrending, currency, fxRate: fx.rate, language});
 
   useEffect(()=>{const doc=frameRef.current?.contentDocument;if(!doc)return;const frame=window.requestAnimationFrame(()=>{doc.getElementById('mit-template-loading')?.remove();});return()=>window.cancelAnimationFrame(frame);},[commonMount,trendingMount,breakingMount,cryptoMount,sportsbookMount,casinoMount,commentsMount,current,category]);
 
@@ -131,7 +133,7 @@ function App() {
       return;
     }
     setCommonMount(null);
-    if (current === 'trending' && viewport === 'desktop') {
+    if (current === 'trending' || current === 'home') {
       const main = doc.querySelector('main');
       if (main) {
         const mount = doc.createElement('div');
@@ -235,6 +237,7 @@ function App() {
     const colorNode=(node:Node)=>{
       if(node.nodeType===Node.TEXT_NODE){
         const parent=node.parentElement;
+        if(parent?.closest('.probability-display'))return;
         if(parent&&isPercent(parent.textContent)){
           if(parent.namespaceURI==='http://www.w3.org/2000/svg')parent.setAttribute('fill','#0bba74');
           else parent.style?.setProperty('color','#0bba74','important');
@@ -243,6 +246,7 @@ function App() {
       }
       if(node.nodeType!==1)return;
       const element=node as Element;
+      if(element.closest('.probability-display'))return;
       if(element.children.length===0&&isPercent(element.textContent)){
         if(element.namespaceURI==='http://www.w3.org/2000/svg')element.setAttribute('fill','#0bba74');
         else (element as HTMLElement).style.setProperty('color','#0bba74','important');
@@ -271,7 +275,7 @@ function App() {
   return <div className="atlas-app">
     <div className="stitch-stage"><iframe ref={frameRef} key={`${current}:${category}:${screenUrl(current, viewport)}`} onLoad={handleFrameLoad} title={`MITMARKET ${current} ${viewport}`} src={screenUrl(current, viewport)} className={`original-screen ${viewport}`} /></div>
     {commonCategory && commonMount && (commonCategory==='rewards_center'?createPortal(<RewardsPage/>,commonMount):commonCategory==='portfolio_dashboard'?createPortal(<DashboardPage onMarket={openMarket}/>,commonMount):commonCategory==='leaderboard'?createPortal(<LeaderboardPage/>,commonMount):commonCategory==='live_activity'?createPortal(<ActivityPage/>,commonMount):commonCategory==='esports'?createPortal(<EsportsPage markets={markets} connection={connection} error={error} loading={catalogLoading} complete={catalogComplete} onMarket={openMarket} onVisibleMarkets={setVisibleIds} retry={retryCatalog}/>,commonMount):commonCategory==='crypto'?createPortal(<CryptoPage polymarket={markets} connection={connection} onMarket={openMarket} onVisibleMarkets={setVisibleIds} catalogLoading={catalogLoading} catalogComplete={catalogComplete} retryCatalog={retryCatalog}/>,commonMount):createPortal(<CategoryPage selectedTopic={commonCategory==='sports'?sportsTopic:commonCategory==='iran'?iranTopic:politicsTopic} onTopicChange={commonCategory==='sports'?setSportsTopic:commonCategory==='iran'?setIranTopic:setPoliticsTopic} remoteHasMore={commonCategory==='combos'&&comboHasMore} loadingMore={comboLoadingMore} onLoadMore={loadMoreCombo} key={commonCategory} category={commonCategory} markets={markets} connection={connection} error={error} onMarket={openMarket} onVisibleMarkets={setVisibleIds} catalogLoading={catalogLoading} catalogComplete={catalogComplete} loadedEvents={loadedEvents} retryCatalog={retryCatalog} workspace={commonCategory==='combos'?<CombosPage/>:commonCategory==='sports'?<SportsbookV2Page/>:undefined}/>,commonMount))}
-    {!commonCategory && current === 'trending' && trendingMount && createPortal(<TrendingPage markets={markets} connection={connection} language={language} currency={currency} fxRate={fx.rate} onMarket={openMarket} onPromo={chooseScreen} topic={trendingTopic} onTopic={setTrendingTopic} hasMoreTopic={hasMoreTopic} loadMoreTopic={loadMoreTopic} onVisibleMarkets={setVisibleIds} catalogLoading={catalogLoading} catalogComplete={catalogComplete} retryCatalog={retryCatalog}/>,trendingMount)}
+    {!commonCategory && (current === 'trending' || current === 'home') && trendingMount && createPortal(<TrendingPage markets={markets} connection={connection} language={language} currency={currency} fxRate={fx.rate} onMarket={openMarket} onPromo={chooseScreen} topic={trendingTopic} onTopic={setTrendingTopic} hasMoreTopic={hasMoreTopic} loadMoreTopic={loadMoreTopic} onVisibleMarkets={setVisibleIds} catalogLoading={catalogLoading} catalogComplete={catalogComplete} retryCatalog={retryCatalog}/>,trendingMount)}
     {!commonCategory && current === 'breaking' && breakingMount && createPortal(<BreakingPage markets={markets} connection={connection} error={error} updatedAt={updatedAt} onMarket={openMarket}/>,breakingMount)}
     {!commonCategory && current === 'perps' && perpsMount && createPortal(<PerpsPage/>,perpsMount)}
     {!commonCategory && current === 'combos' && combosMount && createPortal(<CombosPage/>,combosMount)}
@@ -279,8 +283,8 @@ function App() {
     {current === 'casino' && casinoMount && createPortal(<CasinoPage/>,casinoMount)}
     {!commonCategory && current === 'crypto_category' && cryptoMount && createPortal(<CryptoPage polymarket={markets} connection={connection} onMarket={openMarket}/>,cryptoMount)}
     {current === 'binary_market' && commentsMount && selectedMarket && createPortal(<MarketComments market={selectedMarket} language={language}/>,commentsMount)}
-    {current === 'binary_market' && category==='combos' && cryptoDetailMount && marketId && createPortal(<ComboGameDetail key={marketId} id={marketId} market={selectedMarket} language={language} related={markets} onMarket={openMarket} onBack={()=>chooseScreen('combos')}/>,cryptoDetailMount)}
-    {current === 'binary_market' && category==='crypto' && cryptoDetailMount && marketId && createPortal(<CryptoMarketDetail key={marketId} id={marketId} market={selectedMarket} language={language} related={markets} onMarket={openMarket} onBack={()=>chooseScreen('crypto_category')}/>,cryptoDetailMount)}
+    {current === 'binary_market' && category==='combos' && cryptoDetailMount && marketId && createPortal(<ComboGameDetail initialOutcome={requestedOutcome} key={marketId} id={marketId} market={selectedMarket} language={language} related={markets} onMarket={openMarket} onBack={()=>chooseScreen('combos')}/>,cryptoDetailMount)}
+    {current === 'binary_market' && category==='crypto' && cryptoDetailMount && marketId && createPortal(<CryptoMarketDetail initialOutcome={requestedOutcome} key={marketId} id={marketId} market={selectedMarket} language={language} related={markets} onMarket={openMarket} onBack={()=>chooseScreen('crypto_category')}/>,cryptoDetailMount)}
     {preferencesOpen && <PreferencesDialog language={language} currency={currency} fx={fx} onLanguage={changeLanguage} onCurrency={changeCurrency} onClose={() => setPreferencesOpen(false)}/>}
     {activePanel && <section className="atlas-panel" dir={direction} aria-label={activePanel === 'live' ? l.live : l.screens}>
       <header className="panel-heading"><div><span className="panel-eyebrow">MITMARKET</span><h2>{activePanel === 'live' ? l.live : l.screens}</h2></div><button className="panel-close" onClick={() => setActivePanel(null)} aria-label="Close panel">×</button></header>
