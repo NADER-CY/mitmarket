@@ -11,8 +11,8 @@ const NO_MARKETS: Market[] = [];
 type Point = { t: number; p: number };
 type FrameOptions = {
   frame: RefObject<HTMLIFrameElement | null>; screen: string; category: CategoryId;
-  markets: Market[]; selected?: Market; viewport: string;
-  onCategory: (id: CategoryId) => void; onMarket: (id: string) => void;
+  markets: Market[]; selected?: Market; selectedOutcome?:number; viewport: string;
+  onCategory: (id: CategoryId) => void; onMarket: (id: string, outcome?:number) => void;
   onTrending: () => void;
   currency: Currency; fxRate: number | null; language: string;
 };
@@ -201,8 +201,8 @@ function paintExplore(doc: Document, markets: Market[], category: CategoryId, cu
   }
 }
 
-function paintDetail(doc: Document, market: Market, history: Point[], chartOpen: boolean) {
-  const question = doc.querySelector('main h1'); if (question) question.textContent = market.title;
+function paintDetail(doc: Document, market: Market, history: Point[], chartOpen: boolean, selectedOutcome=0) {
+  const question = doc.querySelector('main h1,main h2'); if (question) question.textContent = market.title;
   // The Stitch reference contains illustrative trades, resolution terms and a
   // fictional featured commenter. Never present those as live market records.
   const sampleComment=[...doc.querySelectorAll<HTMLElement>('main span')].find(el=>el.textContent?.trim()==='Market Consensus & Commentary');
@@ -218,7 +218,11 @@ function paintDetail(doc: Document, market: Market, history: Point[], chartOpen:
   }
   const categoryLabel=doc.querySelector('main section .uppercase.tracking-wider');
   if(categoryLabel&&categoryLabel.textContent?.trim()==='Crypto')categoryLabel.textContent=market.category;
-  const probability = percent(market.prices[0]);
+  const outcomeIndex=Number.isInteger(selectedOutcome)&&selectedOutcome>=0&&selectedOutcome<market.outcomes.length?selectedOutcome:0;
+  const probability = percent(market.prices[outcomeIndex]);
+  let target=doc.getElementById('mit-selected-trade-target');
+  if(!target){target=doc.createElement('p');target.id='mit-selected-trade-target';question?.after(target);}
+  target.textContent=`Selected trade target: ${market.outcomes[outcomeIndex]??'Unavailable'} · ${cents(market.prices[outcomeIndex])}`;
   const metricElements = [...doc.querySelectorAll<HTMLElement>('main *')].filter(el => el.children.length === 0);
   metricElements.forEach(el => {
     const value = (el.textContent ?? '').trim();
@@ -227,10 +231,13 @@ function paintDetail(doc: Document, market: Market, history: Point[], chartOpen:
     if (value === '$31,482,900' || value === '$2.4M') el.textContent = usd(market.volume24h);
     if (['+3.4%', '$8,940,210 USDC', '$14.2M', '74¢ / 68¢', '$97,420.50', '+24.4% 30d'].includes(value)) el.textContent = '—';
   });
-  const yes = doc.getElementById('btn-outcome-yes');
-  const no = doc.getElementById('btn-outcome-no');
-  if (yes) yes.textContent = `YES ${cents(market.prices[0])}`;
-  if (no) no.textContent = `NO ${cents(market.prices[1])}`;
+  const yes = doc.getElementById('btn-outcome-yes') ?? doc.getElementById('sideYes');
+  const no = doc.getElementById('btn-outcome-no') ?? doc.getElementById('sideNo');
+  yes?.setAttribute('aria-pressed', String(outcomeIndex===0));
+  no?.setAttribute('aria-pressed', String(outcomeIndex===1));
+  [yes,no].forEach((button,i)=>{if(button){button.style.backgroundColor=i?'#e53935':'#0bba74';button.style.color='#fff';button.style.outline=outcomeIndex===i?'2px solid #f4f6fa':'';button.style.outlineOffset='2px';}});
+  if (yes) yes.textContent = `${market.outcomes[0]??'Outcome'} ${cents(market.prices[0])}`;
+  if (no) no.textContent = `${market.outcomes[1]??'Outcome'} ${cents(market.prices[1])}`;
   const svg = doc.querySelector<SVGSVGElement>('main svg[viewBox="0 0 800 320"],main svg[viewBox="0 0 350 160"]');
   if (svg) {
     const host = svg.parentElement;
@@ -245,7 +252,7 @@ function paintDetail(doc: Document, market: Market, history: Point[], chartOpen:
       status.textContent = chartOpen && history.length < 2 ? 'History unavailable or loading…' : '';
     }
   }
-  const livePrice = market.prices[0];
+  const livePrice = market.prices[outcomeIndex];
   const series = history.length >= 2 && Number.isFinite(livePrice) ? [...history,{t:Math.max(Date.now()/1000,history[history.length-1].t+1),p:livePrice}] : history;
   if (svg && series.length >= 2) {
     const desktop = svg.viewBox.baseVal.width === 800;
@@ -270,7 +277,7 @@ function paintDetail(doc: Document, market: Market, history: Point[], chartOpen:
   }
 }
 
-export function useFrameBridge({ frame, screen, category, markets: catalogMarkets, selected, viewport, onCategory, onMarket, onTrending, currency, fxRate, language }: FrameOptions) {
+export function useFrameBridge({ frame, screen, category, markets: catalogMarkets, selected, selectedOutcome=0, viewport, onCategory, onMarket, onTrending, currency, fxRate, language }: FrameOptions) {
   const usesFramePrices = screen === 'home' || screen === 'trending' && viewport === 'mobile';
   const quotes = useQuotedMarkets(usesFramePrices ? catalogMarkets.slice(0,48) : NO_MARKETS);
   const markets = usesFramePrices ? quotes : catalogMarkets;
@@ -282,26 +289,26 @@ export function useFrameBridge({ frame, screen, category, markets: catalogMarket
   useEffect(() => { setChartMarket(null); setHistory([]); }, [screen, selected?.id]);
 
   useEffect(() => {
-    if (!chartOpen || !selected?.tokenIds[0] || screen !== 'binary_market') { setHistory([]); return; }
+    if (!chartOpen || !selected?.tokenIds[selectedOutcome] || screen !== 'binary_market') { setHistory([]); return; }
     const controller = new AbortController();
     const url = new URL('https://clob.polymarket.com/prices-history');
-    url.searchParams.set('market', selected.tokenIds[0]);
+    url.searchParams.set('market', selected.tokenIds[selectedOutcome]);
     url.searchParams.set('interval', range);
     url.searchParams.set('fidelity', range === '1h' ? '1' : range === '1d' ? '10' : range === '1w' ? '60' : '240');
     fetch(url, { signal: controller.signal }).then(response => { if (!response.ok) throw Error('Chart unavailable'); return response.json(); }).then((body: {history?: Point[]}) => {
       if (!controller.signal.aborted) setHistory((body.history ?? []).filter(p => Number.isFinite(p.t) && Number.isFinite(p.p)));
     }).catch(() => { if (!controller.signal.aborted) setHistory([]); });
     return () => controller.abort();
-  }, [selected?.tokenIds[0], range, screen, chartOpen]);
+  }, [selected?.tokenIds[selectedOutcome], selectedOutcome, range, screen, chartOpen]);
 
   useEffect(() => {
     const doc = frame.current?.contentDocument;
     if (!doc?.body) return;
-    if (screen === 'home') paintHome(doc, markets, currency, fxRate, language);
-    if (screen === 'trending' && viewport === 'mobile') paintMobileTrending(doc,markets,currency,fxRate,language);
+    if (screen === 'home' && !doc.querySelector('.atlas-trending-screen')) paintHome(doc, markets, currency, fxRate, language);
+    if (screen === 'trending' && viewport === 'mobile' && !doc.querySelector('.atlas-trending-screen')) paintMobileTrending(doc,markets,currency,fxRate,language);
     if (screen === 'explore' && !doc.querySelector('.cr-page')) paintExplore(doc, markets, category, currency, fxRate, language);
-    if (screen === 'binary_market' && selected) paintDetail(doc, selected, history, chartOpen);
-  }, [frame, screen, viewport, category, markets, selected, history, chartOpen, loaded, currency, fxRate, language]);
+    if (screen === 'binary_market' && selected) paintDetail(doc, selected, history, chartOpen, selectedOutcome);
+  }, [frame, screen, viewport, category, markets, selected, selectedOutcome, history, chartOpen, loaded, currency, fxRate, language]);
 
   useEffect(() => {
     const doc = frame.current?.contentDocument;
@@ -310,6 +317,7 @@ export function useFrameBridge({ frame, screen, category, markets: catalogMarket
       const target = event.target as HTMLElement | null;
       const control = target?.closest<HTMLElement>('a,button,[data-atlas-market]');
       if (!control) return;
+      if(selected && (control.id==='btn-outcome-yes'||control.id==='btn-outcome-no'||control.id==='sideYes'||control.id==='sideNo')){event.preventDefault();onMarket(selected.id,control.id==='btn-outcome-no'||control.id==='sideNo'?1:0);return;}
       if (control.id === 'mit-open-history') { event.preventDefault(); setChartMarket(chartOpen ? null : selected?.id ?? null); return; }
       if (control.closest('#mit-market-navigation,.mit-category-menu')) return;
       const market = control.closest<HTMLElement>('[data-atlas-market]')?.dataset.atlasMarket;

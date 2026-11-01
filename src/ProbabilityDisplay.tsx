@@ -28,17 +28,15 @@ export function ProbabilityDisplay({ market, featured = false }: { market?: Prob
   const leader = outcomes.reduce((best, _, i) => validProbability(prices[i]) && (!validProbability(prices[best]) || prices[i]! > prices[best]!) ? i : best, 0);
   const price = outcomes.length ? prices[leader] : undefined;
   return <div ref={host} className={`probability-display ${featured ? 'probability-featured' : ''}`} aria-label={market?.title ? `Current probabilities for ${market.title}` : 'Current probabilities'}>
-    {featured && <div className="probability-gauge" role="img" aria-label={`${outcomes[leader] ?? 'Probability'}: ${probabilityText(price)}`}>
+    {featured && <div className={`probability-gauge ${leader%2?'probability-negative':''}`} role="img" aria-label={`${outcomes[leader] ?? 'Probability'}: ${probabilityText(price)}`}>
       <svg viewBox="0 0 200 112" aria-hidden="true"><path d="M16 98 A84 84 0 0 1 184 98" pathLength="100" className="probability-gauge-track"/>{validProbability(price) && <path d="M16 98 A84 84 0 0 1 184 98" pathLength="100" className="probability-gauge-value" strokeDasharray={`${price * 100} 100`}/>}</svg>
       <strong>{probabilityText(price)}</strong><small>{outcomes[leader] ?? 'Awaiting market data'}</small>
     </div>}
-    <div className="probability-comparison">
-      <span className="probability-caption">CURRENT PROBABILITY</span>
-      {featured && market?.title && <span className="probability-market-title">{market.title}</span>}
-      {outcomes.length ? outcomes.map((outcome, i) => <div className={`probability-row ${i % 2 ? 'probability-pink' : ''}`} key={`${i}:${outcome}`}>
+    {!featured && <div className="probability-comparison">
+      {outcomes.length ? outcomes.map((outcome, i) => <div className={`probability-row ${i % 2 ? 'probability-red' : ''}`} key={`${i}:${outcome}`}>
         <div className="probability-label"><span>{outcome}</span><strong>{probabilityText(prices[i])}</strong></div>
         <div className="probability-track" aria-hidden="true">{validProbability(prices[i]) && <span style={{ width: `${prices[i]! * 100}%` } as CSSProperties}/>}</div>
       </div>) : <span className="probability-unavailable">Probability unavailable</span>}
-    </div>
+    </div>}
   </div>;
 }

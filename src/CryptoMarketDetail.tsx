@@ -10,8 +10,9 @@ type Point={t:number;p:number};
 const arr=(v:string|string[]|undefined):string[]=>{if(Array.isArray(v))return v;if(!v)return [];try{return JSON.parse(v)}catch{return []}};
 const money=(n:number)=>Intl.NumberFormat('en-US',{maximumFractionDigits:2}).format(n);
 const cent=(n:number)=>Number.isFinite(n)?`${money(n*100)}¢`:'—';
-export function CryptoMarketDetail({id,market,language,onMarket,onBack,related}:{id:string;market?:Market;language:Language;onMarket:(id:string)=>void;onBack:()=>void;related:Market[]}){
- const [chartMode,setChartMode]=useState<'closed'|'spot'|'probability'>('closed'),[detail,setDetail]=useState<Detail|null>(null),[error,setError]=useState(false),[period,setPeriod]=useState('1d'),[history,setHistory]=useState<Point[]>([]),[chartState,setChartState]=useState('loading'),[side,setSide]=useState(0);
+export function CryptoMarketDetail({id,market,language,onMarket,onBack,related,initialOutcome=0}:{id:string;market?:Market;language:Language;onMarket:(id:string)=>void;onBack:()=>void;related:Market[];initialOutcome?:number}){
+ const [chartMode,setChartMode]=useState<'closed'|'spot'|'probability'>('closed'),[detail,setDetail]=useState<Detail|null>(null),[error,setError]=useState(false),[period,setPeriod]=useState('1d'),[history,setHistory]=useState<Point[]>([]),[chartState,setChartState]=useState('loading'),[side,setSide]=useState(initialOutcome);
+ useEffect(()=>setSide(initialOutcome),[initialOutcome]);
  useEffect(()=>{const c=new AbortController();setDetail(null);setError(false);fetch(`https://gamma-api.polymarket.com/markets/${encodeURIComponent(id)}`,{signal:c.signal}).then(r=>{if(!r.ok)throw Error();return r.json()}).then(setDetail).catch(()=>{if(!c.signal.aborted)setError(true)});return()=>c.abort()},[id]);
  const tokens=arr(detail?.clobTokenIds).length?arr(detail?.clobTokenIds):market?.tokenIds||[],outcomes=arr(detail?.outcomes).length?arr(detail?.outcomes):market?.outcomes||[],prices=arr(detail?.outcomePrices).map(Number),token=tokens[side];
  const {book,status,updated}=useCryptoBook(token),livePrimary=useCryptoBook(chartMode==='probability'&&side!==0?tokens[0]:undefined),primaryBook=side===0?book:livePrimary.book;

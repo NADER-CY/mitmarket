@@ -11,18 +11,18 @@ export function paintFrameProbability(doc: Document, host: HTMLElement, market: 
   if (featured) {
     const leader = outcomes.reduce((best, _, i) => validProbability(prices[i]) && (!validProbability(prices[best]) || prices[i] > prices[best]) ? i : best, 0);
     const price = outcomes.length ? prices[leader] : undefined;
-    const gauge = doc.createElement('div'); gauge.className = 'probability-gauge';
+    const gauge = doc.createElement('div'); gauge.className = `probability-gauge ${leader%2?'probability-negative':''}`;
     gauge.setAttribute('role', 'img'); gauge.setAttribute('aria-label', `${outcomes[leader] ?? 'Probability'}: ${probabilityText(price)}`);
     gauge.innerHTML = `<svg viewBox="0 0 200 112" aria-hidden="true"><path d="M16 98 A84 84 0 0 1 184 98" pathLength="100" class="probability-gauge-track"/>${validProbability(price) ? `<path d="M16 98 A84 84 0 0 1 184 98" pathLength="100" class="probability-gauge-value" stroke-dasharray="${price * 100} 100"/>` : ''}</svg>`;
     const value = doc.createElement('strong'); value.textContent = probabilityText(price); gauge.appendChild(value);
     const label = doc.createElement('small'); label.textContent = outcomes[leader] ?? 'Awaiting market data'; gauge.appendChild(label);
     host.appendChild(gauge);
+    return;
   }
   const comparison = doc.createElement('div'); comparison.className = 'probability-comparison';
-  const caption = doc.createElement('span'); caption.className = 'probability-caption'; caption.textContent = 'CURRENT PROBABILITY'; comparison.appendChild(caption);
   if (!outcomes.length) { const empty = doc.createElement('span'); empty.textContent = 'Probability unavailable'; comparison.appendChild(empty); }
   outcomes.forEach((outcome, i) => {
-    const row = doc.createElement('div'); row.className = `probability-row ${i % 2 ? 'probability-pink' : ''}`;
+    const row = doc.createElement('div'); row.className = `probability-row ${i % 2 ? 'probability-red' : ''}`;
     const label = doc.createElement('div'); label.className = 'probability-label';
     const name = doc.createElement('span'); name.textContent = outcome;
     const value = doc.createElement('strong'); value.textContent = probabilityText(prices[i]); label.append(name, value);
