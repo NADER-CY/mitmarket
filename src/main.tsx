@@ -1,3 +1,5 @@
+import {DesktopRuntimeContext} from './DesktopRuntime';
+import {installDesktopArrowStyle} from './desktopArrowStyle';
 import {ComboGameDetail} from './ComboGameDetail';
 import {EsportsPage} from './EsportsPage';
 import {RewardsPage} from './RewardsPage';
@@ -38,6 +40,7 @@ function syncTrendingNav(doc:Document,screen:string){
   const nav=doc.querySelector('body > header');
   if(!nav)return;
   for(const item of nav.querySelectorAll<HTMLElement>('a,button')){
+    if(item.closest('#mit-market-navigation-controls'))continue;
     const label=(item.dataset.atlasOriginalLabel||item.textContent||'').trim();
     if(label==='Crypto'){
       item.style.setProperty('background','transparent','important');
@@ -90,7 +93,7 @@ function App() {
   const [iranTopic,setIranTopic]=useState('All');
   const [sportsTopic,setSportsTopic]=useState('Live');
   const [visibleIds,setVisibleIds]=useState<string[]>([]);
-  const { comboHasMore,comboLoadingMore,loadMoreCombo,markets, connection, error, updatedAt,hasMoreTopic,loadMoreTopic,catalogLoading,catalogComplete,loadedEvents,retryCatalog } = useLiveMarkets(commonCategory==='crypto'?'crypto':commonCategory?validCategory(commonCategory):current==='trending'?'trending':current==='breaking'?'breaking':current==='sportsbook'?'sports':current==='crypto_category'?'crypto':category,marketId,commonCategory==='politics'?politicsTopic:commonCategory==='sports'?sportsTopic:commonCategory==='iran'?iranTopic:trendingTopic,visibleIds);
+  const { comboHasMore,comboLoadingMore,loadMoreCombo,markets, connection, error, updatedAt,hasMoreTopic,loadMoreTopic,catalogLoading,catalogComplete,loadedEvents,retryCatalog } = useLiveMarkets(commonCategory==='crypto'?'crypto':commonCategory?validCategory(commonCategory):current==='trending'?'trending':current==='breaking'?'breaking':current==='sportsbook'?'sports':current==='crypto_category'?'crypto':category,marketId,commonCategory==='politics'?politicsTopic:commonCategory==='sports'?sportsTopic:commonCategory==='iran'?iranTopic:trendingTopic,visibleIds,viewport==='desktop'&&current==='trending');
   const selectedRows=useMemo(()=>{const market=markets.find(market=>market.id===marketId);return market?[market]:[];},[markets,marketId]);
   const selectedMarket=useQuotedMarkets(selectedRows)[0];
   const l = labels(language);
@@ -117,14 +120,15 @@ function App() {
     installHeaderPreferences();
     const doc = frameRef.current?.contentDocument;
     if (!doc?.body) return;
+    if(viewport==='desktop')installDesktopArrowStyle(doc);
     if(!doc.getElementById('mit-category-icon-scale')){const style=doc.createElement('style');style.id='mit-category-icon-scale';style.textContent=categoryIconScale;doc.head.appendChild(style);}
     installMitmarketBrand(doc);
     if(!commonCategory&&current!=='trending')installPercentColorPolicy(doc);
     enhanceFrame(doc,language,chooseScreen,chooseCategory);
     installSportsbookNavigation(doc);
-    installMarketNavigation(doc,current,category,chooseCategory,chooseScreen);
+    installMarketNavigation(doc,current,category,chooseCategory,chooseScreen,viewport==='desktop');
     syncTrendingNav(doc,current);
-    decorateFooter(doc,language,markets,openMarket,chooseCategory);
+    decorateFooter(doc,language,markets,openMarket,chooseCategory,viewport==='desktop',chooseScreen,()=>setPreferencesOpen(true));
     if(commonCategory){
       const main=doc.querySelector('main');
       if(main){const mount=doc.createElement('div');main.replaceChildren(mount);main.removeAttribute('class');main.style.cssText='display:block;background:#000;min-height:100vh;padding:96px 0 0;max-width:none;';setCommonMount(mount);}
@@ -180,12 +184,12 @@ function App() {
 
   useEffect(() => {
     const doc = frameRef.current?.contentDocument;
-    if (doc?.body) { enhanceFrame(doc,language,chooseScreen,chooseCategory);installSportsbookNavigation(doc);installMarketNavigation(doc,current,category,chooseCategory,chooseScreen);syncTrendingNav(doc,current);decorateFooter(doc,language,markets,openMarket,chooseCategory); }
+    if (doc?.body) { enhanceFrame(doc,language,chooseScreen,chooseCategory);installSportsbookNavigation(doc);installMarketNavigation(doc,current,category,chooseCategory,chooseScreen,viewport==='desktop');syncTrendingNav(doc,current);decorateFooter(doc,language,markets,openMarket,chooseCategory,viewport==='desktop',chooseScreen,()=>setPreferencesOpen(true)); }
   }, [language, current, viewport, category]);
   useEffect(() => {
     const doc=frameRef.current?.contentDocument;
     if(doc){const header=doc.querySelector('body > header');const volume=header?.querySelector<HTMLElement>('[data-live-header-volume]')||[...header?.querySelectorAll<HTMLElement>('strong')||[]].find(n=>/24H/.test(n.textContent||''));if(volume){volume.dataset.liveHeaderVolume='true';volume.title='24-hour volume of the loaded contracts';volume.textContent=markets.length?formatReferenceMoney(markets.reduce((sum,m)=>sum+(Number.isFinite(m.volume24h)?m.volume24h:0),0),currency,fx.rate,language)+' 24H':'— 24H';}}
-    if(doc?.getElementById('atlas-enhanced-footer')) decorateFooter(doc,language,markets,openMarket,chooseCategory);
+    if(doc?.getElementById('atlas-enhanced-footer')) decorateFooter(doc,language,markets,openMarket,chooseCategory,viewport==='desktop',chooseScreen,()=>setPreferencesOpen(true));
   },[markets,language]);
 
   function installHeaderPreferences() {
@@ -268,10 +272,10 @@ function App() {
     if(!doc.getElementById('mit-header-nav-style')){const style=doc.createElement('style');style.id='mit-header-nav-style';style.textContent='.mit-header-navigation{background:transparent;border:0;border-bottom:2px solid transparent;color:#9da8b8;padding:10px 5px;cursor:pointer;font-size:14px;font-weight:650;white-space:nowrap}.mit-header-navigation:hover{color:#e59a3c}.mit-header-navigation.atlas-active{color:#1463ff;border-bottom-color:#1463ff}@media(max-width:720px){.mit-header-navigation{font-size:13px;padding:7px 5px}}';doc.head.appendChild(style);}
   }
 
-  return <div className="atlas-app">
+  return <DesktopRuntimeContext.Provider value={viewport==='desktop'}><div className="atlas-app">
     <div className="stitch-stage"><iframe ref={frameRef} key={`${current}:${category}:${screenUrl(current, viewport)}`} onLoad={handleFrameLoad} title={`MITMARKET ${current} ${viewport}`} src={screenUrl(current, viewport)} className={`original-screen ${viewport}`} /></div>
     {commonCategory && commonMount && (commonCategory==='rewards_center'?createPortal(<RewardsPage/>,commonMount):commonCategory==='portfolio_dashboard'?createPortal(<DashboardPage onMarket={openMarket}/>,commonMount):commonCategory==='leaderboard'?createPortal(<LeaderboardPage/>,commonMount):commonCategory==='live_activity'?createPortal(<ActivityPage/>,commonMount):commonCategory==='esports'?createPortal(<EsportsPage markets={markets} connection={connection} error={error} loading={catalogLoading} complete={catalogComplete} onMarket={openMarket} onVisibleMarkets={setVisibleIds} retry={retryCatalog}/>,commonMount):commonCategory==='crypto'?createPortal(<CryptoPage polymarket={markets} connection={connection} onMarket={openMarket} onVisibleMarkets={setVisibleIds} catalogLoading={catalogLoading} catalogComplete={catalogComplete} retryCatalog={retryCatalog}/>,commonMount):createPortal(<CategoryPage selectedTopic={commonCategory==='sports'?sportsTopic:commonCategory==='iran'?iranTopic:politicsTopic} onTopicChange={commonCategory==='sports'?setSportsTopic:commonCategory==='iran'?setIranTopic:setPoliticsTopic} remoteHasMore={commonCategory==='combos'&&comboHasMore} loadingMore={comboLoadingMore} onLoadMore={loadMoreCombo} key={commonCategory} category={commonCategory} markets={markets} connection={connection} error={error} onMarket={openMarket} onVisibleMarkets={setVisibleIds} catalogLoading={catalogLoading} catalogComplete={catalogComplete} loadedEvents={loadedEvents} retryCatalog={retryCatalog} workspace={commonCategory==='combos'?<CombosPage/>:commonCategory==='sports'?<SportsbookV2Page/>:undefined}/>,commonMount))}
-    {!commonCategory && current === 'trending' && trendingMount && createPortal(<TrendingPage markets={markets} connection={connection} language={language} currency={currency} fxRate={fx.rate} onMarket={openMarket} onPromo={chooseScreen} topic={trendingTopic} onTopic={setTrendingTopic} hasMoreTopic={hasMoreTopic} loadMoreTopic={loadMoreTopic} onVisibleMarkets={setVisibleIds} catalogLoading={catalogLoading} catalogComplete={catalogComplete} retryCatalog={retryCatalog}/>,trendingMount)}
+    {!commonCategory && current === 'trending' && trendingMount && createPortal(<TrendingPage markets={markets} connection={connection} language={language} currency={currency} fxRate={fx.rate} onMarket={openMarket} onPromo={chooseScreen} onCategory={chooseCategory} topic={trendingTopic} onTopic={setTrendingTopic} hasMoreTopic={hasMoreTopic} loadMoreTopic={loadMoreTopic} onVisibleMarkets={setVisibleIds} catalogLoading={catalogLoading} catalogComplete={catalogComplete} retryCatalog={retryCatalog}/>,trendingMount)}
     {!commonCategory && current === 'breaking' && breakingMount && createPortal(<BreakingPage markets={markets} connection={connection} error={error} updatedAt={updatedAt} onMarket={openMarket}/>,breakingMount)}
     {!commonCategory && current === 'perps' && perpsMount && createPortal(<PerpsPage/>,perpsMount)}
     {!commonCategory && current === 'combos' && combosMount && createPortal(<CombosPage/>,combosMount)}
@@ -300,7 +304,7 @@ function App() {
         </div><p className="feed-disclaimer">Public reference prices only. MITMARKET trading is not connected; no orders are submitted.</p>
       </>}
     </section>}
-  </div>;
+  </div></DesktopRuntimeContext.Provider>;
 }
 
 createRoot(document.getElementById('root')!).render(<React.StrictMode><HashRouter useTransitions={false}><Routes>

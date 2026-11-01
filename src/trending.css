@@ -451,3 +451,27 @@
 .trending-feature-card{background-image:linear-gradient(115deg,#111924,#1b2634 70%,#101216)!important}
 /* Skip off-screen paint while retaining the already measured section height. */
 .trending-bento-section{content-visibility:auto;contain-intrinsic-size:auto 900px}
+
+.trending-bento-section-head h3{display:flex;align-items:center;gap:9px}.trending-category-symbol{flex:none;color:#9dbfe3;width:22px;height:22px}
+
+.trending-card-footer .trending-card-discussion{display:inline-flex;align-items:center;gap:6px;padding:0 4px;color:#91b3d5;font:500 11px Inter,sans-serif;white-space:nowrap}.trending-card-discussion svg{flex:none}.trending-card-discussion span{flex:none!important}
+
+.trending-card-share{margin-top:auto;padding-top:9px;min-width:0}.trending-card-share-track{display:flex;height:8px;gap:2px;border-radius:8px;overflow:hidden;background:#283543}.trending-card-share-track i{display:block;background:#0bba74;border-radius:6px}.trending-card-share-track b{display:block;background:#ff4761;border-radius:6px}.trending-card-share-labels{display:flex;justify-content:space-between;gap:10px;color:#9db8d3;font:500 11px Inter,sans-serif;margin-top:6px;font-variant-numeric:tabular-nums}.trending-card-share+.trending-card-footer{margin-top:0}
+
+/* Small categories fill their available row without a two-row portrait tile. */
+@media(min-width:1101px){
+ .trending-bento-section .trending-market-grid[data-card-count="1"]>.trending-market-card{grid-column:1/-1;grid-row:auto}
+ .trending-bento-section .trending-market-grid[data-card-count="2"]>.trending-market-card{grid-column:span 2;grid-row:auto}
+}
+
+/* Keep the end-of-list observer without reserving an empty status block. */
+.atlas-trending-screen{padding-bottom:12px}
+.trending-scroll-sentinel{padding:0;height:1px;min-height:0}
+.trending-scroll-sentinel:has(button){height:auto;padding:12px 0}
+
+.trending-bento-section:last-child,.trending-bento-section:has(.trending-market-grid:is([data-card-count="1"],[data-card-count="2"],[data-card-count="3"],[data-card-count="4"],[data-card-count="5"])){content-visibility:visible;contain-intrinsic-size:none}
+.trending-axis-labels{position:absolute;inset:0;pointer-events:none}.trending-axis-labels>span{position:absolute;right:2%;transform:translateY(-50%);color:#98a5b5;font:500 11px/1 Inter,Arial,sans-serif;letter-spacing:0;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+@media(min-width:701px) and (max-width:1100px){.trending-bento-section .trending-market-grid[data-card-count="8"]>.trending-bento-vertical{grid-column:span 2;grid-row:auto}}
+
+.trending-graph-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}.trending-history-retry{border:0;background:transparent;color:#83aaff;font:inherit;cursor:pointer;padding:4px 8px}

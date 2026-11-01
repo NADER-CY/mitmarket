@@ -1,3 +1,4 @@
+import {decorateDesktopFooter} from './desktopFooter';
 import type { Market } from './live';
 import type { Language } from './i18n';
 import { categories, type CategoryId } from './categories';
@@ -9,7 +10,8 @@ function button(doc:Document,label:string,marketId:string) {
   const el=doc.createElement('button');el.type='button';el.textContent=label;el.dataset.footerMarket=marketId;el.title=label;return el;
 }
 
-export function decorateFooter(doc:Document,language:Language,markets:Market[],onMarket:(id:string)=>void,onCategory:(id:CategoryId)=>void) {
+export function decorateFooter(doc:Document,language:Language,markets:Market[],onMarket:(id:string)=>void,onCategory:(id:CategoryId)=>void,desktop=false,onScreen:(id:string)=>void=()=>{},onPreferences:()=>void=()=>{}) {
+  if(desktop){decorateDesktopFooter(doc,language,id=>onCategory(id as CategoryId),onScreen,onPreferences);return;}
   const footer=doc.getElementById('atlas-enhanced-footer');if(!footer)return;
   const liveFooter=footer as HTMLElement & {atlasMarkets?:Market[];atlasOpen?:(id:string)=>void;atlasCategory?:(id:CategoryId)=>void};
   liveFooter.atlasMarkets=markets;liveFooter.atlasOpen=onMarket;
@@ -17,7 +19,7 @@ export function decorateFooter(doc:Document,language:Language,markets:Market[],o
   const popular=distinctEvents(markets.filter(m=>/finance|econom|business|oil|ipo|stock|fed|gold|treasury/i.test(`${m.category} ${m.title}`)),12);
   const all=distinctEvents([...popular,...markets],12);
   const newFinance=distinctEvents([...markets].sort((a,b)=>b.startTime-a.startTime),12);
-  const signature=`${language}|${all.map(m=>m.id).join(',')}|${newFinance.map(m=>m.id).join(',')}`;
+  const signature=`${desktop}|${language}|${all.map(m=>m.id).join(',')}|${newFinance.map(m=>m.id).join(',')}`;
   if(footer.dataset.atlasFooterSignature===signature)return;
   footer.dataset.atlasFooterSignature=signature;
   footer.innerHTML=`<div class="atlas-rich-footer-wrap"><div class="atlas-rich-brand"><div class="atlas-rich-logo">A</div><div><strong>MITMARKET</strong><p>Independent Prediction Market Intelligence</p></div></div><div class="atlas-rich-cols"><section class="atlas-rich-topics"><h3>Related topics</h3><div data-rich="topics"></div></section><section><h3>Popular market questions</h3><div data-rich="popular"></div><button class="atlas-rich-more" data-footer-action="trending">Explore more <span>↗</span></button></section><section><h3>New market questions</h3><div data-rich="new"></div><button class="atlas-rich-more" data-footer-action="explore">View all <span>↗</span></button></section></div><div class="atlas-rich-bottom"><div><strong>MITMARKET</strong><span>Live public market data · ${new Date().getFullYear()}</span></div><span>Informational market view only. Orders are not enabled.</span><div><a href="https://docs.polymarket.com/" target="_blank" rel="noopener noreferrer">Market Data API ↗</a><a href="https://polymarket.com/" target="_blank" rel="noopener noreferrer">Data source ↗</a></div></div></div>`;

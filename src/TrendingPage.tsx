@@ -1,4 +1,7 @@
-import {cachedHistory} from './historyCache';
+import {homeCategoryLimit,homeCategoryLayout,type HomeCardVariant} from './homeCategoryLayout';
+import {CategorySymbol,categoryDestination} from './CategorySymbol';
+import {appendStableOrder} from './stableTrendingCards';
+import {useDesktopPriceHistory} from './useDesktopPriceHistory';
 import {useQuotedMarkets} from './marketQuotes';
 import {useNearViewport} from './useNearViewport';
 import { useCallback,memo,useEffect, useMemo, useRef, useState } from 'react';
@@ -11,7 +14,6 @@ import trendingCss from './trending.css?raw';
 
 type MarketFilter = 'All markets' | 'Politics' | 'Sports' | 'Crypto' | 'Finance' | 'Geopolitics' | 'Technology' | 'Elections' | 'Economy' | 'Culture';
 type MarketSort = 'volume'|'total'|'liquidity'|'newest'|'ending'|'competitive';
-const filters: MarketFilter[] = ['All markets','Politics','Sports','Crypto','Finance','Geopolitics','Technology','Elections','Economy','Culture'];
 const sortItems:{value:MarketSort;label:string;icon:string}[]=[
   {value:'volume',label:'24hr Volume',icon:'↗'}, {value:'total',label:'Total Volume',icon:'♧'},
   {value:'liquidity',label:'Liquidity',icon:'♧'}, {value:'newest',label:'Newest',icon:'✧'},
@@ -39,29 +41,21 @@ const runnerUpPrizes=[1000,850,700,550,400,250,100];
 const EMPTY_MARKETS:Market[]=[];
 type PricePoint = {t:number;p:number};
 
-function useFeaturedHistory(token?: string) {
-  const [points,setPoints] = useState<PricePoint[]>([]);
-  useEffect(() => {
-    setPoints([]);
-    if (!token) return;
-    const controller = new AbortController();
-    const url = new URL('https://clob.polymarket.com/prices-history');
-    url.searchParams.set('market',token);url.searchParams.set('interval','1m');url.searchParams.set('fidelity','240');
-    cachedHistory(url.toString(),controller.signal).then((body:{history?:PricePoint[]})=>{
-      if (!controller.signal.aborted) setPoints((body.history??[]).filter(point=>Number.isFinite(point.t)&&Number.isFinite(point.p)).sort((a,b)=>a.t-b.t));
-    }).catch(()=>{if(!controller.signal.aborted)setPoints([]);});
-    return () => controller.abort();
-  },[token]);
-  return points;
+function useFeaturedHistory(token?:string){
+ return useDesktopPriceHistory(token?`https://clob.polymarket.com/prices-history?market=${encodeURIComponent(token)}&interval=1m&fidelity=240`:'');
 }
 
 function ProbabilityLine({market,connection,comparisonMarket}:{market:Market;connection:string;comparisonMarket?:Market}) {
   const [chartRef,near]=useNearViewport();
+  const [activated,setActivated]=useState(false);
+  useEffect(()=>{if(near)setActivated(true);},[near]);
   const mainIndex=comparisonMarket?0:(Number(market.prices[1])>Number(market.prices[0])?1:0);
   const otherMarket=comparisonMarket??market;
   const otherIndex=comparisonMarket?0:1-mainIndex;
-  const points=useFeaturedHistory(near?market.tokenIds[mainIndex]:undefined);
-  const comparison=useFeaturedHistory(near?otherMarket.tokenIds[otherIndex]:undefined);
+  const mainHistory=useFeaturedHistory(activated?market.tokenIds[mainIndex]:undefined);
+  const otherHistory=useFeaturedHistory(activated?otherMarket.tokenIds[otherIndex]:undefined);
+  const points=mainHistory.points,comparison=otherHistory.points;
+  const historyLoading=mainHistory.status==='loading'||otherHistory.status==='loading';
   const [hoverRatio,setHoverRatio]=useState<number|null>(null);
   const primaryPrice=market.prices[mainIndex];
   const secondaryPrice=otherMarket.prices[otherIndex];
@@ -85,15 +79,16 @@ function ProbabilityLine({market,connection,comparisonMarket}:{market:Market;con
     <div className="trending-graph-legend"><span><i style={{background:'#1463ff'}}/>{primaryLabel} <b>{precisePercent(primaryPrice)}</b></span><span><i style={{background:'#ff4761'}}/>{secondaryLabel} <b>{precisePercent(secondaryPrice)}</b></span></div>
     {plot?<div className="trending-graph-interaction">
       <svg viewBox="0 0 650 264" preserveAspectRatio="none" role="img" aria-label={`${market.title}: historical odds and latest live outcome probabilities`} onMouseMove={event=>{const r=event.currentTarget.getBoundingClientRect();setHoverRatio(Math.max(0,Math.min(1,((event.clientX-r.left)/r.width*650-18)/574)));}} onMouseLeave={()=>setHoverRatio(null)}>
-        {[0,.25,.5,.75,1].map(level=><g key={level}><line x1="18" x2="592" y1={plot.y(level)} y2={plot.y(level)} stroke="#29313D" strokeDasharray="4 7"/><text x="637" y={plot.y(level)+4} textAnchor="end" fill="#98A5B5" fontSize="12">{Math.round(level*100)}%</text></g>)}
+        {[0,.25,.5,.75,1].map(level=><g key={level}><line x1="18" x2="592" y1={plot.y(level)} y2={plot.y(level)} stroke="#29313D" strokeDasharray="4 7"/></g>)}
         {plot.first.length>=2&&<path d={plot.shape(plot.first)} stroke="#1463ff" strokeWidth="2.8" strokeLinejoin="round" fill="none" vectorEffect="non-scaling-stroke"/>}
         {plot.second.length>=2&&<path d={plot.shape(plot.second)} stroke="#ff4761" strokeWidth="2.4" strokeLinejoin="round" fill="none" vectorEffect="non-scaling-stroke"/>}
         {plot.first.length>=2&&<circle cx={plot.x(plot.first[plot.first.length-1].t)} cy={plot.y(plot.first[plot.first.length-1].p)} r="4" fill="#1463ff"/>}
         {plot.second.length>=2&&<circle cx={plot.x(plot.second[plot.second.length-1].t)} cy={plot.y(plot.second[plot.second.length-1].p)} r="3.5" fill="#ff4761"/>}
         {hovered&&<line x1={plot.x(hovered.t)} x2={plot.x(hovered.t)} y1="24" y2="232" stroke="#CBD3DF" strokeDasharray="4 5" strokeOpacity=".7"/>}
       </svg>
+      <div className="trending-axis-labels" aria-hidden="true">{[0,.25,.5,.75,1].map(level=><span key={level} style={{top:`${plot.y(level)/264*100}%`}}>{Math.round(level*100)}%</span>)}</div>
       {hovered&&<div className="trending-graph-tooltip" style={{left:`${Math.max(16,Math.min(68,hoverRatio!*75))}%`}}><strong>{new Date(hovered.t*1000).toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})}</strong><span><i style={{background:'#1463ff'}}/>{primaryLabel}: <b>{precisePercent(hovered.first?.p)}</b></span><span><i style={{background:'#ff4761'}}/>{secondaryLabel}: <b>{precisePercent(hovered.second?.p)}</b></span><small>24h volume: {Math.round(market.volume24h).toLocaleString('en-US')} USDC</small></div>}
-    </div>:<div className="trending-graph-empty">{market.tokenIds[mainIndex]?'Loading real market history…':'Historical chart unavailable for this market'}</div>}
+    </div>:<div className="trending-graph-empty">{!activated||historyLoading?'Loading real market history…':mainHistory.status==='error'||otherHistory.status==='error'?'History temporarily unavailable.':'No historical data available for this market.'}{activated&&!historyLoading&&<button className="trending-history-retry" onClick={()=>{mainHistory.retry();otherHistory.retry();}}>Retry history</button>}</div>}
   </div>;
 }
 
@@ -121,21 +116,12 @@ function groupEvents(markets: Market[]) {
   return [...groups.values()].map(group=>group.length>1?[...group].sort((a,b)=>(b.prices[0]??0)-(a.prices[0]??0)):group);
 }
 
-type BentoVariant = 'regular'|'wide'|'chart'|'full'|'vertical';
-function chooseBentoVariant(index:number,total:number,allowVertical:boolean):BentoVariant {
-  const layout:BentoVariant[]=[];
-  let row=0;
-  while(layout.length<total){const remaining=total-layout.length;
-    if(remaining===1){layout.push('full');break;}
-    if(remaining===2){layout.push('wide','wide');break;}
-    // A portrait tile occupies two rows, with a landscape chart and four compact neighbors.
-    // No extra-tall landscape chart: it leaves too much empty space.
-    if(allowVertical&&row%4===0&&remaining>=6){layout.push('vertical','chart','regular','regular','regular','regular');row++;continue;}
-    if(row%4===2&&remaining>=4){layout.push('full');row++;continue;}
-    if(row%4===1&&remaining>=4){layout.push('wide','wide');row++;continue;}
-    layout.push('chart','regular','regular');row++;
-  }
-  return layout[index]??'regular';
+type BentoVariant = HomeCardVariant;
+
+function CardProbabilityBar({market}:{market:Market}) {
+  const [yes,no]=market.prices;
+  if(market.outcomes.length!==2||!Number.isFinite(yes)||!Number.isFinite(no)||yes+no<=0)return null;
+  return <div className="trending-card-share" role="img" aria-label={`${market.outcomes[0]} ${precisePercent(yes)}, ${market.outcomes[1]} ${precisePercent(no)}`}><div className="trending-card-share-track"><i style={{width:`${yes/(yes+no)*100}%`}}/><b style={{width:`${no/(yes+no)*100}%`}}/></div><div className="trending-card-share-labels"><span>{precisePercent(yes)}</span><span>{precisePercent(no)}</span></div></div>;
 }
 
 const BentoMarketCard=memo(function BentoMarketCard({group:sourceGroup,variant,saved,toggleSave,currency,fxRate,language,connection,onMarket}:{group:Market[];variant:BentoVariant;saved:boolean;toggleSave:(id:string)=>void;currency:Currency;fxRate:number|null;language:Language;connection:string;onMarket:(id:string)=>void}) {
@@ -149,11 +135,12 @@ const BentoMarketCard=memo(function BentoMarketCard({group:sourceGroup,variant,s
     <div className="trending-bento-content"><div className="trending-bento-details">
       {multi?<><div className="trending-card-leader"><StreamValue price={leadingProbability}/><span>Leading outcome</span></div><div className="trending-candidates">{group.slice(0,4).map(candidate=><button key={candidate.id} onClick={()=>onMarket(candidate.id)}><span className="trending-candidate-name">{candidate.title.replace(/^(Will|Does) /i,'').replace(/\?$/,'')}</span><OddsGauge value={candidate.prices[0]} label={candidate.title} compact/></button>)}</div><div className="trending-prices trending-market-binary"><button className="yes" onClick={()=>onMarket(m.id)}>Yes <strong>{Number.isFinite(m.prices[0])?`${Math.round(m.prices[0]*100)}¢`:'—'}</strong></button><button className="no" onClick={()=>onMarket(m.id)}>No <strong>{Number.isFinite(m.prices[1])?`${Math.round(m.prices[1]*100)}¢`:'—'}</strong></button></div></>:<><div className={kind==='crypto'?'trending-crypto-odds':'trending-primary-odds'}><div className="trending-probability"><StreamValue price={leadingProbability}/><span>{m.outcomes[leadingOutcome]||'chance'} <small>leading</small></span></div><div className="trending-probability-track"><span style={{width:`${Math.max(0,Math.min(100,Number(leadingProbability||0)*100))}%`}}/></div></div><div className="trending-prices">{m.outcomes.slice(0,2).map((outcome,i)=><button onClick={()=>onMarket(m.id)} key={outcome} className={i===0?'yes':'no'}><span>{outcome}</span><StreamValue price={m.prices[i]}/></button>)}</div></>}
     </div>{variant==='vertical'&&<div className="trending-vertical-stats"><div><span>Total volume</span><strong>{formatReferenceMoney(sourceGroup.reduce((sum,item)=>sum+item.volumeTotal,0),currency,fxRate,language)}</strong></div><div><span>Liquidity</span><strong>{formatReferenceMoney(sourceGroup.reduce((sum,item)=>sum+item.liquidity,0),currency,fxRate,language)}</strong></div><div><span>Outcomes</span><strong>{multi?sourceGroup.length:m.outcomes.length}</strong></div></div>}{(variant==='chart'||variant==='full'||variant==='vertical')&&<div className="trending-bento-chart"><ProbabilityLine market={m} connection={connection} comparisonMarket={multi?group[1]:undefined}/></div>}</div>
-    <div className="trending-card-footer"><span>{formatReferenceMoney(sourceGroup.reduce((sum,item)=>sum+item.volume24h,0),currency,fxRate,language)} 24h Vol</span><span>{m.endDate?new Date(m.endDate).toLocaleDateString(language,{month:'short',day:'numeric'}):'Active now'}</span><button onClick={()=>onMarket(m.id)} title="Open market and live chart">↗</button></div>
+    {(variant==='chart'||variant==='full'||variant==='wide')&&<CardProbabilityBar market={m}/>}
+    <div className="trending-card-footer"><span>{formatReferenceMoney(sourceGroup.reduce((sum,item)=>sum+item.volume24h,0),currency,fxRate,language)} 24h Vol</span><span>{m.endDate?new Date(m.endDate).toLocaleDateString(language,{month:'short',day:'numeric'}):'Active now'}</span><button className="trending-card-discussion" aria-label={m.commentCount===undefined?'Open market discussion':`${m.commentCount} event comments — open market discussion`} title="Event comments" onClick={()=>onMarket(m.id)}><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/></svg>{m.commentCount!==undefined&&<span>{new Intl.NumberFormat(language,{notation:'compact',maximumFractionDigits:1}).format(m.commentCount)}</span>}</button><button onClick={()=>onMarket(m.id)} title="Open market and live chart">↗</button></div>
   </article>;
 });
 
-export function TrendingPage({markets,connection,language,currency,fxRate,onMarket,onPromo,topic,onTopic,hasMoreTopic,loadMoreTopic,onVisibleMarkets,catalogLoading=false,catalogComplete=false,retryCatalog}:{markets:Market[];connection:string;language:Language;currency:Currency;fxRate:number|null;onMarket:(id:string)=>void;onPromo:(screen:string)=>void;topic:string;onTopic:(topic:string)=>void;hasMoreTopic:boolean;loadMoreTopic:()=>Promise<void>;onVisibleMarkets?:(ids:string[])=>void;catalogLoading?:boolean;catalogComplete?:boolean;retryCatalog?:()=>void}) {
+export function TrendingPage({markets,connection,language,currency,fxRate,onMarket,onPromo,onCategory,topic,onTopic,hasMoreTopic,loadMoreTopic,onVisibleMarkets}:{markets:Market[];connection:string;language:Language;currency:Currency;fxRate:number|null;onMarket:(id:string)=>void;onPromo:(screen:string)=>void;onCategory:(category:string)=>void;topic:string;onTopic:(topic:string)=>void;hasMoreTopic:boolean;loadMoreTopic:()=>Promise<void>;onVisibleMarkets?:(ids:string[])=>void;catalogLoading?:boolean;catalogComplete?:boolean;retryCatalog?:()=>void}) {
   const [filter,setFilter]=useState<MarketFilter>('All markets');
   const [query,setQuery]=useState('');
   const [sort,setSort]=useState<MarketSort>('volume');
@@ -166,14 +153,11 @@ export function TrendingPage({markets,connection,language,currency,fxRate,onMark
   const [searchVisible,setSearchVisible]=useState(false);
   const [savedOnly,setSavedOnly]=useState(false);
   const [openFilter,setOpenFilter]=useState<'sort'|'ends'|'status'|null>(null);
-  const [visible,setVisible]=useState(8);
   const [saved,setSaved]=useState<Set<string>>(()=>new Set());
   const [slide,setSlide]=useState(0);
   const [prizeSlide,setPrizeSlide]=useState(0);
   const [pauseSlides,setPauseSlides]=useState(false);
-  const sentinel=useRef<HTMLDivElement>(null);
   const topicStrip=useRef<HTMLDivElement>(null);
-  const scrollDocument=sentinel.current?.ownerDocument;
   useEffect(()=>{const timer=window.setInterval(()=>setPrizeSlide(index=>(index+1)%prizeSlides.length),7000);return ()=>window.clearInterval(timer);},[]);
 
   const filtered=useMemo(()=>{
@@ -199,11 +183,14 @@ export function TrendingPage({markets,connection,language,currency,fxRate,onMark
     }).sort((a,b)=>sort==='newest'?b.startTime-a.startTime:sort==='total'?b.volumeTotal-a.volumeTotal:sort==='liquidity'?b.liquidity-a.liquidity:sort==='ending'?(Date.parse(a.endDate||'')||Infinity)-(Date.parse(b.endDate||'')||Infinity):sort==='competitive'?competition(a)-competition(b):b.volume24h-a.volume24h);
   },[markets,filter,query,sort,timeWindow,marketStatus,hideSports,hideCrypto,hideEarnings,topic,savedOnly,saved]);
   const eventCards=useMemo(()=>groupEvents(filtered),[filtered]);
+  const cardOrderKey=JSON.stringify([filter,query,sort,timeWindow,marketStatus,hideSports,hideCrypto,hideEarnings,topic,savedOnly,[...saved].sort()]);
+  const cardOrder=useRef({key:cardOrderKey,sections:[] as string[],groups:new Map<string,string[]>(),contracts:new Map<string,string[]>()});
+  if(cardOrder.current.key!==cardOrderKey)cardOrder.current={key:cardOrderKey,sections:[],groups:new Map(),contracts:new Map()};
   const bentoSections=useMemo(()=>{
     const grouped=new Map<string,Market[][]>();
-    for(const group of eventCards){const cat=group[0].category||'Markets';const current=grouped.get(cat)??[];if(current.length<visible)grouped.set(cat,[...current,group]);}
+    for(const group of eventCards){const cat=group[0].category||'Markets';let current=grouped.get(cat);if(!current){current=[];grouped.set(cat,current);}current.push(group);}
     const preferred=['Crypto','Sports','Politics','Elections','Finance','Economy','Geopolitics','Technology','Culture'];
-    return [...grouped.entries()].map(([category,groups]):[string,Market[][]]=>{
+    const initial=[...grouped.entries()].map(([category,groups]):[string,Market[][]]=>{
       // A portrait tile is only useful when it can show four real market outcomes.
       if(groups.length<6)return [category,groups];
       const index=groups.findIndex(group=>group.length>=4);
@@ -212,7 +199,16 @@ export function TrendingPage({markets,connection,language,currency,fxRate,onMark
       const ai=preferred.findIndex(item=>item.toLowerCase()===a[0].toLowerCase());const bi=preferred.findIndex(item=>item.toLowerCase()===b[0].toLowerCase());
       return (ai<0?99:ai)-(bi<0?99:bi);
     });
-  },[eventCards,visible]);
+    const state=cardOrder.current;
+    return appendStableOrder(initial,state.sections,entry=>entry[0]).map(([category,groups]):[string,Market[][]]=>{
+      let order=state.groups.get(category);if(!order){order=[];state.groups.set(category,order);}
+      const stable=appendStableOrder(groups,order,group=>group[0].eventId||group[0].eventTitle||group[0].id,homeCategoryLimit(category)).map(group=>{
+        const id=group[0].eventId||group[0].eventTitle||group[0].id;let contracts=state.contracts.get(id);if(!contracts){contracts=[];state.contracts.set(id,contracts);}
+        return appendStableOrder(group,contracts,m=>m.id);
+      });
+      return [category,stable];
+    });
+  },[eventCards,cardOrderKey]);
   const features=useMemo(()=>{
     const groups=groupEvents(markets);
     const chosen:Market[][]=[];const categoryCount=new Map<string,number>();
@@ -238,15 +234,6 @@ export function TrendingPage({markets,connection,language,currency,fxRate,onMark
     const timer=window.setInterval(()=>setSlide(index=>(index+1)%features.length),8500);
     return ()=>window.clearInterval(timer);
   },[featuredKey,features.length,pauseSlides]);
-  useEffect(()=>setVisible(8),[filter,query,sort,timeWindow,marketStatus,hideSports,hideCrypto,hideEarnings,topic,savedOnly]);
-  useEffect(()=>{
-    const el=sentinel.current;if(!el)return;
-    const view=el.ownerDocument.defaultView;const observer=new (view?.IntersectionObserver??IntersectionObserver)(entries=>{
-      if(entries.some(e=>e.isIntersecting))setVisible(n=>Math.min(n+6,Math.max(n,eventCards.length)));
-    },{root:null,rootMargin:'700px'});
-    observer.observe(el);return ()=>observer.disconnect();
-  },[eventCards.length,scrollDocument]);
-  useEffect(()=>{if(topic!=='All'&&hasMoreTopic&&visible>=eventCards.length&&eventCards.length>0)void loadMoreTopic();},[topic,hasMoreTopic,visible,eventCards.length,loadMoreTopic]);
   const toggleSave=useCallback((id:string)=>setSaved(previous=>{const next=new Set(previous);if(next.has(id))next.delete(id);else next.add(id);return next;}),[]);
 
   return <div className="atlas-trending-screen" lang={language}>
@@ -289,10 +276,9 @@ export function TrendingPage({markets,connection,language,currency,fxRate,onMark
           <div className="trending-topics-strip" ref={topicStrip} role="tablist" aria-label="Market topics">{requestedTopics.map(label=><button key={label} role="tab" aria-selected={topic===label} className={topic===label?'selected':''} onClick={()=>{onTopic(label);setFilter('All markets');}}>{label}</button>)}</div>
           <button className="trending-topics-arrow" aria-label="Next market topics" onClick={()=>topicStrip.current?.scrollBy({left:520,behavior:'smooth'})}>›</button>
         </div>
-        <div className="trending-bento-sections">{bentoSections.map(([category,groups])=><section className="trending-bento-section" key={category} aria-label={`${category} markets`}><div className="trending-bento-section-head"><h3>{category} <small>{groups.length} markets</small></h3><button onClick={()=>{onTopic('All');setFilter(filters.find(name=>name.toLowerCase()===category.toLowerCase())??'All markets');}}>See all <span>↗</span></button></div><div className="trending-market-grid">{groups.map((group,i)=><BentoMarketCard key={group[0].eventTitle||group[0].id} group={group} variant={chooseBentoVariant(i,groups.length,groups[0].length>=4)} saved={saved.has(group[0].id)} toggleSave={toggleSave} currency={currency} fxRate={fxRate} language={language} connection={connection} onMarket={onMarket}/>)}</div></section>)}</div>
+        <div className="trending-bento-sections">{bentoSections.map(([category,groups])=><section className="trending-bento-section" key={category} aria-label={`${category} markets`}><div className="trending-bento-section-head"><h3><CategorySymbol category={category}/>{category}</h3><button onClick={()=>onCategory(categoryDestination(category))}>See all <span>↗</span></button></div><div className="trending-market-grid" data-card-count={groups.length}>{groups.map((group,i)=><BentoMarketCard key={group[0].eventTitle||group[0].id} group={group} variant={homeCategoryLayout(groups.length,groups[0].length>=4)[i]} saved={saved.has(group[0].id)} toggleSave={toggleSave} currency={currency} fxRate={fxRate} language={language} connection={connection} onMarket={onMarket}/>)}</div></section>)}</div>
         {!filtered.length&&<p className="trending-none">{markets.length?'No matching markets. Try another category.':'Waiting for public market data…'}</p>}
-        <div role="status" style={{color:'#98A5B5',fontSize:11,padding:'14px 0'}}>{catalogLoading?'Loading remaining Polymarket catalog pages…':catalogComplete?'Active catalog scan complete':'Catalog not complete'} <button style={{background:'none',border:0,color:'#83aaff',cursor:'pointer'}} onClick={retryCatalog}>Refresh feed</button></div>
-        <div className="trending-scroll-sentinel" ref={sentinel}>{hasMoreTopic?<button className="trending-fetch-more" onClick={()=>void loadMoreTopic()}>Load more markets</button>:bentoSections.reduce((sum,[,groups])=>sum+groups.length,0)<eventCards.length?null:eventCards.length?`Showing ${eventCards.length} available events`:' '}</div>
+        <div className="trending-scroll-sentinel">{hasMoreTopic?<button className="trending-fetch-more" onClick={()=>void loadMoreTopic()}>Load more markets</button>:null}</div>
       </section>
     </div>
   </div>;

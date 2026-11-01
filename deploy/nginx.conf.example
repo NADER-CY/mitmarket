@@ -1,0 +1,28 @@
+# Replace MITMARKET_DOMAIN with the site's domain before enabling this block.
+server {
+    listen 80;
+    server_name MITMARKET_DOMAIN;
+    root /srv/mitmarket/current;
+    index index.html;
+
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/css application/javascript application/json image/svg+xml;
+
+    location ^~ /assets/ {
+        try_files $uri =404;
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+    location ~* \.html$ {
+        try_files $uri =404;
+        add_header Cache-Control "no-cache";
+    }
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+    location ~ /\. {
+        deny all;
+    }
+}

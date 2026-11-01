@@ -2,7 +2,7 @@ export const marketNavigation = [
   ['Trending','trending'],['Combos','combos'],['Perps','perps'],['Breaking','breaking'],['New','new'],['Politics','politics'],['Sports','sports'],['Crypto','crypto'],['Esports','esports'],['Iran','iran'],['Finance','finance'],['Geopolitics','geopolitics'],['Tech','technology'],['Elections','elections'],['Culture','culture'],['Economy','economy'],['Weather','weather'],['Mentions','mentions'],['Art','art'],['Activity','live_activity'],['Leaderboard','leaderboard'],['Dashboard','portfolio_dashboard'],['Rewards','rewards_center'],
 ] as const;
 const destinations = new Set(['live_activity','leaderboard','portfolio_dashboard','rewards_center']);
-export function installMarketNavigation(doc:Document, screen:string, category:string, onCategory:(id:string)=>void,onScreen:(id:string)=>void) {
+export function installMarketNavigation(doc:Document, screen:string, category:string, onCategory:(id:string)=>void,onScreen:(id:string)=>void,desktop=false) {
   const header=doc.querySelector('body > header');
   if(!header)return;
   let nav=doc.getElementById('mit-market-navigation');
@@ -14,6 +14,20 @@ export function installMarketNavigation(doc:Document, screen:string, category:st
     const row=strip?.parentElement?.classList.contains('h-10')?strip.parentElement:strip;
     nav=doc.createElement('nav');nav.id='mit-market-navigation';nav.setAttribute('aria-label','Market categories');
     if(row && row!==header)row.replaceWith(nav);else header.appendChild(nav);
+  }
+  if(desktop&&!doc.getElementById('mit-market-navigation-controls')){
+    const controls=doc.createElement('div');controls.id='mit-market-navigation-controls';nav.before(controls);
+    const arrow=(direction:-1|1)=>{const button=doc.createElement('button');button.type='button';button.className='mit-navigation-arrow';button.textContent=direction===-1?'‹':'›';button.setAttribute('aria-label',direction===-1?'Previous market categories':'Next market categories');button.onclick=event=>{event.preventDefault();event.stopPropagation();nav!.scrollBy({left:direction*520,behavior:'smooth'});};return button;};
+    controls.append(arrow(-1),nav,arrow(1));
+    const style=doc.createElement('style');style.id='mit-market-navigation-desktop-style';style.textContent=`
+      body>header:has(#mit-market-navigation-controls){border-bottom:0!important}
+      #mit-market-navigation-controls{display:grid;grid-template-columns:28px minmax(0,1fr) 28px;align-items:center;gap:4px;padding:0 24px;border:0;background:#000;max-width:100%;box-sizing:border-box;height:48px}
+      #mit-market-navigation-controls #mit-market-navigation{padding:0;gap:10px;background:#000;border:0;height:48px}
+      #mit-market-navigation-controls #mit-market-navigation button{font:600 13px Inter,Arial,sans-serif;color:#ADB7C5;padding:10px 13px;border:0;border-bottom:2px solid transparent;border-radius:0;white-space:nowrap}
+      #mit-market-navigation-controls #mit-market-navigation button[aria-current]{background:#1463ff!important;color:#fff!important;border-radius:8px;border-bottom-color:transparent!important}
+      #mit-market-navigation-controls .mit-navigation-arrow{border:0;background:transparent;color:#A7B2C3;font:600 25px Inter,Arial,sans-serif;display:grid;place-items:center;width:28px;height:36px;padding:0;cursor:pointer}
+      #mit-market-navigation-controls .mit-navigation-arrow:hover{color:#1463ff}
+    `;doc.head.appendChild(style);
   }
   const active=screen==='explore'?category:screen==='crypto_category'?'crypto':screen==='sportsbook'?'sports':screen;
   const previousScroll=nav.scrollLeft;
