@@ -44,6 +44,8 @@ export function PackedHero({kind,markets=[],connection='connecting',onMarket,hei
   // Every full-size slide uses the approved crypto layout at its actual width.
   // No fixed artboard width and no transform: text keeps its native pixel size.
   r.innerHTML=kind==='radar'?radarMarkup:approvedMarkup;
+  r.querySelectorAll<HTMLElement>('[data-field]').forEach(el=>{el.textContent=el.dataset.field==='title'?'Loading market…':el.dataset.field==='related'?'':'—';});
+  r.querySelectorAll('#buy-yes-btn>span:first-child,#buy-no-btn>span:first-child').forEach((el,i)=>{el.textContent=['Yes','No'][i];});
   const style=document.createElement('style');style.textContent=readableStyles;r.append(style);
   const shell=r.querySelector<HTMLElement>('.mitmarket-slide');if(shell){shell.style.height=`${height||460}px`;shell.style.minHeight=shell.style.height;shell.style.maxHeight=shell.style.height;shell.dataset.kind=kind;shell.setAttribute('aria-label',`${titles[kind]||'Market'} prediction slide`);}
   if(kind!=='radar'){
