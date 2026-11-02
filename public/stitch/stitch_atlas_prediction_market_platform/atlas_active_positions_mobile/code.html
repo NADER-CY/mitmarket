@@ -6,7 +6,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  <style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.35)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[20px]">stacked_line_chart</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-data-md uppercase text-on-surface tracking-wider font-bold">MITMARKET</span><span class="font-label-caps text-label-caps text-primary bg-surface-container-high px-space-xs py-[1px] rounded">PRO</span></div><div class="flex items-center gap-[6px]"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-micro text-micro text-on-surface-variant font-mono">CLOB 14ms</span></div></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center bg-surface-container-low px-space-sm py-space-xs rounded gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-data-sm text-data-sm font-semibold text-on-surface">—</span><span class="font-micro text-micro text-on-surface-variant uppercase">USDC</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 bg-surface pb-24"><div class="flex flex-col w-full relative">
+  <style id="mit-template-loading">body{visibility:hidden!important}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.35)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[20px]">stacked_line_chart</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-data-md uppercase text-on-surface tracking-wider font-bold">MITMARKET</span><span class="font-label-caps text-label-caps text-primary bg-surface-container-high px-space-xs py-[1px] rounded">PRO</span></div><div class="flex items-center gap-[6px]"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-micro text-micro text-on-surface-variant font-mono">CLOB 14ms</span></div></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center bg-surface-container-low px-space-sm py-space-xs rounded gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-data-sm text-data-sm font-semibold text-on-surface">—</span><span class="font-micro text-micro text-on-surface-variant uppercase">USDT</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 bg-surface pb-24"><div class="flex flex-col w-full relative">
 <!-- Top Portfolio & Status Summary Section -->
 <section class="flex flex-col px-margin pt-space-md pb-space-sm bg-surface-container-low">
 <div class="flex items-start justify-between">
@@ -26,7 +26,7 @@
 <div class="flex flex-col p-space-sm rounded-lg bg-surface-container">
 <span class="font-label-caps text-label-caps text-on-surface-variant">PORTFOLIO VALUATION</span>
 <span class="font-data-lg text-data-lg text-on-surface mt-0.5">—</span>
-<span class="font-micro text-micro text-outline mt-0.5">Base Asset: USDC</span>
+<span class="font-micro text-micro text-outline mt-0.5">Base Asset: USDT</span>
 </div>
 <div class="flex flex-col p-space-sm rounded-lg bg-surface-container">
 <div class="flex items-center justify-between">
@@ -230,7 +230,7 @@
 <input class="w-2/3 bg-transparent text-on-surface font-headline-md text-data-lg font-mono font-bold focus:outline-none" id="shareInput" max="12000" min="1" type="number" value="12000"/>
 <div class="flex flex-col items-end">
 <span class="font-label-caps text-label-caps text-on-surface font-bold">YES SHARES</span>
-<span class="font-micro text-micro text-tertiary" id="usdcEquivalent">≈ $8,640.00 USDC</span>
+<span class="font-micro text-micro text-tertiary" id="usdcEquivalent">≈ $8,640.00 USDT</span>
 </div>
 </div>
 </div>
@@ -257,20 +257,20 @@
 </div>
 <div class="flex items-center justify-between text-body-sm font-body-sm">
 <span class="text-on-surface-variant">Est. Gross Proceeds</span>
-<span class="text-on-surface font-mono font-medium" id="grossProceeds">$8,640.00 USDC</span>
+<span class="text-on-surface font-mono font-medium" id="grossProceeds">$8,640.00 USDT</span>
 </div>
 <div class="flex items-center justify-between text-body-sm font-body-sm">
 <div class="flex items-center gap-1 text-on-surface-variant">
 <span>Protocol Relayer Fee (0.05%)</span>
 <span class="material-symbols-outlined text-[14px] text-outline">help_outline</span>
 </div>
-<span class="text-error font-mono font-medium" id="relayerFee">-$4.32 USDC</span>
+<span class="text-error font-mono font-medium" id="relayerFee">-$4.32 USDT</span>
 </div>
 <div class="h-[1px] bg-surface-container-highest my-0.5"></div>
 <div class="flex items-center justify-between">
 <span class="font-label-caps text-label-caps text-on-surface font-semibold">EST. REALIZED P&amp;L</span>
 <div class="flex items-center gap-1">
-<span class="font-data-md text-data-md text-tertiary font-mono font-bold" id="realizedPnl">+$2,155.68 USDC</span>
+<span class="font-data-md text-data-md text-tertiary font-mono font-bold" id="realizedPnl">+$2,155.68 USDT</span>
 <span class="font-micro text-micro text-tertiary font-semibold">(+33.2%)</span>
 </div>
 </div>
@@ -314,10 +314,10 @@
         const costBasis = qty * ENTRY_PRICE;
         const pnl = (gross - fee) - costBasis;
 
-        usdcEquivalent.textContent = `≈ $${gross.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USDC`;
-        grossProceeds.textContent = `$${gross.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USDC`;
-        relayerFee.textContent = `-$${fee.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USDC`;
-        realizedPnl.textContent = `${pnl >= 0 ? '+' : ''}$${pnl.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USDC`;
+        usdcEquivalent.textContent = `≈ $${gross.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USDT`;
+        grossProceeds.textContent = `$${gross.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USDT`;
+        relayerFee.textContent = `-$${fee.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USDT`;
+        realizedPnl.textContent = `${pnl >= 0 ? '+' : ''}$${pnl.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USDT`;
       }
 
       shareInput.addEventListener('input', (e) => {

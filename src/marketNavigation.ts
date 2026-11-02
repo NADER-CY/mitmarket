@@ -20,7 +20,17 @@ export function installMarketNavigation(doc:Document, screen:string, category:st
     const arrow=(direction:-1|1)=>{const button=doc.createElement('button');button.type='button';button.className='mit-navigation-arrow';button.textContent=direction===-1?'‹':'›';button.setAttribute('aria-label',direction===-1?'Previous market categories':'Next market categories');button.onclick=event=>{event.preventDefault();event.stopPropagation();nav!.scrollBy({left:direction*520,behavior:'smooth'});};return button;};
     controls.append(arrow(-1),nav,arrow(1));
     const style=doc.createElement('style');style.id='mit-market-navigation-desktop-style';style.textContent=`
-      body>header:has(#mit-market-navigation-controls){border-bottom:0!important}
+      .trending-topline,.mit-breaking-topline,.mit-breaking-heading,.pp-heading{display:none!important}
+      body>header:has(#mit-market-navigation-controls){border-bottom:0!important;overflow:hidden}
+      body>header:has(#mit-market-navigation-controls)>div:first-child{width:min(1440px,calc(100% - 48px));max-width:1440px;margin-inline:auto;padding-inline:0!important;gap:12px!important;flex-wrap:nowrap!important;min-width:0}
+      body>header:has(#mit-market-navigation-controls)>div:first-child>div{min-width:0}
+      body>header:has(#mit-market-navigation-controls)>div:first-child>div:nth-child(2){flex:1 1 220px;max-width:480px}
+      body>header:has(#mit-market-navigation-controls)>div:first-child>div:last-child{gap:8px!important}
+      body>header:has(#mit-market-navigation-controls)>div:first-child nav{gap:10px!important}
+      #mit-market-navigation-controls{width:min(1440px,calc(100% - 48px))!important;margin-inline:auto;padding-inline:0!important;min-width:0}
+      #mit-market-navigation{flex-wrap:nowrap!important;min-width:0;overflow-x:auto!important}
+      @media(max-width:1250px){body>header:has(#mit-market-navigation-controls)>div:first-child{gap:8px!important}body>header:has(#mit-market-navigation-controls)>div:first-child>div:first-child>div:nth-child(2){display:none!important}}
+      
       #mit-market-navigation-controls{display:grid;grid-template-columns:28px minmax(0,1fr) 28px;align-items:center;gap:4px;padding:0 24px;border:0;background:#000;max-width:100%;box-sizing:border-box;height:48px}
       #mit-market-navigation-controls #mit-market-navigation{padding:0;gap:10px;background:#000;border:0;height:48px}
       #mit-market-navigation-controls #mit-market-navigation button{font:600 13px Inter,Arial,sans-serif;color:#ADB7C5;padding:10px 13px;border:0;border-bottom:2px solid transparent;border-radius:0;white-space:nowrap}

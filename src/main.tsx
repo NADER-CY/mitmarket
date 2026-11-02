@@ -84,7 +84,7 @@ function App() {
   const [preferencesOpen, setPreferencesOpen] = useState(false);
   const [currency, setCurrency] = useState<Currency>(() => {
     const saved = localStorage.getItem('atlas-currency');
-    return currencies.find(([code]) => code === saved)?.[0] ?? 'USDC';
+    return currencies.find(([code]) => code === saved)?.[0] ?? 'USDT';
   });
   const fx = useFxRate(currency);
   const [filter, setFilter] = useState('');

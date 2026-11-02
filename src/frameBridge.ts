@@ -205,7 +205,7 @@ function paintDetail(doc: Document, market: Market, history: Point[]) {
     if (value === '72%' || value === '72.4% Probability ($0.72)') el.textContent = probability;
     if (value === '(72¢)' || value === '72¢') el.textContent = cents(market.prices[0]);
     if (value === '$31,482,900' || value === '$2.4M') el.textContent = usd(market.volume24h);
-    if (['+3.4%', '$8,940,210 USDC', '$14.2M', '74¢ / 68¢', '$97,420.50', '+24.4% 30d'].includes(value)) el.textContent = '—';
+    if (['+3.4%', '$8,940,210 USDT', '$14.2M', '74¢ / 68¢', '$97,420.50', '+24.4% 30d'].includes(value)) el.textContent = '—';
   });
   const yes = doc.getElementById('btn-outcome-yes');
   const no = doc.getElementById('btn-outcome-no');

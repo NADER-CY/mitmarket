@@ -3,7 +3,7 @@ import { languages, type Language } from './i18n';
 import type { FxState } from './fx';
 
 export const currencies = [
-  ['USDC','USDC — USD Coin'], ['USD','USD — US Dollar'], ['EUR','EUR — Euro'],
+  ['USDT','USDT — Tether'], ['USD','USD — US Dollar'], ['EUR','EUR — Euro'],
   ['GBP','GBP — British Pound'], ['TRY','TRY — Turkish Lira'], ['AZN','AZN — Azerbaijani Manat'],
   ['IRR','IRR — Iranian Rial'], ['AED','AED — UAE Dirham'], ['SAR','SAR — Saudi Riyal'],
   ['JPY','JPY — Japanese Yen'], ['CNY','CNY — Chinese Yuan'], ['KRW','KRW — Korean Won'],
@@ -36,7 +36,7 @@ export function PreferencesDialog({ language, currency, fx, onLanguage, onCurren
         {items.map(([code,label]) => <button key={code} className={(tab === 'language' ? language : currency) === code ? 'selected' : ''} onClick={() => {if(tab === 'language') onLanguage(code as Language); else onCurrency(code as Currency); onClose();}}>{label}</button>)}
         {items.length === 0 && <p className="preferences-empty">No results</p>}
       </div>
-      {tab === 'currency' && <p className="preferences-note">{fx.status === 'ready' ? (fx.date ? `Indicative USD reference rate from ${fx.date}: 1 USD ≈ ${fx.rate} ${currency}. ` : '') : fx.status === 'loading' ? 'Loading reference FX rate… ' : 'Reference FX rate unavailable for this currency. '}Only market volumes use reference FX conversion; contract prices remain in USDC. Rates are not executable quotes.</p>}
+      {tab === 'currency' && <p className="preferences-note">{fx.status === 'ready' ? (fx.date ? `Indicative USD reference rate from ${fx.date}: 1 USD ≈ ${fx.rate} ${currency}. ` : '') : fx.status === 'loading' ? 'Loading reference FX rate… ' : 'Reference FX rate unavailable for this currency. '}Only market volumes use reference FX conversion; contract prices are shown in cents. USDT is the display reference; source-market settlement terms are unchanged. Rates are not executable quotes.</p>}
     </section>
   </div>;
 }

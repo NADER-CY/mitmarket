@@ -263,7 +263,7 @@
 <label class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-semibold">Base Reference Currency</label>
 <div class="relative">
 <select class="w-full h-10 px-space-sm bg-surface-container text-on-surface font-body-md text-body-md rounded focus:bg-surface-container-high focus:outline-none transition-colors appearance-none pr-8">
-<option selected="">USDC (Circle USD Fiat-Backed Stablecoin)</option>
+<option selected="">USDT (Circle USD Fiat-Backed Stablecoin)</option>
 <option>USDT (Tether USD Liquid Token)</option>
 <option>EURC (Circle Euro Stablecoin)</option>
 </select>
@@ -317,7 +317,7 @@
 </div>
 <div class="relative flex items-center">
 <input class="w-full h-10 px-space-sm bg-surface-container text-on-surface font-data-md text-data-md rounded focus:bg-surface-container-high focus:outline-none transition-colors" type="text" value="10.00"/>
-<span class="absolute right-space-sm font-label-caps text-label-caps uppercase text-outline font-semibold">USDC</span>
+<span class="absolute right-space-sm font-label-caps text-label-caps uppercase text-outline font-semibold">USDT</span>
 </div>
 <span class="font-micro text-micro text-outline">Minimum valid execution threshold per leaf node.</span>
 </div>
@@ -329,9 +329,9 @@
 </div>
 <div class="relative flex items-center bg-surface-container rounded">
 <input class="w-full h-10 px-space-sm bg-transparent text-secondary font-data-md text-data-md rounded focus:outline-none font-bold" type="text" value="250,000.00"/>
-<span class="absolute right-space-sm font-label-caps text-label-caps uppercase text-secondary font-semibold">USDC</span>
+<span class="absolute right-space-sm font-label-caps text-label-caps uppercase text-secondary font-semibold">USDT</span>
 </div>
-<span class="font-micro text-micro text-secondary">Staged from 200,000.00 USDC. Pending Multi-Sig.</span>
+<span class="font-micro text-micro text-secondary">Staged from 200,000.00 USDT. Pending Multi-Sig.</span>
 </div>
 <!-- Price Tick Size -->
 <div class="flex flex-col gap-1">
@@ -589,7 +589,7 @@
       const submitBtn = document.getElementById('btn-submit-multisig');
       if (submitBtn) {
         submitBtn.addEventListener('click', () => {
-          alert('STAGED PROPOSAL SUBMITTED:\n\nPayload: Max Single Order Size changed from 200,000.00 USDC to 250,000.00 USDC.\nTarget: Dual-Sig Required (0/2 signatures registered).\nAudit Transaction ID: 0x88f2...e309');
+          alert('STAGED PROPOSAL SUBMITTED:\n\nPayload: Max Single Order Size changed from 200,000.00 USDT to 250,000.00 USDT.\nTarget: Dual-Sig Required (0/2 signatures registered).\nAudit Transaction ID: 0x88f2...e309');
         });
       }
     })();
