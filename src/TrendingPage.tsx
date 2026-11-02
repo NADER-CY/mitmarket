@@ -1,3 +1,6 @@
+import {useMarkets as useMobileMarkets} from './sharedMobileMarketData';
+import {useLiveMarkets as useMobileQuotes} from './sharedMobileLiveMarkets';
+import {selectFeaturedCrypto} from './selectFeaturedCrypto';
 import {DesktopCryptoSlide} from './DesktopCryptoSlide';
 import {homeCategoryLimit,homeCategoryLayout,type HomeCardVariant} from './homeCategoryLayout';
 import {CategorySymbol,categoryDestination} from './CategorySymbol';
@@ -210,16 +213,10 @@ export function TrendingPage({markets,connection,language,currency,fxRate,onMark
       return [category,stable];
     });
   },[eventCards,cardOrderKey]);
-  const features=useMemo(()=>{
-    const groups=groupEvents(markets);
-    const chosen:Market[][]=[];const categoryCount=new Map<string,number>();
-    const bitcoin=groups.find(group=>/bitcoin up or down/i.test(group[0].title)&&marketKind(group[0])==='crypto');
-    if(bitcoin){chosen.push(bitcoin);categoryCount.set('crypto',1);}
-    for(const group of groups){const category=group[0].category.toLowerCase();if((categoryCount.get(category)??0)>=2)continue;
-      if(chosen.some(existing=>existing[0].id===group[0].id))continue;
-      chosen.push(group);categoryCount.set(category,(categoryCount.get(category)??0)+1);if(chosen.length>=8)break;}
-    return chosen;
-  },[markets]);
+  const cryptoFeed=useMobileMarkets('crypto');
+  const cryptoSelection=useMemo(()=>selectFeaturedCrypto(cryptoFeed.markets),[cryptoFeed.markets]);
+  const cryptoStream=useMobileQuotes(cryptoSelection);
+  const features:Market[][]=cryptoStream.markets.map(m=>[{id:m.id,eventId:m.eventId||m.id,eventSlug:m.slug,title:m.title,eventTitle:m.eventTitle||m.title,category:'Crypto',image:m.image,tokenIds:[m.token],outcomes:['Up','Down'],prices:[m.yes/100,m.no/100],volume24h:0,volumeTotal:m.volume,liquidity:m.liquidity||0,startTime:0,endDate:m.endDate}]);
   const featuredKey=features.map(group=>group[0].id).join('|');
   const rawLeadGroup=features[slide%Math.max(1,features.length)]??EMPTY_MARKETS;
   const displayedLead=useMemo(()=>rawLeadGroup.slice(0,4),[rawLeadGroup]);
@@ -243,7 +240,7 @@ export function TrendingPage({markets,connection,language,currency,fxRate,onMark
     <div className="trending-container">
       <div className="trending-topline"><div><span className="trending-kicker"><i/> MARKET INTELLIGENCE</span><h1>Trending <span>markets</span></h1><p>Live prediction probabilities, leading stories and market activity.</p></div><div className="trending-feed-state"><i className={connection==='live'?'online':''}/>{connection==='live'?'LIVE MARKET FEED':connection==='loading'?'CONNECTING':'MARKET FEED · '+connection.toUpperCase()}</div></div>
       {lead?<><div className="trending-feature-layout"><section className={`trending-feature-card ${slide%features.length===0?'desktop-approved-slide':''}`} onMouseEnter={()=>setPauseSlides(true)} onMouseLeave={()=>setPauseSlides(false)}>
-        {slide%features.length===0?<DesktopCryptoSlide market={lead} related={markets.filter(m=>m.category.toLowerCase()==='crypto'&&m.id!==lead.id)} connection={connection} onMarket={onMarket} index={slide%features.length} count={features.length} onSlide={setSlide}/>:<><div className="trending-feature-left"><div className="trending-feature-topline"><div className="trending-category"><CoinIcon market={lead}/><span>{lead.category} · FEATURED MARKET</span></div><div className="trending-slide-controls" aria-label="Featured slider controls"><button aria-label="Previous featured market" onClick={()=>setSlide(index=>(index-1+features.length)%features.length)}>‹</button><span>{slide%features.length+1} of {features.length}</span><button aria-label="Next featured market" onClick={()=>setSlide(index=>(index+1)%features.length)}>›</button></div></div><div className="trending-feature-title-row"><button className="trending-feature-title" onClick={()=>onMarket(lead.id)}>{lead.eventTitle||lead.title}</button>{leadGroup.length===1&&<OddsGauge value={lead.prices[leadSide]} label={lead.outcomes[leadSide]||'chance'}/>}</div>
+        {slide%features.length===0?<DesktopCryptoSlide market={lead} related={markets.filter(m=>m.category.toLowerCase()==='crypto'&&m.id!==lead.id&&(!m.endDate||Date.parse(m.endDate)>Date.now()))} connection={cryptoStream.connection} onMarket={onMarket} index={slide%features.length} count={features.length} onSlide={setSlide}/>:<><div className="trending-feature-left"><div className="trending-feature-topline"><div className="trending-category"><CoinIcon market={lead}/><span>{lead.category} · FEATURED MARKET</span></div><div className="trending-slide-controls" aria-label="Featured slider controls"><button aria-label="Previous featured market" onClick={()=>setSlide(index=>(index-1+features.length)%features.length)}>‹</button><span>{slide%features.length+1} of {features.length}</span><button aria-label="Next featured market" onClick={()=>setSlide(index=>(index+1)%features.length)}>›</button></div></div><div className="trending-feature-title-row"><button className="trending-feature-title" onClick={()=>onMarket(lead.id)}>{lead.eventTitle||lead.title}</button>{leadGroup.length===1&&<OddsGauge value={lead.prices[leadSide]} label={lead.outcomes[leadSide]||'chance'}/>}</div>
           <div className="trending-feature-primary"><StreamValue price={lead.prices[leadSide]}/><span>{lead.outcomes[leadSide]||'Yes'}</span><small>● LIVE</small></div>
           <div className="trending-feature-actions">{lead.outcomes.slice(0,2).map((name,i)=><button key={name} className={i===0?'yes':'no'} onClick={()=>onMarket(lead.id)}>{name} <strong>{Number.isFinite(lead.prices[i])?`${(lead.prices[i]*100).toFixed(1)}¢`:'—'}</strong></button>)}</div>
           {featuredGroup.length>1&&<div className="trending-feature-predictions trending-feature-ring-list">{featuredGroup.slice(0,4).map(m=><button key={m.id} onClick={()=>onMarket(m.id)}><span>{m.title}</span><OddsGauge value={m.prices[0]} label={m.title} compact/></button>)}</div>}

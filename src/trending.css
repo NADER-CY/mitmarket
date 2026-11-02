@@ -477,6 +477,6 @@
 .trending-graph-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}.trending-history-retry{border:0;background:transparent;color:#83aaff;font:inherit;cursor:pointer;padding:4px 8px}
 
 
-.trending-feature-card.desktop-approved-slide{display:block;padding:0;background:transparent!important;border:0;min-width:0;height:390px}
+.trending-feature-card.desktop-approved-slide{display:block;padding:0;background:transparent!important;border:0;min-width:0;height:460px}
 
 .trending-topline{display:none!important}.atlas-trending-screen{padding-top:14px}
