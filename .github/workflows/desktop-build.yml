@@ -7,7 +7,7 @@ permissions:
   contents: write
 concurrency:
   group: desktop-build
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-24.04
@@ -34,3 +34,41 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh release create "desktop-${GITHUB_RUN_NUMBER}-${GITHUB_RUN_ATTEMPT}" mitmarket-desktop.tar.gz SHA256SUMS --title "Desktop build ${GITHUB_RUN_NUMBER}.${GITHUB_RUN_ATTEMPT}" --notes "Verified desktop server bundle from ${GITHUB_SHA}." --latest
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    env:
+      DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+      SSHPASS: ${{ secrets.DEPLOY_PASSWORD }}
+      DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: mitmarket-desktop-server
+      - name: Validate deployment settings
+        shell: bash
+        run: |
+          for setting in DEPLOY_HOST DEPLOY_USER SSHPASS DEPLOY_KNOWN_HOSTS; do
+            if [[ -z "${!setting}" ]]; then
+              echo "::error::Missing deployment secret: $setting (SSHPASS uses DEPLOY_PASSWORD)"
+              exit 1
+            fi
+          done
+          sha256sum -c SHA256SUMS
+      - name: Install SSH transport
+        run: sudo apt-get update -qq && sudo apt-get install -y sshpass
+      - name: Deploy verified desktop build
+        shell: bash
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+          sshpass -e scp -o StrictHostKeyChecking=yes -o ConnectTimeout=30 mitmarket-desktop.tar.gz "$DEPLOY_USER@$DEPLOY_HOST:/tmp/mitmarket-desktop-${GITHUB_SHA}.tar.gz"
+          sshpass -e ssh -o StrictHostKeyChecking=yes -o ConnectTimeout=30 "$DEPLOY_USER@$DEPLOY_HOST" bash -s -- "$GITHUB_SHA" "$(sha256sum mitmarket-desktop.tar.gz | cut -d ' ' -f 1)" < scripts/deploy-desktop-release.sh
