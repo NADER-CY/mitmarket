@@ -115,6 +115,6 @@ export const packedLayoutCss=`
  [data-layout-kind="category-crypto"] [data-layout-header]>div:first-child>:nth-child(n+2){display:none!important}
  [data-layout-kind="category-perps"] [data-layout-header]>div:first-child>div:nth-child(2){display:none!important}
 }
-[data-layout-kind="radar"] [data-layout-radar-list]{max-height:36px;overflow:hidden}[data-layout-kind="radar"] [data-layout-radar-stage]{width:170px!important;height:170px!important}[data-layout-kind="radar"] [data-layout-radar-visual]{height:170px!important}[data-layout-kind="radar"] #tooltipName{-webkit-line-clamp:2!important}[data-layout-kind="radar"] [data-layout-footer]{font-size:10px!important;max-height:30px!important;min-height:0!important}
+[data-layout-kind="radar"]>.grid{display:none!important}[data-layout-kind="radar"] [data-layout-radar-list]{max-height:36px;overflow:hidden}[data-layout-kind="radar"] [data-layout-radar-stage]{width:170px!important;height:170px!important}[data-layout-kind="radar"] [data-layout-radar-visual]{height:170px!important}[data-layout-kind="radar"] #tooltipName{-webkit-line-clamp:2!important}[data-layout-kind="radar"] [data-layout-footer]{font-size:10px!important;max-height:30px!important;min-height:0!important}
 `;
 
