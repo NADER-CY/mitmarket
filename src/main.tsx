@@ -1,3 +1,4 @@
+import {PackedCategoryHero} from './PackedHero';
 import {DesktopRuntimeContext} from './DesktopRuntime';
 import {installDesktopArrowStyle} from './desktopArrowStyle';
 import {ComboGameDetail} from './ComboGameDetail';
@@ -278,7 +279,7 @@ function App() {
     {!commonCategory && current === 'trending' && trendingMount && createPortal(<TrendingPage markets={markets} connection={connection} language={language} currency={currency} fxRate={fx.rate} onMarket={openMarket} onPromo={chooseScreen} onCategory={chooseCategory} topic={trendingTopic} onTopic={setTrendingTopic} hasMoreTopic={hasMoreTopic} loadMoreTopic={loadMoreTopic} onVisibleMarkets={setVisibleIds} catalogLoading={catalogLoading} catalogComplete={catalogComplete} retryCatalog={retryCatalog}/>,trendingMount)}
     {!commonCategory && current === 'breaking' && breakingMount && createPortal(<BreakingPage markets={markets} connection={connection} error={error} updatedAt={updatedAt} onMarket={openMarket}/>,breakingMount)}
     {!commonCategory && current === 'perps' && perpsMount && createPortal(<PerpsPage/>,perpsMount)}
-    {!commonCategory && current === 'combos' && combosMount && createPortal(<CombosPage/>,combosMount)}
+    {!commonCategory && current === 'combos' && combosMount && createPortal(<><div style={{maxWidth:1440,margin:'16px auto',padding:'0 24px'}}><PackedCategoryHero category="combos" markets={markets} connection={connection} onMarket={openMarket}/></div><CombosPage/></>,combosMount)}
     {!commonCategory && current === 'sportsbook' && sportsbookMount && createPortal(<SportsbookV2Page/>,sportsbookMount)}
     {current === 'casino' && casinoMount && createPortal(<CasinoPage/>,casinoMount)}
     {!commonCategory && current === 'crypto_category' && cryptoMount && createPortal(<CryptoPage polymarket={markets} connection={connection} onMarket={openMarket}/>,cryptoMount)}

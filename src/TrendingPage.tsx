@@ -1,12 +1,9 @@
-import {useMarkets as useMobileMarkets} from './sharedMobileMarketData';
-import {useLiveMarkets as useMobileQuotes} from './sharedMobileLiveMarkets';
-import {selectFeaturedCrypto} from './selectFeaturedCrypto';
-import {DesktopCryptoSlide} from './DesktopCryptoSlide';
+import {useQuotedMarkets} from './marketQuotes';
+import {PackedTrending} from './PackedTrending';
 import {homeCategoryLimit,homeCategoryLayout,type HomeCardVariant} from './homeCategoryLayout';
 import {CategorySymbol,categoryDestination} from './CategorySymbol';
 import {appendStableOrder} from './stableTrendingCards';
 import {useDesktopPriceHistory} from './useDesktopPriceHistory';
-import {useQuotedMarkets} from './marketQuotes';
 import {useNearViewport} from './useNearViewport';
 import { useCallback,memo,useEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
@@ -35,14 +32,6 @@ const topicAliases:[RegExp,string][]=[
   [/cockroach party/i,'Cockroach Party'],
 ];
 const requestedTopics=['All',...topicAliases.map(([,label])=>label)];
-const prizeSlides=[
-  {rank:'01',name:'Lamborghini Revuelto',amount:'≈ $673,000',detail:'2026 flagship supercar · estimated vehicle value',tone:'car'},
-  {rank:'02',name:'1 KG GOLD BAR',amount:'≈ $129,000',detail:'One kilogram 24K investment gold · indicative spot value',tone:'gold'},
-  {rank:'03',name:'25,000 USDT',amount:'$25,000',detail:'Proposed crypto reward · paid in Tether',tone:'usdt'},
-  {rank:'04—10',name:'TOP 10 TRADERS',amount:'$3,850',detail:'Combined proposed USDT rewards for places 4–10',tone:'ranks'},
-] as const;
-const runnerUpPrizes=[1000,850,700,550,400,250,100];
-const EMPTY_MARKETS:Market[]=[];
 type PricePoint = {t:number;p:number};
 
 function useFeaturedHistory(token?:string){
@@ -158,12 +147,7 @@ export function TrendingPage({markets,connection,language,currency,fxRate,onMark
   const [savedOnly,setSavedOnly]=useState(false);
   const [openFilter,setOpenFilter]=useState<'sort'|'ends'|'status'|null>(null);
   const [saved,setSaved]=useState<Set<string>>(()=>new Set());
-  const [slide,setSlide]=useState(0);
-  const [prizeSlide,setPrizeSlide]=useState(0);
-  const [pauseSlides,setPauseSlides]=useState(false);
   const topicStrip=useRef<HTMLDivElement>(null);
-  useEffect(()=>{const timer=window.setInterval(()=>setPrizeSlide(index=>(index+1)%prizeSlides.length),7000);return ()=>window.clearInterval(timer);},[]);
-
   const filtered=useMemo(()=>{
     const norm=query.trim().toLowerCase();
     const now=Date.now();const maxDays=timeWindow==='daily'?1:timeWindow==='weekly'?7:timeWindow==='monthly'?30:Infinity;
@@ -213,25 +197,8 @@ export function TrendingPage({markets,connection,language,currency,fxRate,onMark
       return [category,stable];
     });
   },[eventCards,cardOrderKey]);
-  const cryptoFeed=useMobileMarkets('crypto');
-  const cryptoSelection=useMemo(()=>selectFeaturedCrypto(cryptoFeed.markets),[cryptoFeed.markets]);
-  const cryptoStream=useMobileQuotes(cryptoSelection);
-  const features:Market[][]=cryptoStream.markets.map(m=>[{id:m.id,eventId:m.eventId||m.id,eventSlug:m.slug,title:m.title,eventTitle:m.eventTitle||m.title,category:'Crypto',image:m.image,tokenIds:[m.token],outcomes:['Up','Down'],prices:[m.yes/100,m.no/100],volume24h:0,volumeTotal:m.volume,liquidity:m.liquidity||0,startTime:0,endDate:m.endDate}]);
-  const featuredKey=features.map(group=>group[0].id).join('|');
-  const rawLeadGroup=features[slide%Math.max(1,features.length)]??EMPTY_MARKETS;
-  const displayedLead=useMemo(()=>rawLeadGroup.slice(0,4),[rawLeadGroup]);
-  const leadGroup=useQuotedMarkets(displayedLead);
-  const lead=leadGroup[0];
-  const leadSide=lead&&leadGroup.length===1&&Number(lead.prices[1])>Number(lead.prices[0])?1:0;
-  const subscribedIds=[...new Set([...bentoSections.flatMap(([,groups])=>groups.flatMap(group=>group.slice(0,4).map(m=>m.id))),...leadGroup.slice(0,4).map(m=>m.id)])].join(',');
+  const subscribedIds=[...new Set(bentoSections.flatMap(([,groups])=>groups.flatMap(group=>group.slice(0,4).map(m=>m.id))))].join(',');
   useEffect(()=>{onVisibleMarkets?.(subscribedIds?subscribedIds.split(','):[]);},[subscribedIds,onVisibleMarkets]);
-  const featuredGroup=leadGroup.slice(0,5);
-  useEffect(()=>setSlide(0),[featuredKey]);
-  useEffect(()=>{
-    if(pauseSlides||features.length<=1)return;
-    const timer=window.setInterval(()=>setSlide(index=>(index+1)%features.length),8500);
-    return ()=>window.clearInterval(timer);
-  },[featuredKey,features.length,pauseSlides]);
   const toggleSave=useCallback((id:string)=>setSaved(previous=>{const next=new Set(previous);if(next.has(id))next.delete(id);else next.add(id);return next;}),[]);
 
   return <div className="atlas-trending-screen" lang={language}>
@@ -239,15 +206,7 @@ export function TrendingPage({markets,connection,language,currency,fxRate,onMark
     <style>{trendingCss}</style>
     <div className="trending-container">
       <div className="trending-topline"><div><span className="trending-kicker"><i/> MARKET INTELLIGENCE</span><h1>Trending <span>markets</span></h1><p>Live prediction probabilities, leading stories and market activity.</p></div><div className="trending-feed-state"><i className={connection==='live'?'online':''}/>{connection==='live'?'LIVE MARKET FEED':connection==='loading'?'CONNECTING':'MARKET FEED · '+connection.toUpperCase()}</div></div>
-      {lead?<><div className="trending-feature-layout"><section className={`trending-feature-card ${slide%features.length===0?'desktop-approved-slide':''}`} onMouseEnter={()=>setPauseSlides(true)} onMouseLeave={()=>setPauseSlides(false)}>
-        {slide%features.length===0?<DesktopCryptoSlide market={lead} related={markets.filter(m=>m.category.toLowerCase()==='crypto'&&m.id!==lead.id&&(!m.endDate||Date.parse(m.endDate)>Date.now()))} connection={cryptoStream.connection} onMarket={onMarket} index={slide%features.length} count={features.length} onSlide={setSlide}/>:<><div className="trending-feature-left"><div className="trending-feature-topline"><div className="trending-category"><CoinIcon market={lead}/><span>{lead.category} · FEATURED MARKET</span></div><div className="trending-slide-controls" aria-label="Featured slider controls"><button aria-label="Previous featured market" onClick={()=>setSlide(index=>(index-1+features.length)%features.length)}>‹</button><span>{slide%features.length+1} of {features.length}</span><button aria-label="Next featured market" onClick={()=>setSlide(index=>(index+1)%features.length)}>›</button></div></div><div className="trending-feature-title-row"><button className="trending-feature-title" onClick={()=>onMarket(lead.id)}>{lead.eventTitle||lead.title}</button>{leadGroup.length===1&&<OddsGauge value={lead.prices[leadSide]} label={lead.outcomes[leadSide]||'chance'}/>}</div>
-          <div className="trending-feature-primary"><StreamValue price={lead.prices[leadSide]}/><span>{lead.outcomes[leadSide]||'Yes'}</span><small>● LIVE</small></div>
-          <div className="trending-feature-actions">{lead.outcomes.slice(0,2).map((name,i)=><button key={name} className={i===0?'yes':'no'} onClick={()=>onMarket(lead.id)}>{name} <strong>{Number.isFinite(lead.prices[i])?`${(lead.prices[i]*100).toFixed(1)}¢`:'—'}</strong></button>)}</div>
-          {featuredGroup.length>1&&<div className="trending-feature-predictions trending-feature-ring-list">{featuredGroup.slice(0,4).map(m=><button key={m.id} onClick={()=>onMarket(m.id)}><span>{m.title}</span><OddsGauge value={m.prices[0]} label={m.title} compact/></button>)}</div>}
-          <div className="trending-feature-info"><span>{formatReferenceMoney(lead.volume24h,currency,fxRate,language)} 24H VOL</span><span>{lead.endDate?`ENDS ${new Date(lead.endDate).toLocaleDateString(language)}`:'OPEN MARKET'}</span></div>
-        </div><ProbabilityLine market={lead} connection={connection} comparisonMarket={leadGroup.length>1?leadGroup[1]:undefined}/><div className="trending-feature-inner-dots" aria-label="Choose featured market">{features.map((group,i)=><button key={group[0].id} className={i===slide%features.length?'active':''} onClick={()=>setSlide(i)} title={group[0].eventTitle} aria-label={`Slide ${i+1}: ${group[0].eventTitle}`}/>)}</div>
-      </>}</section><aside className="trending-spotlight trending-prize-spotlight" aria-label="Proposed top trader awards"><div className="trending-prize-head"><div><span>MITMARKET TRADER AWARDS</span><strong>TOP 10 CHALLENGE</strong></div><span className="trending-prize-proposed">CONCEPT</span></div><div className="trending-prize-photo" data-prize={prizeSlides[prizeSlide].tone}>{prizeSlide===3&&<div className="trending-prize-rank-grid">{runnerUpPrizes.map((value,i)=><div key={i}><span>#{i+4}</span><strong>${value.toLocaleString('en-US')}</strong></div>)}</div>}</div><div className="trending-prize-detail"><span>RANK {prizeSlides[prizeSlide].rank} · PROPOSED PRIZE</span><h3>{prizeSlides[prizeSlide].name}</h3><b>{prizeSlides[prizeSlide].amount}</b><small>{prizeSlides[prizeSlide].detail}</small></div><div className="trending-prize-controls"><button aria-label="Previous prize" onClick={()=>setPrizeSlide(index=>(index+prizeSlides.length-1)%prizeSlides.length)}>‹</button><div>{prizeSlides.map((prize,i)=><button key={prize.rank} aria-label={`View prize ${i+1}`} className={prizeSlide===i?'active':''} onClick={()=>setPrizeSlide(i)}/>)}</div><button aria-label="Next prize" onClick={()=>setPrizeSlide(index=>(index+1)%prizeSlides.length)}>›</button></div><div className="trending-prize-winners"><span>LAST MONTH · TOP 3</span><small>Verified winner IDs pending</small><div><span>🥇 —••••—</span><span>🥈 —••••—</span><span>🥉 —••••—</span></div></div></aside></div>
-      </>:<div className="trending-loading">Connecting to MITMARKET live market discovery…</div>}
+      <PackedTrending onMarket={onMarket}/>
 
       <div className="trending-promo-grid" aria-label="MITMARKET community and account tools">
         <button className="trending-promo-tile" onClick={()=>onPromo('leaderboard')}><span className="trending-promo-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20v-2c0-3 2.2-5 5.5-5s5.5 2 5.5 5v2M17 6a3 3 0 0 1 0 6M18 14c2 .5 3 2 3 4v2"/></svg></span><span className="trending-promo-text"><strong>Community</strong><span className="trending-promo-metric">—</span><small>Account service not connected</small></span></button>

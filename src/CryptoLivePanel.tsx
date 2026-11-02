@@ -9,7 +9,7 @@ export function describePriceMove(asset:string,current:number,previous:number,lo
  const delta=current-previous,pct=delta/previous*100;
  return `${asset} ${delta>0?'rose':delta<0?'fell':'held'} ${money(Math.abs(delta))} (${Math.abs(pct).toFixed(3)}%) since the last update. Range: ${money(low)}–${money(high)}.`;
 }
-function useCryptoTicks(asset:string|null){
+export function useCryptoTicks(asset:string|null){
  const [snapshot,setSnapshot]=useState<{asset:string|null;points:Point[];state:string;lastTick:number}>({asset,points:[],state:'connecting',lastTick:0});
  useEffect(()=>{
   let closed=false,ws:WebSocket|null=null,retry:number|undefined,attempt=0,pending:Point|null=null,latest=0,lastMessage=Date.now(),lastPriceReceived=Date.now();const controller=new AbortController();

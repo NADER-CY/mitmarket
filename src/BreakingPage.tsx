@@ -1,3 +1,4 @@
+import {PackedCategoryHero} from './PackedHero';
 import {useMemo,useState} from 'react';
 import type {CSSProperties} from 'react';
 import type {Market} from './live';
@@ -45,7 +46,7 @@ export function BreakingPage({markets,connection,error,updatedAt,onMarket}:{mark
   },[fresh,filter,sort,query]);
   const total24=fresh.reduce((sum,m)=>sum+m.volume24h,0);
   const lead=filtered[0];
-  return <div className="mit-breaking" dir="ltr"><style>{breakingCss}</style><div className="mit-breaking-shell">
+  return <div className="mit-breaking" dir="ltr"><style>{breakingCss}</style><div className="mit-breaking-shell"><PackedCategoryHero category="breaking" markets={markets} connection={connection} onMarket={onMarket}/>
     <div className="mit-breaking-topline"><span><i/> MITMARKET / BREAKING MARKETS</span><span>{connection==='live'?'● REAL-TIME PRICES':connection==='loading'?'● CONNECTING':'○ FEED RECONNECTING'}</span></div>
     <div className="mit-breaking-heading"><div><span className="mit-breaking-kicker">LATEST PREDICTION MARKET ACTIVITY</span><h1>BREAK<span>ING</span><b>.</b></h1><p>Newly listed prediction markets and fast-moving opportunities, backed by live Polymarket prices.</p></div><div className="mit-breaking-stats"><div><small>RECENT MARKETS</small><strong>{fresh.length.toLocaleString()}</strong></div><div><small>24H VOLUME</small><strong>{usd(total24)}</strong></div><div><small>UPDATED</small><strong>{updatedAt?new Date(updatedAt).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}):'—'}</strong></div></div></div>
     <div className="mit-breaking-tape"><span className="mit-breaking-tape-label"><i/> BREAKING WATCH</span><div>{fresh.slice(0,9).map(m=><button key={m.id} onClick={()=>onMarket(m.id)}>{m.title}<b>{pct(m.prices[0])}</b></button>)}</div></div>
