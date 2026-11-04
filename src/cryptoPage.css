@@ -129,6 +129,13 @@
 .cr-spot-only .cr-time-copy p{max-width:340px}
 .cr-spot-price strong{color:#f4f6fa!important;font-size:clamp(20px,2vw,31px)!important;font-variant-numeric:tabular-nums}
 .cr-spot-price span{color:#8ca8ca}
+.cr-market-facts{display:flex;flex-direction:column;justify-content:space-between;gap:13px;min-width:0;border-left:1px solid #2b3647;padding:8px 0 8px 17px;text-align:left}
+.cr-market-facts .cr-facts-heading{font-size:10px;font-weight:800;letter-spacing:.7px;color:#8ea9d1}
+.cr-market-facts>div{display:flex;flex-direction:column;gap:5px}
+.cr-market-facts small{font-size:10px;color:#91a3ba;font-weight:700;letter-spacing:.4px}
+.cr-market-facts strong{font-size:clamp(14px,1.45vw,22px);line-height:1.22;color:#f4f6fa;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.cr-spot-only .cr-market-facts{flex:1}
+@media(max-width:760px){.cr-market-facts{padding-left:10px;gap:8px}.cr-market-facts strong{font-size:14px}}
 .cr-main-header{margin-top:0;margin-bottom:8px}
 .cr-main-header h2{margin-top:0}
 .cr-topnav{margin-bottom:24px}
