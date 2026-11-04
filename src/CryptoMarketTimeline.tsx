@@ -13,7 +13,8 @@ function label(t:number){return new Intl.DateTimeFormat('en-US',{timeZone:'Ameri
 
 export function CryptoMarketTimeline({market,title,onMarket}:{market?:Market;title:string;onMarket:(id:string)=>void}){
  const [now,setNow]=useState(Date.now()),[pastOpen,setPastOpen]=useState(false),[moreOpen,setMoreOpen]=useState(false),[outcomes,setOutcomes]=useState<Record<number,SlotResult>>({}),[loading,setLoading]=useState<number|null>(null);
- useEffect(()=>{const timer=window.setInterval(()=>setNow(Date.now()),10000);return()=>clearInterval(timer)},[]);
+ useEffect(()=>{let offsetMs=0,disposed=false;const tick=()=>setNow(Date.now()+offsetMs);const synchronize=async()=>{const sent=Date.now();try{const res=await fetch(`${location.origin}/`,{method:'HEAD',cache:'no-store'});const stamp=res.headers.get('Date');if(!stamp)return;const server=Date.parse(stamp);if(Number.isFinite(server)&&!disposed){offsetMs=server-(sent+Date.now())/2;tick()}}catch{/* Use device clock if server clock is unreachable. */}};
+  const timer=window.setInterval(tick,1000),syncTimer=window.setInterval(()=>void synchronize(),60000);const visible=()=>{tick();if(document.visibilityState==='visible')void synchronize()};document.addEventListener('visibilitychange',visible);void synchronize();return()=>{disposed=true;clearInterval(timer);clearInterval(syncTimer);document.removeEventListener('visibilitychange',visible)}},[]);
  const slug=market?.eventSlug||'';const slugMatch=slug.match(/^([a-z]+)-updown-(5m|15m)-\d+$/);
  const coin=slugMatch?.[1]||shortCodes.find(([r])=>r.test(title))?.[1]||'btc';
  const duration=slugMatch?.[2]==='5m'||(/(?:\b5m\b|\b5 min\b)/i.test(title)&&!/(?:15m|15 min)/i.test(title))?5:15;
