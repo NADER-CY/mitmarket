@@ -46,7 +46,7 @@ function useBybitSpotReference(){
     // Bybit spot allows at most ten topics per subscription request.
     for(let i=0;i<topics.length;i+=5)ws?.send(JSON.stringify({op:'subscribe',args:topics.slice(i,i+5)}));
     ping=window.setInterval(()=>{if(ws?.readyState===WebSocket.OPEN)ws.send(JSON.stringify({op:'ping'}))},20000)};
-   ws.onmessage=e=>{try{const data=JSON.parse(e.data) as {topic?:string;data?:{lastPrice?:string}};const match=data.topic?.match(/^tickers\.([A-Z0-9]+)USDT$/);const price=Number(data.data?.lastPrice);if(match&&Number.isFinite(price)&&price>0)latest[match[1]]=price}catch{/* Ignore control frames. */}};
+   ws.onmessage=e=>{try{const data=JSON.parse(e.data) as {topic?:string;data?:{lastPrice?:string}|{lastPrice?:string}[]};const match=data.topic?.match(/^tickers\.([A-Z0-9]+)USDT$/);const row=Array.isArray(data.data)?data.data[0]:data.data;const price=Number(row?.lastPrice);if(match&&Number.isFinite(price)&&price>0)latest[match[1]]=price}catch{/* Ignore control frames. */}};
    ws.onclose=()=>{if(ping)window.clearInterval(ping);if(!stopped){retry=window.setTimeout(connect,backoff);backoff=Math.min(30000,backoff*2)}};
    ws.onerror=()=>ws?.close();};
   flush=window.setInterval(()=>{if(Object.keys(latest).length){setQuotes(old=>({...old,...latest}));for(const key of Object.keys(latest))delete latest[key]}},250);
