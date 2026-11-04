@@ -31,12 +31,14 @@ function OutcomeCard({title,outcome,confirmed}:{title:string;outcome?:string;con
 
 export function CryptoMarketDetail({id,market,language,onMarket,onBack,related}:{id:string;market?:Market;language:Language;onMarket:(id:string)=>void;onBack:()=>void;related:Market[]}){
  const [detail,setDetail]=useState<Detail|null>(null),[tab,setTab]=useState<'rules'|'context'>('rules'),[info,setInfo]=useState<'comments'|'holders'|'positions'|'activity'>('comments'),[period,setPeriod]=useState('15 Min');
- useEffect(()=>{const c=new AbortController();setDetail(null);void fetch(`https://gamma-api.polymarket.com/markets/${encodeURIComponent(id)}`,{signal:c.signal}).then(r=>r.ok?r.json():Promise.reject()).then(setDetail).catch(()=>{});return()=>c.abort()},[id]);
+ useEffect(()=>{const c=new AbortController();setDetail(null);const load=()=>{void fetch(`https://gamma-api.polymarket.com/markets/${encodeURIComponent(id)}`,{signal:c.signal,cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(d=>{if(!c.signal.aborted)setDetail(d)}).catch(()=>{})};load();const timer=window.setInterval(load,15000);return()=>{clearInterval(timer);c.abort()}},[id]);
  const title=detail?.question||market?.title||'Crypto Up or Down';const image=detail?.image||market?.image;
  const outcomes=arr(detail?.outcomes).length?arr(detail?.outcomes):market?.outcomes||['Up','Down'];
  const prices=market?.prices?.length?market.prices:arr(detail?.outcomePrices).map(Number);
  const tokens=arr(detail?.clobTokenIds).length?arr(detail?.clobTokenIds):market?.tokenIds||[];
- const endDate=detail?.endDate||market?.endDate;const closed=detail?.closed===true||(endDate?Date.parse(endDate)<Date.now():false);
+ // The provider, not the device clock, decides if a crypto prediction market is closed.
+ // Gamma may keep a market tradable briefly around a scheduled boundary.
+ const endDate=detail?.endDate||market?.endDate;const closed=detail?.closed===true;
  const winnerIndex=closed?prices.findIndex(p=>Number.isFinite(p)&&p>=.999):-1;
  const confirmedWinner=winnerIndex>=0?outcomes[winnerIndex]:undefined;
  const relatedMarkets=useMemo(()=>related.filter(m=>m.id!==id&&/up or down/i.test(m.title)).slice(0,12),[id,related]);
