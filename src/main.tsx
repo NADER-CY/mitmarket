@@ -110,7 +110,16 @@ function App() {
   function chooseScreen(next: string) { navigate(`/preview/${next}?view=${viewport}`); setActivePanel(null); }
   function chooseTrending() { navigate(`/preview/trending?view=${viewport}`); setActivePanel(null); }
   function chooseCategory(next: string) { if (next === 'trending') { chooseTrending(); return; }if(next==='perps'){chooseScreen('perps');return;}if(next==='combos'){chooseScreen('combos');return;} if(next==='breaking'){chooseScreen('breaking');return;}if(next==='sports'){chooseScreen('sportsbook');return;}if(next==='crypto'){chooseScreen('crypto_category');return;} navigate(`/preview/explore?view=${viewport}&category=${next}`); setActivePanel(null); setFilter(''); }
-  const openMarket=useCallback((id: string) => { navigate(`/preview/binary_market?view=${viewport}&category=${current==='trending'?'trending':current==='crypto_category'?'crypto':current==='sportsbook'?'sports':current==='combos'?'combos':category}&market=${encodeURIComponent(id)}`); setActivePanel(null); },[navigate,current,viewport,category]);
+  const openMarket=useCallback((id: string) => {
+    const selected=markets.find(m=>m.id===id);
+    const known=['crypto','sports','politics','finance','geopolitics','technology','elections','economy','culture','esports','iran','weather','mentions','art'];
+    const named=selected?.category?.toLowerCase().trim();
+    const actualCategory=selected?.categoryIds?.find(value=>known.includes(value))||(named&&known.includes(named)?named:undefined);
+    const fallback=current==='crypto_category'?'crypto':current==='sportsbook'?'sports':current==='combos'?'combos':category;
+    const destination=actualCategory||fallback;
+    navigate(`/preview/binary_market?view=${viewport}&category=${encodeURIComponent(destination)}&market=${encodeURIComponent(id)}`);
+    setActivePanel(null);
+  },[navigate,current,viewport,category,markets]);
 
   const bridge = useFrameBridge({frame: frameRef, screen: current, category, markets, selected: current==='binary_market'&&(category==='crypto'||category==='combos')?undefined:selectedMarket, viewport, onCategory: chooseCategory, onMarket: openMarket, onTrending: chooseTrending, currency, fxRate: fx.rate, language});
 
