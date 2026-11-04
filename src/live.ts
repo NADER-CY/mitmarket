@@ -24,11 +24,25 @@ export function useLiveMarkets(category:CategoryId='all',selectedId?:string|null
  const rawRef=useRef(new Map<string,RawEvent>()),streamedRef=useRef(new Map<string,{price:number;at:number}>());
  const retryCatalog=useCallback(()=>setRevision(v=>v+1),[]);
  useEffect(()=>{
-  const controller=new AbortController();let running=false,completedOnce=false,hasCompleteCache=false;const cacheKey=`${category}:${requestedTopic}`;
+  const controller=new AbortController();let running=false,completedOnce=false,hasCompleteCache=false;const cacheKey=`${category==='trending'?'trending-fast-v2':category}:${requestedTopic}`;
   comboMoreRef.current=null;setComboHasMore(false);setComboLoadingMore(false);rawRef.current=new Map();streamedRef.current.clear();setMarkets([]);setError('');setUpdatedAt(null);setConnection('loading');setCatalogComplete(false);setLoadedEvents(0);setCatalogLoading(!accountCategories.has(category));
   if(accountCategories.has(category)){setConnection('offline');return()=>controller.abort();}
   const publish=(save=false)=>{const events=[...rawRef.current.values()];const rows=normalizeEvents(category==='sports'?events.filter(event=>sportsEventMatches(event,requestedTopic)):events);const list=categoryMarkets(rows,category==='politics'||category==='sports'||category==='iran'||category==='finance'||category==='geopolitics'||category==='technology'||category==='elections'||category==='culture'||category==='economy'||category==='weather'||category==='art'||category==='mentions'?'all':category,category==='sports'||category==='politics'||category==='iran'||category==='finance'||category==='geopolitics'||category==='technology'||category==='elections'||category==='culture'||category==='economy'||category==='weather'||category==='art'||category==='mentions'||category==='trending'?'All':requestedTopic==='All'?'All':topicQueries[requestedTopic]||requestedTopic);const shown=list.map(m=>({...m,prices:m.prices.map((p,i)=>{const live=streamedRef.current.get(m.tokenIds[i]);return live&&Date.now()-live.at<30000?live.price:p;})}));setMarkets(previous=>preserveLoadedCatalog&&!save?[...new Map([...previous,...shown].map(m=>[m.id,m])).values()]:shown);setLoadedEvents(rawRef.current.size);setUpdatedAt(Date.now());if(save||!hasCompleteCache){if(save)hasCompleteCache=true;void writeCatalog({key:cacheKey,markets:shown,savedAt:Date.now(),complete:save,count:rawRef.current.size});}};
   const load=async()=>{if(running||controller.signal.aborted)return;running=true;setCatalogLoading(true);setError('');const nextEvents=new Map<string,RawEvent>();let publishedAt=0;try{
+   // The homepage needs a small, representative live snapshot, not the complete
+   // unbounded event catalog. Full catalog pagination remains on category pages.
+   if(category==='trending'&&!selectedId){
+    const sources=[{tag:'',limit:35},{tag:'21',limit:8},{tag:'1',limit:5},{tag:'2',limit:6},{tag:'1401',limit:5},{tag:'120',limit:5},{tag:'84',limit:5},{tag:'100265',limit:5}];
+    const batches=await Promise.allSettled(sources.map(async source=>{
+     const url=new URL(`${BASE}/events`);
+     url.search=new URLSearchParams({active:'true',closed:'false',limit:String(source.limit),order:'volume24hr',ascending:'false',...(source.tag?{tag_id:source.tag,related_tags:'true'}:{})}).toString();
+     return json<RawEvent[]>(url.toString(),controller.signal);
+    }));
+    if(controller.signal.aborted)return;
+    for(const result of batches)if(result.status==='fulfilled')for(const event of result.value){const key=event.id||event.slug||event.title;if(key)rawRef.current.set(key,event);}
+    if(!rawRef.current.size)throw Error('No market snapshots available');
+    publish(true);setCatalogComplete(true);completedOnce=true;return;
+   }
    if(category==='combos'){
     const snapshot=new Map<string,Market>();let cursor:string|null|undefined;let fetching=false;
     const nextBatch=async()=>{if(fetching||controller.signal.aborted||cursor===null)return;fetching=true;setComboLoadingMore(true);setError('');try{const batch=await loadComboBatch((url,signal)=>json(url,signal),controller.signal,cursor);if(controller.signal.aborted)return;for(const market of batch.markets)if(comboCategory({...market,title:'',eventTitle:'',eventSlug:''}))snapshot.set(market.id,market);cursor=batch.nextCursor;const loaded=[...snapshot.values()].map(m=>({...m,tokenIds:cachedMarketTokens(m.id)||[]}));setMarkets(loaded);void writeCatalog({key:cacheKey,markets:loaded,savedAt:Date.now(),complete:!cursor,count:snapshot.size});setLoadedEvents(snapshot.size);setCatalogComplete(!cursor);setComboHasMore(Boolean(cursor));setConnection('reconnecting');setUpdatedAt(Date.now());}catch(e){if(!controller.signal.aborted){setError(e instanceof Error?e.message:'Combos feed unavailable');setConnection('offline');}}finally{fetching=false;if(!controller.signal.aborted)setComboLoadingMore(false);}};
