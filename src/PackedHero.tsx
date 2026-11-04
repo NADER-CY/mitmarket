@@ -8,13 +8,17 @@ import {useDesktopPriceHistory} from './useDesktopPriceHistory';
 type Templates=typeof import('./packedSliderTemplates.json');
 export type PackedKind='sports'|'politics'|'tech'|'finance'|'weather'|'geo'|'radar'|'breaking'|'category-combos'|'category-perps'|'category-breaking'|'category-new'|'category-crypto'|'category-sports'|'category-politics';
 let templates:Templates|null=null;let templateRequest:Promise<Templates>|null=null;
-const cache=new Map<string,Market[]>(),pending=new Map<string,Promise<Market[]>>();
+const cache=new Map<string,{at:number;markets:Market[]}>(),pending=new Map<string,Promise<Market[]>>();
+const feedTtl=5*60*1000;
+const feedKey=(category:string)=>`mitmarket:hero-feed:v2:${category}`;
+function getFeed(category:string){const memory=cache.get(category);if(memory)return memory;try{const stored=JSON.parse(sessionStorage.getItem(feedKey(category))||'null') as {at:number;markets:Market[]}|null;if(stored&&Array.isArray(stored.markets)&&Date.now()-stored.at<feedTtl){cache.set(category,stored);return stored;}}catch{/* Browser storage is optional. */}return undefined;}
+function saveFeed(category:string,markets:Market[]){const value={at:Date.now(),markets};cache.set(category,value);try{sessionStorage.setItem(feedKey(category),JSON.stringify({...value,markets:markets.slice(0,100)}));}catch{/* Continue without persistent cache. */}}
 const tags:Record<string,number>={sports:1,politics:2,tech:1401,finance:120,weather:84,geopolitics:100265,crypto:21};
-export function usePackedFeed(category:string,supplied?:Market[]){
- const [rows,setRows]=useState<Market[]>(()=>cache.get(category)||[]),[status,setStatus]=useState('loading');
- useEffect(()=>{if(supplied){setStatus('ready');return;}let active=true;
- const load=()=>{let request=pending.get(category);if(!request){const url=new URL('https://gamma-api.polymarket.com/events');url.search=new URLSearchParams({active:'true',closed:'false',limit:'100',order:category==='new'||category==='breaking'?'id':'volume24hr',ascending:'false',...(tags[category]?{tag_id:String(tags[category]),related_tags:'true'}:{})}).toString();request=fetch(url,{signal:AbortSignal.timeout(20000)}).then(r=>{if(!r.ok)throw Error();return r.json() as Promise<RawEvent[]>}).then(events=>{const markets=normalizeEvents(events).filter(m=>m.prices.length>=2&&m.prices.every(Number.isFinite)&&(!m.endDate||Date.parse(m.endDate)>Date.now()));cache.set(category,markets);return markets;}).finally(()=>pending.delete(category));pending.set(category,request);}request.then(data=>{if(active){setRows(data);setStatus('ready');}}).catch(()=>{if(active)setStatus('error');});};load();const timer=setInterval(load,120000);return()=>{active=false;clearInterval(timer);};
- },[category,!!supplied]);return {markets:supplied||rows,status};
+export function usePackedFeed(category:string,supplied?:Market[],enabled=true){
+ const [rows,setRows]=useState<Market[]>(()=>getFeed(category)?.markets||[]),[status,setStatus]=useState('loading');
+ useEffect(()=>{if(supplied){setStatus('ready');return;}if(!enabled)return;let active=true;
+ const load=()=>{const stored=getFeed(category);if(stored&&Date.now()-stored.at<feedTtl){setRows(stored.markets);setStatus('ready');return;}let request=pending.get(category);if(!request){const url=new URL('https://gamma-api.polymarket.com/events');url.search=new URLSearchParams({active:'true',closed:'false',limit:'10',order:category==='new'||category==='breaking'?'id':'volume24hr',ascending:'false',...(tags[category]?{tag_id:String(tags[category]),related_tags:'true'}:{})}).toString();request=fetch(url,{signal:AbortSignal.timeout(20000)}).then(r=>{if(!r.ok)throw Error();return r.json() as Promise<RawEvent[]>}).then(events=>{const markets=normalizeEvents(events).filter(m=>m.prices.length>=2&&m.prices.every(Number.isFinite)&&(!m.endDate||Date.parse(m.endDate)>Date.now()));saveFeed(category,markets);return markets;}).finally(()=>pending.delete(category));pending.set(category,request);}request.then(data=>{if(active){setRows(data);setStatus('ready');}}).catch(()=>{if(active)setStatus('error');});};load();const timer=setInterval(load,feedTtl);return()=>{active=false;clearInterval(timer);};
+ },[category,!!supplied,enabled]);return {markets:supplied||rows,status};
 }
 export function usePackedQuotes(markets:Market[]){
  const source=useMemo(()=>markets.map(m=>({id:m.id,title:m.title,category:m.category,image:m.image||'',yes:m.prices[0]*100,no:m.prices[1]*100,volume:m.volumeTotal,endDate:m.endDate||'',slug:m.eventSlug||'',token:m.tokenIds[0]||''})),[markets]);
@@ -22,7 +26,7 @@ export function usePackedQuotes(markets:Market[]){
 }
 const usd=(n:number)=>!Number.isFinite(n)?'—':new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',notation:'compact',maximumFractionDigits:1}).format(n);
 export function PackedHistory({market,onChange}:{market?:Market;onChange:(delta:number|null,first:number|null)=>void}){
- const history=useDesktopPriceHistory(market?.tokenIds[0]?`https://clob.polymarket.com/prices-history?market=${market.tokenIds[0]}&interval=1d&fidelity=10`:'',60000);
+ const history=useDesktopPriceHistory(market?.tokenIds[0]?`https://clob.polymarket.com/prices-history?market=${market.tokenIds[0]}&interval=1d&fidelity=10`:'',180000);
  const container=useRef<HTMLDivElement>(null),[size,setSize]=useState({w:600,h:190}),[hover,setHover]=useState<number|null>(null);
  useEffect(()=>{if(!container.current)return;const observer=new ResizeObserver(([entry])=>setSize({w:Math.max(100,entry.contentRect.width),h:Math.max(80,entry.contentRect.height)}));observer.observe(container.current);return()=>observer.disconnect();},[]);
  const points=history.points,last=points.at(-1),start=points[0]?.t||0,end=last?.t||start;
