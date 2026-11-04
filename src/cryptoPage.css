@@ -120,6 +120,10 @@
 .cr-brand-logo{display:grid;place-items:center;flex:none;width:43px;height:43px;background:#101216;border:1px solid;border-radius:50%;overflow:hidden}
 .cr-brand-logo img{width:32px;height:32px;object-fit:contain;display:block}
 .cr-brand-logo strong{font-size:24px;font-weight:850}
+.cr-card-asset{display:inline-flex;align-items:center;gap:8px;min-width:0}
+.cr-card-asset .cr-brand-logo{width:29px;height:29px;flex:none}
+.cr-card-asset .cr-brand-logo img{width:23px;height:23px}
+.cr-card-asset .cr-brand-logo strong{font-size:17px}
 .cr-main-header{margin-top:0;margin-bottom:8px}
 .cr-main-header h2{margin-top:0}
 .cr-topnav{margin-bottom:24px}
