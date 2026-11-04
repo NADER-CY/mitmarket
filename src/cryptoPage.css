@@ -117,7 +117,7 @@
 .cr-asset-head{padding-top:6px;gap:12px;margin-top:2px}
 .cr-asset-head h3{margin:0;font-size:23px;font-family:Inter,Manrope,sans-serif;font-weight:760}
 .cr-asset-head h3 small{font-size:14px;font-weight:680;margin-left:7px}
-.cr-brand-logo{display:grid;place-items:center;flex:none;width:43px;height:43px;background:#101216;border:1px solid;border-radius:50%;overflow:hidden}
+.cr-brand-logo{display:grid;place-items:center;flex:none;width:43px;height:43px;background:transparent;border:0;border-radius:50%;overflow:hidden}
 .cr-brand-logo img{width:32px;height:32px;object-fit:contain;display:block}
 .cr-brand-logo strong{font-size:24px;font-weight:850}
 .cr-card-asset{display:inline-flex;align-items:center;gap:8px;min-width:0}
