@@ -1,7 +1,7 @@
 import {useCallback,useState} from 'react';
 import type {Market} from './marketCatalog';
 import {PackedHistory} from './PackedHero';
-import './desktopSportsSlide.css';
+import sportsSlideStyles from './desktopSportsSlide.css?inline';
 
 const percent=(value:number|undefined)=>value===undefined||!Number.isFinite(value)?'—':`${(value*100).toFixed(1)}%`;
 const amount=(value:number)=>Number.isFinite(value)?new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',notation:'compact',maximumFractionDigits:1}).format(value):'—';
@@ -14,6 +14,7 @@ export function DesktopSportsSlide({market,connection,onMarket}:{market?:Market;
  const live=connection==='connected'||connection==='live';
  const date=market?.endDate?new Date(market.endDate).toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):'Open market';
  return <section className="desktop-sports-slide" aria-label="Sports prediction market">
+  <style>{sportsSlideStyles}</style>
   <div className="dss-ambient" aria-hidden="true"/>
   <div className="dss-columns">
    <div className="dss-left">
