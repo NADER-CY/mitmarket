@@ -97,7 +97,11 @@ export function CryptoPage({polymarket,connection,onMarket,onVisibleMarkets,cata
       6:{1:'banner',6:'half'},
       7:{0:'half',2:'wide',5:'half'}
     };
-    const shape=patterns[assetIndex%8][index]||'square';
+    // A selected timeframe is one continuous 20-asset mosaic. Each run of
+    // widths exactly fills the four-column row, so no orphaned grid gaps occur.
+    const singleTimeframeWidths=[3,1,2,2,1,1,2,3,1,2,1,1,1,3,2,2,3,1,2,2];
+    const width=singleTimeframeWidths[assetIndex%singleTimeframeWidths.length];
+    const shape=time==='All'?(patterns[assetIndex%8][index]||'square'):width===3?'wide':width===2?'half':'square';
     const featured=shape!=='square';
     const styleVariant=(assetIndex+index)%4;
     return <button key={`${symbol}-${slot}`} style={{'--cr-coin-accent':color} as React.CSSProperties} className={`cr-time-card cr-variant-${styleVariant} cr-time-${shape} ${time===slot?'cr-time-highlight':''} ${m?'cr-time-ready':'cr-time-pending'} ${featured?'cr-time-feature':''}`} disabled={!m} onClick={()=>m&&open(m)}>
