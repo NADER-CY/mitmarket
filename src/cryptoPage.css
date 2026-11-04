@@ -135,6 +135,15 @@
 .cr-market-facts small{font-size:10px;color:#91a3ba;font-weight:700;letter-spacing:.4px}
 .cr-market-facts strong{font-size:clamp(14px,1.45vw,22px);line-height:1.22;color:#f4f6fa;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
 .cr-market-facts .cr-facts-countdown strong{color:#ff4761}
+.cr-target-price strong{color:#f4f6fa;font-size:clamp(19px,2.1vw,29px)}
+.cr-target-gauge{display:flex!important;flex-direction:column;gap:4px!important;min-height:105px}
+.cr-target-current{display:flex;flex-direction:column;gap:4px}
+.cr-target-current>span,.cr-target-footnote{color:#8298b5;font-size:9px;font-weight:700;letter-spacing:.2px}
+.cr-target-current strong{font-size:clamp(16px,1.7vw,22px)!important}
+.cr-target-current strong small{font-size:10px;color:inherit}
+.cr-target-gauge svg{display:block;width:100%;height:66px}
+.cr-target-footnote{font-size:8px;font-weight:500}
+.cr-target-unavailable{font-size:12px;color:#8498b1;min-height:95px;justify-content:center}
 .cr-probability-path{display:flex;flex-direction:column;gap:3px;min-height:60px;margin:1px 0 5px}
 .cr-probability-path-label{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#859fbe;font-size:9px;font-weight:800;letter-spacing:.45px}
 .cr-probability-path-label strong{color:#0bba74;font-size:10px;font-variant-numeric:tabular-nums}
