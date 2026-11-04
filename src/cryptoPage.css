@@ -124,6 +124,11 @@
 .cr-card-asset .cr-brand-logo{width:29px;height:29px;flex:none}
 .cr-card-asset .cr-brand-logo img{width:23px;height:23px}
 .cr-card-asset .cr-brand-logo strong{font-size:17px}
+.cr-spot-only .cr-time-body{display:flex;flex-direction:column}
+.cr-spot-only .cr-time-details{justify-content:center}
+.cr-spot-only .cr-time-copy p{max-width:340px}
+.cr-spot-price strong{color:#f4f6fa!important;font-size:clamp(20px,2vw,31px)!important;font-variant-numeric:tabular-nums}
+.cr-spot-price span{color:#8ca8ca}
 .cr-main-header{margin-top:0;margin-bottom:8px}
 .cr-main-header h2{margin-top:0}
 .cr-topnav{margin-bottom:24px}
