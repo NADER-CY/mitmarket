@@ -183,7 +183,7 @@ function App() {
     if(!commonCategory&&(current!=='trending'||viewport==='mobile'))window.requestAnimationFrame(()=>doc.getElementById('mit-template-loading')?.remove());
     if(current==='binary_market'&&(category==='crypto'||category==='combos')){
       const main=doc.querySelector('main');
-      if(main){const mount=doc.createElement('div');main.replaceChildren(mount);main.removeAttribute('class');main.style.cssText='display:block;background:#0a0c10;min-height:100vh;padding:96px 0 0;max-width:none;';setCryptoDetailMount(mount);}
+      if(main){const mount=doc.createElement('div');main.replaceChildren(mount);main.removeAttribute('class');main.style.cssText=`display:block;background:${category==='crypto'?'#101216':'#0a0c10'};min-height:100vh;padding:96px 0 0;max-width:none;`;setCryptoDetailMount(mount);}
       setCommentsMount(null);
     }else if(current==='binary_market'){
       const main=doc.querySelector('main');
