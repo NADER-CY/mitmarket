@@ -20,14 +20,14 @@ const memory=new Map<string,{at:number;markets:Market[]}>();
 const requests=new Map<string,Promise<Market[]>>();
 const tagIds:Record<string,number>={politics:2,sports:1,crypto:21,esports:64,iran:78,finance:120,geopolitics:100265,tech:1401,elections:144,culture:596,economy:100328,weather:84,mentions:100343,art:1422};
 const tags:Record<string,string>={politics:'politics',sports:'sports',crypto:'crypto',esports:'esports',iran:'iran',finance:'finance',geopolitics:'geopolitics',tech:'tech',elections:'elections',culture:'pop-culture',economy:'economy',weather:'weather',mentions:'mention-markets',art:'art'};
-async function catalog(section:string):Promise<Market[]> {
-  const key=tags[section]?section:['new','breaking'].includes(section)?section:'trending';
+async function catalog(section:string,featured=false):Promise<Market[]> {
+  const key=featured&&section==='crypto'?'crypto:hero':tags[section]?section:['new','breaking'].includes(section)?section:'trending';
   const cached=memory.get(key);if(cached&&Date.now()-cached.at<300000)return cached.markets;
   if(requests.has(key))return requests.get(key)!;
   const task=(async()=>{
     const url=new URL('/events',BASE);
-    url.searchParams.set('active','true');url.searchParams.set('closed','false');url.searchParams.set('limit','100');url.searchParams.set('order',key==='new'?'id':'volume24hr');url.searchParams.set('ascending','false');
-    if(tagIds[key]){url.searchParams.set('tag_id',String(tagIds[key]));url.searchParams.set('related_tags','true');}
+    url.searchParams.set('active','true');url.searchParams.set('closed','false');url.searchParams.set('limit',featured?'20':'100');url.searchParams.set('order',featured?'startDate':key==='new'?'id':'volume24hr');url.searchParams.set('ascending','false');
+    if(tagIds[section]){url.searchParams.set('tag_id',String(tagIds[section]));url.searchParams.set('related_tags','true');}
     const response=await fetch(url);if(!response.ok)throw Error('Feed unavailable');
     const events:RawEvent[]=await response.json();
     const unique=new Map<string,Market>();
@@ -35,11 +35,12 @@ async function catalog(section:string):Promise<Market[]> {
     const rows=[...unique.values()];memory.set(key,{at:Date.now(),markets:rows});return rows;
   })();requests.set(key,task);try{return await task;}finally{requests.delete(key);}
 }
-export function useMarkets(section='trending') {
-  const [markets,setMarkets]=useState<Market[]>(()=>memory.get(section)?.markets||[]);
+export function useMarkets(section='trending',featured=false) {
+  const key=featured&&section==='crypto'?'crypto:hero':section;
+  const [markets,setMarkets]=useState<Market[]>(()=>memory.get(key)?.markets||[]);
   const [status,setStatus]=useState<'loading'|'ready'|'error'>(markets.length?'ready':'loading');
   const [attempt,setAttempt]=useState(0);
-  useEffect(()=>{let active=true;setMarkets(memory.get(section)?.markets||[]);setStatus('loading');catalog(section).then(rows=>{if(active){setMarkets(rows);setStatus('ready');}}).catch(()=>{if(active)setStatus('error');});return()=>{active=false;};},[section,attempt]);
+  useEffect(()=>{let active=true;setMarkets(memory.get(key)?.markets||[]);setStatus('loading');catalog(section,featured).then(rows=>{if(active){setMarkets(rows);setStatus('ready');}}).catch(()=>{if(active)setStatus('error');});return()=>{active=false;};},[section,key,featured,attempt]);
   return {markets,status,retry:()=>setAttempt(x=>x+1)};
 }
 
