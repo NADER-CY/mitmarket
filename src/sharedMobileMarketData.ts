@@ -40,7 +40,7 @@ export function useMarkets(section='trending',featured=false) {
   const [markets,setMarkets]=useState<Market[]>(()=>memory.get(key)?.markets||[]);
   const [status,setStatus]=useState<'loading'|'ready'|'error'>(markets.length?'ready':'loading');
   const [attempt,setAttempt]=useState(0);
-  useEffect(()=>{let active=true;setMarkets(memory.get(section)?.markets||[]);setStatus('loading');catalog(section,featured).then(rows=>{if(active){setMarkets(rows);setStatus('ready');}}).catch(()=>{if(active)setStatus('error');});return()=>{active=false;};},[section,key,featured,attempt]);
+  useEffect(()=>{let active=true;setMarkets(memory.get(key)?.markets||[]);setStatus('loading');catalog(section,featured).then(rows=>{if(active){setMarkets(rows);setStatus('ready');}}).catch(()=>{if(active)setStatus('error');});return()=>{active=false;};},[section,key,featured,attempt]);
   return {markets,status,retry:()=>setAttempt(x=>x+1)};
 }
 
