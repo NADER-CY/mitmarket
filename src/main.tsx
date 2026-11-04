@@ -4,7 +4,7 @@ import {installDesktopArrowStyle} from './desktopArrowStyle';
 import {ComboGameDetail} from './ComboGameDetail';
 import {EsportsPage} from './EsportsPage';
 import {RewardsPage} from './RewardsPage';
-import {CryptoMarketDetail} from './CryptoMarketDetailV2';
+import {CryptoMarketDetail} from './CryptoMarketDetailV3';
 import {DashboardPage} from './DashboardPage';
 import {LeaderboardPage} from './LeaderboardPage';
 import {ActivityPage} from './ActivityPage';
