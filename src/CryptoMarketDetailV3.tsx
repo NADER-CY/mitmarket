@@ -15,6 +15,21 @@ const assetIcon=(title:string)=>/btc|bitcoin/i.test(title)?'₿':/eth|ethereum/i
 const coinColor=(title:string)=>/btc|bitcoin/i.test(title)?'#f7931a':/eth|ethereum/i.test(title)?'#6778d8':/sol|solana/i.test(title)?'#101820':'#318cf5';
 const label=(title:string)=>{const m=title.match(/^(.*?)(?:\s+-\s+|\s*\(|$)/);return m?.[1]?.trim()||title};
 type Period='5 Min'|'15 Min'|'1 Hour'|'1 Day';
+// Keep the same twenty assets in every timeframe. A contract may be absent from
+// Polymarket; in that case render an unavailable row, never a fabricated quote.
+const trackedAssets:[string,RegExp][]=[
+ ['BTC',/\bbitcoin\b|\bbtc\b/i],['ETH',/\bethereum\b|\beth\b/i],
+ ['SOL',/\bsolana\b|\bsol\b/i],['XRP',/\bxrp\b/i],
+ ['BNB',/\bbnb\b/i],['DOGE',/\bdogecoin\b|\bdoge\b/i],
+ ['HYPE',/\bhyperliquid\b|\bhype\b/i],['ZEC',/\bzcash\b|\bzec\b/i],
+ ['ADA',/\bcardano\b|\bada\b/i],['AVAX',/\bavalanche\b|\bavax\b/i],
+ ['LINK',/\bchainlink\b|\blink\b/i],['LTC',/\blitecoin\b|\bltc\b/i],
+ ['BCH',/\bbitcoin cash\b|\bbch\b/i],['SUI',/\bsui\b/i],
+ ['TRX',/\btron\b|\btrx\b/i],['DOT',/\bpolkadot\b|\bdot\b/i],
+ ['PEPE',/\bpepe\b/i],['UNI',/\buniswap\b|\buni\b/i],
+ ['AAVE',/\baave\b/i],['XLM',/\bstellar\b|\bxlm\b/i]
+];
+function assetSymbol(m:Market){const text=[m.title,m.eventTitle,m.eventSlug||''].join(' ');return trackedAssets.find(([,pattern])=>pattern.test(text))?.[0]}
 function marketPeriod(m:Pick<Market,'title'|'eventSlug'|'eventTitle'>):Period|null{
  const slug=m.eventSlug||'',text=[slug,m.title,m.eventTitle].join(' ');
  if(/(?:updown[-_]?5m|\b5\s*(?:min|minute)s?\b)/i.test(text))return '5 Min';
@@ -53,7 +68,16 @@ export function CryptoMarketDetail({id,market,language,onMarket,onBack,related}:
  const winnerIndex=closed?prices.findIndex(p=>Number.isFinite(p)&&p>=.999):-1;
  const confirmedWinner=winnerIndex>=0?outcomes[winnerIndex]:undefined;
  const relatedMarkets=useMemo(()=>related.filter(m=>m.id!==id&&/up or down/i.test(m.title)),[id,related]);
- const periodMarkets=useMemo(()=>relatedMarkets.filter(m=>marketPeriod(m)===period).slice(0,12),[relatedMarkets,period]);
+ const periodMarkets=useMemo(()=>{
+  const current=Date.now();const candidates=relatedMarkets.filter(m=>marketPeriod(m)===period);
+  // One market per asset, favoring the currently available or next event.
+  const byAsset=new Map<string,Market>();
+  for(const m of candidates){const symbol=assetSymbol(m);if(!symbol)continue;const existing=byAsset.get(symbol);
+   const rank=(row:Market)=>{const end=Date.parse(row.endDate||'');return Number.isFinite(end)?(end>=current?end-current:1e12+current-end):2e12};
+   if(!existing||rank(m)<rank(existing))byAsset.set(symbol,m);
+  }
+  return trackedAssets.map(([symbol])=>({symbol,market:byAsset.get(symbol)}));
+ },[relatedMarkets,period]);
  useEffect(()=>{const selected=market?marketPeriod(market):marketPeriod({title,eventSlug:'',eventTitle:title});if(selected)setPeriod(selected)},[id,market?.eventSlug,title]);
  const commentMarket=market||(detail?.events?.[0]?.id?{id,eventId:String(detail.events[0].id),title,eventTitle:detail.events[0].title||title,category:'Crypto',tokenIds:tokens,outcomes,prices,volume24h:0,volumeTotal:0,liquidity:0,startTime:0} as Market:undefined);
  const start=endDate?new Date(Date.parse(endDate)-(/15m|15 min/i.test(title)?900000:300000)):null;
@@ -66,5 +90,5 @@ export function CryptoMarketDetail({id,market,language,onMarket,onBack,related}:
   <CryptoOrderBook tokens={tokens} volume={market?.volume24h||0}/>
   <div className="pm-info-tabs"><button className={tab==='rules'?'active':''} onClick={()=>setTab('rules')}>Rules</button><button className={tab==='context'?'active':''} onClick={()=>setTab('context')}>Market Context</button></div><div className="pm-rules">{tab==='rules'?<><p>{detail?.description||'Market resolution information is loading. The outcome is determined according to the published market rules and resolution source.'}</p>{detail?.resolutionSource&&<p>Resolution Source: <a href={detail.resolutionSource} target="_blank" rel="noreferrer">{detail.resolutionSource}</a></p>}<p>Live data may be delayed by a few seconds and can be influenced by price activity on other exchanges and broader market conditions.</p></>:<p>Check the rules and resolution source for this prediction market. Displayed spot prices are indicative and may differ from the settlement feed.</p>}</div>
   <div className="pm-social-tabs">{(['comments','holders','positions','activity'] as const).map(t=><button key={t} className={info===t?'active':''} onClick={()=>setInfo(t)}>{t==='comments'?'Comments':t==='holders'?'Top Holders':t==='positions'?'Positions':'Activity'}</button>)}</div><div className="pm-social">{info==='comments'&&commentMarket?<MarketComments market={commentMarket} language={language}/>:<p>{info==='comments'?'Comments are unavailable.':info==='holders'?'Holder data is not available.':info==='positions'?'Connect an account to view positions.':'Recent activity is not available.'}</p>}</div>
- </main><aside className="pm-sidebar">{closed?<OutcomeCard title={title} outcome={confirmedWinner} confirmed={Boolean(confirmedWinner)}/>:<Ticket key={id} title={title} image={image} prices={prices} outcomes={outcomes} closed={closed}/>}<p className="pm-terms">By trading, you agree to the <u>Terms of Use</u>.</p><div className="pm-related-tabs">{(['5 Min','15 Min','1 Hour','1 Day'] as const).map(t=><button key={t} className={period===t?'active':''} onClick={()=>setPeriod(t)}>{t}</button>)}</div><div className="pm-related">{periodMarkets.map(m=><button key={m.id} onClick={()=>onMarket(m.id)}><span className="pm-icon mini" style={{background:coinColor(m.title)}}>{m.image?<img src={m.image} alt=""/>:assetIcon(m.title)}</span><span>{label(m.title)}</span><strong>{Number.isFinite(m.prices[0])?`${Math.round(m.prices[0]*100)}%`:'—'}<small>{m.outcomes[0]||'Up'}</small></strong></button>)}{periodMarkets.length===0&&<p className="pm-related-empty">No {period} markets available in the current feed.</p>}</div><button className="pm-back" onClick={onBack}>← All Crypto markets</button></aside></div></div></div>;
+ </main><aside className="pm-sidebar">{closed?<OutcomeCard title={title} outcome={confirmedWinner} confirmed={Boolean(confirmedWinner)}/>:<Ticket key={id} title={title} image={image} prices={prices} outcomes={outcomes} closed={closed}/>}<p className="pm-terms">By trading, you agree to the <u>Terms of Use</u>.</p><div className="pm-related-tabs">{(['5 Min','15 Min','1 Hour','1 Day'] as const).map(t=><button key={t} className={period===t?'active':''} onClick={()=>setPeriod(t)}>{t}</button>)}</div><div className="pm-related">{periodMarkets.map(({symbol,market:m})=><button key={symbol} disabled={!m} onClick={()=>m&&onMarket(m.id)}><span className="pm-icon mini" style={{background:coinColor(symbol)}}>{m?.image?<img src={m.image} alt=""/>:assetIcon(symbol)}</span><span>{symbol} Up or Down</span><strong>{m&&Number.isFinite(m.prices[0])?`${Math.round(m.prices[0]*100)}%`:'—'}<small>{m?m.outcomes[0]||'Up':'Unavailable'}</small></strong></button>)}</div><button className="pm-back" onClick={onBack}>← All Crypto markets</button></aside></div></div></div>;
 }
