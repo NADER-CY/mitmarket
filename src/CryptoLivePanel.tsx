@@ -45,7 +45,7 @@ export function CryptoLivePanel({root,title,eventId,endDate}:{root:ShadowRoot;ti
  const targetPrice=target.id===eventId?target.price:null;
  const asset=cryptoAsset(title),feed=useCryptoTicks(asset),[notes,setNotes]=useState<BotNote[]>([]),[hover,setHover]=useState<Point|null>(null),[now,setNow]=useState(Date.now());const previous=useRef<{price:number;at:number}|null>(null);const seq=useRef(0);
  useEffect(()=>{setNotes([]);previous.current=null;setHover(null);},[asset]);
- useEffect(()=>{const timer=window.setInterval(()=>setNow(Date.now()),100);return()=>clearInterval(timer);},[]);
+ useEffect(()=>{const timer=window.setInterval(()=>{if(document.visibilityState==='visible')setNow(Date.now());},500);return()=>clearInterval(timer);},[]);
  const points=feed.points.filter(p=>p.t>=now-90000),current=points.at(-1),min=points.length?Math.min(...points.map(p=>p.p)):0,max=points.length?Math.max(...points.map(p=>p.p)):0;
  useEffect(()=>{if(!asset||!current||feed.state!=='live'||Date.now()-feed.lastTick>10000)return;const prev=previous.current;if(prev&&current.t-prev.at<10000)return;const text=prev?describePriceMove(asset,current.p,prev.price,min,max):`${asset} live price is ${money(current.p)}. Monitoring actual market updates.`;previous.current={price:current.p,at:current.t};setNotes(old=>[{id:++seq.current,text,tone:prev?(current.p>prev.price?'up':current.p<prev.price?'down':'neutral'):'neutral',at:current.t} as BotNote,...old].slice(0,3));},[asset,current?.t,current?.p,feed.state,feed.lastTick,min,max]);
  const animated=useAnimatedTick(current);const plotted=animated&&current&&Math.abs(animated.t-current.t)<10000?[...points.slice(0,-1),animated]:points;

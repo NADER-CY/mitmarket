@@ -8,7 +8,7 @@ import {useMarkets} from './sharedMobileMarketData';
 import {useLiveMarkets as useMobileQuotes} from './sharedMobileLiveMarkets';
 export function PackedTrending({onMarket}:{onMarket:(id:string)=>void}){
  const [index,setIndex]=useState(0),[paused,setPaused]=useState(false);
- const crypto=useMarkets('crypto'),sports=usePackedFeed('sports'),politics=usePackedFeed('politics'),tech=usePackedFeed('tech'),finance=usePackedFeed('finance'),weather=usePackedFeed('weather'),geo=usePackedFeed('geopolitics');
+ const crypto=useMarkets('crypto'),sports=usePackedFeed('sports',undefined,index===0||index===1),politics=usePackedFeed('politics',undefined,index===1||index===2),tech=usePackedFeed('tech',undefined,index===2||index===3),finance=usePackedFeed('finance',undefined,index===3||index===4),weather=usePackedFeed('weather',undefined,index===4||index===5),geo=usePackedFeed('geopolitics',undefined,index===5||index===6);
  const selection=useMemo(()=>selectFeaturedCrypto(crypto.markets),[crypto.markets]);const cryptoLive=useMobileQuotes(selection);const c=cryptoLive.markets[0];
  const cryptoMarket:Market|undefined=c?{id:c.id,eventId:c.eventId||c.id,eventSlug:c.slug,title:c.title,eventTitle:c.eventTitle||c.title,category:'Crypto',image:c.image,tokenIds:[c.token],outcomes:['Up','Down'],prices:[c.yes/100,c.no/100],volume24h:0,volumeTotal:c.volume,liquidity:c.liquidity||0,startTime:0,endDate:c.endDate}:undefined;
  const catalogs=[sports.markets,politics.markets,tech.markets,finance.markets,weather.markets,geo.markets];const patterns=[/counter.strike|cs2|esports/i,/senate|election|president|government/i,/anthropic|openai|ai model|ipo/i,/federal reserve|fed |interest rate|fomc/i,/hurricane|temperature|weather|hottest/i,/treaty|ceasefire|peace|agreement/i];
