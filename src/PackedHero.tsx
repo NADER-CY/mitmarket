@@ -21,7 +21,7 @@ export function usePackedQuotes(markets:Market[]){
  const stream=useSocketQuotes(source);return {connection:stream.connection,markets:markets.map((m,i)=>({...m,prices:[stream.markets[i].yes/100,stream.markets[i].no/100,...m.prices.slice(2)]}))};
 }
 const usd=(n:number)=>!Number.isFinite(n)?'—':new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',notation:'compact',maximumFractionDigits:1}).format(n);
-function PackedHistory({market,onChange}:{market?:Market;onChange:(delta:number|null,first:number|null)=>void}){
+export function PackedHistory({market,onChange}:{market?:Market;onChange:(delta:number|null,first:number|null)=>void}){
  const history=useDesktopPriceHistory(market?.tokenIds[0]?`https://clob.polymarket.com/prices-history?market=${market.tokenIds[0]}&interval=1d&fidelity=10`:'',60000);
  const container=useRef<HTMLDivElement>(null),[size,setSize]=useState({w:600,h:190}),[hover,setHover]=useState<number|null>(null);
  useEffect(()=>{if(!container.current)return;const observer=new ResizeObserver(([entry])=>setSize({w:Math.max(100,entry.contentRect.width),h:Math.max(80,entry.contentRect.height)}));observer.observe(container.current);return()=>observer.disconnect();},[]);
