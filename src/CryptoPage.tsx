@@ -101,7 +101,7 @@ export function CryptoPage({polymarket,connection,onMarket,onVisibleMarkets,cata
     const featured=shape!=='square';
     const styleVariant=(assetIndex+index)%4;
     return <button key={`${symbol}-${slot}`} style={{'--cr-coin-accent':color} as React.CSSProperties} className={`cr-time-card cr-variant-${styleVariant} cr-time-${shape} ${time===slot?'cr-time-highlight':''} ${m?'cr-time-ready':'cr-time-pending'} ${featured?'cr-time-feature':''}`} disabled={!m} onClick={()=>m&&open(m)}>
-      <div className="cr-time-top"><span className="cr-time-tag">{slotLabel[slot]}</span><span className={`cr-time-badge ${m?'is-live':''}`}>{m?'● LIVE MARKET':'◌ AWAITING DATA'}</span></div>
+      <div className="cr-time-top"><span className="cr-card-asset"><CryptoLogo symbol={symbol} color={color}/><span className="cr-time-tag">{symbol} · {slotLabel[slot]}</span></span><span className={`cr-time-badge ${m?'is-live':''}`}>{m?'● LIVE MARKET':'◌ AWAITING DATA'}</span></div>
       <div className="cr-time-body"><div className="cr-time-details">
         <div className="cr-time-main"><div className="cr-time-copy"><h4>{m?.title||`${symbol} · ${slotLabel[slot]}`}</h4><p>{m?.eventTitle||'No verified live contract for this interval'}</p>{m&&<div className="cr-time-lead"><strong>{leading!==null?`${(leading*100).toFixed(1)}%`:'—'}</strong><span>LEADING PROBABILITY</span></div>}</div><ChanceArc yes={m?.yes??null} no={m?.no??null}/></div>
         <div className="cr-time-prices"><div><small>{m?.outcomes[0]||'YES'}</small><strong>{m?value(m.yes):'—'}</strong></div><div><small>{m?.outcomes[1]||'NO'}</small><strong>{m?value(m.no):'—'}</strong></div></div>
