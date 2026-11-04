@@ -246,3 +246,47 @@
 .cr-page :is(.cr-time-card,.cr-card,.cr-insight-card):nth-child(4n+3){background-image:linear-gradient(170deg,#202b39 0%,#151c28 43%,#0c1017 100%)}
 .cr-page :is(.cr-time-card,.cr-card,.cr-insight-card):nth-child(4n){background-image:linear-gradient(42deg,#0c1017 0%,#172130 63%,#202a36 100%)}
 .cr-asset-group,.cr-insight-section{content-visibility:auto;contain-intrinsic-size:auto 800px}
+/* Stitch-inspired strike/expiry cards: same verified market data, existing mosaic sizes. */
+.cr-page .cr-time-card.cr-stitch-card{background:#10141c;background-image:none;border:1px solid #26303f;border-radius:13px;display:flex;flex-direction:column;gap:9px;padding:17px;color:#f3f6fa;min-height:330px}
+.cr-stitch-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;min-width:0}
+.cr-stitch-symbol{font-size:15px;font-weight:800;white-space:nowrap}
+.cr-stitch-symbol small{display:block;color:#8fa0b9;font-size:10px;font-weight:600;letter-spacing:.5px;margin-top:4px}
+.cr-stitch-expiry{padding:6px 9px;background:#29141e;border:1px solid #ff476154;border-radius:5px;color:#ff4761;font-size:12px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cr-time-card .cr-stitch-question{margin:0 0 5px;color:#a8b7ce;font-size:12px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cr-stitch-layout{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.25fr);gap:20px;flex:1;min-height:0;border-top:1px solid #293241;padding-top:16px}
+.cr-stitch-info{min-width:0;display:flex;flex-direction:column;gap:9px;justify-content:center}
+.cr-stitch-kicker{color:#97a8bf;font-size:10px;font-weight:750;letter-spacing:.55px}
+.cr-stitch-primary{font-size:clamp(24px,3.2vw,38px);font-weight:850;color:#f6f8fc;font-variant-numeric:tabular-nums;line-height:1.12}
+.cr-stitch-stat{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;color:#98a9c1;border-top:1px solid #27303d;padding-top:7px}
+.cr-stitch-stat b{color:#f0f4fc;font-size:12px;font-variant-numeric:tabular-nums}
+.cr-stitch-probs{display:flex;justify-content:space-between;font-size:11px;font-weight:850;color:#0bba74;margin-top:7px}
+.cr-stitch-probs span:last-child{color:#ff4761}
+.cr-stitch-prob-track{height:6px;border-radius:5px;background:#ff4761;overflow:hidden}
+.cr-stitch-prob-track span{height:100%;background:#0bba74;display:block}
+.cr-stitch-visual{display:flex;flex-direction:column;gap:10px;justify-content:center;min-width:0;background:#0b0e14;border:1px solid #253043;border-radius:10px;padding:13px}
+.cr-stitch-visual-head{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:#9babc2;letter-spacing:.7px;font-weight:750}
+.cr-stitch-visual-head b{color:#1463ff;font-size:10px;white-space:nowrap}
+.cr-stitch-visual .cr-target-plot{border:0;padding:0;background:transparent}
+.cr-stitch-visual .cr-target-plot svg{height:105px}
+.cr-stitch-orders{display:flex;gap:10px;margin-top:7px;border-top:1px solid #27303d;padding-top:12px}
+.cr-stitch-orders>span{flex:1;display:flex;justify-content:space-between;gap:5px;align-items:center;padding:10px 12px;background:#0d2923;border:1px solid #0bba7466;border-radius:7px;color:#0bba74;font-size:12px;font-weight:800}
+.cr-stitch-orders>span+span{background:#2b1720;border-color:#ff476166;color:#ff4761}
+.cr-stitch-card .cr-time-foot{margin-top:0;font-size:10px}
+.cr-page .cr-time-card.cr-stitch-small{min-height:300px;padding:12px;gap:7px}
+.cr-stitch-small .cr-stitch-symbol{font-size:13px}
+.cr-stitch-small .cr-stitch-symbol small{font-size:9px}
+.cr-stitch-small .cr-stitch-expiry{font-size:10px;padding:5px}
+.cr-stitch-small .cr-stitch-layout{display:flex;flex-direction:column;gap:7px;padding-top:9px}
+.cr-stitch-small .cr-stitch-info{gap:5px}
+.cr-stitch-small .cr-stitch-primary{font-size:24px}
+.cr-stitch-small .cr-stitch-stat{padding-top:4px;font-size:10px}
+.cr-stitch-small .cr-stitch-probs,.cr-stitch-small .cr-stitch-prob-track{display:none}
+.cr-stitch-small .cr-stitch-visual{gap:3px;padding:5px 7px}
+.cr-stitch-small .cr-stitch-visual-head{font-size:8px}
+.cr-stitch-small .cr-stitch-visual-head b{display:none}
+.cr-stitch-small .cr-compact-target{padding:0;margin:0;border:0;background:transparent}
+.cr-stitch-small .cr-compact-target svg{height:23px}
+.cr-stitch-small .cr-stitch-orders{gap:6px;margin:0;padding-top:6px}
+.cr-stitch-small .cr-stitch-orders>span{padding:7px 6px;font-size:10px}
+@media(max-width:760px){.cr-stitch-layout{gap:10px}.cr-stitch-visual{padding:8px}.cr-page .cr-time-card.cr-stitch-large{min-height:340px}}
+@media(max-width:440px){.cr-stitch-layout{grid-template-columns:1fr}.cr-page .cr-time-card.cr-stitch-large{min-height:500px}.cr-stitch-visual .cr-target-plot svg{height:75px}}
