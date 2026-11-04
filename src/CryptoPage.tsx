@@ -42,7 +42,10 @@ function useBybitSpotReference(){
  const [quotes,setQuotes]=useState<Record<string,number>>({});
  useEffect(()=>{let stopped=false,ws:WebSocket|null=null,retry:number|undefined,ping:number|undefined,flush:number|undefined;let backoff=1000;
   const latest:Record<string,number>={};const connect=()=>{if(stopped)return;ws=new WebSocket('wss://stream.bybit.com/v5/public/spot');
-   ws.onopen=()=>{backoff=1000;ws?.send(JSON.stringify({op:'subscribe',args:coins.map(([symbol])=>`tickers.${symbol}USDT`)}));ping=window.setInterval(()=>{if(ws?.readyState===WebSocket.OPEN)ws.send(JSON.stringify({op:'ping'}))},20000)};
+   ws.onopen=()=>{backoff=1000;const topics=coins.map(([symbol])=>`tickers.${symbol}USDT`);
+    // Bybit spot allows at most ten topics per subscription request.
+    for(let i=0;i<topics.length;i+=5)ws?.send(JSON.stringify({op:'subscribe',args:topics.slice(i,i+5)}));
+    ping=window.setInterval(()=>{if(ws?.readyState===WebSocket.OPEN)ws.send(JSON.stringify({op:'ping'}))},20000)};
    ws.onmessage=e=>{try{const data=JSON.parse(e.data) as {topic?:string;data?:{lastPrice?:string}};const match=data.topic?.match(/^tickers\.([A-Z0-9]+)USDT$/);const price=Number(data.data?.lastPrice);if(match&&Number.isFinite(price)&&price>0)latest[match[1]]=price}catch{/* Ignore control frames. */}};
    ws.onclose=()=>{if(ping)window.clearInterval(ping);if(!stopped){retry=window.setTimeout(connect,backoff);backoff=Math.min(30000,backoff*2)}};
    ws.onerror=()=>ws?.close();};
