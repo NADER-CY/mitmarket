@@ -39,16 +39,18 @@ function useFeaturedHistory(token?:string){
 }
 
 function ProbabilityLine({market,connection,comparisonMarket,onMarket}:{market:Market;connection:string;comparisonMarket?:Market;onMarket:(id:string)=>void}) {
-  const [chartRef,near]=useNearViewport();
+  const [chartRef,near]=useNearViewport('120px');
   const [activated,setActivated]=useState(false);
   useEffect(()=>{if(near)setActivated(true);},[near]);
   const mainIndex=comparisonMarket?0:(Number(market.prices[1])>Number(market.prices[0])?1:0);
   const otherMarket=comparisonMarket??market;
   const otherIndex=comparisonMarket?0:1-mainIndex;
   const mainHistory=useFeaturedHistory(activated?market.tokenIds[mainIndex]:undefined);
-  const otherHistory=useFeaturedHistory(activated?otherMarket.tokenIds[otherIndex]:undefined);
-  const points=mainHistory.points,comparison=otherHistory.points;
-  const historyLoading=mainHistory.status==='loading'||otherHistory.status==='loading';
+  // In a binary market NO is the inverse of YES; requesting the second
+  // contract history doubles network work without adding information.
+  const otherHistory=useFeaturedHistory(activated&&comparisonMarket?otherMarket.tokenIds[otherIndex]:undefined);
+  const points=mainHistory.points,comparison=comparisonMarket?otherHistory.points:points.map(({t,p})=>({t,p:1-p}));
+  const historyLoading=mainHistory.status==='loading'||Boolean(comparisonMarket&&otherHistory.status==='loading');
   const [hoverRatio,setHoverRatio]=useState<number|null>(null);
   const primaryPrice=market.prices[mainIndex];
   const secondaryPrice=otherMarket.prices[otherIndex];
@@ -154,6 +156,8 @@ export function TrendingPage({markets,connection,language,currency,fxRate,onMark
     const competition=(m:Market)=>Math.abs(.5-Number(m.prices[0]??0));
     return markets.filter(m=>{
       const text=`${m.title} ${m.eventTitle} ${m.category}`.toLowerCase();
+      if(!m.prices.slice(0,2).every(p=>Number.isFinite(p)&&p>=0&&p<=1)||m.prices.length<2)return false;
+      if(m.volume24h<=0&&m.volumeTotal<=0)return false;
       if(filter!=='All markets'&&!text.includes(filter.toLowerCase()))return false;
       if(savedOnly&&!saved.has(m.id))return false;
       if(norm&&!text.includes(norm))return false;
