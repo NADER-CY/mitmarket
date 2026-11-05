@@ -1,0 +1,64 @@
+/* Approved unified Crypto master: the site-wide header remains outside this page. */
+.cr-page{background:#101216;color:#f5f7fd;font-family:Inter,Manrope,ui-sans-serif,system-ui,sans-serif;padding-top:22px}
+.cr-shell{max-width:1580px}
+.cr-page :is(.cr-stitch-primary,.cr-stitch-stat b,.cr-stitch-probs,.cr-stitch-orders b,.cr-target-current strong,.cr-hero-prob strong,.cu-hero){font-variant-numeric:tabular-nums}
+.cu-hero{min-height:450px;border-radius:18px;background:radial-gradient(circle at 37% 13%,#12253b80,transparent 47%),linear-gradient(115deg,#11161d,#10151e 55%,#12171f);padding:23px 26px;display:flex;flex-direction:column;gap:23px;overflow:hidden;position:relative}
+.cu-hero-ticker,.cu-hero-footer{display:flex;align-items:center;justify-content:space-between;gap:16px;color:#97a9c4;font-size:11px;letter-spacing:.5px;flex-wrap:wrap}
+.cu-hero-ticker{border-bottom:1px solid #29313c;padding-bottom:17px}
+.cu-hero-ticker span:first-child{color:#fff;font-size:12px;font-weight:800}
+.cu-hero-ticker i,.cu-chart-head i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#0bba74;margin-right:5px}
+.cu-hero-ticker b{color:#0bba74}
+.cu-hero-columns{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.5fr) minmax(0,.9fr);gap:30px;flex:1;min-height:0}
+.cu-hero-summary{display:flex;flex-direction:column;min-width:0}
+.cu-kicker{font-size:11px;font-weight:800;letter-spacing:1.3px;color:#77a6ff}
+.cu-hero h1{font-size:clamp(21px,1.8vw,29px);letter-spacing:-.6px;line-height:1.25;margin:12px 0 6px}
+.cu-hero-summary>p{font-size:12px;line-height:1.55;color:#849ab5;margin:0 0 15px}
+.cu-hero-metric{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:auto;padding-top:7px}
+.cu-hero-metric span{display:flex;flex-direction:column;gap:6px;color:#8ea5c7;font-size:10px;letter-spacing:.3px}
+.cu-hero-metric strong,.cu-chart-head strong{font-family:'IBM Plex Mono',Inter,ui-monospace,monospace;font-size:clamp(19px,2vw,27px);letter-spacing:-1px;color:#f8faff}
+.cu-hero-metric span:last-child strong{color:#1463ff}
+.cu-hero-prob{display:flex;justify-content:space-between;margin:18px 0 8px;gap:8px}
+.cu-hero-prob span{display:flex;align-items:baseline;gap:8px;font-size:12px;color:#0bba74;font-weight:800}
+.cu-hero-prob span:last-child{color:#ff4761}
+.cu-hero-prob strong{font:800 27px/1.1 'IBM Plex Mono',Inter,monospace}
+.cu-hero-probline{height:7px;border-radius:7px;overflow:hidden;background:#ff4761}
+.cu-hero-probline span{display:block;height:100%;background:#0bba74}
+.cu-hero-volume{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:#9cadc5;margin-top:12px;line-height:1.4}
+.cu-hero-chart{display:flex;flex-direction:column;min-width:0;gap:9px}
+.cu-chart-head{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;color:#c8d7ef;font-weight:800}
+.cu-chart-head i{background:#1463ff}
+.cu-chart-body{min-height:235px;flex:1;display:grid;align-items:center;position:relative}
+.cu-chart-body svg{display:block;width:100%;height:100%;max-height:265px}
+.cu-chart-unavailable{font-size:13px;color:#91a3bc;text-align:center}
+.cu-chart-foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:10px;color:#7996bb}
+.cu-chart-foot span:first-child{color:#0bba74}
+.cu-related-heading{display:flex;justify-content:space-between;color:#9ab2d4;font-size:11px;font-weight:800;letter-spacing:.4px;margin-bottom:12px}
+.cu-related-heading span{color:#1463ff}
+.cu-hero-related button{display:flex;width:100%;align-items:center;justify-content:space-between;gap:8px;padding:12px 0;text-align:left;background:none;border:0;border-bottom:1px solid #293241;color:#e6efff;cursor:pointer;font-size:12px;line-height:1.35}
+.cu-hero-related button span{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.cu-hero-related button strong{color:#0bba74;white-space:nowrap;font:700 15px 'IBM Plex Mono',monospace}
+.cu-hero-related p{color:#849ab5;font-size:12px;line-height:1.6}
+.cu-hero-footer{padding-top:14px;border-top:1px solid #252e3c;font-size:10px}
+.cu-hero-footer span:first-child{color:#fff;font-weight:800}
+.cu-footer-brand{margin-left:auto;color:#fff;font-size:12px;font-weight:900}
+.cu-footer-brand b{font-size:10px;background:#1463ff26;color:#4285ff;border:1px solid #1463ff;padding:3px 6px;border-radius:4px;margin-left:7px}
+.cr-grid{margin-top:31px;grid-template-columns:235px minmax(0,1fr);gap:25px}
+.cr-side{background:transparent!important;border:none!important;box-shadow:none!important;padding:0!important}
+.cr-side button:hover,.cr-page .cr-time-card:enabled:hover{color:#fff;border-color:#1463ff}
+.cr-main-header h2{font-size:28px;font-weight:750}
+.cr-page .cr-time-card.cr-stitch-card{background:#151a22;border:1px solid #283241;border-radius:13px;box-shadow:none}
+.cr-page .cr-time-card.cr-stitch-card:hover{border-color:#1463ff}
+.cr-stitch-layout{border-top:1px solid #283241}
+.cr-stitch-visual,.cr-stitch-small .cr-stitch-visual{background:transparent;border:0;border-radius:0;padding:0}
+.cr-stitch-stat{border-top:0}
+.cr-stitch-orders>span{border:0;background:#0bba7420}
+.cr-stitch-orders>span+span{border:0;background:#ff47611d}
+.cr-stitch-small .cr-stitch-primary{font-size:27px}
+.cr-stitch-symbol{font-size:16px}
+.cr-page .cr-time-card.cr-stitch-small .cr-stitch-question{font-size:12px}
+.cr-stitch-probs{font-size:13px}
+.cr-stitch-small .cr-stitch-visual-head{font-size:10px}
+.cr-asset-group{contain-intrinsic-size:auto 720px}
+@media(max-width:1100px){.cu-hero-columns{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}.cu-hero-related{display:none}.cu-hero{min-height:410px}}
+@media(max-width:760px){.cr-page{padding:12px 14px 45px}.cu-hero{padding:16px;min-height:0;gap:17px}.cu-hero-columns{grid-template-columns:1fr}.cu-hero-chart{min-height:240px}.cu-hero-ticker span:nth-child(n+3){display:none}.cu-hero-metric{margin-bottom:15px}.cr-grid{display:block}.cr-side{margin-bottom:26px}.cr-time-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cr-page .cr-time-card.cr-stitch-card{min-height:320px}.cr-stitch-layout{grid-template-columns:1fr}}
+@media(max-width:480px){.cu-hero-prob strong{font-size:22px}.cu-hero-footer{font-size:9px}.cr-stitch-layout{display:flex;flex-direction:column}.cr-page .cr-time-card.cr-stitch-card{min-height:380px}.cr-time-grid{grid-template-columns:1fr}.cr-time-card[class*="cr-time-"]{grid-column:span 1!important;grid-row:span 1!important}}
